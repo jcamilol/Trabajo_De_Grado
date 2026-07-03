@@ -1,0 +1,114 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[a4paper, hmargin=3cm, top=3cm, bottom=3cm]{geometry}
+
+%\usepackage{euler} %usa la fuente "euler" para las ecuaciones
+\usepackage{amsfonts} %para Z estilizada
+\usepackage{pifont} %para más estilos de viñetas
+\usepackage{amsmath} %necesario para equation*
+\usepackage{amsthm} %necesario para proof enviroment
+\usepackage{dsfont} %alguna letra caligráfica
+\usepackage{tipa} %Epsilon bonito
+\usepackage{graphicx} %para manejar imágenes
+\usepackage{wrapfig} %para imágenes en modo "wrap"
+\usepackage{lipsum} %para usar el texto de relleno
+\usepackage{tikz-cd} %para los diagramas conmutativos
+\usepackage{amssymb}
+\usepackage{tabularx}
+\graphicspath{ {./Images/} } %la dirección de la cual se sacan las imágenes
+\usepackage{euler}
+\usepackage[normalem]{ulem} % Subrayado
+\usepackage{setspace} %Para interlineado
+\usepackage{float}
+\usepackage{cite}
+
+\setlength{\parindent}{0pt}
+
+\renewcommand{\figurename}{Figura}
+\renewcommand{\labelitemii}{$\circ$}      % círculo en segundo nivel de itemize
+\renewcommand{\refname}{Bibliografía}
+
+\title{
+  \vspace{-1.5cm}
+  \textsc{
+    \LARGE{Proyecto de trabajo de grado\\ \vspace{1cm}}
+    \large{ {Presentado por:} \\ \vspace{0.3cm} {Juan Camilo Lozano Suárez} \\ \vspace{1cm} {Directora:} \\ \vspace{0.3cm} {Ibeth Marcela Rubio Perilla \\ \vspace{1cm} Segundo semestre de 2026}}\\
+  }
+}
+\date{}
+
+\begin{document}
+    
+    \maketitle
+    \begin{itemize}
+       \item \textbf{Título del trabajo de grado:} Topologías de Alexandroff sobre grafos simples.
+       \item \textbf{Introducción:} La intersección entre la teoría de grafos y la topología general permite el estudio de estructuras discretas mediante herramientas de continuidad y conectividad topológica. Históricamente, se han propuesto diversas formas de topologizar grafos; sin embargo, este proyecto se centra en dos enfoques contemporáneos: la topología gráfica (o de adyacencia) y la topología de incidencia. Ambas construcciones comparten la característica fundamental de ser espacios de Alexandroff, lo que permite una descripción completa de la topología a través de vecindades abiertas minimales. El interés de este trabajo radica en establecer una dualidad: traducir propiedades estructurales de los grafos (como el grado de los vértices o la existencia de cortes) a propiedades topológicas (como la separación o la densidad) y viceversa.
+       \item \textbf{Objetivo general:} Analizar y comparar las propiedades topológicas de los espacios de Alexandroff asociados a grafos simples mediante la topología gráfica y la topología de incidencia, estableciendo relaciones explícitas entre las características estructurales del grafo y las propiedades del espacio topológico resultante.
+       \item \textbf{Objetivos específicos:}
+          \begin{itemize}
+             \item Demostrar formalmente que tanto la topología gráfica como la de incidencia sobre el conjunto de vértices de un grafo simple poseen la propiedad de Alexandroff.
+             \item Investigar propiedades topológicas clave como la compacidad, la conexidad, los axiomas de separación y la existencia de subconjuntos densos en función de la estructura del grafo.
+             \item Desarrollar un software que automatice la generación de subbases, bases y la topología completa a partir de la matriz de adyacencia de un grafo.
+          \end{itemize}
+       \item \textbf{Conceptos básicos relacionados con la temática a desarrollar:}
+          \begin{itemize}
+             \item Teoría de grafos: grafos simples y localmente finitos; adyacencia, incidencia; grado de un vértice; isomorfismo de grafos; subgrafos e inducidos; grafos completos, bipartitos, caminos, ciclos, estrellas y árboles; corte de vértices; número cromático. 
+             \item Topología general: subbase y base de una topología; espacios de Alexandroff; base minimal y vecindad abierta minimal; compacidad; conexidad; axiomas de separación; continuidad y homeomorfismos; clausura; densidad.
+          \end{itemize}
+       \item \textbf{Planteamiento del problema:} Este trabajo se centra en resolver la desconexión entre las estructuras discretas y los espacios continuos mediante la asociación de la topología gráfica y la topología de incidencia a grafos simples, estableciendo un marco formal que vincule sus propiedades estructurales con las topológicas.
+       \item \textbf{Estado del arte:} 
+
+      \begin{itemize}
+       \item Contexto Histórico y Motivación:
+
+El esfuerzo por topologizar estructuras discretas, como números, palabras y grafos, ha sido un tema recurrente en la literatura matemática contemporánea \cite{jafarian2013, kilicman2018}. Históricamente, la intersección entre la teoría de grafos y la topología encontró un impulso significativo con el desarrollo de la \textbf{topología digital} en la década de 1990, motivada principalmente por la necesidad de representar y analizar imágenes digitales \cite{kilicman2018}. En este modelo, los puntos de una imagen se representan como vértices y su conectividad como aristas, permitiendo que las propiedades topológicas de las imágenes se estudien a través de estructuras definidas sobre los vértices \cite{kilicman2018}.
+
+Un hito fundamental en esta área es el concepto de \textbf{espacio de Alexandroff}, introducido originalmente en la década de 1930. Estos espacios poseen la característica única de que la intersección de cualquier colección (incluso infinita) de conjuntos abiertos sigue siendo un conjunto abierto \cite{jafarian2013}. Aunque investigaciones previas intentaron establecer topologías donde la conectividad topológica coincidiera exactamente con la del grafo, se demostró que no todas las estructuras gráficas admiten tal configuración, lo que llevó a la búsqueda de modelos más flexibles \cite{jafarian2013}.
+
+   \item Fundamentos: Grafos y Topología
+
+Para el desarrollo de este trabajo, se consideran los siguientes pilares conceptuales extraídos de la teoría estándar:
+
+\begin{itemize}
+    \item \textbf{Teoría de Grafos:} Un grafo simple $G = (V, E)$ se define como un par de conjuntos donde $V$ representa los vértices y $E \subseteq [V]^2$ las aristas. Los conceptos de \textbf{adyacencia} (vértices conectados) e \textbf{incidencia} (relación vértice-arista) constituyen las herramientas relacionales básicas para construir vecindades \cite{jafarian2013, kilicman2018}.
+    \item \textbf{Espacios de Alexandroff:} Al tratarse de conjuntos discretos, el enfoque recae en estos espacios, donde cada punto $x$ posee una \textbf{vecindad abierta minimal} ($U_x$), definida como la intersección de todos los conjuntos abiertos que contienen a dicho punto \cite{jafarian2013, kilicman2018}.
+\end{itemize}
+
+\item Modelos para Dotar de Topología a un Grafo
+
+El núcleo de este estudio radica en dos metodologías principales para generar una topología a partir de la estructura del grafo:
+
+\item Topología Gráfica (2013)
+Propuesta por Jafarian Amiri, Jafarzadeh y Khatibzadeh, esta topología se define sobre grafos \textbf{localmente finitos} (aquellos donde cada vértice tiene un grado finito) \cite{jafarian2013}. Utiliza como subbase la familia de conjuntos de adyacencia:
+\begin{equation}
+    \mathcal{S}_G = \{A_x \mid x \in V\}
+\end{equation}
+Donde $A_x$ es el conjunto de todos los vértices adyacentes a $x$ \cite{jafarian2013}. En este modelo, la vecindad minimal está dada por $U_x = \bigcap_{y \in A_x} A_y$ \cite{jafarian2013}.
+
+\item Topología de Incidencia (2018)
+Introducida por Kilicman y Abdulkalek para superar las limitaciones del modelo anterior ante grafos con vértices de grado infinito, la \textbf{topología de incidencia} se aplica a cualquier grafo simple \cite{kilicman2018}. Su subbase se define mediante los vértices incidentes a cada arista:
+\begin{equation}
+    \mathcal{S}_{IG} = \{I_e \mid e \in E\}
+\end{equation}
+Aquí, $I_e$ representa los dos vértices que conforman la arista $e$ \cite{kilicman2018}. Las vecindades minimales en este espacio se determinan como $U_v = \bigcap_{e \in I_v} I_e$ \cite{kilicman2018}.
+
+\item Propiedades y Relaciones en Estudio
+
+La investigación se propone profundizar en la dualidad entre el grafo y el espacio topológico, destacando los siguientes resultados previos:
+
+\begin{itemize}
+    \item \textbf{Separación y discreción:} Un espacio de Alexandroff es $T_1$ si y solo si su topología es \textbf{discreta} \cite{jafarian2013, kilicman2018}. En la topología de incidencia, esto se garantiza si el grado mínimo $\delta(G) \geq 2$ \cite{kilicman2018}.
+    \item \textbf{Compacidad:} Se ha demostrado que estos espacios son compactos si y solo si el conjunto de vértices $V$ es finito \cite{jafarian2013, kilicman2018}.
+    \item \textbf{Conexidad:} Grafos con alta conectividad (como $K_n$ o $C_n$) pueden generar topologías desconectadas, lo que sugiere que la conectividad topológica no siempre hereda la conectividad del grafo \cite{jafarian2013, kilicman2018}.
+    \item \textbf{Densidad e Invariantes Cromáticos:} Un resultado notable es la vinculación del cardinal de un conjunto denso minimal ($A$) con el \textbf{número cromático} del grafo, estableciendo que $\chi(G) \leq |A|$ \cite{jafarian2013}.
+    \item \textbf{Homeomorfismos:} Aunque los isomorfismos de grafos inducen homeomorfismos, el recíproco no es necesariamente cierto, lo que implica que diferentes arquitecturas de grafos pueden producir la misma estructura topológica \cite{jafarian2013, kilicman2018}.
+\end{itemize}
+\end{itemize}
+       \item \textbf{Plan de trabajo:}
+    \end{itemize}
+
+    \nocite{*}
+    \bibliographystyle{apalike}
+    \bibliography{refs.bib}
+\end{document}
