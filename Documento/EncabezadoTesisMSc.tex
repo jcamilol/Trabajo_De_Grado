@@ -1,0 +1,71 @@
+%!TEX root = main.tex
+
+\documentclass[12pt,spanish,fleqn,openany,letterpaper,pagesize]{scrbook}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{fancyhdr}
+\usepackage{epsfig}
+\usepackage{epic}
+\usepackage{eepic}
+\usepackage{threeparttable}
+\usepackage{amscd}
+\usepackage{here}
+\usepackage{lscape}
+\usepackage{tabularx}
+\usepackage{subfigure}
+\usepackage{longtable}
+\usepackage{amsfonts} %para Z estilizada
+\usepackage{pifont} %para más estilos de viñetas
+\usepackage{amsmath} %necesario equation*
+\usepackage{amsthm} %necesario para proof enviroment
+\usepackage{dsfont} %alguna letra caligráfica
+\usepackage{tipa} %Epsilon bonito
+\usepackage{graphicx} %para manejar imágenes
+\usepackage{wrapfig} %para imágenes en modo "wrap"
+\usepackage{lipsum} %para usar el texto de relleno
+\usepackage{bold-extra} %permite usar textsc
+\usepackage{tikz-cd} %para los diagramas conmutativos
+\usepackage{tikz}
+
+\counterwithin{equation}{subsection}
+\newtheorem{Tma}[equation]{Teorema}
+\newtheorem{Prop}[equation]{Proposición}
+\newtheorem{Def}[equation]{Definición}
+\newtheorem{Lema}[equation]{Lema}
+\newtheorem{Cor}[equation]{Corolario}
+\newtheorem{Ejc}[equation]{Ejercicio}
+\newtheorem{Ejm}[equation]{Ejemplo}
+\newtheorem{Not}[equation]{Notación}
+
+\renewcommand*{\proofname}{Demostración}
+
+\pagestyle{fancyplain}%\addtolength{\headwidth}{\marginparwidth}
+\textheight22.5cm \topmargin0cm \textwidth16.5cm
+\oddsidemargin0.5cm \evensidemargin-0.5cm%
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter\; #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\; #1}}
+\lhead[\fancyplain{}{\thepage}]{\fancyplain{}{\rightmark}}
+\rhead[\fancyplain{}{\leftmark}]{\fancyplain{}{\thepage}}
+\fancyfoot{}
+\thispagestyle{fancy}%
+
+
+\addtolength{\headwidth}{0cm}
+\unitlength1mm %Define la unidad LE para Figuras
+\mathindent0cm %Define la distancia de las formulas al texto,  fleqn las descentra
+\marginparwidth0cm
+\parindent0cm %Define la distancia de la primera linea de un parrafo a la margen
+
+%Para tablas,  redefine el backschlash en tablas donde se define la posici\'{o}n del texto en las
+%casillas (con \centering \raggedright o \raggedleft)
+\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+\let\PBS=\PreserveBackslash
+
+%Espacio entre lineas
+\renewcommand{\baselinestretch}{1.1}
+
+%Neuer Befehl f\"{u}r die Tabelle Eigenschaften der Aktivkohlen
+\newcommand{\arr}[1]{\raisebox{1.5ex}[0cm][0cm]{#1}}
+
