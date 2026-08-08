@@ -7,7 +7,7 @@ Los elementos de $[S]^k$ son llamados $k-subconjuntos$ de $S$. Con esto, damos l
    Un \textbf{grafo} es una pareja $G=\left( V,A\right)$ de conjuntos tal que $A\subseteq [V]^2$. Los elementos de $V$ son llamados \textbf{vértices} y los elementos de $A$ son llamados \textbf{aristas}.
 \end{Def}
 De este modo, las aristas de un grafo son $2-subconjuntos$ de vértices. En general, dado un grafo $G$, denotaremos por $V(G)$ a su conjunto de vértices, y por $A(G)$ a su conjunto de aristas. Un grafo con conjunto de vértices $V$ también es llamado un \textit{grafo sobre V}. Para evitar ambiguedades de notación, asumimos también que $V(G)\cap A(G)=\phi$ para todo grafo $G$. Una arista $\left\lbrace u,v\right\rbrace$ de un grafo también puede ser representada mediante $uv$.
-\begin{Ejm}
+\begin{Ejm} \label{Ejm:cuatro_grafos}
    Los siguientes son ejemplos de grafos sobre $V=\left\lbrace v_1,v_2,v_3,v_4,v_5, v_6 \right\rbrace$:
    \begin{itemize}
       \item $G_1=(V,\left\lbrace v_1v_2,v_2v_3,v_3v_4,v_4v_5,v_5v_6, v_6v_1\right\rbrace)$
@@ -16,5 +16,18 @@ De este modo, las aristas de un grafo son $2-subconjuntos$ de vértices. En gene
       \item $G_4=(V,\left\lbrace v_1v_4, v_2v_3, v_2v_5, v_2v_6, v_3v_4, v_3v_6, v_5v_6\right\rbrace)$
    \end{itemize}
 \end{Ejm}
-Una manera estándar y conveniente de representar visualmente un grafo es dibujar un punto por cada vértice, y unir dos de estos puntos por una línea si y solo si los correspondientes dos vértices forman una arista del grafo. De esta manera los grafos del anterior ejemplo quedan representados de la siguiente manera:
-\input{Preliminares_Grafos/Diagramas/Diag1.tex}
+Una manera estándar y conveniente de representar visualmente un grafo es dibujar un punto por cada vértice, y unir dos de estos puntos por una línea si y solo si los correspondientes dos vértices forman una arista del grafo. De esta manera los grafos del anterior ejemplo quedan representados de la siguiente forma:
+
+\begin{figure}[h]
+  \centering
+  \begin{tabular}{cc}
+     \resizebox{0.2\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag1.tex}} &
+    \hspace{1cm}
+    \resizebox{0.2\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag2.tex}}  \\[0.3cm]
+    \resizebox{0.2\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag3.tex}} & 
+    \hspace{1cm}
+    \resizebox{0.2\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag4.tex}}
+  \end{tabular}
+  \caption{Grafos del Ejemplo \ref{Ejm:cuatro_grafos}}
+  \label{fig:grafos}
+\end{figure}

@@ -7,10 +7,10 @@
   \node (n5) at (0,1)  {$v_5$};
   \node (n6) at (0,3)  {$v_6$};
 
-  \foreach \from/\to in {n1/n2,n2/n3,n3/n4,n4/n5,n5/n6,n6/n1}
+  \foreach \from/\to in {n1/n2,n2/n3,n1/n3, n1/n4, n2/n4, n3/n4,n5/n6}
     \draw (\from) -- (\to);
 
   % Etiqueta G_1 debajo del grafo
-  \node[draw=none, fill=none, scale=1.5] at (2,-1.5) {$G_1$};
+  \node[draw=none, fill=none, scale=1.5] at (2,-1.5) {$G_2$};
 
 \end{tikzpicture}
