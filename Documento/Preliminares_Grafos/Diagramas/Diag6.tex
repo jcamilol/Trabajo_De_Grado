@@ -1,0 +1,25 @@
+\begin{tikzpicture}
+  [scale=.8,auto=left,every node/.style={circle,fill=blue!20}]
+  \node (n1) at (0,0) {$v_{1,1}$};
+  \node (n2) at (2,0)  {$v_{2,1}$};
+  \node (n3) at (2,2)  {$v_{2,2}$};
+  \node (n4) at (4,0) {$v_{3,1}$};
+  \node (n5) at (4,2)  {$v_{3,2}$};
+  \node (n6) at (4,4)  {$v_{3,3}$};
+  \node (n7) at (6,0)  {$v_{4,1}$};
+  \node (n8) at (6,2)  {$v_{4,2}$};
+  \node (n9) at (6,4)  {$v_{4,3}$};
+  \node (n10) at (6,6)  {$v_{4,4}$};
+
+  \foreach \from/\to in {n1/n2,n1/n3, n3/n4, n3/n5, n3/n6, n6/n7, n6/n8, n6/n9, n6/n10}
+    \draw (\from) -- (\to);
+
+   \draw (n10) -- (9,0);
+   \draw (n10) -- (9,2);
+   \draw (n10) -- (9,4);
+   \draw (n10) -- (9,6);
+   \draw (n10) -- (9,9);
+   
+   %Etiqueta de puntos suspensivos
+   \node[draw=none, fill=none, scale=1.5] at (10,4) {$\cdots$};
+\end{tikzpicture}

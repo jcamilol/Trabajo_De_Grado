@@ -9,11 +9,11 @@
   \foreach \from/\to in {n1/n2,n2/n3, n3/n4, n4/n5}
     \draw (\from) -- (\to);
 
+   %Flecha de (n5) a un nodo invisible en (10,0)   
    \draw (n5) -- (10,0);
-
-  \node[draw=none, fill=none, scale=1.5] at (11,0) {$\cdots$};
-
-  % Etiqueta G_1 debajo del grafo
-  \node[draw=none, fill=none, scale=1.5] at (6,-1.5) {$G_5$};
-
+   
+   %Etiqueta de puntos suspensivos
+   \node[draw=none, fill=none, scale=1.5] at (11,0) {$\cdots$};
+   % Etiqueta G_1 debajo del grafo
+   \node[draw=none, fill=none, scale=1.5] at (6,-1.5) {$G_5$};
 \end{tikzpicture}
