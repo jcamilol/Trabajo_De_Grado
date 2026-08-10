@@ -19,6 +19,9 @@ De este modo, las aristas de un grafo son $2-subconjuntos$ de vértices. En gene
    \end{itemize}
    Un ejemplo de grafo sobre $V'=\left\lbrace v_1, v_2, v_3, \dots\right\rbrace$ es $G_5=(V',\left\lbrace v_1v_2, v_2v_3, v_3v_4, v_4v_5, \dots\right\rbrace)$.
 \end{Ejm}
+\begin{Ejm}
+   Un ejemplo de grafo es aquel en el cual tanto el conjunto de vértices como el de aristas es vacío: $G=(\phi, \phi)$. A dicho grafo lo llamamos \textbf{grafo vacío} y lo representamos simplemente por $\phi$. 
+\end{Ejm}
 Una manera estándar y conveniente de representar visualmente un grafo es dibujar un punto por cada vértice, y unir dos de estos puntos por una línea si y solo si los correspondientes dos vértices forman una arista del grafo. De esta manera los grafos del anterior ejemplo quedan representados de la siguiente forma:\\
 \begin{figure}[H]
   \centering
@@ -39,9 +42,17 @@ Una manera estándar y conveniente de representar visualmente un grafo es dibuja
 La distribución particular de los puntos en el espacio, así como la forma en que las líneas son dibujadas es irrelevante; la única información que se importa es qué par de vértices están conectados mediante una arista y cuáles no. Solemos referirnos por \textit{grafo} también a la respectiva representación visual.\\
 Notemos que la exigencia de que las aristas de un grafo sean $2-subconjuntos$ de vértices implica que si $uv\in E(G)$ entonces $u\neq v$, es decir, no hay aristas que unan un vértice con si mismo, lo que también expresamos diciendo que el grafo no tiene \textit{bucles}. Así mismo, entre dos vértices distintos $u,v\in V(G)$ podrá haber a lo más una arista, dependiendo de si $uv$ pertenece a $E(G)$ o no, es decir, se excluye la posibilidad de que hayan \textit{aristas paralelas} entre un par de vértices. En la literatura, se suele también hacer referencia a este tipo particular de grafos (no dirigidos, sin bucles y sin aristas paralelas) como \textit{grafos simples}. A lo largo del presente trabajo se entenderá \textit{grafo} y \textit{grafo simple} de manera indistinta.
 \begin{Def}
+   Dados dos grafos $G=(V,E)$ y $G'=(V',E')$, decimos que $G'$ es un subgrafo de $G$ si $V'\subseteq V$ y $E'\subseteq E$. En este caso denotamos $G'\subseteq G$.
+\end{Def}
+Para cualquier grafo $G$ se tiene por tanto $\phi\subseteq G$. Damos a continuación más ejemplos de contenencia de grafos:
+\begin{Ejm}
+   En cada fila de la siguiente tabla se tiene $G'\subseteq G$
+   \input{Preliminares_Grafos/Diagramas/Tabla1.tex}
+\end{Ejm}
+\begin{Def}
    El \textbf{grado} de un grafo $G$, representado mediante $|G|$, es el cardinal del conjunto $V(G)$.
 \end{Def}
-Así por ejemplo, en el Ejemplo \ref{Ejm:cuatro_grafos}, el grado de los cuatro primeros grafos es $6$, mientras que $|G_5|=\aleph _0$. Los grafos pueden ser \textit{finitos, infinitos, contables}, etc. dependiendo del respectivo tamaño del conjunto $|G|$.
+Así, en el Ejemplo \ref{Ejm:cuatro_grafos}, el grado de los cuatro primeros grafos es $6$, mientras que $|G_5|=\aleph _0$. Los grafos pueden ser \textit{finitos, infinitos, contables}, etc. dependiendo del respectivo tamaño del conjunto $|G|$.
 \begin{Def}
    En un grafo $G$ decimos que dos vértices $u,v\in V(G)$ son \textbf{adyacentes} si $uv\in E(G)$. Igualmente, decimos que el vértice $v\in V(G)$ es \textbf{incidente} con la arista $e\in E(G)$ si $v\in e$. 
 \end{Def}
@@ -85,8 +96,27 @@ Todos los grafos finitos son localmente finitos. El grafo $G_5$ del ejemplo Ejem
    El siguiente grafo no es localmente finito, pues $d(v_1)$ no es finito:
    \begin{figure}[H]
      \centering
-       \resizebox{0.4\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag7.tex}} 
+       \resizebox{0.45\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag7.tex}} 
      \caption{Un grafo que no es localmente finito}
    \end{figure}
 \end{Ejm}
-
+Un concepto importante en el presente trabajo es el de \textit{grafo conexo}. Para ello introducimos primero la definición de \textit{camino}:
+\begin{Def}
+   Un \textbf{camino} es grafo no vacío $P=(V,E)$ de la forma
+   $$
+   V=\left\lbrace x_0, x_1, \dots, x_k\right\rbrace \quad E=\left\lbrace x_0x_1, x_1x_2, \dots x_{k-1}x_k\right\rbrace,
+   $$
+   para $k\in \mathbb{N}$, y donde todos los $x_i$ ($i\in \left\lbrace 0,1,\dots,k\right\rbrace$) son distintos. En este caso denotamos a $P$ mediante $x_0x_1\dots x_k$ o $x_kx_{k-1}\dots x_0$. Decimos que los vértices $x_0$ y $x_k$ están \textbf{conectados} por el camino P. El número de aristas de un camino es su \textbf{longitud}, y un camino de longitud $k$ es denotado por $P^k$.
+\end{Def}
+\begin{Ejm}
+   \phantom{o}
+   \begin{itemize}
+      \item Un grafo conformado por un solo vértice es un camino de longitud $0$.
+      \item Un camino de longitud $6$ es el siguiente:
+      \begin{figure}[H]
+        \centering
+          \resizebox{0.3\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag8.tex}} 
+        \caption{$P^6=v_1v_2v_3v_4v_5v_6v_7$}
+      \end{figure}
+   \end{itemize}
+\end{Ejm}

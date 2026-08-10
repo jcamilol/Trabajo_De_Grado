@@ -1,0 +1,13 @@
+\begin{tikzpicture}
+  [scale=.8,auto=left,every node/.style={circle,fill=blue!20}]
+  \node (n1) at (0,5) {$v_1$};
+  \node (n2) at (3,6) {$v_2$};
+  \node (n3) at (2,3) {$v_3$};
+  \node (n4) at (2,0) {$v_4$};
+  \node (n5) at (5,3) {$v_5$};
+  \node (n6) at (5,0) {$v_6$};
+  \node (n7) at (7,2) {$v_7$};
+
+  \foreach \from/\to in {n1/n2, n3/n5, n5/n6, n6/n4, n4/n3, n3/n6, n4/n5, n5/n7}
+    \draw (\from) -- (\to);
+\end{tikzpicture}
