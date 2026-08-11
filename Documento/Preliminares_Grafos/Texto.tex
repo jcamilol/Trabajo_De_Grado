@@ -46,8 +46,32 @@ Notemos que la exigencia de que las aristas de un grafo sean $2-subconjuntos$ de
 \end{Def}
 Para cualquier grafo $G$ se tiene por tanto $\phi\subseteq G$. Damos a continuación más ejemplos de contenencia de grafos:
 \begin{Ejm}
-   En cada fila de la siguiente tabla se tiene $G'\subseteq G$
+   En cada fila de la siguiente tabla se tiene $G'\subseteq G$:
    \input{Preliminares_Grafos/Diagramas/Tabla1.tex}
+\end{Ejm}
+En la tercera fila del anterior ejemplo se cumple que $G'$ conserva todas las aristas entre vértices de $V(G')$ que aparecían originalmente en $G$, es decir, para cualesquiera $u,v\in V(G')$ se tiene que $uv\in E(G)$ implica $uv\in E(G')$. Notemos que en las otras dos parejas de grafos esto no se cumple; por ejemplo, en la primera fila $v_3,v_5\in V(G')$ y $v_3v_5\in E(G)$, pero $v_3v_5 \notin E(G')$; en la segunda fila $v_1,v_3\in V(G')$ y $v_1v_3\in E(G)$, pero $v_1v_3\notin E(G')$. El comportamiento que se da en la tercera fila lo resumimos diciendo que $G'$ es el \textit{subgrafo de $G$ inducido} por $V(G')$, y denotamos $G'=G[V(G')]$. Más precisamente:
+\begin{Def}
+   Sean $G$ un grafo y $W\subseteq V(G)$. El \textbf{subgrafo de $G$ inducido} por $W$, denotado por $G[W]$, se define como el subgrafo de $G$ tal que $V(G[W])=W$ y $E(G[W])=\left\lbrace uv\in E(G)\mid u,v\in W\right\rbrace$.
+\end{Def}
+\begin{Ejm}
+   \phantom{o}
+   \begin{itemize}
+      \item $G_2$ es el subgrafo de $G_1$ inducido por $W=\left\lbrace v_2,v_3,v_4,v_5,v_6\right\rbrace$:
+        \begin{figure}[H]
+           \centering
+           \resizebox{0.2\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag15.tex}} \hspace{2cm}
+             \resizebox{0.2\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag16.tex}} 
+             \caption{$G_2=G_1[W]$}
+         \end{figure}
+      \item $G_4$ es el subgrafo de $G_3$ inducido por $W'=\left\lbrace v_1,v_2,v_3,v_5\right\rbrace$:
+         \begin{figure}[H]
+           \centering
+           \resizebox{0.23\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag17.tex}} \hspace{2cm}
+             \resizebox{0.23\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag18.tex}} 
+             \caption{$G_4=G_3[W']$}
+         \end{figure}
+
+   \end{itemize}
 \end{Ejm}
 \begin{Def}
    El \textbf{grado} de un grafo $G$, representado mediante $|G|$, es el cardinal del conjunto $V(G)$.
