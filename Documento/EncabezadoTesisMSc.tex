@@ -5,6 +5,17 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
+
+% Sustituye los ajustes manuales de márgenes por geometry
+\usepackage[
+  letterpaper,
+  top=4cm,
+  bottom=4cm,
+  inner=3.5cm,   % Margen interior (puedes ajustar el valor en cm)
+  outer=2.5cm,   % Margen exterior (puedes ajustar el valor en cm)
+  headheight=15pt % Requerido para evitar avisos de fancyhdr
+]{geometry}
+
 \usepackage{fancyhdr}
 \usepackage{epsfig}
 \usepackage{epic}
@@ -16,19 +27,19 @@
 \usepackage{tabularx}
 \usepackage{subfigure}
 \usepackage{longtable}
-\usepackage{amsfonts} %para Z estilizada
-\usepackage{pifont} %para más estilos de viñetas
-\usepackage{amsmath} %necesario equation*
-\usepackage{amsthm} %necesario para proof enviroment
-\usepackage{dsfont} %alguna letra caligráfica
-\usepackage{tipa} %Epsilon bonito
-\usepackage{graphicx} %para manejar imágenes
-\usepackage{wrapfig} %para imágenes en modo "wrap"
-\usepackage{lipsum} %para usar el texto de relleno
-\usepackage{bold-extra} %permite usar textsc
-\usepackage{tikz-cd} %para los diagramas conmutativos
+\usepackage{amsfonts}
+\usepackage{pifont}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{dsfont}
+\usepackage{tipa}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+\usepackage{bold-extra}
+\usepackage{tikz-cd}
 \usepackage{tikz}
-\usepackage[numbers]{natbib} %Para mostrar [Número] en la bibliografía
+\usepackage[numbers]{natbib}
 
 \counterwithin{equation}{subsection}
 \newtheorem{Tma}[equation]{Teorema}
@@ -42,31 +53,31 @@
 
 \renewcommand*{\proofname}{Demostración}
 
-\pagestyle{fancyplain}%\addtolength{\headwidth}{\marginparwidth}
-\textheight22.5cm \topmargin0cm \textwidth16.5cm
-\oddsidemargin0.5cm \evensidemargin-0.5cm%
-\renewcommand{\chaptermark}[1]{\markboth{\thechapter\; #1}{}}
-\renewcommand{\sectionmark}[1]{\markright{\thesection\; #1}}
-\lhead[\fancyplain{}{\thepage}]{\fancyplain{}{\rightmark}}
-\rhead[\fancyplain{}{\leftmark}]{\fancyplain{}{\thepage}}
+% CONFIGURACIÓN DE ENCABEZADOS Y PIE DE PÁGINA
+\pagestyle{fancyplain}
+
+% Formato en MAYÚSCULAS y \footnotesize para capítulo (pares) y sección (impares)
+\renewcommand{\chaptermark}[1]{\markboth{\footnotesize\MakeUppercase{\chaptername\ \thechapter.\ #1}}{}}
+\renewcommand{\sectionmark}[1]{\markright{\footnotesize\MakeUppercase{\thesection\quad #1}}}
+
+% Configuración de Encabezados (páginas pares [derecha/izquierda] e impares {derecha/izquierda})
+\lhead[\fancyplain{}{\footnotesize\thepage}]{\fancyplain{}{\rightmark}}
+\rhead[\fancyplain{}{\leftmark}]{\fancyplain{}{\footnotesize\thepage}}
+
+% Pie de página con el número centrado
 \fancyfoot{}
-\thispagestyle{fancy}%
+\fancyfoot[C]{\footnotesize\thepage}
+\thispagestyle{fancy}
 
-
-\addtolength{\headwidth}{0cm}
-\unitlength1mm %Define la unidad LE para Figuras
-\mathindent0cm %Define la distancia de las formulas al texto,  fleqn las descentra
+% Configuración adicional de formato
+\unitlength1mm
+\mathindent0cm
 \marginparwidth0cm
-\parindent0cm %Define la distancia de la primera linea de un parrafo a la margen
+\parindent0cm
 
-%Para tablas,  redefine el backschlash en tablas donde se define la posici\'{o}n del texto en las
-%casillas (con \centering \raggedright o \raggedleft)
 \newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
 \let\PBS=\PreserveBackslash
 
-%Espacio entre lineas
 \renewcommand{\baselinestretch}{1.1}
 
-%Neuer Befehl f\"{u}r die Tabelle Eigenschaften der Aktivkohlen
 \newcommand{\arr}[1]{\raisebox{1.5ex}[0cm][0cm]{#1}}
-
