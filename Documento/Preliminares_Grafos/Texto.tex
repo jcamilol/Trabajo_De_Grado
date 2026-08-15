@@ -42,13 +42,13 @@ Una manera estándar y conveniente de representar visualmente un grafo es dibuja
   \caption{Grafos del Ejemplo \ref{Ejm:cuatro_grafos}}
   \label{fig:cuatro_grafos}
 \end{figure}
-La distribución particular de los puntos en el espacio, así como la forma en que las líneas son dibujadas es irrelevante; la única información que se importa es qué par de vértices están conectados mediante una arista y cuáles no. Solemos referirnos por \textit{grafo} también a la respectiva representación visual.\\
+La distribución particular de los puntos en el espacio, así como la forma en que las líneas son dibujadas es irrelevante; la única información que se importa es qué par de vértices están conectados mediante una arista y cuáles no. En algunos casos el etiquetado de los vértices del grafo es irrelevante y puede ser suprimido. Solemos referirnos por \textit{grafo} también a la respectiva representación visual.\\
 Notemos que la exigencia de que las aristas de un grafo sean $2-subconjuntos$ de vértices implica que si $uv\in E(G)$ entonces $u\neq v$, es decir, no hay aristas que unan un vértice con si mismo, lo que también expresamos diciendo que el grafo no tiene \textit{bucles}. Así mismo, entre dos vértices distintos $u,v\in V(G)$ podrá haber a lo más una arista, dependiendo de si $uv$ pertenece a $E(G)$ o no, es decir, se excluye la posibilidad de que hayan \textit{aristas paralelas} entre un par de vértices. En la literatura, se suele también hacer referencia a este tipo particular de grafos (no dirigidos, sin bucles y sin aristas paralelas) como \textit{grafos simples}. A lo largo del presente trabajo se entenderá \textit{grafo} y \textit{grafo simple} de manera indistinta.
 \begin{Def}
    Dados dos grafos $G=(V,E)$ y $G'=(V',E')$, decimos que $G'$ es un subgrafo de $G$ si $V'\subseteq V$ y $E'\subseteq E$. En este caso denotamos $G'\subseteq G$.
 \end{Def}
 Para cualquier grafo $G$ se tiene $\phi\subseteq G$. Damos a continuación más ejemplos de contenencia de grafos:
-\begin{Ejm}
+\begin{Ejm}\label{Ejm:Tabla1}
    En cada fila de la siguiente tabla se tiene $G'\subseteq G$:
    \input{Preliminares_Grafos/Diagramas/Tabla1.tex}
 \end{Ejm}
@@ -133,7 +133,7 @@ Un concepto importante en el presente trabajo es el de \textit{grafo conexo}. Pa
    $$
    V=\left\lbrace x_0, x_1, \dots, x_k\right\rbrace \quad E=\left\lbrace x_0x_1, x_1x_2, \dots x_{k-1}x_k\right\rbrace,
    $$
-   para $k\in \mathbb{N}$, y donde todos los $x_i$ ($i\in \left\lbrace 0,1,\dots,k\right\rbrace$) son distintos. En este caso denotamos a $P$ mediante $x_0x_1\dots x_k$ o $x_kx_{k-1}\dots x_0$. Decimos que los vértices $x_0$ y $x_k$ están \textbf{conectados} por el camino P. El número de aristas de un camino es su \textbf{longitud}, y un camino de longitud $k$ es denotado por $P^k$.
+   para $k\in \mathbb{N}$, y donde todos los $x_i$ ($i\in \left\lbrace 0,1,\dots,k\right\rbrace$) son distintos. En este caso denotamos a $P$ mediante $x_0x_1\dots x_k$ o $x_kx_{k-1}\dots x_0$. Decimos que los vértices $x_0$ y $x_k$ están \textbf{conectados} por el camino P, y que $x_0$ y $x_k$ son los extremos de $P$. El número de aristas de un camino es su \textbf{longitud}, y un camino de longitud $k$ es denotado por $P^k$.
 \end{Def}
 \begin{Ejm}
    \phantom{o}
@@ -142,8 +142,78 @@ Un concepto importante en el presente trabajo es el de \textit{grafo conexo}. Pa
       \item Un camino de longitud $6$ es el siguiente:
       \begin{figure}[H]
         \centering
-          \resizebox{0.3\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag8.tex}} 
+          \resizebox{0.3\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag8.tex}}
         \caption{$P^6=v_1v_2v_3v_4v_5v_6v_7$}
       \end{figure}
+   \end{itemize}
+\end{Ejm}
+\begin{Def}
+   Sea $G$ un grafo. Decimos que dos vértices $u,v\in V(G)$ están conectados por el camino $P$ en $G$ si $P\subseteq G$ y $P$ tiene a $u$ y $v$ como extremos.
+\end{Def}
+\begin{Ejm}
+   \phantom{o}
+   \begin{itemize}
+      \item En el grafo $G_4$ del Ejemplo \ref{Ejm:cuatro_grafos}, los vértices $v_6$ y $v_4$ están conectados por el camino $v_6v_2v_3v_4$, pero $v_1$ y $v_6$ no están conectados por ningún camino.
+      \begin{figure}[H]
+        \centering
+          \resizebox{0.2\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag19.tex}}
+        \caption{Un camino entre $v_6$ y $v_4$}
+      \end{figure}
+      \item En el primer grafo del Ejemplo \ref{Ejm:Tabla1}, los vértices $v_4$ y $v_7$ están conectados por el camino $v_4v_5v_7$, pero $v_2$ y $v_6$ no están conectados por ningún camino.
+      \begin{figure}[H]
+        \centering
+          \resizebox{0.3\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag20.tex}}
+        \caption{Un camino entre $v_4$ y $v_7$}
+      \end{figure}
+   \end{itemize}
+\end{Ejm}
+\begin{Def}
+   Un grafo $G$ es llamado \textbf{conexo} si $G\neq \phi$, y cualesquiera par de vértices  de $G$ están conectados por un camino en $G$. Si $G$ no es conexo, decimos que es \textbf{disconexo}. 
+\end{Def}
+Así, en el Ejemplo \ref{Ejm:cuatro_grafos}, los grafos $G_1$, $G_3$ y $G_5$ son conexos, mientras que $G_2$ y $G_4$ son disconexos. Los grafos con un solo vértice son conexos.
+\begin{Def}
+   Sea $G$ un grafo. Un subgrafo conexo maximal de $G$ es llamado una \textbf{componente} de $G$. 
+\end{Def}
+Naturalmente, un grafo es conexo si y sólo si tiene una única componente.
+\begin{Ejm}
+   Las componentes de los siguientes grafos son diferenciadas por colores:
+   \begin{figure}[H]
+     \centering
+       \resizebox{0.35\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag21.tex}}
+     \caption{Un grafo con una componente}
+   \end{figure}
+   \begin{figure}[H]
+     \centering
+       \resizebox{0.3\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag22.tex}}
+     \caption{Un grafo con dos componentes}
+   \end{figure}
+   \begin{figure}[H]
+     \centering
+       \resizebox{0.42\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag23.tex}}
+     \caption{Un grafo con tres componentes}
+   \end{figure}
+\end{Ejm}
+Dado un grafo, se puede inducir un nuevo grafo al eliminar adecuadamente un subconjunto de vértices:
+\begin{Def}
+   Sean $G$ un grafo y $S\subseteq V(G)$. Denotamos por $\bm{G-S}$ al subgrafo de $G$ inducido por $V(G)\backslash S$, es decir, $G-S=G[V(G)\backslash S]$. 
+\end{Def}
+\begin{Ejm}
+   \phantom{0}
+   \begin{itemize}
+      \item Si $S=\left\lbrace v_3,v_4\right\rbrace$ entonces:
+         \begin{figure}[H]
+           \centering
+           \resizebox{0.2\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag15.tex}} \hspace{2cm}
+           \resizebox{0.2\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag24.tex}} 
+             \caption{$G_1$ y $G_1-S$}
+         \end{figure}
+      \item Si $S'=\left\lbrace v_2,v_3,v_5\right\rbrace$ entonces:
+         \begin{figure}[H]
+           \centering
+           \resizebox{0.23\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag17.tex}} \hspace{2cm}
+             \resizebox{0.23\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag25.tex}} 
+             \caption{$G_3$ y $G_3-S'$}
+         \end{figure}
+
    \end{itemize}
 \end{Ejm}
