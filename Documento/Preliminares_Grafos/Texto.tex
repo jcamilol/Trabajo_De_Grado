@@ -227,25 +227,25 @@ Como se ve en el segundo grafo del anterior ejemplo, la supresión de algunos v�
          \begin{figure}[H]
            \centering
            \resizebox{0.35\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag26.tex}} \hspace{2cm}
-             \resizebox{0.35\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag27.tex}} 
-             \caption{Un vértice de corte}
+           \resizebox{0.35\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag27.tex}} 
+           \caption{Un vértice de corte}
          \end{figure}
-      \item En el grafo $G_2$, $S=\left\lbrace u,v,w\right\rbrace$ es un conjunto de corte, pues $G_2-S$ tiene dos componentes; sin embargo $S$ no es un conjunto de corte minimal, pues $S':=\left\lbrace u,v\right\rbrace \subsetneq S$ es un conjunto de corte. $S'$ sí es un conjunto de corte minimal pues ni $\left\lbrace u\right\rbrace$ ni $\left\lbrace v\right\rbrace$ son conjuntos de corte, ya que $G_2-\left\lbrace u\right\rbrace$ y $G_2-\left\lbrace v\right\rbrace$ son conexos:
-       \needspace{5baselineskip} % Asegura que al menos haya espacio para la primera fila
-\begin{center}
-  \newcommand{\diagscale}{0.35\textwidth}
-  % Primera fila: Diag28 y Diag29
-  \resizebox{\diagscale}{!}{\input{Preliminares_Grafos/Diagramas/Diag28.tex}}%
-  \hspace{2cm}%
-  \resizebox{\diagscale}{!}{\input{Preliminares_Grafos/Diagramas/Diag29.tex}}
-  % Segunda fila: Diag30 y Diag31
-  \resizebox{\diagscale}{!}{\input{Preliminares_Grafos/Diagramas/Diag30.tex}}%
-  \hspace{2cm}%
-  \resizebox{\diagscale}{!}{\input{Preliminares_Grafos/Diagramas/Diag31.tex}}
-  % Tercera fila: Diag32 centrada sola
-  \resizebox{\diagscale}{!}{\input{Preliminares_Grafos/Diagramas/Diag32.tex}}
-  \captionof{figure}{TEST}
-  \label{fig:test}
-\end{center}
+      \item En el grafo $G_2$, $S=\left\lbrace u,v,w\right\rbrace$ es un conjunto de corte, pues $G_2-S$ tiene dos componentes; sin embargo $S$ no es un conjunto de corte minimal, pues $S':=\left\lbrace u,v\right\rbrace$ es un conjunto de corte y $S'\subsetneq S$. $S'$ sí es un conjunto de corte minimal pues ni $\left\lbrace u\right\rbrace$ ni $\left\lbrace v\right\rbrace$ son conjuntos de corte, ya que $G_2-\left\lbrace u\right\rbrace$ y $G_2-\left\lbrace v\right\rbrace$ son conexos:
+        \par\vspace{0.3em}
+        {\centering
+          \newcommand{\diagscale}{0.3\textwidth}%
+          \resizebox{\diagscale}{!}{\input{Preliminares_Grafos/Diagramas/Diag28.tex}}%
+          \hspace{2cm}%
+          \resizebox{\diagscale}{!}{\input{Preliminares_Grafos/Diagramas/Diag29.tex}}\par
+          \vspace{-0.4cm}%
+          \resizebox{\diagscale}{!}{\input{Preliminares_Grafos/Diagramas/Diag30.tex}}%
+          \hspace{2cm}%
+          \resizebox{\diagscale}{!}{\input{Preliminares_Grafos/Diagramas/Diag31.tex}}\par
+          \vspace{-0.4cm}%
+          \resizebox{\diagscale}{!}{\input{Preliminares_Grafos/Diagramas/Diag32.tex}}\par
+          \vspace{0.3em}%
+          \captionof{figure}{Efecto de eliminar subconjuntos de vértices en $G_2$}
+          \label{fig:elim_vertices_g2}
+        \par}
    \end{itemize}
 \end{Ejm}
