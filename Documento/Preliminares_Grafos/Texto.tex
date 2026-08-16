@@ -26,22 +26,21 @@ De este modo, las aristas de un grafo son $2-subconjuntos$ de vértices. En gene
    El grafo $G=(\phi,\phi)$ en el cual tanto el conjunto de vértices como el de aristas es vacío, lo llamamos \textbf{grafo vacío} y lo representamos simplemente por $\phi$.
 \end{Not}
 Una manera estándar y conveniente de representar visualmente un grafo es dibujar un punto por cada vértice, y unir dos de estos puntos por una línea si y solo si los correspondientes dos vértices forman una arista del grafo. De esta manera, la Figura \ref{fig:cuatro_grafos} muestra representaciones de los grafos del Ejemplo \ref{Ejm:cuatro_grafos}.\\
-\begin{figure}[H]
-  \centering
-  \begin{tabular}{cc}
-    \resizebox{0.2\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag1.tex}} &
-    \hspace{1cm}
-    \resizebox{0.2\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag2.tex}}  \\[0.3cm]
-    \resizebox{0.2\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag3.tex}} & 
-    \hspace{1cm}
-    \resizebox{0.2\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag4.tex}} \\[0.3cm]
-    \multicolumn{2}{c}{
-      \resizebox{0.5\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag5.tex}}
-    }
-  \end{tabular}
-  \caption{Grafos del Ejemplo \ref{Ejm:cuatro_grafos}}
-  \label{fig:cuatro_grafos}
-\end{figure}
+\needspace{5\baselineskip}
+{\centering
+  \resizebox{0.2\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag1.tex}}%
+  \hspace{1cm}%
+  \resizebox{0.2\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag2.tex}}\par
+  \vspace{0.3cm}%
+  \resizebox{0.2\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag3.tex}}%
+  \hspace{1cm}%
+  \resizebox{0.2\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag4.tex}}\par
+  \vspace{0.3cm}%
+  \resizebox{0.5\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag5.tex}}\par
+  \vspace{0.3cm}%
+  \captionof{figure}{Grafos del Ejemplo \ref{Ejm:cuatro_grafos}}
+  \label{fig:cuatro_grafos}\vspace{0.7cm}
+\par}
 La distribución particular de los puntos en el espacio, así como la forma en que las líneas son dibujadas es irrelevante; la única información que se importa es qué par de vértices están conectados mediante una arista y cuáles no. En algunos casos el etiquetado de los vértices del grafo es irrelevante y puede ser suprimido. Solemos referirnos por \textit{grafo} también a la respectiva representación visual.\\
 Notemos que la exigencia de que las aristas de un grafo sean $2-subconjuntos$ de vértices implica que si $uv\in E(G)$ entonces $u\neq v$, es decir, no hay aristas que unan un vértice con si mismo, lo que también expresamos diciendo que el grafo no tiene \textit{bucles}. Así mismo, entre dos vértices distintos $u,v\in V(G)$ podrá haber a lo más una arista, dependiendo de si $uv$ pertenece a $E(G)$ o no, es decir, se excluye la posibilidad de que hayan \textit{aristas paralelas} entre un par de vértices. En la literatura, se suele también hacer referencia a este tipo particular de grafos (no dirigidos, sin bucles y sin aristas paralelas) como \textit{grafos simples}. A lo largo del presente trabajo se entenderá \textit{grafo} y \textit{grafo simple} de manera indistinta.
 \begin{Def}

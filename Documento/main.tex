@@ -43,6 +43,7 @@
 \usepackage[OT1]{fontenc}
 \usepackage{caption}
 \usepackage{needspace}
+\usepackage{longtable}
 
 \counterwithin{equation}{section}
 \newtheorem{Tma}[equation]{Teorema}
@@ -90,14 +91,10 @@
   \vspace{0.5ex}%
   \rule{\textwidth}{0.8pt}%
 }
-% ==============================================================================
 
-% ==============================================================================
 % CAMBIAR "CUADRO" POR "TABLA" (para KOMA-Script)
-% ==============================================================================
 \renewcaptionname{spanish}{\tablename}{Tabla}
 \renewcaptionname{spanish}{\figurename}{Figura}
-% ==============================================================================
 
 % CONFIGURACIÓN DE ENCABEZADOS Y PIE DE PÁGINA
 \pagestyle{fancyplain}
@@ -127,8 +124,6 @@
 \newcommand{\arr}[1]{\raisebox{1.5ex}[0cm][0cm]{#1}}
 
 % Ya no necesitas estos comandos porque los reemplazamos con \renewcaptionname
-% \renewcommand{\tablename}{Tabla}
-% \renewcommand{\figurename}{Figura}
 \renewcommand{\listtablename}{Lista de Tablas}
 \renewcommand{\listfigurename}{Lista de Figuras}
 \renewcommand{\contentsname}{Contenido}
