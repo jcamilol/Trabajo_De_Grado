@@ -44,7 +44,6 @@
 \usepackage{caption}
 \usepackage{needspace}
 \usepackage{longtable}
-%\usepackage{cleveref}
 
 \counterwithin{equation}{section}
 \newtheorem{Tma}[equation]{Teorema}
@@ -131,7 +130,6 @@
 
 % ==============================================================================
 % HIPERVÍNCULOS
-% ==============================================================================
 \usepackage{hyperref}
 \hypersetup{
   colorlinks=true,
@@ -148,6 +146,47 @@
   \pdfbookmark[0]{\contentsname}{toc}%
   \oldtableofcontents%
 }
+% ==============================================================================
+
+% ==============================================================================
+% CLEVEREF Y CONFIGURACIÓN
+\usepackage{etoolbox}
+\usepackage{cleveref}
+
+% Definición de nombres para cleveref (minúscula y mayúscula inicial)
+\crefname{Ejm}{ejemplo}{ejemplos}
+\Crefname{Ejm}{Ejemplo}{Ejemplos}
+
+\crefname{Prop}{proposición}{proposiciones}
+\Crefname{Prop}{Proposición}{Proposiciones}
+
+\crefname{Def}{definición}{definiciones}
+\Crefname{Def}{Definición}{Definiciones}
+
+\crefname{Tma}{teorema}{teoremas}
+\Crefname{Tma}{Teorema}{Teoremas}
+
+\crefname{Lema}{lema}{lemas}
+\Crefname{Lema}{Lema}{Lemas}
+
+\crefname{Cor}{corolario}{corolarios}
+\Crefname{Cor}{Corolario}{Corolarios}
+
+\crefname{Ejc}{ejercicio}{ejercicios}
+\Crefname{Ejc}{Ejercicio}{Ejercicios}
+
+\crefname{Not}{notación}{notaciones}
+\Crefname{Not}{Notación}{Notaciones}
+
+% Vinculación de los entornos compartidos con el contador 'equation'
+\AtBeginEnvironment{Ejm}{\crefalias{equation}{Ejm}}
+\AtBeginEnvironment{Prop}{\crefalias{equation}{Prop}}
+\AtBeginEnvironment{Def}{\crefalias{equation}{Def}}
+\AtBeginEnvironment{Tma}{\crefalias{equation}{Tma}}
+\AtBeginEnvironment{Lema}{\crefalias{equation}{Lema}}
+\AtBeginEnvironment{Cor}{\crefalias{equation}{Cor}}
+\AtBeginEnvironment{Ejc}{\crefalias{equation}{Ejc}}
+\AtBeginEnvironment{Not}{\crefalias{equation}{Not}}
 % ==============================================================================
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

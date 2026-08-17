@@ -25,7 +25,7 @@ De este modo, las aristas de un grafo son $2-subconjuntos$ de vértices. En gene
 \begin{Not}
    El grafo $G=(\phi,\phi)$ en el cual tanto el conjunto de vértices como el de aristas es vacío, lo llamamos \textbf{grafo vacío} y lo representamos simplemente por $\phi$.
 \end{Not}
-Una manera estándar y conveniente de representar visualmente un grafo es dibujar un punto por cada vértice, y unir dos de estos puntos por una línea si y solo si los correspondientes dos vértices forman una arista del grafo. De esta manera, la Figura \ref{fig:cuatro_grafos} muestra representaciones de los grafos del Ejemplo \ref{Ejm:cuatro_grafos}.\\
+Una manera estándar y conveniente de representar visualmente un grafo es dibujar un punto por cada vértice, y unir dos de estos puntos por una línea si y solo si los correspondientes dos vértices forman una arista del grafo. De esta manera, la \Cref{fig:cuatro_grafos} muestra representaciones de los grafos del \Cref{Ejm:cuatro_grafos}.\\
 \input{Preliminares_Grafos/Diagramas/Fig1.tex}
 La distribución particular de los puntos en el espacio, así como la forma en que las líneas son dibujadas es irrelevante; la única información que se importa es qué par de vértices están conectados mediante una arista y cuáles no. En algunos casos el etiquetado de los vértices del grafo es irrelevante y puede ser suprimido. Solemos referirnos por \textit{grafo} también a la respectiva representación visual.\\
 Notemos que la exigencia de que las aristas de un grafo sean $2-subconjuntos$ de vértices implica que si $uv\in E(G)$ entonces $u\neq v$, es decir, no hay aristas que unan un vértice con si mismo, lo que también expresamos diciendo que el grafo no tiene \textit{bucles}. Así mismo, entre dos vértices distintos $u,v\in V(G)$ podrá haber a lo más una arista, dependiendo de si $uv$ pertenece a $E(G)$ o no, es decir, se excluye la posibilidad de que hayan \textit{aristas paralelas} entre un par de vértices. En la literatura, se suele también hacer referencia a este tipo particular de grafos (no dirigidos, sin bucles y sin aristas paralelas) como \textit{grafos simples}. A lo largo del presente trabajo se entenderá \textit{grafo} y \textit{grafo simple} de manera indistinta.
@@ -53,15 +53,15 @@ En la tercera fila del anterior ejemplo se cumple que $G'$ conserva todas las ar
 \begin{Def}
    El \textbf{grado} de un grafo $G$, representado mediante $|G|$, es el cardinal del conjunto $V(G)$.
 \end{Def}
-Así, en el Ejemplo \ref{Ejm:cuatro_grafos}, el grado de los cuatro primeros grafos es $6$, mientras que $|G_5|=\aleph _0$. Los grafos pueden ser \textit{finitos, infinitos, contables}, etc. dependiendo del respectivo tamaño del conjunto $|G|$.
+Así, en el \Cref{Ejm:cuatro_grafos}, el grado de los cuatro primeros grafos es $6$, mientras que $|G_5|=\aleph _0$. Los grafos pueden ser \textit{finitos, infinitos, contables}, etc. dependiendo del respectivo tamaño del conjunto $|G|$.
 \begin{Def}
    En un grafo $G$ decimos que dos vértices $u,v\in V(G)$ son \textbf{adyacentes} si $uv\in E(G)$. Igualmente, decimos que el vértice $v\in V(G)$ es \textbf{incidente} con la arista $e\in E(G)$ si $v\in e$. 
 \end{Def}
-En el grafo $G_1$ del Ejemplo \ref{Ejm:cuatro_grafos}, los vértices $v_3$ y $v_4$ son adyacentes, los vértices $v_2$ y $v_5$ no son adyacentes, el vértice $v_6$ es incidente con la arista $v_1v_6$ y el vértice $v_4$ no es incidente con la arista $v_2v_3$.
+En el grafo $G_1$ del \Cref{Ejm:cuatro_grafos}, los vértices $v_3$ y $v_4$ son adyacentes, los vértices $v_2$ y $v_5$ no son adyacentes, el vértice $v_6$ es incidente con la arista $v_1v_6$ y el vértice $v_4$ no es incidente con la arista $v_2v_3$.
 \begin{Def}
    Sea $G$ un grafo. Dado un vértice $v\in V(G)$, denotamos por $A_v$ al conjunto de todos los vértices adyacentes a $v$, es decir $A_v=\left\lbrace u\in V(G) \mid uv\in E(G)\right\rbrace$, y por $E_v$ al conjunto de todas las aristas con las cuales es incidente $v$, es decir $E_v=\left\lbrace e\in E(G)\mid v\in e\right\rbrace$.
 \end{Def}
-En el grafo $G_2$ del Ejemplo \ref{Ejm:cuatro_grafos}, tenemos por ejemplo $A_{v_1}=\lbrace v_2,v_3,v_4\rbrace$, $A_{v_6}=\lbrace v_5\rbrace$, $E_{v_1}=\lbrace v_1v_2,v_1v_3,v_1v_4 \rbrace$ y $E_{v_6}=\lbrace v_5v_6\rbrace$. En el grafo $G_5$ del mismo ejemplo se tiene, para todo $i\in \left\lbrace 2,3,4,\dots\right\rbrace$, $A_{v_i}=\left\lbrace v_{i-1}, v_{i+1}\right\rbrace$ y $E_{v_i}=\left\lbrace v_{i-1}v_i, v_iv_{i+1}\right\rbrace$.\\
+En el grafo $G_2$ del \Cref{Ejm:cuatro_grafos}, tenemos por ejemplo $A_{v_1}=\lbrace v_2,v_3,v_4\rbrace$, $A_{v_6}=\lbrace v_5\rbrace$, $E_{v_1}=\lbrace v_1v_2,v_1v_3,v_1v_4 \rbrace$ y $E_{v_6}=\lbrace v_5v_6\rbrace$. En el grafo $G_5$ del mismo ejemplo se tiene, para todo $i\in \left\lbrace 2,3,4,\dots\right\rbrace$, $A_{v_i}=\left\lbrace v_{i-1}, v_{i+1}\right\rbrace$ y $E_{v_i}=\left\lbrace v_{i-1}v_i, v_iv_{i+1}\right\rbrace$.\\
 La siguiente proposición nos muestra el hecho natural de que la cantidad de vértices adyacentes a $v$ y la cantidad de aristas con las cuales es incidente $v$ es siempre la misma para cualquier vértice $v$ en un grafo arbitrario.
 \begin{Prop} \label{Prop:AvEv}
    En cualquier grafo $G$, dado $v\in V(G)$, se tiene $|A_v|=|E_v|$.
@@ -72,19 +72,19 @@ Definamos $f:A_v\to E_v: u\mapsto uv$ (si $u\in A_v$, se tiene $uv\in E(G)$, y $
 \begin{Def}
    Sea $G$ un grafo. El \textbf{grado} de un vértice $v\in V(G)$ se define como $d(v):=|A_v|$. Un vértice de grado $0$ se llama \textbf{aislado}.
 \end{Def}
-De este modo, el grado de un vértice se define como la cantidad de vértices adyacentes con él, que por la Proposición \ref{Prop:AvEv}, es igual a la cantidad de aristas con las cuales es incidente. En el grafo $G_4$ del Ejemplo \ref{Ejm:cuatro_grafos} se tiene $d(v_2)=3$, $d(v_3)=4$ y $d(v_4)=1$, mientras que $v_1$ es un vértice aislado. En el grafo $G_5$ del mismo ejemplo se tiene $d(v_1)=1$ y $d(v_i)=2$ para todo $i\in \left\lbrace 2,3,4,\dots \right\rbrace$.
+De este modo, el grado de un vértice se define como la cantidad de vértices adyacentes con él, que por la \Cref{Prop:AvEv}, es igual a la cantidad de aristas con las cuales es incidente. En el grafo $G_4$ del \Cref{Ejm:cuatro_grafos} se tiene $d(v_2)=3$, $d(v_3)=4$ y $d(v_4)=1$, mientras que $v_1$ es un vértice aislado. En el grafo $G_5$ del mismo ejemplo se tiene $d(v_1)=1$ y $d(v_i)=2$ para todo $i\in \left\lbrace 2,3,4,\dots \right\rbrace$.
 \begin{Def}
    Sea $G$ un grafo. Definimos el grado mínimo de $G$ como $\delta (G):= \min \left\lbrace d(v)\mid v\in V\right\rbrace$ y el grado máximo de $G$ como $\Delta (G):= \max \left\lbrace d(v)\mid v\in V\right\rbrace$, siempre que estos valores estén bien definidos.
 \end{Def}
-En el Ejemplo \ref{Ejm:cuatro_grafos}, $\delta (G_1)=2=\Delta (G_1)$, $\delta (G_2)=1$, $\Delta (G_2)=3$, $\delta (G_3)=1$, $\Delta (G_3)=5$, $\delta (G_4)=0$, $\Delta (G_4)=4$, $\delta (G_5)=1$, $\Delta (G_5)=2$.
+En el \Cref{Ejm:cuatro_grafos}, $\delta (G_1)=2=\Delta (G_1)$, $\delta (G_2)=1$, $\Delta (G_2)=3$, $\delta (G_3)=1$, $\Delta (G_3)=5$, $\delta (G_4)=0$, $\Delta (G_4)=4$, $\delta (G_5)=1$, $\Delta (G_5)=2$.
 \begin{Def}
    Un grafo en el cual todos los vértices tienen el mismo grado $k$ se dice $\boldsymbol{k}$\textbf{-regular}, o simplemente \textbf{regular}.
 \end{Def}
-El grafo $G_1$ del Ejemplo \ref{Ejm:cuatro_grafos} es $2$-regular. Naturalmente, en cualquier grafo $k$-regular $G$ se tiene $\delta(G)=\Delta(G)=k$.
+El grafo $G_1$ del \Cref{Ejm:cuatro_grafos} es $2$-regular. Naturalmente, en cualquier grafo $k$-regular $G$ se tiene $\delta(G)=\Delta(G)=k$.
 \begin{Def}
    Un grafo se dice \textbf{localmente finito} si todos sus vértices tienen grado finito. 
 \end{Def}
-Todos los grafos finitos son localmente finitos. El grafo $G_5$ del ejemplo Ejemplo \ref{Ejm:cuatro_grafos} es un ejemplo de grafo infinito localmente finito, así como el siguiente:
+Todos los grafos finitos son localmente finitos. El grafo $G_5$ del \Cref{Ejm:cuatro_grafos} es un ejemplo de grafo infinito localmente finito, así como el siguiente:
 \begin{Ejm}
    \phantom{o}
    \begin{figure}[H]
@@ -127,13 +127,13 @@ Un concepto importante en el presente trabajo es el de \textit{grafo conexo}. Pa
 \begin{Ejm}
    \phantom{o}
    \begin{itemize}
-      \item En el grafo $G_4$ del Ejemplo \ref{Ejm:cuatro_grafos}, los vértices $v_6$ y $v_4$ están conectados por el camino $v_6v_2v_3v_4$, pero $v_1$ y $v_6$ no están conectados por ningún camino.
+      \item En el grafo $G_4$ del \Cref{Ejm:cuatro_grafos}, los vértices $v_6$ y $v_4$ están conectados por el camino $v_6v_2v_3v_4$, pero $v_1$ y $v_6$ no están conectados por ningún camino.
       \begin{figure}[H]
         \centering
           \resizebox{0.2\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag19.tex}}
         \caption{Un camino entre $v_6$ y $v_4$}
       \end{figure}
-      \item En el primer grafo del Ejemplo \ref{Ejm:Tabla1}, los vértices $v_4$ y $v_7$ están conectados por el camino $v_4v_5v_7$, pero $v_2$ y $v_6$ no están conectados por ningún camino.
+      \item En el primer grafo del \Cref{Ejm:Tabla1}, los vértices $v_4$ y $v_7$ están conectados por el camino $v_4v_5v_7$, pero $v_2$ y $v_6$ no están conectados por ningún camino.
       \begin{figure}[H]
         \centering
           \resizebox{0.3\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag20.tex}}
@@ -144,7 +144,7 @@ Un concepto importante en el presente trabajo es el de \textit{grafo conexo}. Pa
 \begin{Def}
    Un grafo $G$ es llamado \textbf{conexo} si $G\neq \phi$, y cualesquiera par de vértices  de $G$ están conectados por un camino en $G$. Si $G$ no es conexo, decimos que es \textbf{disconexo}. 
 \end{Def}
-Así, en el Ejemplo \ref{Ejm:cuatro_grafos}, los grafos $G_1$, $G_3$ y $G_5$ son conexos, mientras que $G_2$ y $G_4$ son disconexos. Los grafos con un solo vértice son conexos.
+Así, en el \Cref{Ejm:cuatro_grafos}, los grafos $G_1$, $G_3$ y $G_5$ son conexos, mientras que $G_2$ y $G_4$ son disconexos. Los grafos con un solo vértice son conexos.
 \begin{Def}
    Sea $G$ un grafo. Un subgrafo conexo maximal de $G$ es llamado una \textbf{componente} de $G$. 
 \end{Def}
