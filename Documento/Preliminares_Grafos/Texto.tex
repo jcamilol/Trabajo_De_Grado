@@ -26,21 +26,7 @@ De este modo, las aristas de un grafo son $2-subconjuntos$ de vértices. En gene
    El grafo $G=(\phi,\phi)$ en el cual tanto el conjunto de vértices como el de aristas es vacío, lo llamamos \textbf{grafo vacío} y lo representamos simplemente por $\phi$.
 \end{Not}
 Una manera estándar y conveniente de representar visualmente un grafo es dibujar un punto por cada vértice, y unir dos de estos puntos por una línea si y solo si los correspondientes dos vértices forman una arista del grafo. De esta manera, la Figura \ref{fig:cuatro_grafos} muestra representaciones de los grafos del Ejemplo \ref{Ejm:cuatro_grafos}.\\
-\needspace{5\baselineskip}
-{\centering
-  \resizebox{0.2\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag1.tex}}%
-  \hspace{1cm}%
-  \resizebox{0.2\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag2.tex}}\par
-  \vspace{0.3cm}%
-  \resizebox{0.2\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag3.tex}}%
-  \hspace{1cm}%
-  \resizebox{0.2\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag4.tex}}\par
-  \vspace{0.3cm}%
-  \resizebox{0.5\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag5.tex}}\par
-  \vspace{0.3cm}%
-  \captionof{figure}{Grafos del Ejemplo \ref{Ejm:cuatro_grafos}}
-  \label{fig:cuatro_grafos}\vspace{0.7cm}
-\par}
+\input{Preliminares_Grafos/Diagramas/Fig1.tex}
 La distribución particular de los puntos en el espacio, así como la forma en que las líneas son dibujadas es irrelevante; la única información que se importa es qué par de vértices están conectados mediante una arista y cuáles no. En algunos casos el etiquetado de los vértices del grafo es irrelevante y puede ser suprimido. Solemos referirnos por \textit{grafo} también a la respectiva representación visual.\\
 Notemos que la exigencia de que las aristas de un grafo sean $2-subconjuntos$ de vértices implica que si $uv\in E(G)$ entonces $u\neq v$, es decir, no hay aristas que unan un vértice con si mismo, lo que también expresamos diciendo que el grafo no tiene \textit{bucles}. Así mismo, entre dos vértices distintos $u,v\in V(G)$ podrá haber a lo más una arista, dependiendo de si $uv$ pertenece a $E(G)$ o no, es decir, se excluye la posibilidad de que hayan \textit{aristas paralelas} entre un par de vértices. En la literatura, se suele también hacer referencia a este tipo particular de grafos (no dirigidos, sin bucles y sin aristas paralelas) como \textit{grafos simples}. A lo largo del presente trabajo se entenderá \textit{grafo} y \textit{grafo simple} de manera indistinta.
 \begin{Def}
@@ -59,20 +45,9 @@ En la tercera fila del anterior ejemplo se cumple que $G'$ conserva todas las ar
    \phantom{o}
    \begin{itemize}
       \item $G_2$ es el subgrafo de $G_1$ inducido por $W=\left\lbrace v_2,v_3,v_4,v_5,v_6\right\rbrace$:
-        \begin{figure}[H]
-           \centering
-           \resizebox{0.2\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag15.tex}} \hspace{2cm}
-             \resizebox{0.2\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag16.tex}} 
-             \caption{$G_2=G_1[W]$}
-         \end{figure}
+         \input{Preliminares_Grafos/Diagramas/Fig2.tex}  
       \item $G_4$ es el subgrafo de $G_3$ inducido por $W'=\left\lbrace v_1,v_2,v_3,v_5\right\rbrace$:
-         \begin{figure}[H]
-           \centering
-           \resizebox{0.23\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag17.tex}} \hspace{2cm}
-             \resizebox{0.23\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag18.tex}} 
-             \caption{$G_4=G_3[W']$}
-         \end{figure}
-
+         \input{Preliminares_Grafos/Diagramas/Fig3.tex}  
    \end{itemize}
 \end{Ejm}
 \begin{Def}
@@ -199,20 +174,10 @@ Dado un grafo, se puede inducir un nuevo grafo al eliminar adecuadamente un subc
 \begin{Ejm}
    \phantom{0}
    \begin{itemize}
-      \item Si $S=\left\lbrace v_3,v_4\right\rbrace$ entonces:
-         \begin{figure}[H]
-           \centering
-           \resizebox{0.2\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag15.tex}} \hspace{2cm}
-           \resizebox{0.2\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag24.tex}} 
-             \caption{$G_1$ y $G_1-S$}
-         \end{figure}
+      \item Si $S=\left\lbrace v_3,v_4\right\rbrace$ entonces:  
+         \input{Preliminares_Grafos/Diagramas/Fig4.tex}  
       \item Si $S'=\left\lbrace v_2,v_3,v_5\right\rbrace$ entonces:
-         \begin{figure}[H]
-           \centering
-           \resizebox{0.23\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag17.tex}} \hspace{2cm}
-             \resizebox{0.23\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag25.tex}} 
-             \caption{$G_3$ y $G_3-S'$}
-         \end{figure}
+         \input{Preliminares_Grafos/Diagramas/Fig5.tex}  
    \end{itemize}
 \end{Ejm}
 Como se ve en el segundo grafo del anterior ejemplo, la supresión de algunos vértices en un grafo puede aumentar su número de componente. La siguiente definición trata de casos especiales donde se da esta situación:
@@ -223,28 +188,8 @@ Como se ve en el segundo grafo del anterior ejemplo, la supresión de algunos v�
    \phantom{o}
    \begin{itemize}
       \item En el grafo $G_1$, $v_1$ es un vértice de corte, pues $G_1-\left\lbrace v_1\right\rbrace$ tiene cuatro componentes, mientras que $G_1$ tiene dos componentes:
-         \begin{figure}[H]
-           \centering
-           \resizebox{0.35\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag26.tex}} \hspace{2cm}
-           \resizebox{0.35\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag27.tex}} 
-           \caption{Un vértice de corte}
-         \end{figure}
-      \item En el grafo $G_2$, $S=\left\lbrace u,v,w\right\rbrace$ es un conjunto de corte, pues $G_2-S$ tiene dos componentes; sin embargo $S$ no es un conjunto de corte minimal, pues $S':=\left\lbrace u,v\right\rbrace$ es un conjunto de corte y $S'\subsetneq S$. $S'$ sí es un conjunto de corte minimal pues ni $\left\lbrace u\right\rbrace$ ni $\left\lbrace v\right\rbrace$ son conjuntos de corte, ya que $G_2-\left\lbrace u\right\rbrace$ y $G_2-\left\lbrace v\right\rbrace$ son conexos:
-        \par\vspace{0.3em}
-        {\centering
-          \newcommand{\diagscale}{0.3\textwidth}%
-          \resizebox{\diagscale}{!}{\input{Preliminares_Grafos/Diagramas/Diag28.tex}}%
-          \hspace{2cm}%
-          \resizebox{\diagscale}{!}{\input{Preliminares_Grafos/Diagramas/Diag29.tex}}\par
-          \vspace{-0.4cm}%
-          \resizebox{\diagscale}{!}{\input{Preliminares_Grafos/Diagramas/Diag30.tex}}%
-          \hspace{2cm}%
-          \resizebox{\diagscale}{!}{\input{Preliminares_Grafos/Diagramas/Diag31.tex}}\par
-          \vspace{-0.4cm}%
-          \resizebox{\diagscale}{!}{\input{Preliminares_Grafos/Diagramas/Diag32.tex}}\par
-          \vspace{0.3em}%
-          \captionof{figure}{Efecto de eliminar subconjuntos de vértices en $G_2$}
-          \label{fig:elim_vertices_g2}
-        \par}
+         \input{Preliminares_Grafos/Diagramas/Fig6.tex}  
+      \item En el grafo $G_2$, $S=\left\lbrace u,v,w\right\rbrace$ es un conjunto de corte, pues $G_2-S$ tiene dos componentes; sin embargo $S$ no es un conjunto de corte minimal, pues $S':=\left\lbrace u,v\right\rbrace$ es un conjunto de corte y $S'\subsetneq S$. $S'$ sí es un conjunto de corte minimal pues ni $\left\lbrace u\right\rbrace$ ni $\left\lbrace v\right\rbrace$ son conjuntos de corte, ya que $G_2-\left\lbrace u\right\rbrace$ y $G_2-\left\lbrace v\right\rbrace$ son conexos:              
+         \input{Preliminares_Grafos/Diagramas/Fig7.tex}  
    \end{itemize}
 \end{Ejm}
