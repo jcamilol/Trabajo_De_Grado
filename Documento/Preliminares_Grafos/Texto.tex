@@ -70,9 +70,9 @@ La siguiente proposición nos muestra el hecho natural de que la cantidad de vé
 Definamos $f:A_v\to E_v: u\mapsto uv$ (si $u\in A_v$, se tiene $uv\in E(G)$, y $v\in uv$, luego $uv\in E_v$, de modo que f está bien definida). Se tiene que $f$ es inyectiva, pues si $u_1,u_2 \in A_v$ son tales que $f(u_1)=f(u_2)$ entonces $u_1v=u_2v$, es decir $\left\lbrace u_1,v\right\rbrace=\left\lbrace u_2,v\right\rbrace$, y como $u_1\neq v\neq u_2$, entonces $u_1=u_2$. Además $f$ es sobreyectiva, pues dada $e\in E_v$, tenemos $v\in e$ y por tanto $e=uv$ para algún $u\in V(G)$; en particular $uv\in E(G)$, luego $u\in A_v$, y $f(u)=uv=e$. Por tanto $f$ es una biyección, con lo cual $|A_v|=|E_v|$.
 \end{proof}
 \begin{Def}
-   Sea $G$ un grafo. El \textbf{grado} de un vértice $v\in V(G)$ se define como $d(v):=|A_v|$. Un vértice de grado $0$ se llama \textbf{aislado}.
+   Sea $G$ un grafo. El \textbf{grado} de un vértice $v\in V(G)$ se define como $d(v):=|A_v|$. Un vértice de grado $0$ se llama \textbf{aislado}, y uno de grado $1$ se llama una \textbf{hoja}.
 \end{Def}
-De este modo, el grado de un vértice se define como la cantidad de vértices adyacentes con él, que por la \Cref{Prop:AvEv}, es igual a la cantidad de aristas con las cuales es incidente. En el grafo $G_4$ del \Cref{Ejm:cuatro_grafos} se tiene $d(v_2)=3$, $d(v_3)=4$ y $d(v_4)=1$, mientras que $v_1$ es un vértice aislado. En el grafo $G_5$ del mismo ejemplo se tiene $d(v_1)=1$ y $d(v_i)=2$ para todo $i\in \left\lbrace 2,3,4,\dots \right\rbrace$.
+De este modo, el grado de un vértice se define como la cantidad de vértices adyacentes con él, que por la \Cref{Prop:AvEv}, es igual a la cantidad de aristas con las cuales es incidente. En el grafo $G_4$ del \Cref{Ejm:cuatro_grafos} se tiene $d(v_2)=3$ y $d(v_3)=4$, mientras que $v_1$ es un vértice aislado y $v_4$ es una hoja. En el grafo $G_5$ del mismo ejemplo se tiene $d(v_1)=1$ y $d(v_i)=2$ para todo $i\in \left\lbrace 2,3,4,\dots \right\rbrace$.
 \begin{Def}
    Sea $G$ un grafo. Definimos el grado mínimo de $G$ como $\delta (G):= \min \left\lbrace d(v)\mid v\in V\right\rbrace$ y el grado máximo de $G$ como $\Delta (G):= \max \left\lbrace d(v)\mid v\in V\right\rbrace$, siempre que estos valores estén bien definidos.
 \end{Def}
@@ -189,7 +189,20 @@ Como se ve en el segundo grafo del anterior ejemplo, la supresión de algunos v�
    \begin{itemize}
       \item En el grafo $G_1$, $v_1$ es un vértice de corte, pues $G_1-\left\lbrace v_1\right\rbrace$ tiene cuatro componentes, mientras que $G_1$ tiene dos componentes:
          \input{Preliminares_Grafos/Diagramas/Fig6.tex}  
-      \item En el grafo $G_2$, $S=\left\lbrace u,v,w\right\rbrace$ es un conjunto de corte, pues $G_2-S$ tiene dos componentes; sin embargo $S$ no es un conjunto de corte minimal, pues $S':=\left\lbrace u,v\right\rbrace$ es un conjunto de corte y $S'\subsetneq S$. $S'$ sí es un conjunto de corte minimal pues ni $\left\lbrace u\right\rbrace$ ni $\left\lbrace v\right\rbrace$ son conjuntos de corte, ya que $G_2-\left\lbrace u\right\rbrace$ y $G_2-\left\lbrace v\right\rbrace$ son conexos:              
-         \input{Preliminares_Grafos/Diagramas/Fig7.tex}  
+      \item En el grafo $G_2$, $S=\left\lbrace u,v,w\right\rbrace$ es un conjunto de corte, pues $G_2-S$ tiene dos componentes; sin embargo $S$ no es un conjunto de corte minimal, pues $S':=\left\lbrace u,v\right\rbrace$ es un conjunto de corte y $S'\subsetneq S$. $S'$ sí es un conjunto de corte minimal pues ni $\left\lbrace u\right\rbrace$ ni $\left\lbrace v\right\rbrace$ son conjuntos de corte, ya que $G_2-\left\lbrace u\right\rbrace$ y $G_2-\left\lbrace v\right\rbrace$ son conexos:\par
+        \input{Preliminares_Grafos/Diagramas/Fig7.tex}
    \end{itemize}
 \end{Ejm}
+\begin{Def}
+   Sean $G$ un grafo y $S\subseteq V(G)$ un subconjunto de vértices de $G$. Decimos que $S$ es \textbf{independiente} si para cualesquiera $u,v\in S$ se tiene $uv\notin E(G)$. En cambio, decimos que $S$ es un \textbf{clique} si para cualesquiera $u,v\in S$ se tiene $uv\in V(G)$.
+\end{Def}
+De esta forma, un subconjunto de vértices de un grafo es independiente si ningún par de vértices es adyacente, y es un clique si cualquier par de vértices es adyacente. En el \Cref{Ejm:cuatro_grafos}, $\left\lbrace v_2,v_4,v_6\right\rbrace$ es un conjunto independiente de $G_1$, $\left\lbrace v_1,v_2,v_3,v_4\right\rbrace$ es un clique de $G_2$, $\left\lbrace v_2,v_3,v_4,v_5,v_6\right\rbrace$ es un conjunto independiente de $G_3$ y $\left\lbrace v_2,v_3,v_5,v_6\right\rbrace$ es un clique de $G_4$.
+\begin{Def}
+   Dado un grafo $G=(V,E)$, su \textbf{complemento}, denotado $\overline{G}$, es el grafo con conjunto de vértices $V$ y conjunto de aristas $[V]^2\backslash E$. 
+\end{Def}
+Así, $\overline{G}$ mantiene los vértices de $G$, pero dos vértice son adyacentes en $\overline{G}$ si y sólo si no son adyacentes en $G$.
+\begin{Ejm}
+   Las siguientes figuras muestran ejemplos de grafos y su complemento:
+   \input{Preliminares_Grafos/Diagramas/Fig8.tex}
+\end{Ejm}
+\lipsum
