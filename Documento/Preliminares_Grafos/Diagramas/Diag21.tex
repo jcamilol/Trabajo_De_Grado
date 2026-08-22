@@ -1,6 +1,4 @@
-\definecolor{customblue}{HTML}{155DFC}
-
-\begin{tikzpicture}[scale=1,auto=left,every node/.style={circle,fill=customblue!20,draw=customblue,thick,minimum size=6mm}]
+\begin{tikzpicture}[scale=.6,auto=left,every node/.style={circle,fill=blue!20,draw=black,thick}]
   \node (n1) at (0,0) {};
   \node (n2) at (2,3) {};
   \node (n3) at (2,1) {};
@@ -12,5 +10,18 @@
   \node (n9) at (10,0) {};
   
   \foreach \from/\to in {n1/n2,n1/n3,n1/n5,n2/n3,n2/n5,n3/n4,n3/n5,n4/n5,n5/n6,n6/n7,n7/n8,n7/n9,n8/n9}
-    \draw[customblue,thick] (\from) -- (\to);
+    \draw (\from) -- (\to);
+
+  % --- Envolvente estilo mano alzada para la componente conexa ---
+  \begin{scope}[
+    dashed,
+    black!85,
+    thick,
+    decorate,
+    decoration={random steps, segment length=5mm, amplitude=1.2mm}
+  ]
+    \draw[rounded corners=8pt] 
+      (-0.8,3.8) -- (10.8,3.8) -- (10.8,-0.8) -- (-0.8,-0.8) -- cycle;
+  \end{scope}
+
 \end{tikzpicture}

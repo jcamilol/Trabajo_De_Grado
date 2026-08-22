@@ -1,29 +1,22 @@
-\definecolor{customred}{HTML}{E7180B} % Puedes ajustar el valor RGB como desees
-
-\begin{tikzpicture}[scale=0.85, auto=left, every node/.style={circle, fill=blue!20, draw, inner sep=2pt, minimum size=6mm}]
-  % Vértice central etiquetado en rojo personalizado
-  \tikzset{
-    blue_node/.style={circle,fill=customblue!20,draw=customblue,thick,minimum size=6mm},
-    red_node/.style={circle,fill=customred!20,draw=customred,thick,minimum size=6mm}
-  }
-   \node[red_node] (v) at (3,2) {$v_1$};
+\begin{tikzpicture}[scale=1, auto=left, every node/.style={circle, fill=blue!20, draw=black, thick}]
+    \node (v) at (3,2) {$v_1$};
 
   % Componente superior izquierda
-  \node (u1) at (1,4) {};
-  \node (u2) at (3,4) {};
+    \node (u1) at (1,4) {\phantom{$v_1$}};
+  \node (u2) at (3,4) {\phantom{$v_1$}};
 
   % Componente inferior izquierda
-  \node (w1) at (1,2) {};
-  \node (w2) at (1,0) {};
-  \node (w3) at (3,0) {};
+  \node (w1) at (1,2) {\phantom{$v_1$}};
+  \node (w2) at (1,0) {\phantom{$v_1$}};
+  \node (w3) at (3,0) {\phantom{$v_1$}};
 
   % Hoja inferior derecha
-  \node (x1) at (5,0) {};
+  \node (x1) at (5,0) {\phantom{$v_1$}};
 
   % Componente disjunta superior derecha
-  \node (y1) at (5,4) {};
-  \node (y2) at (7,4) {};
-  \node (y3) at (7,2) {};
+  \node (y1) at (5,4) {\phantom{$v_1$}};
+  \node (y2) at (7,4) {\phantom{$v_1$}};
+  \node (y3) at (7,2) {\phantom{$v_1$}};
 
   % Aristas
   \draw (u1) -- (u2);
