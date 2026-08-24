@@ -1,16 +1,23 @@
 \begin{tikzpicture}
-  [scale=.8,auto=left,every node/.style={circle,fill=blue!20,draw=black,thick}]
-  \node (n1) at (2,4) {$v_1$};
-  \node (n2) at (4,3)  {$v_2$};
-  \node (n3) at (4,1)  {$v_3$};
-  \node (n4) at (2,0) {$v_4$};
-  \node (n5) at (0,1)  {$v_5$};
-  \node (n6) at (0,3)  {$v_6$};
+  [scale=.6, auto=left, 
+   vertex/.style={circle, fill=blue!20, draw=black, thick, inner sep=2pt, minimum size=18pt}]
+
+  \node[vertex] (n1) at (2,4) {$\scriptstyle v_1$};
+  \node[vertex] (n2) at (4,3) {$\scriptstyle v_2$};
+  \node[vertex] (n3) at (4,1) {$\scriptstyle v_3$};
+  \node[vertex] (n4) at (2,0) {$\scriptstyle v_4$};
+  \node[vertex] (n5) at (0,1) {$\scriptstyle v_5$};
+  \node[vertex] (n6) at (0,3) {$\scriptstyle v_6$};
 
   \foreach \from/\to in {n1/n2,n2/n3,n3/n4,n4/n5,n5/n6,n6/n1}
     \draw (\from) -- (\to);
 
-  % Etiqueta G_1 debajo del grafo
-  \node[draw=none, fill=none, scale=1.5] at (2,-1.5) {$G_1$};
-
+  \node[anchor=south, yshift=0.3cm] at (n1.north) {%
+    \makebox[0pt][c]{%
+      $\begin{array}{c}
+        G_1=\\
+        (V,\{v_1v_2,v_2v_3,v_3v_4,v_4v_5,v_5v_6, v_6v_1\})
+      \end{array}$%
+    }%
+  };
 \end{tikzpicture}

@@ -11,33 +11,33 @@ Los elementos de $[S]^k$ son llamados $k-subconjuntos$ de $S$. Con esto, damos l
 \begin{Def}
    Un \textbf{grafo} es una pareja $G=\left( V,E\right)$ de conjuntos tal que $E\subseteq [V]^2$. Los elementos de $V$ son llamados \textbf{vértices} y los elementos de $E$ son llamados \textbf{aristas}.
 \end{Def}
-De este modo, las aristas de un grafo son $2-subconjuntos$ de vértices. En general, dado un grafo $G$, denotaremos por $V(G)$ a su conjunto de vértices, y por $E(G)$ a su conjunto de aristas. Un grafo con conjunto de vértices $V$ también es llamado un \textit{grafo sobre V}. Para evitar ambiguedades de notación, asumimos también que $V(G)\cap E(G)=\phi$ para todo grafo $G$. Una arista $\left\lbrace u,v\right\rbrace$ de un grafo también puede ser representada mediante $uv$; en este caso nótese que $uv$ y $vu$ hacen referencia a la misma arista, pues $uv=\left\lbrace u,v\right\rbrace=\left\lbrace v, u\right\rbrace=vu$. Este tipo de grafos en los cuales el orden de los vértices en la representación de la arista no es tenido en cuenta también son llamados \textit{grafos no dirigidos}.
+De este modo, las aristas de un grafo son $2-subconjuntos$ de vértices. Si es necesario, dado un grafo $G$, también se denota por $V(G)$ a su conjunto de vértices, y por $E(G)$ a su conjunto de aristas. Un grafo con conjunto de vértices $V$ también es llamado un \textit{grafo sobre V}. Para evitar ambiguedades de notación, asumimos también que $V(G)\cap E(G)=\phi$ para todo grafo $G$. Una arista $\left\lbrace u,v\right\rbrace$ de un grafo también puede ser representada mediante $uv$. Una manera estándar y conveniente de representar visualmente un grafo es dibujar un punto por cada vértice, y unir dos de estos puntos por una línea si y sólo si los correspondientes vértices forman una arista del grafo. La distribución particular de los puntos en el espacio, así como la forma en que las líneas son dibujadas es irrelevante; la única información que importa es qué par de vértices están conectados mediante una arista y cuáles no. Solemos referirnos por \textit{grafo} también a la respectiva representación visual.
+
 \begin{Ejm} \label{Ejm:cuatro_grafos}
    Los siguientes son ejemplos de grafos sobre $V=\left\lbrace v_1,v_2,v_3,v_4,v_5, v_6 \right\rbrace$:
-   \begin{itemize}
-      \item $G_1=(V,\left\lbrace v_1v_2,v_2v_3,v_3v_4,v_4v_5,v_5v_6, v_6v_1\right\rbrace)$
-      \item $G_2=(V,\left\lbrace v_1v_2, v_2v_3, v_1v_3, v_3v_4, v_5v_6\right\rbrace)$
-      \item $G_3=(V, \left\lbrace v_1v_2, v_1v_3, v_1v_4, v_1v_5, v_1v_6\right\rbrace)$
-      \item $G_4=(V,\left\lbrace v_1v_4, v_2v_3, v_2v_5, v_2v_6, v_3v_4, v_3v_6, v_5v_6\right\rbrace)$
-   \end{itemize}
+  \input{Preliminares_Grafos/Diagramas/Fig1.tex}
    Un ejemplo de grafo sobre $V'=\left\lbrace v_1, v_2, v_3, \dots\right\rbrace$ es $G_5=(V',\left\lbrace v_1v_2, v_2v_3, v_3v_4, v_4v_5, \dots\right\rbrace)$.
+   \begin{figure}[H]
+     \centering
+       \resizebox{0.45\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag5.tex}} 
+     \caption{El grafo $G_5$ sobre $V'$}
+   \end{figure}
 \end{Ejm}
 \begin{Not}
    El grafo $G=(\phi,\phi)$ en el cual tanto el conjunto de vértices como el de aristas es vacío, lo llamamos \textbf{grafo vacío} y lo representamos simplemente por $\phi$.
 \end{Not}
-Una manera estándar y conveniente de representar visualmente un grafo es dibujar un punto por cada vértice, y unir dos de estos puntos por una línea si y solo si los correspondientes dos vértices forman una arista del grafo. De esta manera, la \Cref{fig:cuatro_grafos} muestra representaciones de los grafos del \Cref{Ejm:cuatro_grafos}.\\
-\input{Preliminares_Grafos/Diagramas/Fig1.tex}
-La distribución particular de los puntos en el espacio, así como la forma en que las líneas son dibujadas es irrelevante; la única información que se importa es qué par de vértices están conectados mediante una arista y cuáles no. En algunos casos el etiquetado de los vértices del grafo es irrelevante y puede ser suprimido. Solemos referirnos por \textit{grafo} también a la respectiva representación visual.\\
+
+En este caso nótese que $uv$ y $vu$ hacen referencia a la misma arista, pues $uv=\left\lbrace u,v\right\rbrace=\left\lbrace v, u\right\rbrace=vu$. Este tipo de grafos en los cuales el orden de los vértices en la representación de la arista no es tenido en cuenta también son llamados \textit{grafos no dirigidos}.
 Notemos que la exigencia de que las aristas de un grafo sean $2-subconjuntos$ de vértices implica que si $uv\in E(G)$ entonces $u\neq v$, es decir, no hay aristas que unan un vértice con si mismo, lo que también expresamos diciendo que el grafo no tiene \textit{bucles}. Así mismo, entre dos vértices distintos $u,v\in V(G)$ podrá haber a lo más una arista, dependiendo de si $uv$ pertenece a $E(G)$ o no, es decir, se excluye la posibilidad de que hayan \textit{aristas paralelas} entre un par de vértices. En la literatura, se suele también hacer referencia a este tipo particular de grafos (no dirigidos, sin bucles y sin aristas paralelas) como \textit{grafos simples}. A lo largo del presente trabajo se entenderá \textit{grafo} y \textit{grafo simple} de manera indistinta.
 \begin{Def}
    Dados dos grafos $G=(V,E)$ y $G'=(V',E')$, decimos que $G'$ es un subgrafo de $G$ si $V'\subseteq V$ y $E'\subseteq E$. En este caso denotamos $G'\subseteq G$.
 \end{Def}
 Para cualquier grafo $G$ se tiene $\phi\subseteq G$. Damos a continuación más ejemplos de contenencia de grafos:
-\begin{Ejm}\label{Ejm:Tabla1}
-   En cada fila de la siguiente tabla se tiene $G'\subseteq G$:
-   \input{Preliminares_Grafos/Diagramas/Tabla1.tex}
+\begin{Ejm}\label{Ejm:Contenencia}
+   En los siguientes grafos se tiene $G_i'\subseteq G_i$ para $i=1,2,3$:
+   \input{Preliminares_Grafos/Diagramas/Fig9.tex}
 \end{Ejm}
-En la tercera fila del anterior ejemplo se cumple que $G'$ conserva todas las aristas entre vértices de $V(G')$ que aparecían originalmente en $G$, es decir, para cualesquiera $u,v\in V(G')$ se tiene que $uv\in E(G)$ implica $uv\in E(G')$. Notemos que en las otras dos parejas de grafos esto no se cumple; por ejemplo, en la primera fila $v_3,v_5\in V(G')$ y $v_3v_5\in E(G)$, pero $v_3v_5 \notin E(G')$; en la segunda fila $v_1,v_3\in V(G')$ y $v_1v_3\in E(G)$, pero $v_1v_3\notin E(G')$. El comportamiento que se da en la tercera fila lo resumimos diciendo que $G'$ es el \textit{subgrafo de $G$ inducido} por $V(G')$, y denotamos $G'=G[V(G')]$. Más precisamente:
+En el \Cref{Ejm:Contenencia} se cumple que $G'_3$ conserva todas las aristas entre vértices de $V(G'_3)$ que aparecían originalmente en $G_3$, es decir, para cualesquiera $u,v\in V(G'_3)$ se tiene que $uv\in E(G_3)$ implica $uv\in E(G'_3)$. Notemos que en los ejemplos $G_1$ y $G_2$ esto no se cumple. Por ejemplo, para $G_1$ se tiene $v_3,v_5\in V(G'_1)$ y $v_3v_5\in E(G_1)$, pero $v_3v_5 \notin E(G'_1)$; para $G_2$ se tiene $v_1,v_3\in V(G'_2)$ y $v_1v_3\in E(G_2)$, pero $v_1v_3\notin E(G'_2)$. El comportamiento que se da con $G_3$ y $G'_3$ lo resumimos diciendo que $G'_3$ es el \textit{subgrafo de $G_3$ inducido} por $V(G'_3)$, y denotamos $G'_3=G[V(G'_3)]$. Más precisamente:
 \begin{Def}
    Sean $G$ un grafo y $W\subseteq V(G)$. El \textbf{subgrafo de $G$ inducido} por $W$, denotado por $G[W]$, se define como el subgrafo de $G$ tal que $V(G[W])=W$ y $E(G[W])=\left\lbrace uv\in E(G)\mid u,v\in W\right\rbrace$.
 \end{Def}
@@ -53,21 +53,21 @@ En la tercera fila del anterior ejemplo se cumple que $G'$ conserva todas las ar
 \begin{Def}
    El \textbf{grado} de un grafo $G$, representado mediante $|G|$, es el cardinal del conjunto $V(G)$.
 \end{Def}
-Así, en el \Cref{Ejm:cuatro_grafos}, el grado de los cuatro primeros grafos es $6$, mientras que $|G_5|=\aleph _0$. Los grafos pueden ser \textit{finitos, infinitos, contables}, etc. dependiendo del respectivo tamaño del conjunto $|G|$.
+Así, en el \Cref{Ejm:cuatro_grafos}, el grado de los cuatro primeros grafos es $6$, mientras que $|G_5|=\aleph _0$. Los grafos pueden ser \textit{finitos, infinitos, contables}, etc. dependiendo del respectivo tamaño del conjunto $G$.
 \begin{Def}
-   En un grafo $G$ decimos que dos vértices $u,v\in V(G)$ son \textbf{adyacentes} si $uv\in E(G)$. Igualmente, decimos que el vértice $v\in V(G)$ es \textbf{incidente} con la arista $e\in E(G)$ si $v\in e$. 
+   Dado un grafo $G$ decimos que dos vértices $u,v\in V(G)$ son \textbf{adyacentes} si $uv\in E(G)$. Igualmente, decimos que el vértice $v\in V(G)$ es \textbf{incidente} con la arista $e\in E(G)$ si $v\in e$. 
 \end{Def}
 En el grafo $G_1$ del \Cref{Ejm:cuatro_grafos}, los vértices $v_3$ y $v_4$ son adyacentes, los vértices $v_2$ y $v_5$ no son adyacentes, el vértice $v_6$ es incidente con la arista $v_1v_6$ y el vértice $v_4$ no es incidente con la arista $v_2v_3$.
 \begin{Def}
    Sea $G$ un grafo. Dado un vértice $v\in V(G)$, denotamos por $A_v$ al conjunto de todos los vértices adyacentes a $v$, es decir $A_v=\left\lbrace u\in V(G) \mid uv\in E(G)\right\rbrace$, y por $E_v$ al conjunto de todas las aristas con las cuales es incidente $v$, es decir $E_v=\left\lbrace e\in E(G)\mid v\in e\right\rbrace$.
 \end{Def}
-En el grafo $G_2$ del \Cref{Ejm:cuatro_grafos}, tenemos por ejemplo $A_{v_1}=\lbrace v_2,v_3,v_4\rbrace$, $A_{v_6}=\lbrace v_5\rbrace$, $E_{v_1}=\lbrace v_1v_2,v_1v_3,v_1v_4 \rbrace$ y $E_{v_6}=\lbrace v_5v_6\rbrace$. En el grafo $G_5$ del mismo ejemplo se tiene, para todo $i\in \left\lbrace 2,3,4,\dots\right\rbrace$, $A_{v_i}=\left\lbrace v_{i-1}, v_{i+1}\right\rbrace$ y $E_{v_i}=\left\lbrace v_{i-1}v_i, v_iv_{i+1}\right\rbrace$.\\
+En el grafo $G_2$ del \Cref{Ejm:cuatro_grafos}, tenemos que $A_{v_1}=\lbrace v_2,v_3,v_4\rbrace$, $A_{v_6}=\lbrace v_5\rbrace$, $E_{v_1}=\lbrace v_1v_2,v_1v_3,v_1v_4 \rbrace$ y $E_{v_6}=\lbrace v_5v_6\rbrace$. En el grafo $G_5$ del mismo ejemplo se tiene, para todo $i\in \left\lbrace 2,3,4,\dots\right\rbrace$, $A_{v_i}=\left\lbrace v_{i-1}, v_{i+1}\right\rbrace$ y $E_{v_i}=\left\lbrace v_{i-1}v_i, v_iv_{i+1}\right\rbrace$.\\
 La siguiente proposición nos muestra el hecho natural de que la cantidad de vértices adyacentes a $v$ y la cantidad de aristas con las cuales es incidente $v$ es siempre la misma para cualquier vértice $v$ en un grafo arbitrario.
 \begin{Prop} \label{Prop:AvEv}
    En cualquier grafo $G$, dado $v\in V(G)$, se tiene $|A_v|=|E_v|$.
 \end{Prop}
 \begin{proof}
-Definamos $f:A_v\to E_v: u\mapsto uv$ (si $u\in A_v$, se tiene $uv\in E(G)$, y $v\in uv$, luego $uv\in E_v$, de modo que f está bien definida). Se tiene que $f$ es inyectiva, pues si $u_1,u_2 \in A_v$ son tales que $f(u_1)=f(u_2)$ entonces $u_1v=u_2v$, es decir $\left\lbrace u_1,v\right\rbrace=\left\lbrace u_2,v\right\rbrace$, y como $u_1\neq v\neq u_2$, entonces $u_1=u_2$. Además $f$ es sobreyectiva, pues dada $e\in E_v$, tenemos $v\in e$ y por tanto $e=uv$ para algún $u\in V(G)$; en particular $uv\in E(G)$, luego $u\in A_v$, y $f(u)=uv=e$. Por tanto $f$ es una biyección, con lo cual $|A_v|=|E_v|$.
+Definamos $f:A_v\to E_v: u\mapsto uv$. Nótese que si $u\in A_v$, entonces $uv\in E(G)$, y $v\in uv$, luego $uv\in E_v$, de modo que $f$ está bien definida. Se tiene que $f$ es inyectiva, pues si $u_1,u_2 \in A_v$ son tales que $f(u_1)=f(u_2)$ entonces $u_1v=u_2v$, es decir $\left\lbrace u_1,v\right\rbrace=\left\lbrace u_2,v\right\rbrace$, y como $u_1\neq v\neq u_2$, entonces $u_1=u_2$. Además $f$ es sobreyectiva, pues dada $e\in E_v$, tenemos $v\in e$ y por tanto $e=uv$ para algún $u\in V(G)$; en particular $uv\in E(G)$, luego $u\in A_v$, y $f(u)=uv=e$. Por tanto $f$ es una biyección, con lo cual $|A_v|=|E_v|$.
 \end{proof}
 \begin{Def}
    Sea $G$ un grafo. El \textbf{grado} de un vértice $v\in V(G)$ se define como $d(v):=|A_v|$. Un vértice de grado $0$ se llama \textbf{aislado}, y uno de grado $1$ se llama una \textbf{hoja}.
@@ -84,7 +84,7 @@ El grafo $G_1$ del \Cref{Ejm:cuatro_grafos} es $2$-regular. Naturalmente, en cua
 \begin{Def}
    Un grafo se dice \textbf{localmente finito} si todos sus vértices tienen grado finito. 
 \end{Def}
-Todos los grafos finitos son localmente finitos. El grafo $G_5$ del \Cref{Ejm:cuatro_grafos} es un ejemplo de grafo infinito localmente finito, así como el siguiente:
+Todos los grafos finitos son localmente finitos. El grafo $G_5$ del \Cref{Ejm:cuatro_grafos} es un ejemplo de grafo infinito localmente finito. Se tienen otras situaciones, como se muestra a continuación.
 \begin{Ejm}
    \phantom{o}
    \begin{figure}[H]
@@ -94,20 +94,20 @@ Todos los grafos finitos son localmente finitos. El grafo $G_5$ del \Cref{Ejm:cu
    \end{figure}
 \end{Ejm}
 \begin{Ejm}
-   El siguiente grafo no es localmente finito, pues $d(v_1)$ no es finito:
+   El siguiente grafo infinito no es localmente finito, pues $d(v_1)$ no es finito:
    \begin{figure}[H]
      \centering
        \resizebox{0.45\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag7.tex}} 
-     \caption{Un grafo que no es localmente finito}
+     \caption{Un grafo infinito que no es localmente finito}
    \end{figure}
 \end{Ejm}
-Un concepto importante en el presente trabajo es el de \textit{grafo conexo}. Para ello introducimos primero la definición de \textit{camino}:
+Un concepto importante en el presente trabajo es el de \textit{grafo conexo}. Para ello introducimos primero la definición de \textit{camino}.
 \begin{Def}
    Un \textbf{camino} es grafo no vacío $P=(V,E)$ de la forma
    $$
    V=\left\lbrace x_0, x_1, \dots, x_k\right\rbrace \quad E=\left\lbrace x_0x_1, x_1x_2, \dots x_{k-1}x_k\right\rbrace,
    $$
-   para $k\in \mathbb{N}$, y donde todos los $x_i$ ($i\in \left\lbrace 0,1,\dots,k\right\rbrace$) son distintos. En este caso denotamos a $P$ mediante $x_0x_1\dots x_k$ o $x_kx_{k-1}\dots x_0$. Decimos que los vértices $x_0$ y $x_k$ están \textbf{conectados} por el camino P, y que $x_0$ y $x_k$ son los extremos de $P$. El número de aristas de un camino es su \textbf{longitud}, y un camino de longitud $k$ es denotado por $P^k$.
+   para $k\in \mathbb{N}$, y donde todos los $x_i$, con $i\in \left\lbrace 0,1,\dots,k\right\rbrace$ son distintos. En este caso denotamos a $P$ mediante $x_0x_1\dots x_k$ o $x_kx_{k-1}\dots x_0$. Decimos que los vértices $x_0$ y $x_k$ están \textbf{conectados} por el camino P, y que $x_0$ y $x_k$ son los extremos de $P$. El número de aristas de un camino es su \textbf{longitud}, y un camino de longitud $k$ es denotado por $P^k$.
 \end{Def}
 \begin{Ejm}
    \phantom{o}
@@ -167,11 +167,11 @@ Lo anterior nos quiere decir que un subgrafo $H\subseteq G$ es una componente de
      \caption{Un grafo con tres componentes}
    \end{figure}
 \end{Ejm}
-Dado un grafo, se puede inducir un nuevo grafo al eliminar adecuadamente un subconjunto de vértices:
+Dado un grafo, se puede inducir un nuevo grafo al eliminar adecuadamente un subconjunto de vértices.
 \begin{Def}
    Sean $G$ un grafo y $S\subseteq V(G)$. Denotamos por $\bm{G-S}$ al subgrafo de $G$ inducido por $V(G)\backslash S$, es decir, $G-S=G[V(G)\backslash S]$. 
 \end{Def}
-\begin{Ejm}
+\begin{Ejm}\label{Ejm:Supresion}
    \phantom{0}
    \begin{itemize}
       \item Si $S=\left\lbrace v_3,v_4\right\rbrace$ entonces:  
@@ -181,7 +181,7 @@ Dado un grafo, se puede inducir un nuevo grafo al eliminar adecuadamente un subc
          \input{Preliminares_Grafos/Diagramas/Fig5.tex}  
    \end{itemize}
 \end{Ejm}
-Como se ve en el segundo grafo del anterior ejemplo, la supresión de algunos vértices en un grafo puede aumentar su número de componente. La siguiente definición trata de casos especiales donde se da esta situación:
+Como se ve con el grafo $G_3$ del \Cref{Ejm:Supresion}, la supresión de algunos vértices en un grafo puede aumentar su número de componentes. La siguiente definición trata de casos especiales donde se da esta situación.
 \begin{Def}
    Sea $G$ un grafo. Decimos que $v\in V(G)$ es un \textbf{vértice de corte} de $G$ si $G-\left\lbrace v\right\rbrace$ tiene más componentes que $G$. Si $G$ es conexo, decimos que un subconjunto de vértices $C\subseteq V(G)$ es un \textbf{conjunto de corte} de $G$ si $G-C$ tiene más de una componente; si además ningún subconjunto propio de $C$ es un conjunto de corte de $G$, decimos que $C$ es un \textbf{conjunto de corte minimal} de $G$.  
 \end{Def}
