@@ -19,8 +19,8 @@
 
   % Bucles en v1 (e1 y e2)
   % e1 bajado un poco más (yshift=-5pt)
-  \path[->, line width=1pt] (v1) edge[loop top, out=120, in=60, looseness=8] node[draw=none, fill=none, above] {$e_1$} (v1);
-  \path[->, line width=1pt] (v1) edge[loop top, out=150, in=30, looseness=18] node[draw=none, fill=none, above] {$e_2$} (v1);
+  \path[->, line width=1pt] (v1) edge[loop above, out=120, in=60, looseness=8] node[draw=none, fill=none, above] {$e_1$} (v1);
+  \path[->, line width=1pt] (v1) edge[loop above, out=150, in=30, looseness=18] node[draw=none, fill=none, above] {$e_2$} (v1);
 
   % Conexiones v1 <-> v2
   \draw[->, line width=1pt] (v2) to[bend left=15] node[draw=none, fill=none, above] {$e_3$} (v1);
