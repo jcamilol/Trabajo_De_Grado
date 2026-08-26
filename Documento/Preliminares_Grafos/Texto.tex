@@ -82,11 +82,32 @@ De forma intuitiva podemos decir que un grafo orientado se genera a partir de un
 Por lo tanto, los multigrafos pueden tener también bucles y aristas múltiples. Intuitivamente podemos pensar en un multigrafo como un grafo dirigido en el que la dirección de sus aristas ha sido ``olvidada".
 \begin{Ejm}
    Un ejemplo de multigrafo es $G=(V,E)$ donde  $V=\{ v_1,\allowbreak v_2, \allowbreak v_3, \allowbreak v_4, \allowbreak v_5 \}$ y $E=\left\lbrace e_1,e_2,e_3,e_4,e_5,e_6,e_7,e_8,e_9,e_{10},e_{11}, e_{12},e_{13},e_{14}\right\rbrace$ junto con la función
-test
-\begin{figure}[H]
+   \begin{center}
+   $\hfill
+   \begin{array}{rcl}
+      E &\to& V \cup [V]^2 \\
+      e_1 &\mapsto& \{v_1, v_2\} \\
+      e_2 &\mapsto& \{v_2, v_3\} \\
+      e_3 &\mapsto& \{v_1, v_5\} \\
+      e_4 &\mapsto& \{v_3, v_5\} \\
+      e_5 &\mapsto& \{v_2, v_4\} \\
+      e_6 &\mapsto& \{v_2, v_4\} \\
+      e_7 &\mapsto& \{v_2, v_4\} \\
+      e_8 &\mapsto& \{v_4, v_5\} \\
+      e_9 &\mapsto& \{v_4, v_5\} \\
+      e_{10} &\mapsto& \{v_4, v_5\} \\
+      e_{11} &\mapsto& \{v_5\} \\
+      e_{12} &\mapsto& \{v_1\} \\
+      e_{13} &\mapsto& \{v_2\} \\
+      e_{14} &\mapsto& \{v_3\}
+   \end{array}
+   \hfill$
+   \end{center}
+   La representación visual de $G$ se muestra a continuación.
+   \begin{figure}[H]
      \centering
      \resizebox{0.5\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag40.tex}} 
-     \caption{$D$ es una orientación de $G$}
+     \caption{Un multigrafo}
    \end{figure}
 \end{Ejm}
 \begin{Def}
