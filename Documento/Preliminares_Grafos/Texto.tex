@@ -26,7 +26,7 @@ De este modo, las aristas de un grafo son $2-subconjuntos$ de vértices. Si es n
 \begin{Not}
    El grafo $G=(\phi,\phi)$ en el cual tanto el conjunto de vértices como el de aristas es vacío, lo llamamos \textbf{grafo vacío} y lo representamos simplemente por $\phi$.
 \end{Not}
-Notemos que en un grafo $G$, dada $uv\in E(G)$, se tiene que $uv$ y $vu$ hacen referencia a la misma arista, pues $uv=\left\lbrace u,v \right\rbrace=\left\lbrace v, u\right\rbrace=vu$. Este tipo de grafos en los cuales el orden de los vértices en la representación de la arista no es tenido en cuenta también son llamados \textit{grafos no dirigidos}. Además, la exigencia de que las aristas de un grafo sean $2-subconjuntos$ de vértices implica que si $uv\in E(G)$ entonces $u\neq v$, es decir, no hay aristas que unan un vértice con si mismo, lo que también expresamos diciendo que el grafo no tiene \textit{bucles}. Así mismo, entre dos vértices distintos $u,v\in V(G)$ podrá haber a lo más una arista, dependiendo de si $uv$ pertenece a $E(G)$ o no, es decir, se excluye la posibilidad de que hayan \textit{aristas paralelas} entre un par de vértices. En la literatura, se suele también hacer referencia a este tipo particular de grafos (no dirigidos, sin bucles y sin aristas paralelas) como \textit{grafos simples}. A continuación presentamos la definición de otros tipos de grafos.
+Notemos que en un grafo $G$, dada $uv\in E(G)$, se tiene que $uv$ y $vu$ hacen referencia a la misma arista, pues $uv=\left\lbrace u,v \right\rbrace=\left\lbrace v, u\right\rbrace=vu$. Este tipo de grafos en los cuales el orden de los vértices en la representación de la arista no es tenido en cuenta también son llamados \textit{grafos no dirigidos}. Además, la exigencia de que las aristas de un grafo sean $2-subconjuntos$ de vértices implica que si $uv\in E(G)$ entonces $u\neq v$, es decir, no hay aristas que unan un vértice con si mismo, lo que también expresamos diciendo que el grafo no tiene \textit{bucles}. Así mismo, entre dos vértices distintos $u,v\in V(G)$ podrá haber a lo más una arista, dependiendo de si $uv$ pertenece a $E(G)$ o no, es decir, se excluye la posibilidad de que hayan \textit{aristas múltiples} entre un par de vértices. En la literatura, se suele también hacer referencia a este tipo particular de grafos (no dirigidos, sin bucles y sin aristas múltiples) como \textit{grafos simples}. A continuación presentamos la definición de otros tipos de grafos.
 \begin{Def}
    Un \textbf{hipergrafo} es una pareja $(V,E)$ de conjuntos disyuntos (de vértices y aristas), donde los elementos de $E$ son subconjuntos no vacíos (de cualquier cardinalidad) de $V$. 
 \end{Def}
@@ -34,7 +34,7 @@ De esta manera, los grafos simples son casos especiales de hipergrafos.
 \begin{Def}
    Un \textbf{grafo dirigido} (también llamado \textbf{digrafo}) es una pareja $(V,E)$ de conjuntos disyuntos (de vértices y aristas) junto con dos funciones $\operatorname{init}:E\to V$ y $\operatorname{ter}:E\to V$ que asignan a cada arista $e\in E$ un \textbf{vértice inicial} $\operatorname{init}(e)$ y un \textbf{vértice final} $\operatorname{ter}(e)$. Decimos que la arista $e$ está \textbf{dirigida de $\operatorname{init}(e)$ a $\operatorname{ter} (e)$}.
 \end{Def}
-Observemos que un grafo dirigido puede tener varias aristas entre los mismos dos vértices $x,y$. Decimos que tales aristas son \textit{aristas múltiples}; si tienen la misma dirección (por ejemplo de $x$ a $y$), entonces se dicen \textit{paralelas}. Una arista $e$ se llama un \textit{bucle} si $\operatorname{init}(e)=\operatorname{ter}(e)$. Los vértices de un grafo dirigido pueden representarse visualmente de la misma forma que en un grafo simple, pero ahora para representar una arista $e$ se usa una flecha que parte de $\operatorname{init}(e)$ y apunta hacia $\operatorname{ter}(e)$. Si hay aristas múltiples entre dos vértices, suelen curvarse sus respectivas flechas para evitar que éstas se superpongan. Ahora también resulta conveniente etiquetar las aristas con sus nombres para diferenciar aristas paralelas.
+Observemos que un grafo dirigido puede tener varias aristas entre los mismos dos vértices $u,v$ (todas aquellas $e\in E$ con $\left\lbrace \operatorname{init}(e),\operatorname{ter}(e)\right\rbrace=\left\lbrace u,v\right\rbrace$). Decimos que tales aristas son \textit{aristas múltiples}; si tienen la misma dirección (por ejemplo de $u$ a $v$), entonces se dicen \textit{paralelas}. Una arista $e$ se llama un \textit{bucle} si $\operatorname{init}(e)=\operatorname{ter}(e)$. Los vértices de un grafo dirigido pueden representarse visualmente de la misma forma que en un grafo simple, pero ahora para representar una arista $e$ se usa una flecha que parte de $\operatorname{init}(e)$ y apunta hacia $\operatorname{ter}(e)$. Si hay aristas múltiples entre dos vértices, suelen curvarse sus respectivas flechas para evitar que éstas se superpongan. Ahora también resulta conveniente etiquetar las aristas con sus nombres para diferenciar aristas paralelas.
 \begin{Ejm}
    Un ejemplo de grafo dirigido es $G=(V,E)$ donde $V=\{ v_1,\allowbreak v_2, \allowbreak v_3, \allowbreak v_4, \allowbreak v_5, \allowbreak v_6,\allowbreak v_7\}$ y $E=\left\lbrace e_1,e_2,e_3,e_4,e_5,e_6,e_7,e_8,e_9,e_{10},e_{11},e_{12}\right\rbrace$, junto con las funciones
    \begin{center}
@@ -70,22 +70,34 @@ Observemos que un grafo dirigido puede tener varias aristas entre los mismos dos
 De forma intuitiva podemos decir que un grafo orientado se genera a partir de un grafo simple dirigiendo cada arista de uno de sus respectivos vértices al otro. Igualmente, podemos notar que los grafos orientados son grafos dirigidos sin bucles ni aristas múltiples. Por esto mismo, en la representación visual de un grafo orientado podemos prescindir de etiquetar sus aristas.
 \begin{Ejm}
    El grafo dirigido $D=(V,E)$ con $V=\left\lbrace v_1,v_2,v_3,v_4,v_5,v_6\right\rbrace$ y $E = \left\{ \{v_1, v_2\}, \{v_1, v_3\}, \{v_2, v_3\}, \{v_2, v_4\}, \{v_3, v_4\}, \{v_3, v_5\}, \{v_5, v_6\}, \{v_5, v_7\} \right\}$, junto con las funciones 
-   
-   Un \textbf{multigrafo} es una pareja $(V,E)$ de conjuntos disyuntos (de vértices y aristas) junto con una función $E\to V\cap [V]^2$, que asigna a cada arista uno o dos vértices. 
-
-   Es una orientación del grafo simple $G=(V,E)$. Por tanto $D$ es un grafo orientado.
+   \begin{center}
+   $\hfill
+   \begin{array}{rcl c rcl}
+      \operatorname{init} \colon \quad \phantom{a}E\phantom{aa} &\to& V &\quad\qquad& \operatorname{ter} \colon \quad \phantom{a}E\phantom{aa} &\to& V \\
+     \{v_1, v_2\} &\mapsto& v_2 && \{v_1, v_2\} &\mapsto& v_1 \\
+     \{v_1, v_3\} &\mapsto& v_1 && \{v_1, v_3\} &\mapsto& v_3 \\
+     \{v_2, v_3\} &\mapsto& v_2 && \{v_2, v_3\} &\mapsto& v_3 \\
+     \{v_2, v_4\} &\mapsto& v_2 && \{v_2, v_4\} &\mapsto& v_4 \\
+     \{v_3, v_4\} &\mapsto& v_4 && \{v_3, v_4\} &\mapsto& v_3 \\
+     \{v_3, v_5\} &\mapsto& v_3 && \{v_3, v_5\} &\mapsto& v_5 \\
+     \{v_5, v_6\} &\mapsto& v_6 && \{v_5, v_6\} &\mapsto& v_5 \\
+     \{v_5, v_7\} &\mapsto& v_5 && \{v_5, v_7\} &\mapsto& v_7
+   \end{array}
+   \hfill$
+   \end{center}
+   es una orientación del grafo simple $G=(V,E)$. Por tanto $D$ es un grafo orientado.
    \input{Preliminares_Grafos/Diagramas/Fig10.tex}
 \end{Ejm}
 \begin{Def}
-   Un \textbf{multigrafo} es una pareja $(V,E)$ de conjuntos disyuntos (de vértices y aristas) junto con una función $E\to V\cap [V]^2$, que asigna a cada arista uno o dos vértices. 
+   Un \textbf{multigrafo} es una pareja $(V,E)$ de conjuntos disyuntos (de vértices y aristas) junto con una función $\operatorname{inc}:E\to V\cap [V]^2$, que asigna a cada arista uno o dos vértices. 
 \end{Def}
-Por lo tanto, los multigrafos pueden tener también bucles y aristas múltiples. Intuitivamente podemos pensar en un multigrafo como un grafo dirigido en el que la dirección de sus aristas ha sido ``olvidada".
+Por lo tanto, los multigrafos pueden tener también bucles (aristas a las cuales $\operatorname{inc}$ mapea en $V$) y aristas múltiples (aristas que tienen la misma imagen vía $\operatorname{inc}$). Intuitivamente podemos pensar en un multigrafo como un grafo dirigido en el que la dirección de sus aristas ha sido ``olvidada". Para representar visualmente un multigrafo tratamos los vértices de la misma manera que se ha hecho con los otros tipos de grafos. Ahora, dada $e\in E$, si $\operatorname{inc}(e)=v$ para algún $v\in V$, representamos $e$ como un bucle sobre $v$; si $\operatorname{inc}(e)=\left\lbrace v_1,v_2\right\rbrace$ con $v_1,v_2\in V$ distintos, entonces representamos $e$ como una línea que une a $v_1$ y $v_2$, como lo hacíamos con los grafos simples. Nuevamente nos es conveniente etiquetar las aristas, y curvamos las aristas múltiples cuidando que éstas no se sobrepongan.
 \begin{Ejm}
    Un ejemplo de multigrafo es $G=(V,E)$ donde  $V=\{ v_1,\allowbreak v_2, \allowbreak v_3, \allowbreak v_4, \allowbreak v_5 \}$ y $E=\left\lbrace e_1,e_2,e_3,e_4,e_5,e_6,e_7,e_8,e_9,e_{10},e_{11}, e_{12},e_{13},e_{14}\right\rbrace$ junto con la función
    \begin{center}
    $\hfill
    \begin{array}{rcl}
-      E &\to& V \cup [V]^2 \\
+      \operatorname{inc} \colon E &\to& V \cup [V]^2 \\
       e_1 &\mapsto& \{v_1, v_2\} \\
       e_2 &\mapsto& \{v_2, v_3\} \\
       e_3 &\mapsto& \{v_1, v_5\} \\
@@ -102,13 +114,14 @@ Por lo tanto, los multigrafos pueden tener también bucles y aristas múltiples.
       e_{14} &\mapsto& \{v_3\}
    \end{array}
    \hfill$
-   \end{center}
+   \end{center}  
    La representación visual de $G$ se muestra a continuación.
    \begin{figure}[H]
      \centering
      \resizebox{0.5\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag40.tex}} 
      \caption{Un multigrafo}
    \end{figure}
+   Podemos ver, por ejemplo, que $e_8,e_9$ y $e_{10}$ son aristas múltiples entre $v_4$ y $v_5$, que $e_{12}$ es un bucle sobre $v_1$ y que $e_{14}$ es un bucle sobre $v_3$.
 \end{Ejm}
 \begin{Def}
    Dados dos grafos $G=(V,E)$ y $G'=(V',E')$, decimos que $G'$ es un subgrafo de $G$ si $V'\subseteq V$ y $E'\subseteq E$. En este caso denotamos $G'\subseteq G$.
