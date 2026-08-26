@@ -1,0 +1,49 @@
+% Recuerda incluir en el preámbulo:
+% \usetikzlibrary{arrows.meta, babel}
+
+\begin{tikzpicture}[
+  scale=0.85, 
+  auto=left,
+  >={Stealth[length=2.5mm]},
+  every node/.style={circle, fill=blue!20, draw=black, line width=1pt, inner sep=2pt, minimum size=6mm}
+]
+
+  % Posicionamiento de vértices
+  \node (v1) at (3,6) {$v_1$};
+  \node (v2) at (0,4) {$v_2$};
+  \node (v3) at (6,4) {$v_3$};
+  \node (v4) at (3,2) {$v_4$};
+  \node (v5) at (0,0) {$v_5$};
+  \node (v6) at (6,0) {$v_6$};
+  \node (v7) at (9,1.5) {$v_7$};
+
+  % Bucles en v1 (e1 y e2)
+  % e1 bajado un poco más (yshift=-5pt)
+  \path[->, line width=1pt] (v1) edge[loop top, out=120, in=60, looseness=8] node[draw=none, fill=none, above] {$e_1$} (v1);
+  \path[->, line width=1pt] (v1) edge[loop top, out=150, in=30, looseness=18] node[draw=none, fill=none, above] {$e_2$} (v1);
+
+  % Conexiones v1 <-> v2
+  \draw[->, line width=1pt] (v2) to[bend left=15] node[draw=none, fill=none, above] {$e_3$} (v1);
+  \draw[->, line width=1pt] (v1) to[bend left=15] node[draw=none, fill=none, below] {$e_4$} (v2);
+
+  % Arista v1 -> v4
+  \draw[->, line width=1pt] (v1) -- node[draw=none, fill=none, right] {$e_5$} (v4);
+
+  % Arista v4 -> v5
+  \draw[->, line width=1pt] (v4) -- node[draw=none, fill=none, above] {$e_6$} (v5);
+
+  % Bucle en v5 (e7) - Ajustado para alejarlo menos (yshift/xshift reducido a -2pt)
+  \path[->, line width=1pt] (v5) edge[loop left, out=210, in=150, looseness=8] node[draw=none, fill=none, xshift=-1pt, yshift=-1pt] {$e_7$} (v5);
+
+  % Múltiples aristas v4 -> v6 (e8, e9, e10)
+  \draw[->, line width=1pt] (v4) to[bend left=10] node[draw=none, fill=none, above] {$e_8$} (v6);
+  \draw[->, line width=1pt] (v4) to[bend right=25] node[draw=none, fill=none, below] {$e_9$} (v6);
+  \draw[->, line width=1pt] (v4) to[bend right=60] node[draw=none, fill=none, below] {$e_{10}$} (v6);
+
+  % Arista v6 -> v4 (e11)
+  \draw[->, line width=1pt] (v6) to[bend right=45] node[draw=none, fill=none, above] {$e_{11}$} (v4);
+
+  % Arista v7 -> v3 (e12) - Mantiene orientación horizontal/vertical (sin sloped) y centrada con pos=0.5
+  \draw[->, line width=1pt] (v7) -- node[draw=none, fill=none, pos=0.35, above] {$e_{12}$} (v3);
+
+\end{tikzpicture}

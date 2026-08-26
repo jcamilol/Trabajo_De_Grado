@@ -26,7 +26,31 @@ De este modo, las aristas de un grafo son $2-subconjuntos$ de vértices. Si es n
 \begin{Not}
    El grafo $G=(\phi,\phi)$ en el cual tanto el conjunto de vértices como el de aristas es vacío, lo llamamos \textbf{grafo vacío} y lo representamos simplemente por $\phi$.
 \end{Not}
-Notemos que en un grafo $G$, dada $uv\in E(G)$, se tiene que $uv$ y $vu$ hacen referencia a la misma arista, pues $uv=\left\lbrace u,v \right\rbrace=\left\lbrace v, u\right\rbrace=vu$. Este tipo de grafos en los cuales el orden de los vértices en la representación de la arista no es tenido en cuenta también son llamados \textit{grafos no dirigidos}. Además, la exigencia de que las aristas de un grafo sean $2-subconjuntos$ de vértices implica que si $uv\in E(G)$ entonces $u\neq v$, es decir, no hay aristas que unan un vértice con si mismo, lo que también expresamos diciendo que el grafo no tiene \textit{bucles}. Así mismo, entre dos vértices distintos $u,v\in V(G)$ podrá haber a lo más una arista, dependiendo de si $uv$ pertenece a $E(G)$ o no, es decir, se excluye la posibilidad de que hayan \textit{aristas paralelas} entre un par de vértices. En la literatura, se suele también hacer referencia a este tipo particular de grafos (no dirigidos, sin bucles y sin aristas paralelas) como \textit{grafos simples}. A continuación presentamos la definición de otros tipos de grafos. 
+Notemos que en un grafo $G$, dada $uv\in E(G)$, se tiene que $uv$ y $vu$ hacen referencia a la misma arista, pues $uv=\left\lbrace u,v \right\rbrace=\left\lbrace v, u\right\rbrace=vu$. Este tipo de grafos en los cuales el orden de los vértices en la representación de la arista no es tenido en cuenta también son llamados \textit{grafos no dirigidos}. Además, la exigencia de que las aristas de un grafo sean $2-subconjuntos$ de vértices implica que si $uv\in E(G)$ entonces $u\neq v$, es decir, no hay aristas que unan un vértice con si mismo, lo que también expresamos diciendo que el grafo no tiene \textit{bucles}. Así mismo, entre dos vértices distintos $u,v\in V(G)$ podrá haber a lo más una arista, dependiendo de si $uv$ pertenece a $E(G)$ o no, es decir, se excluye la posibilidad de que hayan \textit{aristas paralelas} entre un par de vértices. En la literatura, se suele también hacer referencia a este tipo particular de grafos (no dirigidos, sin bucles y sin aristas paralelas) como \textit{grafos simples}. A continuación presentamos la definición de otros tipos de grafos.
+\begin{Def}
+   Un \textbf{hipergrafo} es una pareja $(V,E)$ de conjuntos disyuntos (de vértices y aristas), donde los elementos de $E$ son subconjuntos no vacíos (de cualquier cardinalidad) de $V$. 
+\end{Def}
+De esta manera, los grafos simples son casos especiales de hipergrafos.
+\begin{Def}
+   Un \textbf{grafo dirigido} (también llamado \textbf{digrafo}) es una pareja $(V,E)$ de conjuntos disyuntos (de vértices y aristas) junto con dos funciones $\text{init}:E\to V$ y $\text{ter}:E\to V$ que asignan a cada arista $e\in E$ un \textbf{vértice inicial} init($e$) y un \textbf{vértice final} ter($e$). Decimos que la arista $e$ está \textbf{dirigida de} init($e$) \textbf{a} ter($e$).
+\end{Def}
+Observemos que un grafo dirigido puede tener varias aristas entre los mismos dos vértices $x,y$. Decimos que tales aristas son \textit{aristas múltiples}; si tienen la misma dirección (por ejemplo de $x$ a $y$), entonces se dicen \textit{paralelas}. Una arista $e$ se llama un \textit{bucle} si $\text{init(}e\text{)}=\text{ter(}e\text{)}$.
+\begin{Ejm}
+    \begin{figure}[H]
+     \centering
+       \resizebox{0.45\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag37.tex}} 
+     \caption{Un grafo dirigido}
+   \end{figure}
+
+\end{Ejm}
+\begin{Def}
+   Decimos que un grafo dirigido $D$ es una \textbf{orientación} de un grafo simple $G$ si $V(D)=V(G)$, $E(D)=E(G)$ y $\left\lbrace \text{init(}e\text{)},\text{ter(}e\text{)}\right\rbrace=\left\lbrace x,y\right\rbrace$ para toda arista $e=xy$. En este caso también decimos que $D$ es un \textbf{grafo orientado}. 
+\end{Def}
+De forma intuitiva podemos decir que un grafo orientado se genera a partir de un grafo simple dirigiendo cada arista de uno de sus vértices al otro. Igualmente, podemos notar que los grafos orientados son grafos dirigidos sin bucles ni aristas múltiples.
+\begin{Def}
+   Un \textbf{multigrafo} es una pareja $(V,E)$ de conjuntos disyuntos (de vértices y aristas) junto con una función $E\to V\cap [V]^2$, que asigna a cada arista uno o dos vértices. 
+\end{Def}
+Por lo tanto, los multigrafos pueden tener también bucles y aristas múltiples. Intuitivamente podemos pensar en un multigrafo como un grafo dirigido en el que la dirección de sus aristas ha sido ``olvidada".
 \begin{Def}
    Dados dos grafos $G=(V,E)$ y $G'=(V',E')$, decimos que $G'$ es un subgrafo de $G$ si $V'\subseteq V$ y $E'\subseteq E$. En este caso denotamos $G'\subseteq G$.
 \end{Def}
