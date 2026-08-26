@@ -65,13 +65,30 @@ Observemos que un grafo dirigido puede tener varias aristas entre los mismos dos
    Podemos señalar, por ejemplo, que $e_1, e_2$ y $e_7$ son bucles, $e_3$ y $e_4$ son aristas múltiples entre $v_1$ y $v_2$, y $e_8,e_9$ y $e_{10}$ son aristas paralelas.
 \end{Ejm}
 \begin{Def}
-   Decimos que un grafo dirigido $D$ es una \textbf{orientación} de un grafo simple $G$ si $V(D)=V(G)$, $E(D)=E(G)$ y $\left\lbrace \text{init(}e\text{)},\text{ter(}e\text{)}\right\rbrace=\left\lbrace x,y\right\rbrace$ para toda arista $e=xy$. En este caso también decimos que $D$ es un \textbf{grafo orientado}. 
+   Decimos que un grafo dirigido $D$ es una \textbf{orientación} de un grafo simple $G$ si $V(D)=V(G)$, $E(D)=E(G)$ e $\left\lbrace \operatorname{init}(e),\operatorname{ter}(e)\right\rbrace=\left\lbrace x,y\right\rbrace$ para toda arista $e=xy$. En este caso también decimos que $D$ es un \textbf{grafo orientado}. 
 \end{Def}
-De forma intuitiva podemos decir que un grafo orientado se genera a partir de un grafo simple dirigiendo cada arista de uno de sus vértices al otro. Igualmente, podemos notar que los grafos orientados son grafos dirigidos sin bucles ni aristas múltiples.
+De forma intuitiva podemos decir que un grafo orientado se genera a partir de un grafo simple dirigiendo cada arista de uno de sus respectivos vértices al otro. Igualmente, podemos notar que los grafos orientados son grafos dirigidos sin bucles ni aristas múltiples. Por esto mismo, en la representación visual de un grafo orientado podemos prescindir de etiquetar sus aristas.
+\begin{Ejm}
+   El grafo dirigido $D=(V,E)$ con $V=\left\lbrace v_1,v_2,v_3,v_4,v_5,v_6\right\rbrace$ y $E = \left\{ \{v_1, v_2\}, \{v_1, v_3\}, \{v_2, v_3\}, \{v_2, v_4\}, \{v_3, v_4\}, \{v_3, v_5\}, \{v_5, v_6\}, \{v_5, v_7\} \right\}$, junto con las funciones 
+   
+   Un \textbf{multigrafo} es una pareja $(V,E)$ de conjuntos disyuntos (de vértices y aristas) junto con una función $E\to V\cap [V]^2$, que asigna a cada arista uno o dos vértices. 
+
+   Es una orientación del grafo simple $G=(V,E)$. Por tanto $D$ es un grafo orientado.
+   \input{Preliminares_Grafos/Diagramas/Fig10.tex}
+\end{Ejm}
 \begin{Def}
    Un \textbf{multigrafo} es una pareja $(V,E)$ de conjuntos disyuntos (de vértices y aristas) junto con una función $E\to V\cap [V]^2$, que asigna a cada arista uno o dos vértices. 
 \end{Def}
 Por lo tanto, los multigrafos pueden tener también bucles y aristas múltiples. Intuitivamente podemos pensar en un multigrafo como un grafo dirigido en el que la dirección de sus aristas ha sido ``olvidada".
+\begin{Ejm}
+   Un ejemplo de multigrafo es $G=(V,E)$ donde  $V=\{ v_1,\allowbreak v_2, \allowbreak v_3, \allowbreak v_4, \allowbreak v_5 \}$ y $E=\left\lbrace e_1,e_2,e_3,e_4,e_5,e_6,e_7,e_8,e_9,e_{10},e_{11}, e_{12},e_{13},e_{14}\right\rbrace$ junto con la función
+test
+\begin{figure}[H]
+     \centering
+     \resizebox{0.5\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag40.tex}} 
+     \caption{$D$ es una orientación de $G$}
+   \end{figure}
+\end{Ejm}
 \begin{Def}
    Dados dos grafos $G=(V,E)$ y $G'=(V',E')$, decimos que $G'$ es un subgrafo de $G$ si $V'\subseteq V$ y $E'\subseteq E$. En este caso denotamos $G'\subseteq G$.
 \end{Def}
