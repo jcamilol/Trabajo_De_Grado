@@ -32,16 +32,37 @@ Notemos que en un grafo $G$, dada $uv\in E(G)$, se tiene que $uv$ y $vu$ hacen r
 \end{Def}
 De esta manera, los grafos simples son casos especiales de hipergrafos.
 \begin{Def}
-   Un \textbf{grafo dirigido} (también llamado \textbf{digrafo}) es una pareja $(V,E)$ de conjuntos disyuntos (de vértices y aristas) junto con dos funciones $\text{init}:E\to V$ y $\text{ter}:E\to V$ que asignan a cada arista $e\in E$ un \textbf{vértice inicial} init($e$) y un \textbf{vértice final} ter($e$). Decimos que la arista $e$ está \textbf{dirigida de} init($e$) \textbf{a} ter($e$).
+   Un \textbf{grafo dirigido} (también llamado \textbf{digrafo}) es una pareja $(V,E)$ de conjuntos disyuntos (de vértices y aristas) junto con dos funciones $\operatorname{init}:E\to V$ y $\operatorname{ter}:E\to V$ que asignan a cada arista $e\in E$ un \textbf{vértice inicial} $\operatorname{init}(e)$ y un \textbf{vértice final} $\operatorname{ter}(e)$. Decimos que la arista $e$ está \textbf{dirigida de $\operatorname{init}(e)$ a $\operatorname{ter} (e)$}.
 \end{Def}
-Observemos que un grafo dirigido puede tener varias aristas entre los mismos dos vértices $x,y$. Decimos que tales aristas son \textit{aristas múltiples}; si tienen la misma dirección (por ejemplo de $x$ a $y$), entonces se dicen \textit{paralelas}. Una arista $e$ se llama un \textit{bucle} si $\text{init(}e\text{)}=\text{ter(}e\text{)}$.
+Observemos que un grafo dirigido puede tener varias aristas entre los mismos dos vértices $x,y$. Decimos que tales aristas son \textit{aristas múltiples}; si tienen la misma dirección (por ejemplo de $x$ a $y$), entonces se dicen \textit{paralelas}. Una arista $e$ se llama un \textit{bucle} si $\operatorname{init}(e)=\operatorname{ter}(e)$. Los vértices de un grafo dirigido pueden representarse visualmente de la misma forma que en un grafo simple, pero ahora para representar una arista $e$ se usa una flecha que parte de $\operatorname{init}(e)$ y apunta hacia $\operatorname{ter}(e)$. Si hay aristas múltiples entre dos vértices, suelen curvarse sus respectivas flechas para evitar que éstas se superpongan. Ahora también resulta conveniente etiquetar las aristas con sus nombres para diferenciar aristas paralelas.
 \begin{Ejm}
-    \begin{figure}[H]
+   Un ejemplo de grafo dirigido es $G=(V,E)$ donde $V=\{ v_1,\allowbreak v_2, \allowbreak v_3, \allowbreak v_4, \allowbreak v_5, \allowbreak v_6,\allowbreak v_7\}$ y $E=\left\lbrace e_1,e_2,e_3,e_4,e_5,e_6,e_7,e_8,e_9,e_{10},e_{11},e_{12}\right\rbrace$, junto con las funciones
+   \begin{center}
+   $\hfill
+   \begin{array}{rcl c rcl}
+     \operatorname{init} \colon E &\to& V &\quad\qquad& \operatorname{ter} \colon E &\to& V \\
+     e_1 &\mapsto& v_1 && e_1 &\mapsto& v_1 \\
+     e_2 &\mapsto& v_1 && e_2 &\mapsto& v_1 \\
+     e_3 &\mapsto& v_2 && e_3 &\mapsto& v_1 \\
+     e_4 &\mapsto& v_1 && e_4 &\mapsto& v_2 \\
+     e_5 &\mapsto& v_1 && e_5 &\mapsto& v_4 \\
+     e_6 &\mapsto& v_4 && e_6 &\mapsto& v_5 \\
+     e_7 &\mapsto& v_5 && e_7 &\mapsto& v_5 \\
+     e_8 &\mapsto& v_4 && e_8 &\mapsto& v_6 \\
+     e_9 &\mapsto& v_4 && e_9 &\mapsto& v_6 \\
+     e_{10} &\mapsto& v_4 && e_{10} &\mapsto& v_6 \\
+     e_{11} &\mapsto& v_6 && e_{11} &\mapsto& v_4 \\
+     e_{12} &\mapsto& v_7 && e_{12} &\mapsto& v_3
+   \end{array}
+   \hfill$
+   \end{center}
+   La representación visual de $G$ se muestra a continuación.
+   \begin{figure}[H]
      \centering
        \resizebox{0.5\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag37.tex}} 
      \caption{Un grafo dirigido}
    \end{figure}
-
+   Podemos señalar, por ejemplo, que $e_1, e_2$ y $e_7$ son bucles, $e_3$ y $e_4$ son aristas múltiples entre $v_1$ y $v_2$, y $e_8,e_9$ y $e_{10}$ son aristas paralelas.
 \end{Ejm}
 \begin{Def}
    Decimos que un grafo dirigido $D$ es una \textbf{orientación} de un grafo simple $G$ si $V(D)=V(G)$, $E(D)=E(G)$ y $\left\lbrace \text{init(}e\text{)},\text{ter(}e\text{)}\right\rbrace=\left\lbrace x,y\right\rbrace$ para toda arista $e=xy$. En este caso también decimos que $D$ es un \textbf{grafo orientado}. 
