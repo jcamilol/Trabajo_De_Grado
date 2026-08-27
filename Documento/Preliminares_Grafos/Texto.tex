@@ -12,7 +12,6 @@ Los elementos de $[S]^k$ son llamados $k-subconjuntos$ de $S$. Con esto, damos l
    Un \textbf{grafo} es una pareja $G=\left( V,E\right)$ de conjuntos tal que $E\subseteq [V]^2$. Los elementos de $V$ son llamados \textbf{vértices} y los elementos de $E$ son llamados \textbf{aristas}.
 \end{Def}
 De este modo, las aristas de un grafo son $2-subconjuntos$ de vértices. Si es necesario, dado un grafo $G$, también se denota por $V(G)$ a su conjunto de vértices, y por $E(G)$ a su conjunto de aristas. Un grafo con conjunto de vértices $V$ también es llamado un \textit{grafo sobre V}. Para evitar ambiguedades de notación, asumimos también que $V(G)\cap E(G)=\phi$ para todo grafo $G$. Una arista $\left\lbrace u,v\right\rbrace$ de un grafo también puede ser representada mediante $uv$. Una manera estándar y conveniente de representar visualmente un grafo es dibujar un punto por cada vértice, y unir dos de estos puntos por una línea si y sólo si los correspondientes vértices forman una arista del grafo. La distribución particular de los puntos en el espacio, así como la forma en que las líneas son dibujadas es irrelevante; la única información que importa es qué par de vértices están conectados mediante una arista y cuáles no. Solemos referirnos por \textit{grafo} también a la respectiva representación visual.
-
 \begin{Ejm} \label{Ejm:cuatro_grafos}
    Los siguientes son ejemplos de grafos sobre $V=\left\lbrace v_1,v_2,v_3,v_4,v_5, v_6 \right\rbrace$:
   \input{Preliminares_Grafos/Diagramas/Fig1.tex}
@@ -28,9 +27,28 @@ De este modo, las aristas de un grafo son $2-subconjuntos$ de vértices. Si es n
 \end{Not}
 Notemos que en un grafo $G$, dada $uv\in E(G)$, se tiene que $uv$ y $vu$ hacen referencia a la misma arista, pues $uv=\left\lbrace u,v \right\rbrace=\left\lbrace v, u\right\rbrace=vu$. Este tipo de grafos en los cuales el orden de los vértices en la representación de la arista no es tenido en cuenta también son llamados \textit{grafos no dirigidos}. Además, la exigencia de que las aristas de un grafo sean $2-subconjuntos$ de vértices implica que si $uv\in E(G)$ entonces $u\neq v$, es decir, no hay aristas que unan un vértice con si mismo, lo que también expresamos diciendo que el grafo no tiene \textit{bucles}. Así mismo, entre dos vértices distintos $u,v\in V(G)$ podrá haber a lo más una arista, dependiendo de si $uv$ pertenece a $E(G)$ o no, es decir, se excluye la posibilidad de que hayan \textit{aristas múltiples} entre un par de vértices. En la literatura, se suele también hacer referencia a este tipo particular de grafos (no dirigidos, sin bucles y sin aristas múltiples) como \textit{grafos simples}. A continuación presentamos la definición de otros tipos de grafos.
 \begin{Def}
-   Un \textbf{hipergrafo} es una pareja $(V,E)$ de conjuntos disyuntos (de vértices y aristas), donde los elementos de $E$ son subconjuntos no vacíos (de cualquier cardinalidad) de $V$. 
+   Un \textbf{hipergrafo} es una pareja $(V,E)$ de conjuntos disyuntos (de vértices y aristas), donde los elementos de $E$ son subconjuntos no vacíos, de cualquier cardinalidad, de $V$. 
 \end{Def}
-De esta manera, los grafos simples son casos especiales de hipergrafos.
+De esta manera, los grafos simples son casos especiales de hipergrafos, donde se exige que cada arista sea un $2-subconjunto$ de $V$. Para ilustrar visualmente un hipergrafo se usa nuevamente un punto por cada vértice, y para representar cada arista se usa una curva cerrada continua que encierre únicamente a los vértices contenidos en ella, de forma similar a como se hace en los diagramas de Venn.
+\begin{Ejm}
+   Un ejemplo de hipergrafo es $G=(V,E)$ donde $V=\{ v_1,\allowbreak v_2, \allowbreak v_3, \allowbreak v_4, \allowbreak v_5, \allowbreak v_6,\allowbreak v_7, \allowbreak v_8\}$ y $E=\{e_1, \allowbreak e_2, \allowbreak e_3, \allowbreak e_4, \allowbreak e_5\}$ con 
+   $$
+   \begin{aligned}
+      e_1&=\{v_1, \allowbreak v_3, \allowbreak v_4, \allowbreak v_5\}\\
+      e_2&=\{v_1, \allowbreak v_6, \allowbreak v_7\}\\
+      e_3&=\{v_2, \allowbreak v_3, \allowbreak v_4, \allowbreak v_6\}\\
+      e_4&=\{v_5\}\\
+      e_5&=\{v_2, \allowbreak v_7\}\\
+   \end{aligned}
+   $$
+   La representación visual de $G$ se muestra a continuación.
+   \begin{figure}[H]
+     \centering
+       \resizebox{0.6\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag41.tex}} 
+     \caption{Un hipergrafo}
+   \end{figure}
+
+\end{Ejm}
 \begin{Def}
    Un \textbf{grafo dirigido} (también llamado \textbf{digrafo}) es una pareja $(V,E)$ de conjuntos disyuntos (de vértices y aristas) junto con dos funciones $\operatorname{init}:E\to V$ y $\operatorname{ter}:E\to V$ que asignan a cada arista $e\in E$ un \textbf{vértice inicial} $\operatorname{init}(e)$ y un \textbf{vértice final} $\operatorname{ter}(e)$. Decimos que la arista $e$ está \textbf{dirigida de $\operatorname{init}(e)$ a $\operatorname{ter} (e)$}.
 \end{Def}
