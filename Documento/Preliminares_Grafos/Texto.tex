@@ -11,7 +11,7 @@ Los elementos de $[S]^k$ son llamados $k-subconjuntos$ de $S$. Con esto, damos l
 \begin{Def}
    Un \textbf{grafo} es una pareja $G=\left( V,E\right)$ de conjuntos tal que $E\subseteq [V]^2$. Los elementos de $V$ son llamados \textbf{vértices} y los elementos de $E$ son llamados \textbf{aristas}.
 \end{Def}
-De este modo, las aristas de un grafo son $2-subconjuntos$ de vértices. Si es necesario, dado un grafo $G$, también se denota por $V(G)$ a su conjunto de vértices, y por $E(G)$ a su conjunto de aristas. Un grafo con conjunto de vértices $V$ también es llamado un \textit{grafo sobre V}. Para evitar ambiguedades de notación, asumimos también que $V(G)\cap E(G)=\phi$ para todo grafo $G$. Una arista $\left\lbrace u,v\right\rbrace$ de un grafo también puede ser representada mediante $uv$. Una manera estándar y conveniente de representar visualmente un grafo es dibujar un círculo o punto por cada vértice, y unir dos de estos círculos por una línea si y sólo si los correspondientes vértices forman una arista del grafo. La distribución particular de los círculos en el espacio, así como la forma en que las líneas son dibujadas es irrelevante; la única información que importa es qué par de vértices están conectados mediante una arista y cuáles no. Solemos referirnos por \textit{grafo} también a la respectiva representación visual.
+De este modo, las aristas de un grafo son $2-subconjuntos$ de vértices. Si es necesario, dado un grafo $G$, también se denota por $V(G)$ a su conjunto de vértices, y por $E(G)$ a su conjunto de aristas. Un grafo con conjunto de vértices $V$ también es llamado un \textit{grafo sobre V}. Para evitar ambiguedades de notación, asumimos también que $V(G)\cap E(G)=\emptyset$ para todo grafo $G$. Una arista $\left\lbrace u,v\right\rbrace$ de un grafo también puede ser representada mediante $uv$. Una manera estándar y conveniente de representar visualmente un grafo es dibujar un círculo o punto por cada vértice, y unir dos de estos círculos por una línea si y sólo si los correspondientes vértices forman una arista del grafo. La distribución particular de los círculos en el espacio, así como la forma en que las líneas son dibujadas es irrelevante; la única información que importa es qué par de vértices están conectados mediante una arista y cuáles no. Solemos referirnos por \textit{grafo} también a la respectiva representación visual.
 \begin{Ejm} \label{Ejm:cuatro_grafos}
    Los siguientes son ejemplos de grafos sobre $V=\left\lbrace v_1,v_2,v_3,v_4,v_5, v_6 \right\rbrace$:
   \input{Preliminares_Grafos/Diagramas/Fig1.tex}
@@ -23,7 +23,7 @@ De este modo, las aristas de un grafo son $2-subconjuntos$ de vértices. Si es n
    \end{figure}
 \end{Ejm}
 \begin{Not}
-   El grafo $G=(\phi,\phi)$ en el cual tanto el conjunto de vértices como el de aristas es vacío, lo llamamos \textbf{grafo vacío} y lo representamos simplemente por $\phi$.
+   El grafo $G=(\emptyset,\emptyset)$ en el cual tanto el conjunto de vértices como el de aristas es vacío, lo llamamos \textbf{grafo vacío} y lo representamos simplemente por $\emptyset$.
 \end{Not}
 Notemos que en un grafo $G$, dada $uv\in E(G)$, se tiene que $uv$ y $vu$ hacen referencia a la misma arista, pues $uv=\left\lbrace u,v \right\rbrace=\left\lbrace v, u\right\rbrace=vu$. Este tipo de grafos en los cuales el orden de los vértices en la representación de la arista no es tenido en cuenta también son llamados \textit{grafos no dirigidos}. Además, la exigencia de que las aristas de un grafo sean $2-subconjuntos$ de vértices implica que si $uv\in E(G)$ entonces $u\neq v$, es decir, no hay aristas que unan un vértice con si mismo, lo que también expresamos diciendo que el grafo no tiene \textit{bucles}. Así mismo, entre dos vértices distintos $u,v\in V(G)$ podrá haber a lo más una arista, dependiendo de si $uv$ pertenece a $E(G)$ o no, es decir, se excluye la posibilidad de que hayan \textit{aristas múltiples} entre un par de vértices. En la literatura, se suele también hacer referencia a este tipo particular de grafos (no dirigidos, sin bucles y sin aristas múltiples) como \textit{grafos simples}. A continuación presentamos la definición de otros tipos de grafos.
 \begin{Def}
@@ -146,7 +146,7 @@ Frecuentemente en matemáticas, uno de los primeros pasos al analizar una estruc
 \begin{Def}
    Dados dos grafos $G=(V,E)$ y $G'=(V',E')$, decimos que $G'$ es un \textbf{subgrafo} de $G$ si $V'\subseteq V$ y $E'\subseteq E$. En este caso denotamos $G'\subseteq G$.
 \end{Def}
-Para cualquier grafo $G$ se tiene $\phi\subseteq G$. Damos a continuación más ejemplos de contenencia de grafos.
+Para cualquier grafo $G$ se tiene $\emptyset\subseteq G$. Damos a continuación más ejemplos de contenencia de grafos.
 \begin{Ejm}\label{Ejm:Contenencia}
    En los siguientes grafos se tiene $G_i'\subseteq G_i$ para $i=1,2,3$:
    \input{Preliminares_Grafos/Diagramas/Fig9.tex}
@@ -236,7 +236,7 @@ Un concepto importante en el presente trabajo es el de \textit{grafo conexo}. Pa
    \end{itemize}
 \end{Ejm}
 \begin{Def}
-   Sea $G$ un grafo. Decimos que dos vértices $u,v\in V(G)$ están conectados por el camino $P$ en $G$ si $P\subseteq G$ y $P$ tiene a $u$ y $v$ como extremos.
+   Sea $G$ un grafo. Decimos que dos vértices $u,v\in V(G)$ están \textbf{conectados por el camino $P$} en $G$ si $P\subseteq G$ y $P$ tiene a $u$ y $v$ como extremos.
 \end{Def}
 \begin{Ejm}
    \phantom{o}
@@ -247,7 +247,7 @@ Un concepto importante en el presente trabajo es el de \textit{grafo conexo}. Pa
           \resizebox{0.2\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag19.tex}}
         \caption{Un camino entre $v_6$ y $v_4$}
       \end{figure}
-      \item En el primer grafo del \Cref{Ejm:Tabla1}, los vértices $v_4$ y $v_7$ están conectados por el camino $v_4v_5v_7$, pero $v_2$ y $v_6$ no están conectados por ningún camino.
+      \item En el grafo $G_1$ del \Cref{Ejm:Contenencia}, los vértices $v_4$ y $v_7$ están conectados por el camino $v_4v_5v_7$, pero $v_2$ y $v_6$ no están conectados por ningún camino.
       \begin{figure}[H]
         \centering
           \resizebox{0.3\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag20.tex}}
@@ -256,15 +256,15 @@ Un concepto importante en el presente trabajo es el de \textit{grafo conexo}. Pa
    \end{itemize}
 \end{Ejm}
 \begin{Def}
-   Un grafo $G$ es llamado \textbf{conexo} si $G\neq \phi$, y cualesquiera par de vértices  de $G$ están conectados por un camino en $G$. Si $G$ no es conexo, decimos que es \textbf{disconexo}. 
+   Un grafo $G$ es llamado \textbf{conexo} si $G\neq \emptyset$ y cualesquiera par de vértices  de $G$ están conectados por un camino en $G$. Si $G$ no es conexo, decimos que es \textbf{disconexo}. 
 \end{Def}
 Así, en el \Cref{Ejm:cuatro_grafos}, los grafos $G_1$, $G_3$ y $G_5$ son conexos, mientras que $G_2$ y $G_4$ son disconexos. Los grafos con un solo vértice son conexos.
 \begin{Def}
    Sea $G$ un grafo. Un subgrafo conexo maximal de $G$ es llamado una \textbf{componente} de $G$. 
 \end{Def}
-Lo anterior nos quiere decir que un subgrafo $H\subseteq G$ es una componente de $G$ si y sólo si $H$ es conexo y además $H$ no está propiamente contenido en otro subgrafo conexo de $G$. Naturalmente, un grafo es conexo si y sólo si tiene una única componente.
+Lo anterior nos quiere decir que un subgrafo $H\subseteq G$ es una componente de $G$ si y sólo si $H$ es conexo y además $H$ no está propiamente contenido en otro subgrafo conexo de $G$. Naturalmente, un grafo es conexo si y sólo si tiene una única componente. Además, como los grafos conexos son no vacíos, se sigue que el grafo vacío no tiene componentes.
 \begin{Ejm}
-   En los siguientes grafos se encierra con una línea punteada cada una de sus componentes:
+   En los siguientes grafos se encierra con una línea punteada cada una de sus componentes.
    \begin{figure}[H]
      \centering
        \resizebox{0.45\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag21.tex}}
@@ -272,12 +272,12 @@ Lo anterior nos quiere decir que un subgrafo $H\subseteq G$ es una componente de
    \end{figure}
    \begin{figure}[H]
      \centering
-       \resizebox{0.4\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag22.tex}}
+       \resizebox{0.35\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag22.tex}}
      \caption{Un grafo con dos componentes}
    \end{figure}
    \begin{figure}[H]
      \centering
-       \resizebox{0.58\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag23.tex}}
+       \resizebox{0.55\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag23.tex}}
      \caption{Un grafo con tres componentes}
    \end{figure}
 \end{Ejm}
@@ -302,9 +302,9 @@ Como se ve con el grafo $G_3$ del \Cref{Ejm:Supresion}, la supresión de algunos
 \begin{Ejm}
    \phantom{o}
    \begin{itemize}
-      \item En el grafo $G_1$, $v_1$ es un vértice de corte, pues $G_1-\left\lbrace v_1\right\rbrace$ tiene cuatro componentes, mientras que $G_1$ tiene dos componentes:
+      \item En el grafo $G_1$, $v_1$ es un vértice de corte, pues $G_1-\left\lbrace v_1\right\rbrace$ tiene cuatro componentes, mientras que $G_1$ tiene dos componentes.
          \input{Preliminares_Grafos/Diagramas/Fig6.tex}  
-      \item En el grafo $G_2$, $S=\left\lbrace u,v,w\right\rbrace$ es un conjunto de corte, pues $G_2-S$ tiene dos componentes; sin embargo $S$ no es un conjunto de corte minimal, pues $S':=\left\lbrace u,v\right\rbrace$ es un conjunto de corte y $S'\subsetneq S$. $S'$ sí es un conjunto de corte minimal pues ni $\left\lbrace u\right\rbrace$ ni $\left\lbrace v\right\rbrace$ son conjuntos de corte, ya que $G_2-\left\lbrace u\right\rbrace$ y $G_2-\left\lbrace v\right\rbrace$ son conexos:\par
+      \item En el grafo conexo $G_2$, $S=\left\lbrace u,v,w\right\rbrace$ es un conjunto de corte, pues $G_2-S$ tiene dos componentes; sin embargo $S$ no es un conjunto de corte minimal, pues $S':=\left\lbrace u,v\right\rbrace$ es un conjunto de corte y $S'\subsetneq S$. $S'$ sí es un conjunto de corte minimal pues ni $\left\lbrace u\right\rbrace$ ni $\left\lbrace v\right\rbrace$ son conjuntos de corte, ya que $G_2-\left\lbrace u\right\rbrace$ y $G_2-\left\lbrace v\right\rbrace$ son conexos.\par
         \input{Preliminares_Grafos/Diagramas/Fig7.tex}
    \end{itemize}
 \end{Ejm}
@@ -317,6 +317,6 @@ De esta forma, un subconjunto de vértices de un grafo es independiente si ning�
 \end{Def}
 Así, $\overline{G}$ mantiene los vértices de $G$, pero dos vértice son adyacentes en $\overline{G}$ si y sólo si no son adyacentes en $G$.
 \begin{Ejm}
-   Las siguientes figuras muestran ejemplos de grafos y su complemento:
+   La siguiente figura muestra ejemplos de grafos y su complementos.
    \input{Preliminares_Grafos/Diagramas/Fig8.tex}
 \end{Ejm}
