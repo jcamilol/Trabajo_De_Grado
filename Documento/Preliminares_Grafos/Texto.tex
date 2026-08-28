@@ -7,7 +7,7 @@ $$
          &\phantom{ooo} \left. \left\lbrace 2,4,5\right\rbrace, \left\lbrace 3,4,5\right\rbrace\right\rbrace 
 \end{aligned}
 $$
-Los elementos de $[S]^k$ son llamados $k-subconjuntos$ de $S$. Con esto, damos la definición de grafo:
+Los elementos de $[S]^k$ son llamados $k-subconjuntos$ de $S$. Con esto, damos la definición de grafo.
 \begin{Def}
    Un \textbf{grafo} es una pareja $G=\left( V,E\right)$ de conjuntos tal que $E\subseteq [V]^2$. Los elementos de $V$ son llamados \textbf{vértices} y los elementos de $E$ son llamados \textbf{aristas}.
 \end{Def}
@@ -141,10 +141,12 @@ Por lo tanto, los multigrafos pueden tener también bucles (aristas cuya imagen 
    \end{figure}
    Podemos ver, por ejemplo, que $e_8,e_9$ y $e_{10}$ son aristas múltiples entre $v_4$ y $v_5$, que $e_{12}$ es un bucle sobre $v_1$ y que $e_{14}$ es un bucle sobre $v_3$.
 \end{Ejm}
+En el presente estudio trabajaremos únicamente con grafos simples, así que de ahora en adelante se entenderá \textit{grafo} y \textit{grafo simple} de manera indistinta.\\\\
+Frecuentemente en matemáticas, uno de los primeros pasos al analizar una estructura formal es estudiar sus subestructuras, es decir, objetos del mismo tipo contenidos en ella. Para esto introducimos la noción de \textit{subgrafo}.
 \begin{Def}
-   Dados dos grafos $G=(V,E)$ y $G'=(V',E')$, decimos que $G'$ es un subgrafo de $G$ si $V'\subseteq V$ y $E'\subseteq E$. En este caso denotamos $G'\subseteq G$.
+   Dados dos grafos $G=(V,E)$ y $G'=(V',E')$, decimos que $G'$ es un \textbf{subgrafo} de $G$ si $V'\subseteq V$ y $E'\subseteq E$. En este caso denotamos $G'\subseteq G$.
 \end{Def}
-Para cualquier grafo $G$ se tiene $\phi\subseteq G$. Damos a continuación más ejemplos de contenencia de grafos:
+Para cualquier grafo $G$ se tiene $\phi\subseteq G$. Damos a continuación más ejemplos de contenencia de grafos.
 \begin{Ejm}\label{Ejm:Contenencia}
    En los siguientes grafos se tiene $G_i'\subseteq G_i$ para $i=1,2,3$:
    \input{Preliminares_Grafos/Diagramas/Fig9.tex}
@@ -206,7 +208,7 @@ Todos los grafos finitos son localmente finitos. El grafo $G_5$ del \Cref{Ejm:cu
    \end{figure}
 \end{Ejm}
 \begin{Ejm}
-   El siguiente grafo infinito no es localmente finito, pues $d(v_1)$ no es finito:
+   El siguiente grafo infinito no es localmente finito, pues $d(v_1)$ no es finito.
    \begin{figure}[H]
      \centering
        \resizebox{0.45\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag7.tex}} 
@@ -215,11 +217,11 @@ Todos los grafos finitos son localmente finitos. El grafo $G_5$ del \Cref{Ejm:cu
 \end{Ejm}
 Un concepto importante en el presente trabajo es el de \textit{grafo conexo}. Para ello introducimos primero la definición de \textit{camino}.
 \begin{Def}
-   Un \textbf{camino} es grafo no vacío $P=(V,E)$ de la forma
+   Un \textbf{camino} es un grafo no vacío $P=(V,E)$ de la forma
    $$
-   V=\left\lbrace x_0, x_1, \dots, x_k\right\rbrace \quad E=\left\lbrace x_0x_1, x_1x_2, \dots x_{k-1}x_k\right\rbrace,
+   V=\left\lbrace x_0, x_1, \dots, x_k\right\rbrace \quad E=\left\lbrace x_0x_1, x_1x_2, \dots , x_{k-1}x_k\right\rbrace,
    $$
-   para $k\in \mathbb{N}$, y donde todos los $x_i$, con $i\in \left\lbrace 0,1,\dots,k\right\rbrace$ son distintos. En este caso denotamos a $P$ mediante $x_0x_1\dots x_k$ o $x_kx_{k-1}\dots x_0$. Decimos que los vértices $x_0$ y $x_k$ están \textbf{conectados} por el camino P, y que $x_0$ y $x_k$ son los extremos de $P$. El número de aristas de un camino es su \textbf{longitud}, y un camino de longitud $k$ es denotado por $P^k$.
+   para $k\in \mathbb{N}$, y donde todos los $x_i$, con $i\in \left\lbrace 0,1,\dots,k\right\rbrace$, son distintos. En este caso denotamos a $P$ mediante $x_0x_1\dots x_k$ o $x_kx_{k-1}\dots x_0$. Decimos que los vértices $x_0$ y $x_k$ están \textbf{conectados} por el camino P, y que $x_0$ y $x_k$ son los \textbf{extremos} de $P$. El número de aristas de un camino es su \textbf{longitud}, y un camino de longitud $k$ es denotado por $P^k$.
 \end{Def}
 \begin{Ejm}
    \phantom{o}
