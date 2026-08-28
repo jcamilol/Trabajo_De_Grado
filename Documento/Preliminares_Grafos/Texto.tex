@@ -11,7 +11,7 @@ Los elementos de $[S]^k$ son llamados $k-subconjuntos$ de $S$. Con esto, damos l
 \begin{Def}
    Un \textbf{grafo} es una pareja $G=\left( V,E\right)$ de conjuntos tal que $E\subseteq [V]^2$. Los elementos de $V$ son llamados \textbf{vértices} y los elementos de $E$ son llamados \textbf{aristas}.
 \end{Def}
-De este modo, las aristas de un grafo son $2-subconjuntos$ de vértices. Si es necesario, dado un grafo $G$, también se denota por $V(G)$ a su conjunto de vértices, y por $E(G)$ a su conjunto de aristas. Un grafo con conjunto de vértices $V$ también es llamado un \textit{grafo sobre V}. Para evitar ambiguedades de notación, asumimos también que $V(G)\cap E(G)=\phi$ para todo grafo $G$. Una arista $\left\lbrace u,v\right\rbrace$ de un grafo también puede ser representada mediante $uv$. Una manera estándar y conveniente de representar visualmente un grafo es dibujar un punto por cada vértice, y unir dos de estos puntos por una línea si y sólo si los correspondientes vértices forman una arista del grafo. La distribución particular de los puntos en el espacio, así como la forma en que las líneas son dibujadas es irrelevante; la única información que importa es qué par de vértices están conectados mediante una arista y cuáles no. Solemos referirnos por \textit{grafo} también a la respectiva representación visual.
+De este modo, las aristas de un grafo son $2-subconjuntos$ de vértices. Si es necesario, dado un grafo $G$, también se denota por $V(G)$ a su conjunto de vértices, y por $E(G)$ a su conjunto de aristas. Un grafo con conjunto de vértices $V$ también es llamado un \textit{grafo sobre V}. Para evitar ambiguedades de notación, asumimos también que $V(G)\cap E(G)=\phi$ para todo grafo $G$. Una arista $\left\lbrace u,v\right\rbrace$ de un grafo también puede ser representada mediante $uv$. Una manera estándar y conveniente de representar visualmente un grafo es dibujar un círculo o punto por cada vértice, y unir dos de estos círculos por una línea si y sólo si los correspondientes vértices forman una arista del grafo. La distribución particular de los círculos en el espacio, así como la forma en que las líneas son dibujadas es irrelevante; la única información que importa es qué par de vértices están conectados mediante una arista y cuáles no. Solemos referirnos por \textit{grafo} también a la respectiva representación visual.
 \begin{Ejm} \label{Ejm:cuatro_grafos}
    Los siguientes son ejemplos de grafos sobre $V=\left\lbrace v_1,v_2,v_3,v_4,v_5, v_6 \right\rbrace$:
   \input{Preliminares_Grafos/Diagramas/Fig1.tex}
@@ -29,7 +29,7 @@ Notemos que en un grafo $G$, dada $uv\in E(G)$, se tiene que $uv$ y $vu$ hacen r
 \begin{Def}
    Un \textbf{hipergrafo} es una pareja $(V,E)$ de conjuntos disyuntos (de vértices y aristas), donde los elementos de $E$ son subconjuntos no vacíos, de cualquier cardinalidad, de $V$. 
 \end{Def}
-De esta manera, los grafos simples son casos especiales de hipergrafos, donde se exige que cada arista sea un $2-subconjunto$ de $V$. Para ilustrar visualmente un hipergrafo se usa nuevamente un punto por cada vértice, y para representar cada arista se usa una curva cerrada continua que encierre únicamente a los vértices contenidos en ella, de forma similar a como se hace en los diagramas de Venn.
+De esta manera, los grafos simples son casos especiales de hipergrafos, donde se exige que cada arista sea un $2-subconjunto$ de $V$. Para ilustrar visualmente un hipergrafo se usa nuevamente un círculo por cada vértice, y para representar cada arista se usa una curva cerrada continua que encierre únicamente a los vértices contenidos en ella, de forma similar a como se hace en los diagramas de Venn.
 \begin{Ejm}
    Un ejemplo de hipergrafo es $G=(V,E)$ donde $V=\{ v_1,\allowbreak v_2, \allowbreak v_3, \allowbreak v_4, \allowbreak v_5, \allowbreak v_6,\allowbreak v_7, \allowbreak v_8\}$ y $E=\{e_1, \allowbreak e_2, \allowbreak e_3, \allowbreak e_4, \allowbreak e_5\}$ con 
    $$
@@ -83,11 +83,11 @@ Observemos que un grafo dirigido puede tener varias aristas entre los mismos dos
    Podemos señalar, por ejemplo, que $e_1, e_2$ y $e_7$ son bucles, $e_3$ y $e_4$ son aristas múltiples entre $v_1$ y $v_2$, y $e_8,e_9$ y $e_{10}$ son aristas paralelas.
 \end{Ejm}
 \begin{Def}
-   Decimos que un grafo dirigido $D$ es una \textbf{orientación} de un grafo simple $G$ si $V(D)=V(G)$, $E(D)=E(G)$ e $\left\lbrace \operatorname{init}(e),\operatorname{ter}(e)\right\rbrace=\left\lbrace x,y\right\rbrace$ para toda arista $e=xy$. En este caso también decimos que $D$ es un \textbf{grafo orientado}. 
+   Decimos que un grafo dirigido $D$ es una \textbf{orientación} de un grafo simple $G$ si $V(D)=V(G)$, $E(D)=E(G)$ e $\left\lbrace \operatorname{init}(e),\operatorname{ter}(e)\right\rbrace=\left\lbrace u,v\right\rbrace$ para toda arista $e=uv$. En este caso también decimos que $D$ es un \textbf{grafo orientado}. 
 \end{Def}
-De forma intuitiva podemos decir que un grafo orientado se genera a partir de un grafo simple dirigiendo cada arista de uno de sus respectivos vértices al otro. Igualmente, podemos notar que los grafos orientados son grafos dirigidos sin bucles ni aristas múltiples. Por esto mismo, en la representación visual de un grafo orientado podemos prescindir de etiquetar sus aristas.
+De forma intuitiva, podemos decir que un grafo orientado se genera a partir de un grafo simple dirigiendo cada arista de uno de sus respectivos vértices al otro. Igualmente, podemos notar que los grafos orientados son grafos dirigidos sin bucles ni aristas múltiples. Por esto mismo, en la representación visual de un grafo orientado podemos prescindir de etiquetar sus aristas.
 \begin{Ejm}
-   El grafo dirigido $D=(V,E)$ con $V=\left\lbrace v_1,v_2,v_3,v_4,v_5,v_6\right\rbrace$ y $E = \left\{ \{v_1, v_2\}, \{v_1, v_3\}, \{v_2, v_3\}, \{v_2, v_4\}, \{v_3, v_4\}, \{v_3, v_5\}, \{v_5, v_6\}, \{v_5, v_7\} \right\}$, junto con las funciones 
+   El grafo dirigido $D=(V,E)$ con $V=\left\lbrace v_1,v_2,v_3,v_4,v_5,v_6,v_7\right\rbrace$ y $E = \left\{ \{v_1, v_2\}, \{v_1, v_3\}, \{v_2, v_3\}, \{v_2, v_4\}, \{v_3, v_4\}, \{v_3, v_5\}, \{v_5, v_6\}, \{v_5, v_7\} \right\}$, junto con las funciones 
    \begin{center}
    $\hfill
    \begin{array}{rcl c rcl}
@@ -107,9 +107,9 @@ De forma intuitiva podemos decir que un grafo orientado se genera a partir de un
    \input{Preliminares_Grafos/Diagramas/Fig10.tex}
 \end{Ejm}
 \begin{Def}
-   Un \textbf{multigrafo} es una pareja $(V,E)$ de conjuntos disyuntos (de vértices y aristas) junto con una función $\operatorname{inc}:E\to V\cap [V]^2$, que asigna a cada arista uno o dos vértices. 
+   Un \textbf{multigrafo} es una pareja $(V,E)$ de conjuntos disyuntos (de vértices y aristas) junto con una función $\operatorname{inc}:E\to V\cup [V]^2$, que asigna a cada arista un vértice o una pareja de vértices. 
 \end{Def}
-Por lo tanto, los multigrafos pueden tener también bucles (aristas a las cuales $\operatorname{inc}$ mapea en $V$) y aristas múltiples (aristas que tienen la misma imagen vía $\operatorname{inc}$). Intuitivamente podemos pensar en un multigrafo como un grafo dirigido en el que la dirección de sus aristas ha sido ``olvidada". Para representar visualmente un multigrafo tratamos los vértices de la misma manera que se ha hecho con los otros tipos de grafos. Ahora, dada $e\in E$, si $\operatorname{inc}(e)=v$ para algún $v\in V$, representamos $e$ como un bucle sobre $v$; si $\operatorname{inc}(e)=\left\lbrace v_1,v_2\right\rbrace$ con $v_1,v_2\in V$ distintos, entonces representamos $e$ como una línea que une a $v_1$ y $v_2$, como lo hacíamos con los grafos simples. Nuevamente nos es conveniente etiquetar las aristas, y curvamos las aristas múltiples cuidando que éstas no se sobrepongan.
+Por lo tanto, los multigrafos pueden tener también bucles (aristas cuya imagen vía $\operatorname{inc}$ pertenece a $V$) y aristas múltiples (aristas que tienen la misma imagen vía $\operatorname{inc}$). Intuitivamente podemos pensar en un multigrafo como un grafo dirigido en el que la dirección de sus aristas ha sido ``olvidada". Para representar visualmente un multigrafo tratamos los vértices de la misma manera que se ha hecho con los otros tipos de grafos. Ahora, dada $e\in E$, si $\operatorname{inc}(e)=v$ para algún $v\in V$, representamos $e$ como un bucle sobre $v$; si $\operatorname{inc}(e)=\left\lbrace v_1,v_2\right\rbrace$ con $v_1,v_2\in V$ distintos, entonces representamos $e$ como una línea que une a $v_1$ y $v_2$, como lo hacíamos con los grafos simples. Nuevamente nos es conveniente etiquetar las aristas, y curvamos las aristas múltiples cuidando que éstas no se sobrepongan.
 \begin{Ejm}
    Un ejemplo de multigrafo es $G=(V,E)$ donde  $V=\{ v_1,\allowbreak v_2, \allowbreak v_3, \allowbreak v_4, \allowbreak v_5 \}$ y $E=\left\lbrace e_1,e_2,e_3,e_4,e_5,e_6,e_7,e_8,e_9,e_{10},e_{11}, e_{12},e_{13},e_{14}\right\rbrace$ junto con la función
    \begin{center}
