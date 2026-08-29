@@ -1,0 +1,24 @@
+\begin{tikzpicture}
+  [scale=.6, auto=left, 
+   vertex/.style={circle, fill=blue!20, draw=black, thick, inner sep=2pt, minimum size=18pt},
+   edge/.style={thick, draw=black}]
+
+  % Vértices
+  \node[vertex] (n1) at (2,4) {$\scriptstyle v_1$};
+  \node[vertex] (n2) at (4,3) {$\scriptstyle v_2$};
+  \node[vertex] (n3) at (4,1) {$\scriptstyle v_3$};
+  \node[vertex] (n4) at (2,0) {$\scriptstyle v_4$};
+  \node[vertex] (n5) at (0,1) {$\scriptstyle v_5$};
+  \node[vertex] (n6) at (0,3) {$\scriptstyle v_6$};
+
+  % Aristas originales de G_3
+  \foreach \from/\to in {n1/n2, n1/n3, n1/n4, n1/n5, n1/n6}
+    \draw[edge] (\from) -- (\to);
+
+  % Aristas añadidas: {v2,v3}, {v3,v4}, {v4,v5}, {v5,v6}
+  \foreach \from/\to in {n2/n3, n3/n4, n4/n5, n5/n6}
+    \draw[edge] (\from) -- (\to);
+
+  % Etiqueta inferior
+  \node at (2,-1.5) {$G_3+F'$};
+\end{tikzpicture}

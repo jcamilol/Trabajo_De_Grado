@@ -327,12 +327,21 @@ Ahora procedemos a enunciar algunas clases especiales de grafos.
 Por tanto, un grafo es completo si todos sus vértices son adyacentes dos a dos.
 \begin{Ejm}
    El grafo vacío y el grafo con un solo vértice son grafos completos, que se denotan por $K^0$ y $K^1$, respectivamente. A continuación se muestran grafos completos con $3$, $5$ y $7$ vértices.
-   \begin{figure}[H]
-     \renewcommand{\diagscale}{0.2\textwidth}%
-      \centering
-      \resizebox{\diagscale}{!}{\input{Preliminares_Grafos/Diagramas/Diag42.tex}}\hspace{4em}
-      \resizebox{\diagscale}{!}{\input{Preliminares_Grafos/Diagramas/Diag43.tex}}\hspace{4em}
-      \resizebox{\diagscale}{!}{\input{Preliminares_Grafos/Diagramas/Diag44.tex}}\vspace{0.5em}
-    \caption{Ejemplos de grafos completos}
-   \end{figure}
+   \input{Preliminares_Grafos/Diagramas/Fig11.tex}
 \end{Ejm}
+Para introducir los grafos conocidos como \textit{ciclos}, primero damos la siguiente definición.
+\begin{Def}
+   Sean $G$ un grafo y $F\subseteq [V(G)]^2$. Definimos el nuevo grafo $\bm{G+F}:=(V,E\cup F)$.
+\end{Def}
+De esta manera, lo que hacemos es adicionar a $G$, como nuevas aristas, las parejas de vértices que contenga $F$.
+\begin{Ejm}
+   \phantom{0}
+   \begin{itemize}
+      \item Si $F=\left\lbrace \left\lbrace v_2,v_6\right\rbrace, \left\lbrace v_2,v_5\right\rbrace, \left\lbrace v_3,v_6\right\rbrace, \left\lbrace v_3,v_5\right\rbrace\right\rbrace$ entonces:  
+         \input{Preliminares_Grafos/Diagramas/Fig12.tex}  
+      \item Si $F'=\left\lbrace \left\lbrace v_2,v_3\right\rbrace, \left\lbrace v_3,v_4\right\rbrace, \left\lbrace v_4,v_5\right\rbrace, \left\lbrace v_5,v_6 \right\rbrace\right\rbrace$ entonces:
+         \vspace{1em}
+         \input{Preliminares_Grafos/Diagramas/Fig13.tex}  
+   \end{itemize}
+\end{Ejm}
+
