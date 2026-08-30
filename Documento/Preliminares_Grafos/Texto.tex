@@ -221,7 +221,7 @@ Un concepto importante en el presente trabajo es el de \textit{grafo conexo}. Pa
    $$
    V=\left\lbrace x_0, x_1, \dots, x_k\right\rbrace \quad E=\left\lbrace x_0x_1, x_1x_2, \dots , x_{k-1}x_k\right\rbrace,
    $$
-   para $k\in \mathbb{N}$, y donde todos los $x_i$, con $i\in \left\lbrace 0,1,\dots,k\right\rbrace$, son distintos. En este caso denotamos a $P$ mediante $x_0x_1\dots x_k$ o $x_kx_{k-1}\dots x_0$. Decimos que los vértices $x_0$ y $x_k$ están \textbf{conectados} por el camino P, y que $x_0$ y $x_k$ son los \textbf{extremos} de $P$. El número de aristas de un camino es su \textbf{longitud}, y un camino de longitud $k$ es denotado por $P^k$.
+   para $k\in \mathbb{N}$, y donde todos los $x_i$, con $i\in \left\lbrace 0,1,\dots,k\right\rbrace$, son distintos. En este caso denotamos a $P$ mediante $x_0x_1\dots x_k$ o $x_kx_{k-1}\dots x_0$. Decimos que los vértices $x_0$ y $x_k$ están \textbf{conectados} por el camino P, y que $x_0$ y $x_k$ son los \textbf{extremos} de $P$. El número de aristas de un camino es su \textbf{longitud}, y un camino de longitud $k$ es denotado por $\bm{P^k}$.
 \end{Def}
 \begin{Ejm}
    \phantom{o}
@@ -344,4 +344,14 @@ De esta manera, lo que hacemos es adicionar a $G$, como nuevas aristas, las pare
          \input{Preliminares_Grafos/Diagramas/Fig13.tex}  
    \end{itemize}
 \end{Ejm}
-
+\begin{Def}
+   Sea $P=x_0\dots x_{k-1}$ un camino, con $k\geq 3$. Decimos que el grafo $C:=P+\left\lbrace \left\lbrace x_{k-1}, x_0\right\rbrace\right\rbrace$ es llamado un \textbf{ciclo}. En este caso denotamos a $C$ mediante $x_0x_1\dots x_{k-1}x_0$. La \textbf{longitud} de un ciclo es su número de aristas (que es igual a su número de vértices). Un ciclo de longitud $k$ es llamado un $\bm{k-ciclo}$ y es denotado por $\bm{C^k}$. 
+\end{Def}
+\begin{Ejm}
+   Se tiene que $C^3=K^3$. A continuación mostramos los ciclos de longitud $4$, $6$ y $8$.
+   \input{Preliminares_Grafos/Diagramas/Fig14.tex}
+\end{Ejm}
+Los ciclos nos permiten definir fácilmente lo que es un \textit{árbol}.
+\begin{Def}
+   Un grafo conexo que no contiene ningún ciclo es llamado un \textbf{árbol}. 
+\end{Def}
