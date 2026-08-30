@@ -348,7 +348,7 @@ De esta manera, lo que hacemos es adicionar a $G$, como nuevas aristas, las pare
    Sea $P=x_0\dots x_{k-1}$ un camino, con $k\geq 3$. Decimos que el grafo $C:=P+\left\lbrace \left\lbrace x_{k-1}, x_0\right\rbrace\right\rbrace$ es llamado un \textbf{ciclo}. En este caso denotamos a $C$ mediante $x_0x_1\dots x_{k-1}x_0$. La \textbf{longitud} de un ciclo es su número de aristas (que es igual a su número de vértices). Un ciclo de longitud $k$ es llamado un $\bm{k-ciclo}$ y es denotado por $\bm{C^k}$. 
 \end{Def}
 \begin{Ejm}
-   Se tiene que $C^3=K^3$. A continuación mostramos los ciclos de longitud $4$, $6$ y $8$.
+   Se tiene que $C^3=K^3$; éste es el ciclo de menor longitud posible. A continuación mostramos los ciclos de longitud $4$, $6$ y $8$.
    \input{Preliminares_Grafos/Diagramas/Fig14.tex}
 \end{Ejm}
 Los ciclos nos permiten definir fácilmente lo que es un \textit{árbol}.
@@ -356,6 +356,8 @@ Los ciclos nos permiten definir fácilmente lo que es un \textit{árbol}.
    Un grafo conexo que no contiene ningún ciclo es llamado un \textbf{árbol}. 
 \end{Def}
 \begin{Ejm}
-   Todos los caminos son ejemplos de grafos. Los únicos grafos completos que son árboles son $K^1$ y $K^2$; el grafo $K^0=\emptyset$ no es un árbol porque no es conexo, y cualquier grafo completo con $3$ o más vértices contiene a $C^3$. En la \Cref{fig:arboles_ejemplos}, $T_1$, $T_2$ y $T_3$ son ejemplos de árboles.
+   Todos los caminos son ejemplos de grafos. Los únicos grafos completos que son árboles son $K^1$ y $K^2$; el grafo $K^0=\emptyset$ no es un árbol porque no es conexo, y cualquier grafo completo con $3$ o más vértices contiene a $C^3$. En la \Cref{fig:arboles_ejemplos} los grafos $T_1$, $T_2$ y $T_3$ son ejemplos de árboles.
    \input{Preliminares_Grafos/Diagramas/Fig15.tex}
+   En la \Cref{fig:no_arboles} , el grafo $S_1$ no es un árbol porque no es conexo; el grafo $S_2$ no es un árbol porque contiene el ciclo $C^5$.
+   \input{Preliminares_Grafos/Diagramas/Fig16.tex}
 \end{Ejm}
