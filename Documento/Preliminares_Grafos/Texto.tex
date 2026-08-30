@@ -358,6 +358,17 @@ Los ciclos nos permiten definir fácilmente lo que es un \textit{árbol}.
 \begin{Ejm}
    Todos los caminos son ejemplos de grafos. Los únicos grafos completos que son árboles son $K^1$ y $K^2$; el grafo $K^0=\emptyset$ no es un árbol porque no es conexo, y cualquier grafo completo con $3$ o más vértices contiene a $C^3$. En la \Cref{fig:arboles_ejemplos} los grafos $T_1$, $T_2$ y $T_3$ son ejemplos de árboles.
    \input{Preliminares_Grafos/Diagramas/Fig15.tex}
-   En la \Cref{fig:no_arboles} , el grafo $S_1$ no es un árbol porque no es conexo; el grafo $S_2$ no es un árbol porque contiene el ciclo $C^5$.
+   En la \Cref{fig:no_arboles}, el grafo $S_1$ no es un árbol porque no es conexo; el grafo $S_2$ no es un árbol porque contiene el ciclo $C^5$.
    \input{Preliminares_Grafos/Diagramas/Fig16.tex}
+\end{Ejm}
+\begin{Def}
+   Sea $G$ un grafo de orden $\ge 2$. Decimos que $G$ es \textbf{bipartito} si $V(G)$ admite una partición en dos clases $V_1$ y $V_2$ tales que $V_1$ y $V_2$ son conjuntos independientes. Si además cualesquiera dos vértices de distintas clases de la partición son adyacentes, decimos que $G$ es \textbf{bipartito completo}, y denotamos a $G$ por $K_{n_1,n_2}$, donde $n_1=|V_1|$ y $n_2=|V_2|$. Grafos de la forma $K_{1,n}$ con $n\in \mathbb{Z}^+$ son llamados \textbf{estrellas}.
+\end{Def}
+De esta forma, en un grafo bipartito con partición de vértices $\left\lbrace V_1,V_2\right\rbrace$, cada vértice de $V_1$ puede ser adyacente únicamente a vértices de $V_2$, y cada vértice de $V_2$ puede ser adyacente únicamente a vértices de $V_1$. Si el grafo es además bipartito completo, cada vértice de $V_1$ es adyacente a todos los vértices de $V_2$ (y por tanto cada vértice de $V_2$ es adyacente a todos los vértices de $V_1$). Una estrella es entonces un grafo con dos o más vértices en que un único vértice es adyacente a todos los demás, y las únicas aristas son las que permiten estas adyacencias.
+\begin{Obs}
+    Por convención, consideramos que el grafo vacío y el grafo $K^1$ son bipartitos. Esta precisión técnica es sumamente útil, pues evita tener que arrastrar condiciones de no trivialidad en los enunciados y demostraciones de teoremas en la teoría (por ejemplo, al caracterizar los grafos bipartitos como aquellos que no contienen ciclos de longitud impar, según la Proposición~1.6.1 de \cite{diestel2017}).
+\end{Obs}
+\begin{Ejm}
+   La \Cref{fig:bipartitos_ejemplos} muestra el grafo bipartito $G_1$, que no es bipartito completo, el grafo bipartito completo $K_{3,5}$ y la estrella $K_{1,7}$. En cada grafo las respectivas particiones del conjunto de vértices son encerradas como en un diagrama de Venn.
+   \input{Preliminares_Grafos/Diagramas/Fig17.tex}
 \end{Ejm}

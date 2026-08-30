@@ -1,0 +1,33 @@
+\begin{tikzpicture}[
+  baseline=0pt,
+  scale=1,
+  vnode/.style={circle, draw=black, fill=blue!20, thick, inner sep=0pt, minimum size=4.5mm},
+  edge/.style={thick, draw=black}
+]
+  \useasboundingbox (-2.3,-3.1) rectangle (2.3,2.4);
+
+  % Conjuntos de la partición (Venn)
+  \draw[thick, draw=gray!70, fill=gray!10] (-1.2, 0) ellipse [x radius=0.65cm, y radius=2.15cm];
+  \draw[thick, draw=gray!70, fill=gray!10] (1.2, 0) ellipse [x radius=0.65cm, y radius=2.15cm];
+
+  % Vértices Partición Izquierda (3 vértices)
+  \node[vnode] (a1) at (-1.2, 1.8) {};
+  \node[vnode] (a2) at (-1.2, 0.0) {};
+  \node[vnode] (a3) at (-1.2, -1.8) {}; % Tercer vértice (aislado)
+
+  % Vértices Partición Derecha (4 vértices)
+  \node[vnode] (b1) at (1.2, 1.8) {};
+  \node[vnode] (b2) at (1.2, 0.6) {};
+  \node[vnode] (b3) at (1.2, -0.6) {};
+  \node[vnode] (b4) at (1.2, -1.8) {};
+
+  % Aristas
+  \draw[edge] (a1) -- (b1); 
+  \draw[edge] (a1) -- (b2);
+  \draw[edge] (a2) -- (b2); 
+  \draw[edge] (a2) -- (b3); 
+  \draw[edge] (a2) -- (b4); % Conexión añadida con el cuarto vértice de la derecha
+
+  % Etiqueta inferior
+  \node[font=\large] at (0,-2.7) {$G_1$};
+\end{tikzpicture}

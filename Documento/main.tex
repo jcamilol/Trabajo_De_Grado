@@ -61,6 +61,7 @@
 \newtheorem{Ejc}[equation]{Ejercicio}
 \newtheorem{Ejm}[equation]{Ejemplo}
 \newtheorem{Not}[equation]{Notación}
+\newtheorem{Obs}[equation]{Observación}
 
 \counterwithin{figure}{section}
 \counterwithin{table}{section}
@@ -187,6 +188,9 @@
 \crefname{Not}{notación}{notaciones}
 \Crefname{Not}{Notación}{Notaciones}
 
+\crefname{Obs}{observación}{observaciones}
+\Crefname{Obs}{Observación}{Observaciones}
+
 % Vinculación de los entornos compartidos con el contador 'equation'
 \AtBeginEnvironment{Ejm}{\crefalias{equation}{Ejm}}
 \AtBeginEnvironment{Prop}{\crefalias{equation}{Prop}}
@@ -196,6 +200,7 @@
 \AtBeginEnvironment{Cor}{\crefalias{equation}{Cor}}
 \AtBeginEnvironment{Ejc}{\crefalias{equation}{Ejc}}
 \AtBeginEnvironment{Not}{\crefalias{equation}{Not}}
+\AtBeginEnvironment{Obs}{\crefalias{equation}{Obs}}
 % ==============================================================================
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
