@@ -1,9 +1,15 @@
 \documentclass[12pt,spanish,fleqn,openany,letterpaper,pagesize]{scrbook}
 
+% ==============================================================================
+% CODIFICACIÓN Y LENGUAJE
+% ==============================================================================
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
 
+% ==============================================================================
+% GEOMETRÍA DE PÁGINA
+% ==============================================================================
 \usepackage[
   letterpaper,
   top=4cm,
@@ -13,48 +19,62 @@
   headheight=15pt
 ]{geometry}
 
-\usepackage{fancyhdr}
-\usepackage{epsfig}
-\usepackage{epic}
-\usepackage{eepic}
-\usepackage{threeparttable}
-\usepackage{amscd}
-\usepackage{here}
-\usepackage{lscape}
-\usepackage{tabularx}
-\usepackage{subfigure}
-\usepackage{longtable}
-\usepackage{amsfonts}
-\usepackage{pifont}
+% ==============================================================================
+% PAQUETES MATEMÁTICOS Y SÍMBOLOS
+% ==============================================================================
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
+\usepackage{amsfonts}
 \usepackage{mathtools}
-\usepackage{dsfont}
-\usepackage{tipa}
-\usepackage{graphicx}
-\usepackage{wrapfig}
-\usepackage{lipsum}
-\usepackage{bold-extra}
-\usepackage{tikz-cd}
-\usepackage{tikz}
-\usepackage[numbers]{natbib}
+\usepackage{amscd}
 \usepackage{bm}
-\usepackage[OT1]{fontenc}
-\usepackage{caption}
-\usepackage{needspace}
-\usepackage{longtable}
+\usepackage{dsfont}
+\usepackage{pifont}
+\usepackage{tipa}
+
+% ==============================================================================
+% TABLAS Y FIGURAS
+% ==============================================================================
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{epic}
+\usepackage{eepic}
+\usepackage{here}
+\usepackage{lscape}
+\usepackage{wrapfig}
+\usepackage{subfigure}
+\usepackage{threeparttable}
+\usepackage{tabularx}
+\usepackage{longtable} % Se carga solo una vez aquí
+\usepackage{caption}   % Se carga después de longtable
 \usepackage{cellspace}
 \setlength\cellspacetoplimit{8pt}    % Margen superior dentro de la celda
 \setlength\cellspacebottomlimit{8pt} % Margen inferior dentro de la celda
-% Librerías necesarias para las envolventes estilo "mano alzada"
+
+% ==============================================================================
+% TIKZ Y GRÁFICOS
+% ==============================================================================
+\usepackage{tikz-cd}
+\usepackage{tikz}
 \usetikzlibrary{decorations.pathmorphing, fit}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{babel}
 \usetikzlibrary{shapes.geometric}
-\usetikzlibrary{fit}
 \usetikzlibrary{backgrounds}
 
+% ==============================================================================
+% OTROS PAQUETES DE FORMATO Y TEXTO
+% ==============================================================================
+\usepackage{fancyhdr}
+\usepackage{lipsum}
+\usepackage{bold-extra}
+\usepackage{needspace}
+\usepackage[numbers]{natbib}
+
+% ==============================================================================
+% ENTORNO DE TEOREMAS Y CONTADORES
+% ==============================================================================
 \counterwithin{equation}{section}
 \newtheorem{Tma}[equation]{Teorema}
 \newtheorem{Prop}[equation]{Proposición}
@@ -67,57 +87,55 @@
 \newtheorem{Obs}[equation]{Observación}
 
 \counterwithin{figure}{section}
-\counterwithin{table}{section}
+%\counterwithin{table}{section}
 
 \renewcommand*{\proofname}{Demostración}
 
 % ==============================================================================
-% FORMATO DE CAPÍTULO PERSONALIZADO (NATIVO PARA KOMA-SCRIPT / scrbook)
+% FORMATO DE CAPÍTULO PERSONALIZADO (KOMA-SCRIPT / scrbook)
 % ==============================================================================
-% Estilo de fuente: Roman y Negrita
 \addtokomafont{chapter}{\rmfamily\bfseries}
 \addtokomafont{chapterprefix}{\rmfamily\mdseries\Large}
-% Aplicar el mismo estilo a secciones, subsecciones, etc.
 \addtokomafont{section}{\rmfamily\bfseries}
 \addtokomafont{subsection}{\rmfamily\bfseries}
 \addtokomafont{subsubsection}{\rmfamily\bfseries}
 \addtokomafont{paragraph}{\rmfamily\bfseries}
 \addtokomafont{subparagraph}{\rmfamily\bfseries}
 
-% Habilita el prefijo "CAPÍTULO X" arriba del título
 \KOMAoptions{chapterprefix=true}
 
-% Formato de la etiqueta "CAPÍTULO X" (alineado a la derecha)
 \renewcommand*{\chapterformat}{%
   \raggedleft\MakeUppercase{\chaptername}\ \Huge\thechapter\par\vspace{1ex}%
 }
 
-% Formato del título y líneas (fuerza la alineación a la derecha en todo el bloque)
 \renewcommand*{\chapterlineswithprefixformat}[3]{%
-  \raggedleft % Alinea a la derecha la etiqueta y la estructura
+  \raggedleft
   #2% Imprime "CAPÍTULO X"
   \rule{\textwidth}{0.8pt}\par\nobreak
   \vspace{0.8ex}%
-  {\raggedleft #3\par}% Imprime el Título del Capítulo alineado a la derecha
+  {\raggedleft #3\par}% Imprime el Título alineado a la derecha
   \vspace{0.5ex}%
   \rule{\textwidth}{0.8pt}%
 }
 
-% CAMBIAR "CUADRO" POR "TABLA" (para KOMA-Script)
+% Nombres en español
 \renewcaptionname{spanish}{\tablename}{Tabla}
 \renewcaptionname{spanish}{\figurename}{Figura}
+\renewcommand{\listtablename}{Lista de Tablas}
+\renewcommand{\listfigurename}{Lista de Figuras}
+\renewcommand{\contentsname}{Contenido}
 
-% CONFIGURACIÓN DE ENCABEZADOS Y PIE DE PÁGINA
+% ==============================================================================
+% ENCABEZADOS Y PIE DE PÁGINA
+% ==============================================================================
 \pagestyle{fancyplain}
 
 \renewcommand{\chaptermark}[1]{\markboth{\footnotesize\MakeUppercase{\chaptername\ \thechapter.\ #1}}{}}
 \renewcommand{\sectionmark}[1]{\markright{\footnotesize\MakeUppercase{\thesection\quad #1}}}
 
-% Configuración de Encabezados (los textos quedan en \footnotesize y los números en \normalsize)
 \lhead[\fancyplain{}{\normalsize\thepage}]{\fancyplain{}{\rightmark}}
 \rhead[\fancyplain{}{\leftmark}]{\fancyplain{}{\normalsize\thepage}}
 
-% Pie de página con el número centrado en \normalsize
 \fancyfoot{}
 \fancyfoot[C]{\normalsize\thepage}
 \thispagestyle{fancy}
@@ -133,16 +151,11 @@
 \renewcommand{\baselinestretch}{1.1}
 
 \newcommand{\arr}[1]{\raisebox{1.5ex}[0cm][0cm]{#1}}
-
-% Ya no necesitas estos comandos porque los reemplazamos con \renewcaptionname
-\renewcommand{\listtablename}{Lista de Tablas}
-\renewcommand{\listfigurename}{Lista de Figuras}
-\renewcommand{\contentsname}{Contenido}
-
 \newcommand{\diagscale}{0.3\textwidth}%
 
 % ==============================================================================
 % HIPERVÍNCULOS
+% ==============================================================================
 \usepackage{hyperref}
 \hypersetup{
   colorlinks=true,
@@ -159,14 +172,14 @@
   \pdfbookmark[0]{\contentsname}{toc}%
   \oldtableofcontents%
 }
-% ==============================================================================
 
 % ==============================================================================
-% CLEVEREF Y CONFIGURACIÓN
+% CLEVEREF Y CONFIGURACIÓN (SIEMPRE AL FINAL)
+% ==============================================================================
 \usepackage{etoolbox}
 \usepackage{cleveref}
 
-% Definición de nombres para cleveref (minúscula y mayúscula inicial)
+% Nombres de referencias
 \crefname{Ejm}{ejemplo}{ejemplos}
 \Crefname{Ejm}{Ejemplo}{Ejemplos}
 
@@ -194,6 +207,9 @@
 \crefname{Obs}{observación}{observaciones}
 \Crefname{Obs}{Observación}{Observaciones}
 
+\crefname{table}{tabla}{tablas}
+\Crefname{table}{Tabla}{Tablas}
+
 % Vinculación de los entornos compartidos con el contador 'equation'
 \AtBeginEnvironment{Ejm}{\crefalias{equation}{Ejm}}
 \AtBeginEnvironment{Prop}{\crefalias{equation}{Prop}}
@@ -204,11 +220,10 @@
 \AtBeginEnvironment{Ejc}{\crefalias{equation}{Ejc}}
 \AtBeginEnvironment{Not}{\crefalias{equation}{Not}}
 \AtBeginEnvironment{Obs}{\crefalias{equation}{Obs}}
-% ==============================================================================
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ==============================================================================
+% INICIO DEL DOCUMENTO
+% ==============================================================================
 \begin{document}
 
 \pagenumbering{gobble}
@@ -224,6 +239,7 @@
 
 \addchap{Agradecimientos}
 \input{Agradecimientos.tex}
+
 \chapter{Preliminares}
 \input{Preliminares.tex}
 
@@ -236,9 +252,5 @@
 \nocite{*}
 \bibliographystyle{apalike}
 \bibliography{refs.bib}
-% ==============================================================================
 
 \end{document}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
