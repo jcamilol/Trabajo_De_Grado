@@ -372,3 +372,12 @@ De esta forma, en un grafo bipartito con partición de vértices $\left\lbrace V
    La \Cref{fig:bipartitos_ejemplos} muestra el grafo bipartito $G_1$, que no es bipartito completo, el grafo bipartito completo $K_{3,5}$ y la estrella $K_{1,7}$. En cada grafo las respectivas particiones del conjunto de vértices son encerradas como en un diagrama de Venn.
    \input{Preliminares_Grafos/Diagramas/Fig17.tex}
 \end{Ejm}
+La siguiente definición aborda el problema de la coloración de grafos.
+\begin{Def}
+   Sea $G$ un grafo. Una \textbf{coloración} de $G$ es una función $c: V(G) \to S$, donde $S$ es un conjunto cuyos elementos son llamados \textbf{colores}, tal que $c(u) \neq c(v)$ para cualesquiera dos vértices adyacentes $u, v \in V(G)$. Si el conjunto de colores $S$ tiene cardinalidad $k$, decimos que $c$ es una \textbf{$\bm{k}$-coloración}. El menor cardinal $k$ para el cual existe una $k$-coloración de $G$ es el \textbf{número cromático} de $G$, el cual se denota por $\chi(G)$.
+\end{Def}
+Notemos que, en cualquier grafo $G$, la función identidad en $V(G)$ es una coloración de $G$; por tanto, todo grafo admite al menos una coloración y el número cromático $\chi(G)$ está bien definido. En particular, la función vacía de $\emptyset$ en $\emptyset$ es una coloración del grafo vacío, por lo que $\chi(\emptyset) = 0$. Para representar visualmente la coloración $c$ de un grafo, colocaremos la etiqueta correspondiente a $c(v)$ junto al círculo que representa al vértice $v$ (y no en su interior, para no confundirla con el vértice en sí). A continuación, mostramos algunos ejemplos de coloración de grafos.
+\begin{Ejm}
+   A continuación, para cada grafo $G_i$, con $i=1,2,3$, se tiene que $c_i$ es una coloración del grafo.
+   \input{Preliminares_Grafos/Diagramas/Fig18.tex}
+\end{Ejm}

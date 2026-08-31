@@ -1,0 +1,53 @@
+\begin{longtable}{|c|c|c|}
+  \hline
+  % FILA 1: Nombres de los grafos
+  \textbf{$G_1$} & \textbf{$G_2$} & \textbf{$G_3$} \\[0.5em]
+  \hline
+  \noalign{\vskip 0.8em}
+  
+  % FILA 2: Grafos centrados en sus casillas
+  \input{Preliminares_Grafos/Diagramas/Diag59.tex} &
+  \input{Preliminares_Grafos/Diagramas/Diag60.tex} &
+  \input{Preliminares_Grafos/Diagramas/Diag61.tex} \\[0.8em]
+  \hline
+  \noalign{\vskip 0.8em}
+  
+  % FILA 3: Funciones alineadas en la parte superior [t]
+  $\begin{aligned}[t]
+    c_1 \!: V(G_1) &\to \{1, 2, 3, 4\} \\
+    v_1 &\mapsto 1 \\
+    v_2 &\mapsto 2 \\
+    v_3 &\mapsto 3 \\
+    v_4 &\mapsto 4 \\
+    v_5 &\mapsto 1 \\
+    v_6 &\mapsto 3 \\
+    v_7 &\mapsto 1
+  \end{aligned}$ 
+  &
+  $\begin{aligned}[t]
+    c_2 \!: V(G_2) &\to \{1, 2, 3\} \\
+    v_1 &\mapsto 1 \\
+    v_2 &\mapsto 2 \\
+    v_3 &\mapsto 3 \\
+    v_4 &\mapsto 1 \\
+    v_5 &\mapsto 2 \\
+    v_6 &\mapsto 3 \\
+    v_7 &\mapsto 1 \\
+    v_8 &\mapsto 2 \\
+    v_9 &\mapsto 2 \\
+    v_{10} &\mapsto 2
+  \end{aligned}$ 
+  &
+  $\begin{aligned}[t]
+    c_3 \!: V(G_3) &\to \{1, 2\} \\
+    v_i &\mapsto 
+    \begin{cases} 
+      1 & \begin{array}[t]{@{}l@{}} \text{si } i \text{ es} \\[-1ex] \text{impar} \end{array} \\[0.6ex]
+      2 & \begin{array}[t]{@{}l@{}} \text{si } i \text{ es} \\[-1ex] \text{par} \end{array} 
+    \end{cases}
+  \end{aligned}$ \\[1em]
+  \hline
+  
+  \caption{Ejemplos de grafos con sus respectivas coloraciones.}
+  \label{tab:coloraciones_grafos}
+\end{longtable}
