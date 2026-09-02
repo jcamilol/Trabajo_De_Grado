@@ -1,3 +1,4 @@
+\begin{comment}
 Las definiciones presentadas en esta sección son estándar en la teoría; las tomamos siguiendo a \cite{diestel2017}, \cite{gomez2025} y \cite{jafarian2013}.\\ 
 
 Dado un conjunto $S$ y un número natural $k$, denotamos por $[S]^k$ a la colección de todos los subconjuntos de $S$ con exactamente $k$ elementos. Así por ejemplo, tomando $S=\left\lbrace 1,2,3,4,5 \right\rbrace$, tenemos que 
@@ -374,10 +375,46 @@ De esta forma, en un grafo bipartito con partición de vértices $\left\lbrace V
 \end{Ejm}
 La siguiente definición aborda el problema de la coloración de grafos.
 \begin{Def}
-   Sea $G$ un grafo. Una \textbf{coloración} de $G$ es una función $c: V(G) \to S$, donde $S$ es un conjunto cuyos elementos son llamados \textbf{colores}, tal que $c(u) \neq c(v)$ para cualesquiera dos vértices adyacentes $u, v \in V(G)$. Si el conjunto de colores $S$ tiene cardinalidad $k$, decimos que $c$ es una \textbf{$\bm{k}$-coloración}. El menor cardinal $k$ para el cual existe una $k$-coloración de $G$ es el \textbf{número cromático} de $G$, el cual se denota por $\chi(G)$.
+   Sea $G$ un grafo. Una \textbf{coloración} de $G$ es una función $c: V(G) \to S$, donde $S$ es un conjunto cuyos elementos son llamados \textbf{colores}, tal que $c(u) \neq c(v)$ para cualesquiera dos vértices adyacentes $u, v \in V(G)$. Si el conjunto de colores $S$ tiene cardinalidad $k$, decimos que $c$ es una \textbf{$\bm{k}$-coloración}. Si $G$ tiene una \textbf{$\bm{k}$-coloración} decimos que $G$ es \textbf{$\bm{k}$-coloreable}. El menor cardinal $k$ para el cual existe una $k$-coloración de $G$ es el \textbf{número cromático} de $G$, el cual se denota por $\chi(G)$.
 \end{Def}
 Notemos que, en cualquier grafo $G$, la función identidad en $V(G)$ es una coloración de $G$; por tanto, todo grafo admite al menos una coloración y el número cromático $\chi(G)$ está bien definido. En particular, la función vacía de $\emptyset$ en $\emptyset$ es una coloración del grafo vacío, por lo que $\chi(\emptyset) = 0$. Para representar visualmente la coloración $c$ de un grafo, colocaremos la etiqueta correspondiente a $c(v)$ junto al círculo que representa al vértice $v$ (y no en su interior, para no confundirla con el vértice en sí). A continuación, mostramos algunos ejemplos de coloración de grafos.
 \begin{Ejm}
    En la \Cref{tab:coloraciones_grafos}, para cada grafo $G_i$, con $i=1,2,3$, se tiene que $c_i$ es una coloración del grafo.
 \end{Ejm}
    \input{Preliminares_Grafos/Diagramas/Fig18.tex}
+En lo que resta de esta sección nos ocuparemos de relacionar parejas de grafos mediante funciones.
+\begin{Def}
+   Sean $G=(V,E)$ y $G'=(V',E')$ dos grafos. Decimos que $\varphi:V\to V'$ es un homomorfismo de $G$ en $G'$ si $uv\in E$ implica $\varphi(u)\varphi(v)\in E'$ para cualesquiera vértices $u,v\in V$.
+\end{Def}
+El hecho que $uv\in E$ implique $\varphi(u)\varphi(v)\in E'$ lo resumimos diciendo que $\varphi$ preserva la adyacencia entre vértices, puesto que $\varphi$ mapea vértices adyacentes en $E$ en vértices adyacentes en $E'$.
+\end{comment}
+\begin{Ejm}
+   La función
+   \begin{center}
+   $\hfill
+   \begin{array}{rcl}
+      \varphi_1 \colon V(G_1) &\to& V(G'_1) \\
+      v_1 &\mapsto& w_1 \\
+      v_2 &\mapsto& w_2 \\
+      v_3 &\mapsto& w_3 \\
+      v_4 &\mapsto& w_2 \\
+      v_5 &\mapsto& w_1
+   \end{array}
+   \hfill$
+   \end{center}
+   Es un homomorfismo de $G_1$ en $G'_1$, donde $G_1$ y $G'_1$ son los grafos que se muestran a continuación.
+   \input{Preliminares_Grafos/Diagramas/Fig19.tex}
+   Para verificar que $\varphi_1$ es un homomorfismo notemos que $\varphi_1$ preserva la adyacencia entre vértices de $G_1$:
+   \begin{center}
+   $\hfill
+   \begin{array}{rcl}
+      v_1v_2 \in E(G_1) &\text{ y }& \varphi_1(v_1)\varphi_1(v_2) = w_1w_2 \in E(G'_1) \\
+      v_1v_3 \in E(G_1) &\text{ y }& \varphi_1(v_1)\varphi_1(v_3) = w_1w_3 \in E(G'_1) \\
+      v_1v_4 \in E(G_1) &\text{ y }& \varphi_1(v_1)\varphi_1(v_4) = w_1w_2 \in E(G'_1) \\
+      v_2v_3 \in E(G_1) &\text{ y }& \varphi_1(v_2)\varphi_1(v_3) = w_2w_3 \in E(G'_1) \\
+      v_2v_5 \in E(G_1) &\text{ y }& \varphi_1(v_2)\varphi_1(v_5) = w_2w_1 \in E(G'_1) \\
+      v_3v_4 \in E(G_1) &\text{ y }& \varphi_1(v_3)\varphi_1(v_4) = w_3w_2 \in E(G'_1)
+   \end{array}
+   \hfill$
+   \end{center}
+\end{Ejm}
