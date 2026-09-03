@@ -382,18 +382,18 @@ Notemos que, en cualquier grafo $G$, la función identidad en $V(G)$ es una colo
    En la \Cref{tab:coloraciones_grafos}, para cada grafo $G_i$, con $i=1,2,3$, se tiene que $c_i$ es una coloración del grafo.
 \end{Ejm}
    \input{Preliminares_Grafos/Diagramas/Fig18.tex}
+\end{comment}
 En lo que resta de esta sección nos ocuparemos de relacionar parejas de grafos mediante funciones.
 \begin{Def}
-   Sean $G=(V,E)$ y $G'=(V',E')$ dos grafos. Decimos que $\varphi:V\to V'$ es un homomorfismo de $G$ en $G'$ si $uv\in E$ implica $\varphi(u)\varphi(v)\in E'$ para cualesquiera vértices $u,v\in V$.
+   Sean $G=(V,E)$ y $G'=(V',E')$ dos grafos. Decimos que $\varphi:V\to V'$ es un homomorfismo de $G$ en $G'$ si $\left\lbrace u,v\right\rbrace\in E$ implica $\left\lbrace \varphi(u)\varphi(v) \right\rbrace\in E'$ para cualesquiera vértices $u,v\in V$.
 \end{Def}
-El hecho que $uv\in E$ implique $\varphi(u)\varphi(v)\in E'$ lo resumimos diciendo que $\varphi$ preserva la adyacencia entre vértices, puesto que $\varphi$ mapea vértices adyacentes en $E$ en vértices adyacentes en $E'$.
-\end{comment}
+El hecho de que $\left\lbrace u,v \right\rbrace\in E$ implique $\left\lbrace \varphi(u),\varphi(v)\right\rbrace\in E'$ lo resumimos diciendo que $\varphi$ preserva la adyacencia entre vértices, puesto que $\varphi$ mapea vértices adyacentes de $G$ en vértices adyacentes de $G'$.
 \begin{Ejm}
    La función
    \begin{center}
    $\hfill
    \begin{array}{rcl}
-      \varphi_1 \colon V(G_1) &\to& V(G'_1) \\
+      \varphi_1 \colon V(G) &\to& V(G') \\
       v_1 &\mapsto& w_1 \\
       v_2 &\mapsto& w_2 \\
       v_3 &\mapsto& w_3 \\
@@ -402,19 +402,33 @@ El hecho que $uv\in E$ implique $\varphi(u)\varphi(v)\in E'$ lo resumimos dicien
    \end{array}
    \hfill$
    \end{center}
-   Es un homomorfismo de $G_1$ en $G'_1$, donde $G_1$ y $G'_1$ son los grafos que se muestran a continuación.
+   es un homomorfismo de $G$ en $G'$, donde $G$ y $G'$ son los grafos que se muestran a continuación.
    \input{Preliminares_Grafos/Diagramas/Fig19.tex}
-   Para verificar que $\varphi_1$ es un homomorfismo notemos que $\varphi_1$ preserva la adyacencia entre vértices de $G_1$:
+   Para verificar que $\varphi_1$ es un homomorfismo notemos que $\varphi_1$ preserva la adyacencia entre vértices de $G$:
    \begin{center}
    $\hfill
    \begin{array}{rcl}
-      v_1v_2 \in E(G_1) &\text{ y }& \varphi_1(v_1)\varphi_1(v_2) = w_1w_2 \in E(G'_1) \\
-      v_1v_3 \in E(G_1) &\text{ y }& \varphi_1(v_1)\varphi_1(v_3) = w_1w_3 \in E(G'_1) \\
-      v_1v_4 \in E(G_1) &\text{ y }& \varphi_1(v_1)\varphi_1(v_4) = w_1w_2 \in E(G'_1) \\
-      v_2v_3 \in E(G_1) &\text{ y }& \varphi_1(v_2)\varphi_1(v_3) = w_2w_3 \in E(G'_1) \\
-      v_2v_5 \in E(G_1) &\text{ y }& \varphi_1(v_2)\varphi_1(v_5) = w_2w_1 \in E(G'_1) \\
-      v_3v_4 \in E(G_1) &\text{ y }& \varphi_1(v_3)\varphi_1(v_4) = w_3w_2 \in E(G'_1)
+      \{v_1, v_2\} \in E(G) &\text{ y }& \{\varphi_1(v_1), \varphi_1(v_2)\} = \{w_1, w_2\} \in E(G') \\
+      \{v_1, v_3\} \in E(G) &\text{ y }& \{\varphi_1(v_1), \varphi_1(v_3)\} = \{w_1, w_3\} \in E(G') \\
+      \{v_1, v_4\} \in E(G) &\text{ y }& \{\varphi_1(v_1), \varphi_1(v_4)\} = \{w_1, w_2\} \in E(G') \\
+      \{v_2, v_3\} \in E(G) &\text{ y }& \{\varphi_1(v_2), \varphi_1(v_3)\} = \{w_2, w_3\} \in E(G') \\
+      \{v_2, v_5\} \in E(G) &\text{ y }& \{\varphi_1(v_2), \varphi_1(v_5)\} = \{w_2, w_1\} \in E(G') \\
+      \{v_3, v_4\} \in E(G) &\text{ y }& \{\varphi_1(v_3), \varphi_1(v_4)\} = \{w_3, w_2\} \in E(G')
+   \end{array}
+   \hfill$
+\end{center}
+   En cambio la función
+   \begin{center}
+   $\hfill
+   \begin{array}{rcl}
+      \varphi_2 \colon V(G) &\to& V(G') \\
+      v_1 &\mapsto& w_4 \\
+      v_2 &\mapsto& w_2 \\
+      v_3 &\mapsto& w_4 \\
+      v_4 &\mapsto& w_1 \\
+      v_5 &\mapsto& w_3
    \end{array}
    \hfill$
    \end{center}
+   no es un homomorfismo de $G$ en $G'$, pues $\left\lbrace v_1,v_3\right\rbrace\in E(G)$ pero $\left\lbrace \varphi(v_1),\varphi(v_3)\right\rbrace=\left\lbrace w_4\right\rbrace\notin E(G')$.
 \end{Ejm}
