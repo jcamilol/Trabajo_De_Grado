@@ -384,11 +384,11 @@ Notemos que, en cualquier grafo $G$, la función identidad en $V(G)$ es una colo
    \input{Preliminares_Grafos/Diagramas/Fig18.tex}
 \end{comment}
 En lo que resta de esta sección nos ocuparemos de relacionar parejas de grafos mediante funciones.
-\begin{Def}
-   Sean $G=(V,E)$ y $G'=(V',E')$ dos grafos. Decimos que $\varphi:V\to V'$ es un homomorfismo de $G$ en $G'$ si $\left\lbrace u,v\right\rbrace\in E$ implica $\left\lbrace \varphi(u)\varphi(v) \right\rbrace\in E'$ para cualesquiera vértices $u,v\in V$.
+\begin{Def}\label{Def:homomorfismo}
+   Sean $G=(V,E)$ y $G'=(V',E')$ dos grafos. Decimos que $\varphi:V\to V'$ es un homomorfismo de $G$ en $G'$ si $\left\lbrace u,v\right\rbrace\in E$ implica $\left\lbrace \varphi(u),\varphi(v) \right\rbrace\in E'$ para cualesquiera vértices $u,v\in V$.
 \end{Def}
 El hecho de que $\left\lbrace u,v \right\rbrace\in E$ implique $\left\lbrace \varphi(u),\varphi(v)\right\rbrace\in E'$ lo resumimos diciendo que $\varphi$ preserva la adyacencia entre vértices, puesto que $\varphi$ mapea vértices adyacentes de $G$ en vértices adyacentes de $G'$.
-\begin{Ejm}
+\begin{Ejm}\label{Ejm:homomorfismos}
    La función
    \begin{center}
    $\hfill
@@ -430,5 +430,35 @@ El hecho de que $\left\lbrace u,v \right\rbrace\in E$ implique $\left\lbrace \va
    \end{array}
    \hfill$
    \end{center}
-   no es un homomorfismo de $G$ en $G'$, pues $\left\lbrace v_1,v_3\right\rbrace\in E(G)$ pero $\left\lbrace \varphi(v_1),\varphi(v_3)\right\rbrace=\left\lbrace w_4\right\rbrace\notin E(G')$.
+   no es un homomorfismo de $G$ en $G'$, pues $\left\lbrace v_1,v_3\right\rbrace\in E(G)$ pero $\left\lbrace \varphi(v_1),\varphi(v_3)\right\rbrace=\left\lbrace w_4\right\rbrace\notin E(G')$.\\
+   Podemos ver también que la función
+   \begin{center}
+   $\hfill
+   \begin{array}{rcl}
+      \psi \colon V(H) &\to& V(H') \\
+      x_1 &\mapsto& y_1 \\
+      x_2 &\mapsto& y_2 \\
+      x_3 &\mapsto& y_3 \\
+      x_4 &\mapsto& y_4 
+   \end{array}
+   \hfill$
+   \end{center}
+   es un homomorfismo entre los grafos $H$ y $H'$ que se presentan en la \Cref{fig:homomorfismo_grafos_2}
+   \input{Preliminares_Grafos/Diagramas/Fig20.tex}
+   pues
+   \begin{center}
+   $\hfill
+   \begin{array}{rcl}
+      \{x_1, x_2\} \in E(H) &\text{ y }& \{\varphi_1(x_1), \varphi_1(x_2)\} = \{y_1, y_2\} \in E(H') \\
+      \{x_2, x_3\} \in E(H) &\text{ y }& \{\varphi_1(x_2), \varphi_1(x_3)\} = \{y_2, y_3\} \in E(H') \\
+      \{x_3, x_4\} \in E(H) &\text{ y }& \{\varphi_1(x_3), \varphi_1(x_4)\} = \{y_3, y_4\} \in E(H') \\
+      \{x_4, x_1\} \in E(H) &\text{ y }& \{\varphi_1(x_4), \varphi_1(x_1)\} = \{y_4, y_1\} \in E(H')
+   \end{array}
+   \hfill$
+   \end{center}
 \end{Ejm}
+Estamos interesados en encontrar funciones entre vértices que permitan determinar si los grafos en cuestión son ``indistinguibles'' para la teoría construida. Un homomorfismo no es suficiente para ésto: notemos que en la \Cref{Def:homomorfismo}, un homomorfismo puede mapear vértices no adyacentes en el grafo de salida a vértices adyacentes en el grafo de llegada. Como muestra de esto, en el \Cref{Ejm:homomorfismos}, se tiene que $\varphi_1$ es un homomorfismo de $G$ en $G'$, y a pesar de que $v_3$ y $v_5$ no son adyacentes en $G$, se tiene que $\varphi_1(v_3)=w_3$ y $\varphi_1(v_5)=w_1$ sí son adyacentes en $G'$. Un primer paso sería exigir que la función, además de preservar la adyacencia de los vértices del grafo de salida, no mapee vértices no adyacentes en vértices adyacentes. Sin embargo, esta propiedad la cumple la función $\psi$ del \Cref{Ejm:homomorfismos}, conectando al grafo $H$ de $4$ vértices y $4$ aristas con el grafo $H'$ de $8$ vértices y $12$ aristas. Incluir la exigencia de que la función sea biyectiva solventa el problema y resulta en la definición de \textit{isomorfismo} entre grafos.
+\begin{Def}
+   Sean $G=(V,E)$ y $G'=(V',E')$ dos grafos. Decimos que una función $\varphi:V\to V'$ es un \textbf{isomorfismo} de $G$ en $G'$ si $\varphi$ es biyectiva y $\left\lbrace u,v\right\rbrace\in E$, si y sólo si, $\left\lbrace \varphi(u), \varphi(v)\right\rbrace\in E'$, para cualesquiera vértices $u,v\in V$. Si existe un isomorfismo de $G$ en $G'$ decimos que $G$ y $G'$ son \textbf{isomorfos} y escribimos $G\simeq G'$. Un isomorfismo de $G$ en sí mismo es llamado un \textbf{automorfismo} de $G$.
+\end{Def}
+Usualmente no hacemos distinción alguna entre grafos isomorfos. Esto es lo que nos permite hablar de ``\textit{el} camino de $6$ vértices'', ``\textit{el} grafo completo de $4$ vértices'', etc.
