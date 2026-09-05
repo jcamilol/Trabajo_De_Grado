@@ -483,3 +483,9 @@ Usualmente no hacemos distinción alguna entre grafos isomorfos. Esto es lo que 
    \end{center}
    Notemos que en la anterior lista se verifica tanto que $\left\lbrace u,v\right\rbrace\in E(G)$ implica $\left\lbrace \varphi(u), \varphi(v) \right\rbrace\in E(G')$ como que $\left\lbrace \varphi(u), \varphi(v)\right\rbrace\in E(G')$ implica $\left\lbrace u,v\right\rbrace\in E(G)$, para cualesquiera $u,v\in V(G)$. Por tanto $\varphi$ es un isomorfismo de $G$ en $G'$.
 \end{Ejm}
+El siguiente ejemplo muestra que no es suficiente que una función sea un homomorfismo biyectivo para que sea un isomorfismo.
+\begin{Ejm}
+   La función $\varphi:V(G)\to V(G'):v_i\mapsto w_i$ para $i=1,2$, es un homomorfismo biyectivo entre los grafos $G$ y $G'$ de la \Cref{fig:homomorfo_no_isomorfo} (vacíamente se tiene que $\varphi$ preserva la adyacencia entre vértices).
+   \input{Preliminares_Grafos/Diagramas/Fig22.tex}
+   Sin embargo $\varphi$ no es un isomorfismo, pues $\left\lbrace \varphi(v_1),\varphi(v_2)\right\rbrace=\left\lbrace w_1,w_2\right\rbrace\in E(G')$ pero $\left\lbrace v_1,v_2\right\rbrace\notin E(G)$.
+\end{Ejm}
