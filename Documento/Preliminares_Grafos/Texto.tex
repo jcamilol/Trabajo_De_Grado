@@ -416,7 +416,7 @@ El hecho de que $\left\lbrace u,v \right\rbrace\in E$ implique $\left\lbrace \va
       \{v_3, v_4\} \in E(G) &\text{ y }& \{\varphi_1(v_3), \varphi_1(v_4)\} = \{w_3, w_2\} \in E(G')
    \end{array}
    \hfill$
-\end{center}
+   \end{center}
    En cambio la función
    \begin{center}
    $\hfill
@@ -463,6 +463,23 @@ Estamos interesados en encontrar funciones entre vértices que permitan determin
 \end{Def}
 Usualmente no hacemos distinción alguna entre grafos isomorfos. Esto es lo que nos permite hablar de ``\textit{el} camino de $6$ vértices'', ``\textit{el} grafo completo de $4$ vértices'', etc.
 \begin{Ejm}
-   En 
-   \input{Preliminares_Grafos/Diagramas/Fig21.tex} 
+   En la \Cref{fig:primer_isomorfismo} los grafos $G$ y $G'$ son isomorfos. 
+   \input{Preliminares_Grafos/Diagramas/Fig21.tex}
+   Consideremos la función $\varphi:V(G)\to V(G'):v_i\mapsto w_i$ para $i=1,2,\dots ,7$. Se tiene que $\varphi$ es biyectiva. Además
+   \begin{center}
+   $\hfill
+   \begin{array}{rcl}
+      \{v_1, v_2\} \in E(G) &\text{ y }& \{\varphi(v_1), \varphi(v_2)\} = \{w_1, w_2\} \in E(G') \\
+      \{v_1, v_3\} \in E(G) &\text{ y }& \{\varphi(v_1), \varphi(v_3)\} = \{w_1, w_3\} \in E(G') \\
+      \{v_2, v_3\} \in E(G) &\text{ y }& \{\varphi(v_2), \varphi(v_3)\} = \{w_2, w_3\} \in E(G') \\
+      \{v_3, v_7\} \in E(G) &\text{ y }& \{\varphi(v_3), \varphi(v_7)\} = \{w_3, w_7\} \in E(G') \\
+      \{v_3, v_6\} \in E(G) &\text{ y }& \{\varphi(v_3), \varphi(v_6)\} = \{w_3, w_6\} \in E(G') \\
+      \{v_6, v_7\} \in E(G) &\text{ y }& \{\varphi(v_6), \varphi(v_7)\} = \{w_6, w_7\} \in E(G') \\
+      \{v_4, v_7\} \in E(G) &\text{ y }& \{\varphi(v_4), \varphi(v_7)\} = \{w_4, w_7\} \in E(G') \\
+      \{v_4, v_5\} \in E(G) &\text{ y }& \{\varphi(v_4), \varphi(v_5)\} = \{w_4, w_5\} \in E(G') \\
+      \{v_5, v_6\} \in E(G) &\text{ y }& \{\varphi(v_5), \varphi(v_6)\} = \{w_5, w_6\} \in E(G')
+   \end{array}
+   \hfill$
+   \end{center}
+   Notemos que en la anterior lista se verifica tanto que $\left\lbrace u,v\right\rbrace\in E(G)$ implica $\left\lbrace \varphi(u), \varphi(v) \right\rbrace\in E(G')$ como que $\left\lbrace \varphi(u), \varphi(v)\right\rbrace\in E(G')$ implica $\left\lbrace u,v\right\rbrace\in E(G)$, para cualesquiera $u,v\in V(G)$. Por tanto $\varphi$ es un isomorfismo de $G$ en $G'$.
 \end{Ejm}
