@@ -1,3 +1,31 @@
+Intuitivamente, podemos pensar en un \textit{grafo simple} como un conjunto de círculos o puntos en el espacio llamados \textit{vértices}, conectados con segmentos que llamamos \textit{aristas}.
+\input{Preliminares_Grafos/Diagramas/Diag0.tex}
+En los grafos simples cada arista conecta exactamente dos vértices, no pueden haber aristas que conecten un vértice consigo mismo, ni puede haber más de una arista entre dos vértices.\par
+Una ligera variante en la noción de grafo simple la presentan los llamados \textit{grafos orientados}. Podemos pensar en un grafo orientado como en un grafo simple en el cual a cada arista se le asigna una ``dirección'', de modo que ahora tenemos registro del vértice del cual ``sale'' una arista y al cuál ``llega''. Las aristas son ahora representadas por flechas apuntando desde el vértice de salida al vértice de llegada. Si el grafo orientado $D$ resulta de asignar dirección a las aristas del grafo simple $G$, decimos que $D$ es una \textit{orientación} de G.
+\input{Preliminares_Grafos/Diagramas/Fig10.tex}
+Permitiendo más de una arista entre dos vértices en un grafo orientado, así como aristas de un vértice en sí mismo, obtenemos la noción de \textit{grafo dirigido} o \textit{digrafo}. Las aristas que conectan un mismo par de vértices (sin importar en qué dirección lo hagan) son llamadas \textit{aristas múltiples}. Si un conjunto de aristas múltiples tiene la misma dirección, estas son llamadas \textit{aristas paralelas}. Las aristas que unen un vétice consigo mismo son llamados \textit{bucles}. En la representación de un grafo dirigido solemos curvar ligeramente las aristas múltiples para evitar que estas se superpongan. Ahora también etiquetamos las aristas del grafo dirigido para poder hacer distinción entre aristas paralelas.
+\begin{figure}[H]
+  \centering
+    \resizebox{0.5\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag37.tex}} 
+  \caption{Un grafo dirigido}
+  \label{fig:digrafo}
+\end{figure}
+En el grafo dirigido de la \Cref{fig:digrafo} podemos señalar, por ejemplo, que $e_1, e_2$ y $e_7$ son bucles, $e_3$ y $e_4$ son aristas múltiples entre $v_1$ y $v_2$, y $e_8,e_9$ y $e_{10}$ son aristas paralelas.\par
+Si en un grafo dirigido ignoramos la dirección de sus aristas, obtenemos un \textit{multigrafo}.
+\begin{figure}[H]
+  \centering
+  \resizebox{0.45\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag40.tex}} 
+  \caption{Un multigrafo}
+  \label{fig:multigrafo}
+\end{figure}
+En un multigrafo aún se permiten aristas mútliples entre vértices, así como bucles. En el multigrafo de la \Cref{fig:multigrafo} podemos ver, por ejemplo, que $e_8,e_9$ y $e_{10}$ son aristas múltiples entre $v_4$ y $v_5$, que $e_{12}$ es un bucle sobre $v_1$ y que $e_{14}$ es un bucle sobre $v_3$.\par
+Si ahora permitimos que las aristas sean subconjuntos no vacíos de vértices de cualquier cardinalidad, obtenemos la noción de \textit{hipergrafo}. Las aristas de un hipergrafo se representan como diagramas de Venn encerrando únicamente los vértices que contiene.
+\begin{figure}[H]
+  \centering
+    \resizebox{0.6\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag41.tex}} 
+  \caption{Un hipergrafo}
+\end{figure}
+\begin{comment}
 Las definiciones presentadas en esta sección son estándar en la teoría; las tomamos siguiendo a \cite{diestel2017}, \cite{gomez2025} y \cite{jafarian2013}.\\ 
 
 Dado un conjunto $S$ y un número natural $k$, denotamos por $[S]^k$ a la colección de todos los subconjuntos de $S$ con exactamente $k$ elementos. Así por ejemplo, tomando $S=\left\lbrace 1,2,3,4,5 \right\rbrace$, tenemos que 
@@ -509,3 +537,4 @@ Tenemos en cambio que si una función $\varphi$ es un homomorfismo biyectivo y s
    Para todo $n\in\mathbb{N}$ con $n\ge 3$ se tiene que $C^n$ es un grafo vértice transitivo. Podemos suponer que $V(C^n)$ es de la forma $\left\lbrace v_0,v_1, \dots, v_{n-1}\right\rbrace$ con $E(C^n)=\left\lbrace v_0v_1, v_1v_2, \dots ,v_{n-2}v_{n-1}, v_{n-1}v_0\right\rbrace$. Sean $v_i,v_j\in V(C^n)$ cualesquiera. La función $\varphi :V(C^n)\to V(C^n):v_k\mapsto v_{(k+j-i)\bmod n}$ para cada $k\in\left\lbrace 0,1,\dots ,n-1\right\rbrace$, es un automorfismo que envía $v_i$ a $v_j$. Si representamos a $C^n$ como en la \Cref{fig:ciclo_n}, podemos pensar en $\varphi$ como una función que ``rota'' al grafo en sentido horario hasta llevar al vértice $v_i$ a la posición del vértice $v_j$.
    \input{Preliminares_Grafos/Diagramas/Diag69.tex}
 \end{Ejm}
+\end{comment}
