@@ -1,4 +1,3 @@
-%\begin{comment}
 Las definiciones presentadas en esta sección son estándar en la teoría; las tomamos siguiendo a \cite{diestel2017}, \cite{gomez2025} y \cite{jafarian2013}.\\ 
 
 Dado un conjunto $S$ y un número natural $k$, denotamos por $[S]^k$ a la colección de todos los subconjuntos de $S$ con exactamente $k$ elementos. Así por ejemplo, tomando $S=\left\lbrace 1,2,3,4,5 \right\rbrace$, tenemos que 
@@ -149,7 +148,7 @@ Frecuentemente en matemáticas, uno de los primeros pasos al analizar una estruc
 \end{Def}
 Para cualquier grafo $G$ se tiene $\emptyset\subseteq G$. Damos a continuación más ejemplos de contenencia de grafos.
 \begin{Ejm}\label{Ejm:Contenencia}
-   En los siguientes grafos se tiene $G_i'\subseteq G_i$ para $i=1,2,3$:
+   En cada fila de la siguiente tabla se tiene $G'\subseteq G$:
    \input{Preliminares_Grafos/Diagramas/Fig9.tex}
 \end{Ejm}
 En el \Cref{Ejm:Contenencia} se cumple que $G'_3$ conserva todas las aristas entre vértices de $V(G'_3)$ que aparecían originalmente en $G_3$, es decir, para cualesquiera $u,v\in V(G'_3)$ se tiene que $uv\in E(G_3)$ implica $uv\in E(G'_3)$. Notemos que en los ejemplos $G_1$ y $G_2$ esto no se cumple. Por ejemplo, para $G_1$ se tiene $v_3,v_5\in V(G'_1)$ y $v_3v_5\in E(G_1)$, pero $v_3v_5 \notin E(G'_1)$; para $G_2$ se tiene $v_1,v_3\in V(G'_2)$ y $v_1v_3\in E(G_2)$, pero $v_1v_3\notin E(G'_2)$. El comportamiento que se da con $G_3$ y $G'_3$ lo resumimos diciendo que $G'_3$ es el \textit{subgrafo de $G_3$ inducido} por $V(G'_3)$, y denotamos $G'_3=G[V(G'_3)]$. Más precisamente:
@@ -165,6 +164,7 @@ En el \Cref{Ejm:Contenencia} se cumple que $G'_3$ conserva todas las aristas ent
          \input{Preliminares_Grafos/Diagramas/Fig3.tex}  
    \end{itemize}
 \end{Ejm}
+\begin{comment}
 \begin{Def}
    El \textbf{grado} de un grafo $G$, representado mediante $|G|$, es el cardinal del conjunto $V(G)$.
 \end{Def}
@@ -382,7 +382,6 @@ Notemos que, en cualquier grafo $G$, la función identidad en $V(G)$ es una colo
    En la \Cref{tab:coloraciones_grafos}, para cada grafo $G_i$, con $i=1,2,3$, se tiene que $c_i$ es una coloración del grafo.
 \end{Ejm}
    \input{Preliminares_Grafos/Diagramas/Fig18.tex}
-%\end{comment}
 En lo que resta de esta sección nos ocuparemos de relacionar parejas de grafos mediante funciones.
 \begin{Def}\label{Def:homomorfismo}
    Sean $G=(V,E)$ y $G'=(V',E')$ dos grafos. Decimos que $\varphi:V\to V'$ es un homomorfismo de $G$ en $G'$ si $\left\lbrace u,v\right\rbrace\in E$ implica $\left\lbrace \varphi(u),\varphi(v) \right\rbrace\in E'$ para cualesquiera vértices $u,v\in V$.
@@ -511,3 +510,4 @@ Tenemos en cambio que si una función $\varphi$ es un homomorfismo biyectivo y s
    Para todo $n\in\mathbb{N}$ con $n\ge 3$ se tiene que $C^n$ es un grafo vértice transitivo. Podemos suponer que $V(C^n)$ es de la forma $\left\lbrace v_0,v_1, \dots, v_{n-1}\right\rbrace$ con $E(C^n)=\left\lbrace v_0v_1, v_1v_2, \dots ,v_{n-2}v_{n-1}, v_{n-1}v_0\right\rbrace$. Sean $v_i,v_j\in V(C^n)$ cualesquiera. La función $\varphi :V(C^n)\to V(C^n):v_k\mapsto v_{(k+j-i)\bmod n}$ para cada $k\in\left\lbrace 0,1,\dots ,n-1\right\rbrace$, es un automorfismo que envía $v_i$ a $v_j$. Si representamos a $C^n$ como en la \Cref{fig:ciclo_n}, podemos pensar en $\varphi$ como una función que ``rota'' al grafo en sentido horario hasta llevar al vértice $v_i$ a la posición del vértice $v_j$.
    \input{Preliminares_Grafos/Diagramas/Diag69.tex}
 \end{Ejm}
+\end{comment}
