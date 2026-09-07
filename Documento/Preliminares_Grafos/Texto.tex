@@ -25,8 +25,7 @@ Si ahora permitimos que las aristas sean subconjuntos no vacíos de vértices de
     \resizebox{0.6\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag41.tex}} 
   \caption{Un hipergrafo}
 \end{figure}
-\begin{comment}
-Las definiciones presentadas en esta sección son estándar en la teoría; las tomamos siguiendo a \cite{diestel2017}, \cite{gomez2025} y \cite{jafarian2013}.\\ 
+En el presente estudio trabajaremos únicamente con grafos simples, así que de ahora en adelante se entenderá \textit{grafo} y \textit{grafo simple} de manera indistinta. Iniciamos formalizando la noción de grafo que hemos introducido. Las definiciones presentadas en lo que sigue de esta sección son estándar en la teoría; las tomamos siguiendo a \cite{diestel2017}, \cite{gomez2025} y \cite{jafarian2013}.\\ 
 
 Dado un conjunto $S$ y un número natural $k$, denotamos por $[S]^k$ a la colección de todos los subconjuntos de $S$ con exactamente $k$ elementos. Así por ejemplo, tomando $S=\left\lbrace 1,2,3,4,5 \right\rbrace$, tenemos que 
 $$
@@ -53,123 +52,7 @@ De este modo, las aristas de un grafo son $2-subconjuntos$ de vértices. Si es n
 \begin{Not}
    El grafo $G=(\emptyset,\emptyset)$ en el cual tanto el conjunto de vértices como el de aristas es vacío, lo llamamos \textbf{grafo vacío} y lo representamos simplemente por $\emptyset$.
 \end{Not}
-Notemos que en un grafo $G$, dada $uv\in E(G)$, se tiene que $uv$ y $vu$ hacen referencia a la misma arista, pues $uv=\left\lbrace u,v \right\rbrace=\left\lbrace v, u\right\rbrace=vu$. Este tipo de grafos en los cuales el orden de los vértices en la representación de la arista no es tenido en cuenta también son llamados \textit{grafos no dirigidos}. Además, la exigencia de que las aristas de un grafo sean $2-subconjuntos$ de vértices implica que si $uv\in E(G)$ entonces $u\neq v$, es decir, no hay aristas que unan un vértice con si mismo, lo que también expresamos diciendo que el grafo no tiene \textit{bucles}. Así mismo, entre dos vértices distintos $u,v\in V(G)$ podrá haber a lo más una arista, dependiendo de si $uv$ pertenece a $E(G)$ o no, es decir, se excluye la posibilidad de que hayan \textit{aristas múltiples} entre un par de vértices. En la literatura, se suele también hacer referencia a este tipo particular de grafos (no dirigidos, sin bucles y sin aristas múltiples) como \textit{grafos simples}. A continuación presentamos la definición de otros tipos de grafos.
-\begin{Def}
-   Un \textbf{hipergrafo} es una pareja $(V,E)$ de conjuntos disyuntos (de vértices y aristas), donde los elementos de $E$ son subconjuntos no vacíos, de cualquier cardinalidad, de $V$. 
-\end{Def}
-De esta manera, los grafos simples son casos especiales de hipergrafos, donde se exige que cada arista sea un $2-subconjunto$ de $V$. Para ilustrar visualmente un hipergrafo se usa nuevamente un círculo por cada vértice, y para representar cada arista se usa una curva cerrada continua que encierre únicamente a los vértices contenidos en ella, de forma similar a como se hace en los diagramas de Venn.
-\begin{Ejm}
-   Un ejemplo de hipergrafo es $G=(V,E)$ donde $V=\{ v_1,\allowbreak v_2, \allowbreak v_3, \allowbreak v_4, \allowbreak v_5, \allowbreak v_6,\allowbreak v_7, \allowbreak v_8\}$ y $E=\{e_1, \allowbreak e_2, \allowbreak e_3, \allowbreak e_4, \allowbreak e_5\}$ con 
-   $$
-   \begin{aligned}
-      e_1&=\{v_1, \allowbreak v_3, \allowbreak v_4, \allowbreak v_5\}\\
-      e_2&=\{v_1, \allowbreak v_6, \allowbreak v_7\}\\
-      e_3&=\{v_2, \allowbreak v_3, \allowbreak v_4, \allowbreak v_6\}\\
-      e_4&=\{v_5\}\\
-      e_5&=\{v_2, \allowbreak v_7\}\\
-   \end{aligned}
-   $$
-   La representación visual de $G$ se muestra a continuación.
-   \begin{figure}[H]
-     \centering
-       \resizebox{0.6\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag41.tex}} 
-     \caption{Un hipergrafo}
-   \end{figure}
-
-\end{Ejm}
-\begin{Def}
-   Un \textbf{grafo dirigido} (también llamado \textbf{digrafo}) es una pareja $(V,E)$ de conjuntos disyuntos (de vértices y aristas) junto con dos funciones $\operatorname{init}:E\to V$ y $\operatorname{ter}:E\to V$ que asignan a cada arista $e\in E$ un \textbf{vértice inicial} $\operatorname{init}(e)$ y un \textbf{vértice final} $\operatorname{ter}(e)$. Decimos que la arista $e$ está \textbf{dirigida de $\operatorname{init}(e)$ a $\operatorname{ter} (e)$}.
-\end{Def}
-Observemos que un grafo dirigido puede tener varias aristas entre los mismos dos vértices $u,v$ (todas aquellas $e\in E$ con $\left\lbrace \operatorname{init}(e),\operatorname{ter}(e)\right\rbrace=\left\lbrace u,v\right\rbrace$). Decimos que tales aristas son \textit{aristas múltiples}; si tienen la misma dirección (por ejemplo de $u$ a $v$), entonces se dicen \textit{paralelas}. Una arista $e$ se llama un \textit{bucle} si $\operatorname{init}(e)=\operatorname{ter}(e)$. Los vértices de un grafo dirigido pueden representarse visualmente de la misma forma que en un grafo simple, pero ahora para representar una arista $e$ se usa una flecha que parte de $\operatorname{init}(e)$ y apunta hacia $\operatorname{ter}(e)$. Si hay aristas múltiples entre dos vértices, suelen curvarse sus respectivas flechas para evitar que éstas se superpongan. Ahora también resulta conveniente etiquetar las aristas con sus nombres para diferenciar aristas paralelas.
-\begin{Ejm}
-   Un ejemplo de grafo dirigido es $G=(V,E)$ donde $V=\{ v_1,\allowbreak v_2, \allowbreak v_3, \allowbreak v_4, \allowbreak v_5, \allowbreak v_6,\allowbreak v_7\}$ y $E=\left\lbrace e_1,e_2,e_3,e_4,e_5,e_6,e_7,e_8,e_9,e_{10},e_{11},e_{12}\right\rbrace$, junto con las funciones
-   \begin{center}
-   $\hfill
-   \begin{array}{rcl c rcl}
-     \operatorname{init} \colon E &\to& V &\quad\qquad& \operatorname{ter} \colon E &\to& V \\
-     e_1 &\mapsto& v_1 && e_1 &\mapsto& v_1 \\
-     e_2 &\mapsto& v_1 && e_2 &\mapsto& v_1 \\
-     e_3 &\mapsto& v_2 && e_3 &\mapsto& v_1 \\
-     e_4 &\mapsto& v_1 && e_4 &\mapsto& v_2 \\
-     e_5 &\mapsto& v_1 && e_5 &\mapsto& v_4 \\
-     e_6 &\mapsto& v_4 && e_6 &\mapsto& v_5 \\
-     e_7 &\mapsto& v_5 && e_7 &\mapsto& v_5 \\
-     e_8 &\mapsto& v_4 && e_8 &\mapsto& v_6 \\
-     e_9 &\mapsto& v_4 && e_9 &\mapsto& v_6 \\
-     e_{10} &\mapsto& v_4 && e_{10} &\mapsto& v_6 \\
-     e_{11} &\mapsto& v_6 && e_{11} &\mapsto& v_4 \\
-     e_{12} &\mapsto& v_7 && e_{12} &\mapsto& v_3
-   \end{array}
-   \hfill$
-   \end{center}
-   La representación visual de $G$ se muestra a continuación.
-   \begin{figure}[H]
-     \centering
-       \resizebox{0.5\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag37.tex}} 
-     \caption{Un grafo dirigido}
-   \end{figure}
-   Podemos señalar, por ejemplo, que $e_1, e_2$ y $e_7$ son bucles, $e_3$ y $e_4$ son aristas múltiples entre $v_1$ y $v_2$, y $e_8,e_9$ y $e_{10}$ son aristas paralelas.
-\end{Ejm}
-\begin{Def}
-   Decimos que un grafo dirigido $D$ es una \textbf{orientación} de un grafo simple $G$ si $V(D)=V(G)$, $E(D)=E(G)$ e $\left\lbrace \operatorname{init}(e),\operatorname{ter}(e)\right\rbrace=\left\lbrace u,v\right\rbrace$ para toda arista $e=uv$. En este caso también decimos que $D$ es un \textbf{grafo orientado}. 
-\end{Def}
-De forma intuitiva, podemos decir que un grafo orientado se genera a partir de un grafo simple dirigiendo cada arista de uno de sus respectivos vértices al otro. Igualmente, podemos notar que los grafos orientados son grafos dirigidos sin bucles ni aristas múltiples. Por esto mismo, en la representación visual de un grafo orientado podemos prescindir de etiquetar sus aristas.
-\begin{Ejm}
-   El grafo dirigido $D=(V,E)$ con $V=\left\lbrace v_1,v_2,v_3,v_4,v_5,v_6,v_7\right\rbrace$ y $E = \left\{ \{v_1, v_2\}, \{v_1, v_3\}, \{v_2, v_3\}, \{v_2, v_4\}, \{v_3, v_4\}, \{v_3, v_5\}, \{v_5, v_6\}, \{v_5, v_7\} \right\}$, junto con las funciones 
-   \begin{center}
-   $\hfill
-   \begin{array}{rcl c rcl}
-      \operatorname{init} \colon \quad \phantom{a}E\phantom{aa} &\to& V &\quad\qquad& \operatorname{ter} \colon \quad \phantom{a}E\phantom{aa} &\to& V \\
-     \{v_1, v_2\} &\mapsto& v_2 && \{v_1, v_2\} &\mapsto& v_1 \\
-     \{v_1, v_3\} &\mapsto& v_1 && \{v_1, v_3\} &\mapsto& v_3 \\
-     \{v_2, v_3\} &\mapsto& v_2 && \{v_2, v_3\} &\mapsto& v_3 \\
-     \{v_2, v_4\} &\mapsto& v_2 && \{v_2, v_4\} &\mapsto& v_4 \\
-     \{v_3, v_4\} &\mapsto& v_4 && \{v_3, v_4\} &\mapsto& v_3 \\
-     \{v_3, v_5\} &\mapsto& v_3 && \{v_3, v_5\} &\mapsto& v_5 \\
-     \{v_5, v_6\} &\mapsto& v_6 && \{v_5, v_6\} &\mapsto& v_5 \\
-     \{v_5, v_7\} &\mapsto& v_5 && \{v_5, v_7\} &\mapsto& v_7
-   \end{array}
-   \hfill$
-   \end{center}
-   es una orientación del grafo simple $G=(V,E)$. Por tanto $D$ es un grafo orientado.
-   \input{Preliminares_Grafos/Diagramas/Fig10.tex}
-\end{Ejm}
-\begin{Def}
-   Un \textbf{multigrafo} es una pareja $(V,E)$ de conjuntos disyuntos (de vértices y aristas) junto con una función $\operatorname{inc}:E\to V\cup [V]^2$, que asigna a cada arista un vértice o una pareja de vértices. 
-\end{Def}
-Por lo tanto, los multigrafos pueden tener también bucles (aristas cuya imagen vía $\operatorname{inc}$ pertenece a $V$) y aristas múltiples (aristas que tienen la misma imagen vía $\operatorname{inc}$). Intuitivamente podemos pensar en un multigrafo como un grafo dirigido en el que la dirección de sus aristas ha sido ``olvidada". Para representar visualmente un multigrafo tratamos los vértices de la misma manera que se ha hecho con los otros tipos de grafos. Ahora, dada $e\in E$, si $\operatorname{inc}(e)=v$ para algún $v\in V$, representamos $e$ como un bucle sobre $v$; si $\operatorname{inc}(e)=\left\lbrace v_1,v_2\right\rbrace$ con $v_1,v_2\in V$ distintos, entonces representamos $e$ como una línea que une a $v_1$ y $v_2$, como lo hacíamos con los grafos simples. Nuevamente nos es conveniente etiquetar las aristas, y curvamos las aristas múltiples cuidando que éstas no se sobrepongan.
-\begin{Ejm}
-   Un ejemplo de multigrafo es $G=(V,E)$ donde  $V=\{ v_1,\allowbreak v_2, \allowbreak v_3, \allowbreak v_4, \allowbreak v_5 \}$ y $E=\left\lbrace e_1,e_2,e_3,e_4,e_5,e_6,e_7,e_8,e_9,e_{10},e_{11}, e_{12},e_{13},e_{14}\right\rbrace$ junto con la función
-   \begin{center}
-   $\hfill
-   \begin{array}{rcl}
-      \operatorname{inc} \colon E &\to& V \cup [V]^2 \\
-      e_1 &\mapsto& \{v_1, v_2\} \\
-      e_2 &\mapsto& \{v_2, v_3\} \\
-      e_3 &\mapsto& \{v_1, v_5\} \\
-      e_4 &\mapsto& \{v_3, v_5\} \\
-      e_5 &\mapsto& \{v_2, v_4\} \\
-      e_6 &\mapsto& \{v_2, v_4\} \\
-      e_7 &\mapsto& \{v_2, v_4\} \\
-      e_8 &\mapsto& \{v_4, v_5\} \\
-      e_9 &\mapsto& \{v_4, v_5\} \\
-      e_{10} &\mapsto& \{v_4, v_5\} \\
-      e_{11} &\mapsto& \{v_5\} \\
-      e_{12} &\mapsto& \{v_1\} \\
-      e_{13} &\mapsto& \{v_2\} \\
-      e_{14} &\mapsto& \{v_3\}
-   \end{array}
-   \hfill$
-   \end{center}  
-   La representación visual de $G$ se muestra a continuación.
-   \begin{figure}[H]
-     \centering
-     \resizebox{0.5\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag40.tex}} 
-     \caption{Un multigrafo}
-   \end{figure}
-   Podemos ver, por ejemplo, que $e_8,e_9$ y $e_{10}$ son aristas múltiples entre $v_4$ y $v_5$, que $e_{12}$ es un bucle sobre $v_1$ y que $e_{14}$ es un bucle sobre $v_3$.
-\end{Ejm}
-En el presente estudio trabajaremos únicamente con grafos simples, así que de ahora en adelante se entenderá \textit{grafo} y \textit{grafo simple} de manera indistinta.\\\\
+Notemos que en un grafo $G$, dada $uv\in E(G)$, se tiene que $uv$ y $vu$ hacen referencia a la misma arista, pues $uv=\left\lbrace u,v \right\rbrace=\left\lbrace v, u\right\rbrace=vu$. De esta forma, en un grafo, el orden de los vértices en la representación de una arista no es tenido en cuenta, lo cual está alineado con nuestra idea de no considerar orientación en ellas. Además, la exigencia de que las aristas de un grafo sean $2-subconjuntos$ de vértices implica que si $uv\in E(G)$ entonces $u\neq v$, es decir, no hay aristas que unan un vértice con sí mismo, de modo que los grafos que consideramos no tienen bucles. Así mismo, entre dos vértices distintos $u,v\in V(G)$ podrá haber a lo más una arista, dependiendo de si $uv$ pertenece a $E(G)$ o no, es decir, se excluye la posibilidad de que hayan aristas múltiples entre un par de vértices.\par
 Frecuentemente en matemáticas, uno de los primeros pasos al analizar una estructura formal es estudiar sus subestructuras, es decir, objetos del mismo tipo contenidos en ella. Para esto introducimos la noción de \textit{subgrafo}.
 \begin{Def}
    Dados dos grafos $G=(V,E)$ y $G'=(V',E')$, decimos que $G'$ es un \textbf{subgrafo} de $G$ si $V'\subseteq V$ y $E'\subseteq E$. En este caso denotamos $G'\subseteq G$.
@@ -199,9 +82,20 @@ Así, en el \Cref{Ejm:cuatro_grafos}, el grado de los cuatro primeros grafos es 
 \begin{Def}
    Dado un grafo $G$ decimos que dos vértices $u,v\in V(G)$ son \textbf{adyacentes} si $uv\in E(G)$. Igualmente, decimos que el vértice $v\in V(G)$ es \textbf{incidente} con la arista $e\in E(G)$ si $v\in e$. 
 \end{Def}
-En el grafo $G_1$ del \Cref{Ejm:cuatro_grafos}, los vértices $v_3$ y $v_4$ son adyacentes, los vértices $v_2$ y $v_5$ no son adyacentes, el vértice $v_6$ es incidente con la arista $v_1v_6$ y el vértice $v_4$ no es incidente con la arista $v_2v_3$.
+En el grafo $G_1$ del \Cref{Ejm:cuatro_grafos}, los vértices $v_3$ y $v_4$ son adyacentes, los vértices $v_2$ y $v_5$ no son adyacentes, el vértice $v_6$ es incidente con la arista $v_1v_6$ y el vértice $v_4$ no es incidente con la arista $v_2v_3$. Los grafos finitos permiten una representación mediante matrices basada en las relaciones de adyacencia de sus vértices.
 \begin{Def}
-   Sea $G$ un grafo. Dado un vértice $v\in V(G)$, denotamos por $A_v$ al conjunto de todos los vértices adyacentes a $v$, es decir $A_v=\left\lbrace u\in V(G) \mid uv\in E(G)\right\rbrace$, y por $E_v$ al conjunto de todas las aristas con las cuales es incidente $v$, es decir $E_v=\left\lbrace e\in E(G)\mid v\in e\right\rbrace$.
+   Sea $G$ un grafo con $V(G)=\left\lbrace v_1,\dots ,v_n\right\rbrace$ para algún $n\in\mathbb{Z}^+$. La \textbf{matriz de adyacencia} $A=(a_{ij})_{n\times n}$ de $G$ se define mediante
+   $$
+   a_{ij} := \begin{cases} 
+     1 & \text{si } v_iv_j \in E(G) \\ 
+     0 & \text{en otro caso.} 
+   \end{cases}
+   $$
+   Si $G=\emptyset$, definimos la matriz de adyacencia de $G$ como la matriz vacía de tamaño $0\times 0$.
+\end{Def}
+El uso de matrices de adyacencia para la representación de grafos finitos presenta utilidades para el manejo de estos mediante computadoras. Como afirma \cite{marimont1960}, aunque los grafos, representados visualmente, son ``intuitivamente sugestivos y fáciles de comprender'', su manejo directo mediante computadoras resulta inviable, no se presta a manipulaciones cuantitativas inmediatas, y a medida que crecen en tamaño y complejidad se va perdiendo la intuición que en principio proporcionan. Las matrices en cambio pueden ser manipuladas fácilmente por computadoras, las cuales sacan vasto provecho del procesamiento cuantitativo que ofrecen, a pesar del poco atractivo intuitivo que pueda presentar al ojo humano frente a la representación visual del grafo. En las \Cref{sec:computacional_adyacencia,sec:computacional_incidencia} hacemos uso de matrices de adyacencia en algunas implementaciones computacionales.
+\begin{Def}
+   Sea $G$ un grafo. Dado un vértice $v\in V(G)$, denotamos por $\bm{A_v}$ al conjunto de todos los vértices adyacentes a $v$, es decir $A_v=\left\lbrace u\in V(G) \mid uv\in E(G)\right\rbrace$, y por $\bm{E_v}$ al conjunto de todas las aristas con las cuales es incidente $v$, es decir $E_v=\left\lbrace e\in E(G)\mid v\in e\right\rbrace$.
 \end{Def}
 En el grafo $G_2$ del \Cref{Ejm:cuatro_grafos}, tenemos que $A_{v_1}=\lbrace v_2,v_3,v_4\rbrace$, $A_{v_6}=\lbrace v_5\rbrace$, $E_{v_1}=\lbrace v_1v_2,v_1v_3,v_1v_4 \rbrace$ y $E_{v_6}=\lbrace v_5v_6\rbrace$. En el grafo $G_5$ del mismo ejemplo se tiene, para todo $i\in \left\lbrace 2,3,4,\dots\right\rbrace$, $A_{v_i}=\left\lbrace v_{i-1}, v_{i+1}\right\rbrace$ y $E_{v_i}=\left\lbrace v_{i-1}v_i, v_iv_{i+1}\right\rbrace$.\\
 La siguiente proposición nos muestra el hecho natural de que la cantidad de vértices adyacentes a $v$ y la cantidad de aristas con las cuales es incidente $v$ es siempre la misma para cualquier vértice $v$ en un grafo arbitrario.
@@ -216,7 +110,7 @@ Definamos $f:A_v\to E_v: u\mapsto uv$. Nótese que si $u\in A_v$, entonces $uv\i
 \end{Def}
 De este modo, el grado de un vértice se define como la cantidad de vértices adyacentes con él, que por la \Cref{Prop:AvEv}, es igual a la cantidad de aristas con las cuales es incidente. En el grafo $G_4$ del \Cref{Ejm:cuatro_grafos} se tiene $d(v_2)=3$ y $d(v_3)=4$, mientras que $v_1$ es un vértice aislado y $v_4$ es una hoja. En el grafo $G_5$ del mismo ejemplo se tiene $d(v_1)=1$ y $d(v_i)=2$ para todo $i\in \left\lbrace 2,3,4,\dots \right\rbrace$.
 \begin{Def}
-   Sea $G$ un grafo. Definimos el grado mínimo de $G$ como $\delta (G):= \min \left\lbrace d(v)\mid v\in V\right\rbrace$ y el grado máximo de $G$ como $\Delta (G):= \max \left\lbrace d(v)\mid v\in V\right\rbrace$, siempre que estos valores estén bien definidos.
+   Sea $G$ un grafo. Definimos el \textbf{grado mínimo} de $G$ como $\delta (G):= \min \left\lbrace d(v)\mid v\in V\right\rbrace$ y el \textbf{grado máximo} de $G$ como $\Delta (G):= \max \left\lbrace d(v)\mid v\in V\right\rbrace$, siempre que estos valores estén bien definidos.
 \end{Def}
 En el \Cref{Ejm:cuatro_grafos}, $\delta (G_1)=2=\Delta (G_1)$, $\delta (G_2)=1$, $\Delta (G_2)=3$, $\delta (G_3)=1$, $\Delta (G_3)=5$, $\delta (G_4)=0$, $\Delta (G_4)=4$, $\delta (G_5)=1$, $\Delta (G_5)=2$.
 \begin{Def}
@@ -537,4 +431,3 @@ Tenemos en cambio que si una función $\varphi$ es un homomorfismo biyectivo y s
    Para todo $n\in\mathbb{N}$ con $n\ge 3$ se tiene que $C^n$ es un grafo vértice transitivo. Podemos suponer que $V(C^n)$ es de la forma $\left\lbrace v_0,v_1, \dots, v_{n-1}\right\rbrace$ con $E(C^n)=\left\lbrace v_0v_1, v_1v_2, \dots ,v_{n-2}v_{n-1}, v_{n-1}v_0\right\rbrace$. Sean $v_i,v_j\in V(C^n)$ cualesquiera. La función $\varphi :V(C^n)\to V(C^n):v_k\mapsto v_{(k+j-i)\bmod n}$ para cada $k\in\left\lbrace 0,1,\dots ,n-1\right\rbrace$, es un automorfismo que envía $v_i$ a $v_j$. Si representamos a $C^n$ como en la \Cref{fig:ciclo_n}, podemos pensar en $\varphi$ como una función que ``rota'' al grafo en sentido horario hasta llevar al vértice $v_i$ a la posición del vértice $v_j$.
    \input{Preliminares_Grafos/Diagramas/Diag69.tex}
 \end{Ejm}
-\end{comment}
