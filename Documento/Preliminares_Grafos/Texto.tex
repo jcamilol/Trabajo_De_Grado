@@ -1,6 +1,6 @@
-Intuitivamente, podemos pensar en un \textit{grafo simple} como un conjunto de círculos o puntos en el espacio llamados \textit{vértices}, conectados con segmentos que llamamos \textit{aristas}.
+Intuitivamente, podemos pensar en un \textit{grafo simple} como una colección de círculos o puntos llamados \textit{vértices}, conectados con segmentos que llamamos \textit{aristas}.
 \input{Preliminares_Grafos/Diagramas/Diag0.tex}
-En los grafos simples cada arista conecta exactamente dos vértices, no pueden haber aristas que conecten un vértice consigo mismo, ni puede haber más de una arista entre dos vértices.\par
+En los grafos simples cada arista conecta exactamente dos vértices, de modo que no pueden haber aristas que conecten un vértice consigo mismo, ni puede haber más de una arista entre dos vértices.\par
 Una ligera variante en la noción de grafo simple la presentan los llamados \textit{grafos orientados}. Podemos pensar en un grafo orientado como en un grafo simple en el cual a cada arista se le asigna una ``dirección'', de modo que ahora tenemos registro del vértice del cual ``sale'' una arista y al cuál ``llega''. Las aristas son ahora representadas por flechas apuntando desde el vértice de salida al vértice de llegada. Si el grafo orientado $D$ resulta de asignar dirección a las aristas del grafo simple $G$, decimos que $D$ es una \textit{orientación} de G.
 \input{Preliminares_Grafos/Diagramas/Fig10.tex}
 Permitiendo más de una arista entre dos vértices en un grafo orientado, así como aristas de un vértice en sí mismo, obtenemos la noción de \textit{grafo dirigido} o \textit{digrafo}. Las aristas que conectan un mismo par de vértices (sin importar en qué dirección lo hagan) son llamadas \textit{aristas múltiples}. Si un conjunto de aristas múltiples tiene la misma dirección, estas son llamadas \textit{aristas paralelas}. Las aristas que unen un vétice consigo mismo son llamados \textit{bucles}. En la representación de un grafo dirigido solemos curvar ligeramente las aristas múltiples para evitar que estas se superpongan. Ahora también etiquetamos las aristas del grafo dirigido para poder hacer distinción entre aristas paralelas.
@@ -94,6 +94,11 @@ En el grafo $G_1$ del \Cref{Ejm:cuatro_grafos}, los vértices $v_3$ y $v_4$ son 
    Si $G=\emptyset$, definimos la matriz de adyacencia de $G$ como la matriz vacía de tamaño $0\times 0$.
 \end{Def}
 El uso de matrices de adyacencia para la representación de grafos finitos presenta utilidades para el manejo de estos mediante computadoras. Como afirma \cite{marimont1960}, aunque los grafos, representados visualmente, son ``intuitivamente sugestivos y fáciles de comprender'', su manejo directo mediante computadoras resulta inviable, no se presta a manipulaciones cuantitativas inmediatas, y a medida que crecen en tamaño y complejidad se va perdiendo la intuición que en principio proporcionan. Las matrices en cambio pueden ser manipuladas fácilmente por computadoras, las cuales sacan vasto provecho del procesamiento cuantitativo que ofrecen, a pesar del poco atractivo intuitivo que pueda presentar al ojo humano frente a la representación visual del grafo. En las \Cref{sec:computacional_adyacencia,sec:computacional_incidencia} hacemos uso de matrices de adyacencia en algunas implementaciones computacionales.
+\begin{Ejm}
+   En cada fila de la siguiente tabla se muestra un grafo finito $G$ y su respectiva matriz de adyacencia $M$:
+   \input{Preliminares_Grafos/Diagramas/Fig23.tex}
+\end{Ejm}
+La ausencia de bucles en los grafos hace que todas las entradas en la diagonal de una matriz de adyacencia sean siempre $0$. Igualmente, el hecho de que en un grafo $G$ se tenga $v_iv_j\in E(G)$ si y sólo si $v_jv_i\in E(G)$, hace que cualquier matriz de adyacencia sea simétrica.
 \begin{Def}
    Sea $G$ un grafo. Dado un vértice $v\in V(G)$, denotamos por $\bm{A_v}$ al conjunto de todos los vértices adyacentes a $v$, es decir $A_v=\left\lbrace u\in V(G) \mid uv\in E(G)\right\rbrace$, y por $\bm{E_v}$ al conjunto de todas las aristas con las cuales es incidente $v$, es decir $E_v=\left\lbrace e\in E(G)\mid v\in e\right\rbrace$.
 \end{Def}
@@ -278,7 +283,7 @@ Los ciclos nos permiten definir fácilmente lo que es un \textit{árbol}.
    Un grafo conexo que no contiene ningún ciclo es llamado un \textbf{árbol}. 
 \end{Def}
 \begin{Ejm}
-   Todos los caminos son ejemplos de grafos. Los únicos grafos completos que son árboles son $K^1$ y $K^2$; el grafo $K^0=\emptyset$ no es un árbol porque no es conexo, y cualquier grafo completo con $3$ o más vértices contiene a $C^3$. En la \Cref{fig:arboles_ejemplos} los grafos $T_1$, $T_2$ y $T_3$ son ejemplos de árboles.
+   Todos los caminos son ejemplos de árboles. Los únicos grafos completos que son árboles son $K^1$ y $K^2$; el grafo $K^0=\emptyset$ no es un árbol porque no es conexo, y cualquier grafo completo con $3$ o más vértices contiene a $C^3$. En la \Cref{fig:arboles_ejemplos} los grafos $T_1$, $T_2$ y $T_3$ son ejemplos de árboles.
    \input{Preliminares_Grafos/Diagramas/Fig15.tex}
    En la \Cref{fig:no_arboles}, el grafo $S_1$ no es un árbol porque no es conexo; el grafo $S_2$ no es un árbol porque contiene el ciclo $C^5$.
    \input{Preliminares_Grafos/Diagramas/Fig16.tex}
