@@ -1,6 +1,6 @@
 Intuitivamente, podemos pensar en un \textit{grafo simple} como una colección de círculos o puntos llamados \textit{vértices}, conectados con segmentos que llamamos \textit{aristas}.
 \input{Preliminares_Grafos/Diagramas/Diag0.tex}
-En los grafos simples cada arista conecta exactamente dos vértices, de modo que no pueden haber aristas que conecten un vértice consigo mismo, ni puede haber más de una arista entre dos vértices. Siguiendo a \cite{Gross2006}, \cite{Foulds} y \cite{Pirzada2007}, vemos que, a nivel práctico, los grafos simples son la herramienta estándar para modelar ciertas redes de contactos o relaciones sociales entre personas, organizar la asignación óptima de personal a diferentes tareas y planificar la infraestructura de redes físicas de computadores o servidores. También se utilizan para resolver problemas de asignación de frecuencias en antenas de telefonía móvil evitando interferencias electrónicas, e incluso en biología computacional y ciberseguridad para detectar conflictos genéticos o aislar virus informáticos en servidores clave mediante el análisis de coberturas mínimas. Según las fuentes, la gran ventaja de los grafos simples radica en la limpieza y eficiencia de su estructura. Al no admitir conexiones repetidas ni bucles sobre un mismo punto, pueden almacenarse en computadoras mediante matrices o listas de conexiones muy compactas, lo que mejora significativamente el uso de memoria y a su vez facilita el diseño de algoritmos de búsqueda y optimización extremadamente rápidos.\\
+En los grafos simples cada arista conecta exactamente dos vértices, de modo que no puede haber aristas que conecten un vértice consigo mismo, ni puede haber más de una arista entre dos vértices. Siguiendo a \cite{Foulds1991}, \cite{Gross2006} y \cite{Pirzada2007}, vemos que, a nivel práctico, los grafos simples son la herramienta estándar para modelar ciertas redes de contactos o relaciones sociales entre personas, organizar la asignación óptima de personal a diferentes tareas y planificar la infraestructura de redes físicas de computadores o servidores. También se utilizan para resolver problemas de asignación de frecuencias en antenas de telefonía móvil evitando interferencias electrónicas, e incluso en biología computacional y ciberseguridad para detectar conflictos genéticos o aislar virus informáticos en servidores clave mediante el análisis de coberturas mínimas. Según las fuentes, la gran ventaja de los grafos simples radica en la limpieza y eficiencia de su estructura. Al no admitir conexiones repetidas ni bucles sobre un mismo punto, pueden almacenarse en computadoras mediante matrices o listas de conexiones muy compactas, lo que mejora significativamente el uso de memoria y a su vez facilita el diseño de algoritmos de búsqueda y optimización extremadamente rápidos.\\
 
 Una ligera variante en la noción de grafo simple la presentan los llamados \textit{grafos orientados}. Podemos pensar en un grafo orientado como en un grafo simple en el cual a cada arista se le asigna una ``dirección'', de modo que ahora tenemos registro del vértice del cual ``sale'' una arista y al cuál ``llega''. Las aristas son ahora representadas por flechas apuntando desde el vértice de salida al vértice de llegada. Si el grafo orientado $D$ resulta de asignar dirección a las aristas del grafo simple $G$, decimos que $D$ es una \textit{orientación} de G.
 \input{Preliminares_Grafos/Diagramas/Fig10.tex}
@@ -22,7 +22,7 @@ Si en un grafo dirigido ignoramos la dirección de sus aristas, obtenemos un \te
   \caption{Un multigrafo}
   \label{fig:multigrafo}
 \end{figure}
-En un multigrafo aún se permiten aristas mútliples entre vértices, así como bucles. En el multigrafo de la \Cref{fig:multigrafo} podemos ver, por ejemplo, que $e_8,e_9$ y $e_{10}$ son aristas múltiples entre $v_4$ y $v_5$, que $e_{12}$ es un bucle sobre $v_1$ y que $e_{14}$ es un bucle sobre $v_3$. De acuerdo con \cite{Andrei2008}, \cite{Butler2023}, \cite{Gross2006} y \cite{Shafie2012}, los multigrafos se aplican con éxito en el análisis de redes sociales para estudiar simultáneamente distintos tipos de lazos (como amistad, trabajo o préstamos de dinero) entre las mismas personas, en la representación de redes de transporte con varias alternativas paralelas (como tren y autobús entre dos estaciones) y en química para describir enlaces moleculares múltiples. Se nos explica que la principal ventaja de los multigrafos reside en que pueden registrar varios canales de interacción al mismo tiempo sin necesidad de simplificarlos o fusionarlos en un solo enlace, preservando la riqueza del fenómeno real.\\
+En un multigrafo aún se permiten aristas múltiples entre vértices, así como bucles. En el multigrafo de la \Cref{fig:multigrafo} podemos ver, por ejemplo, que $e_8,e_9$ y $e_{10}$ son aristas múltiples entre $v_4$ y $v_5$, que $e_{12}$ es un bucle sobre $v_1$ y que $e_{14}$ es un bucle sobre $v_3$. De acuerdo con \cite{Andrei2008}, \cite{Butler2023}, \cite{Gross2006} y \cite{Shafie2012}, los multigrafos se aplican con éxito en el análisis de redes sociales para estudiar simultáneamente distintos tipos de lazos (como amistad, trabajo o préstamos de dinero) entre las mismas personas, en la representación de redes de transporte con varias alternativas paralelas (como tren y autobús entre dos estaciones) y en química para describir enlaces moleculares múltiples. Se nos explica que la principal ventaja de los multigrafos reside en que pueden registrar varios canales de interacción al mismo tiempo sin necesidad de simplificarlos o fusionarlos en un solo enlace, preservando la riqueza del fenómeno real.\\
 
 Si ahora permitimos que las aristas sean subconjuntos no vacíos de vértices de cualquier cardinalidad, obtenemos la noción de \textit{hipergrafo}. Las aristas de un hipergrafo se representan como diagramas de Venn encerrando únicamente los vértices que contiene.
 \begin{figure}[H]
@@ -38,7 +38,7 @@ Dado un conjunto $S$ y un número natural $k$, denotamos por $[S]^k$ a la colecc
 $$
 \begin{aligned}
    [S]^3 &= \left\lbrace \left\lbrace 1,2,3\right\rbrace, \left\lbrace 1,2,4\right\rbrace, \left\lbrace 1,2,5\right\rbrace, \left\lbrace 1,3,4\right\rbrace, \left\lbrace 1,3,5\right\rbrace, \left\lbrace 1,4,5\right\rbrace, \left\lbrace 2,3,4\right\rbrace, \left\lbrace 2,3,5\right\rbrace \right.,\\
-         &\phantom{ooo} \left. \left\lbrace 2,4,5\right\rbrace, \left\lbrace 3,4,5\right\rbrace\right\rbrace 
+         &\phantom{ooo} \left. \left\lbrace 2,4,5\right\rbrace, \left\lbrace 3,4,5\right\rbrace\right\rbrace. 
 \end{aligned}
 $$
 Los elementos de $[S]^k$ son llamados $k-subconjuntos$ de $S$. Con esto, damos la definición de grafo.
@@ -57,7 +57,7 @@ De este modo, las aristas de un grafo son $2-subconjuntos$ de vértices. Si es n
    \end{figure}
 \end{Ejm}
 \begin{Not}
-   El grafo $G=(\emptyset,\emptyset)$ en el cual tanto el conjunto de vértices como el de aristas es vacío, lo llamamos \textbf{grafo vacío} y lo representamos simplemente por $\emptyset$.
+   El grafo $G=(\emptyset,\emptyset)$ en el cual tanto el conjunto de vértices como el de aristas son vacíos, lo llamamos \textbf{grafo vacío} y lo representamos simplemente por $\emptyset$.
 \end{Not}
 Notemos que en un grafo $G$, dada $uv\in E(G)$, se tiene que $uv$ y $vu$ hacen referencia a la misma arista, pues $uv=\left\lbrace u,v \right\rbrace=\left\lbrace v, u\right\rbrace=vu$. De esta forma, en un grafo, el orden de los vértices en la representación de una arista no es tenido en cuenta, lo cual está alineado con nuestra idea de no considerar orientación en ellas. Además, la exigencia de que las aristas de un grafo sean $2-subconjuntos$ de vértices implica que si $uv\in E(G)$ entonces $u\neq v$, es decir, no hay aristas que unan un vértice con sí mismo, de modo que los grafos que consideramos no tienen bucles. Así mismo, entre dos vértices distintos $u,v\in V(G)$ podrá haber a lo más una arista, dependiendo de si $uv$ pertenece a $E(G)$ o no, es decir, se excluye la posibilidad de que hayan aristas múltiples entre un par de vértices.\par
 Frecuentemente en matemáticas, uno de los primeros pasos al analizar una estructura formal es estudiar sus subestructuras, es decir, objetos del mismo tipo contenidos en ella. Para esto introducimos la noción de \textit{subgrafo}.
@@ -83,7 +83,7 @@ En el \Cref{Ejm:Contenencia} se cumple que $G'_3$ conserva todas las aristas ent
    \end{itemize}
 \end{Ejm}
 \begin{Def}
-   El \textbf{grado} de un grafo $G$, representado mediante $|G|$, es el cardinal del conjunto $V(G)$.
+   El \textbf{orden} de un grafo $G$, representado mediante $|G|$, es el cardinal del conjunto $V(G)$.
 \end{Def}
 Así, en el \Cref{Ejm:cuatro_grafos}, el grado de los cuatro primeros grafos es $6$, mientras que $|G_5|=\aleph _0$. Los grafos pueden ser \textit{finitos, infinitos, contables}, etc. dependiendo del respectivo tamaño del conjunto $G$.
 \begin{Def}
@@ -115,7 +115,7 @@ La siguiente proposición nos muestra el hecho natural de que la cantidad de vé
    En cualquier grafo $G$, dado $v\in V(G)$, se tiene $|A_v|=|E_v|$.
 \end{Prop}
 \begin{proof}
-Definamos $f:A_v\to E_v: u\mapsto uv$. Nótese que si $u\in A_v$, entonces $uv\in E(G)$, y $v\in uv$, luego $uv\in E_v$, de modo que $f$ está bien definida. Se tiene que $f$ es inyectiva, pues si $u_1,u_2 \in A_v$ son tales que $f(u_1)=f(u_2)$ entonces $u_1v=u_2v$, es decir $\left\lbrace u_1,v\right\rbrace=\left\lbrace u_2,v\right\rbrace$, y como $u_1\neq v\neq u_2$, entonces $u_1=u_2$. Además $f$ es sobreyectiva, pues dada $e\in E_v$, tenemos $v\in e$ y por tanto $e=uv$ para algún $u\in V(G)$; en particular $uv\in E(G)$, luego $u\in A_v$, y $f(u)=uv=e$. Por tanto $f$ es una biyección, con lo cual $|A_v|=|E_v|$.
+Definamos $f:A_v\to E_v: u\mapsto uv$. Nótese que si $u\in A_v$, entonces $uv\in E(G)$, y $v\in uv$, luego $uv\in E_v$, de modo que $f$ está bien definida. Se tiene que $f$ es inyectiva, pues si $u_1,u_2 \in A_v$ son tales que $f(u_1)=f(u_2)$ entonces $u_1v=u_2v$, es decir $\left\lbrace u_1,v\right\rbrace=\left\lbrace u_2,v\right\rbrace$, y como $u_1\neq v$ y $u_2\neq v$, entonces $u_1=u_2$. Además $f$ es sobreyectiva, pues dada $e\in E_v$, tenemos $v\in e$ y por tanto $e=uv$ para algún $u\in V(G)$; en particular $uv\in E(G)$, luego $u\in A_v$, y $f(u)=uv=e$. Por tanto $f$ es una biyección, con lo cual $|A_v|=|E_v|$.
 \end{proof}
 \begin{Def}
    Sea $G$ un grafo. El \textbf{grado} de un vértice $v\in V(G)$ se define como $d(v):=|A_v|$. Un vértice de grado $0$ se llama \textbf{aislado}, y uno de grado $1$ se llama una \textbf{hoja}.
@@ -153,7 +153,7 @@ Un concepto importante en el presente trabajo es el de \textit{grafo conexo}. Pa
 \begin{Def}
    Un \textbf{camino} es un grafo no vacío $P=(V,E)$ de la forma
    $$
-   V=\left\lbrace x_0, x_1, \dots, x_k\right\rbrace \quad E=\left\lbrace x_0x_1, x_1x_2, \dots , x_{k-1}x_k\right\rbrace,
+   V=\left\lbrace x_0, x_1, \dots, x_k\right\rbrace, \quad E=\left\lbrace x_0x_1, x_1x_2, \dots , x_{k-1}x_k\right\rbrace,
    $$
    para $k\in \mathbb{N}$, y donde todos los $x_i$, con $i\in \left\lbrace 0,1,\dots,k\right\rbrace$, son distintos. En este caso denotamos a $P$ mediante $x_0x_1\dots x_k$ o $x_kx_{k-1}\dots x_0$. Decimos que los vértices $x_0$ y $x_k$ están \textbf{conectados} por el camino P, y que $x_0$ y $x_k$ son los \textbf{extremos} de $P$. El número de aristas de un camino es su \textbf{longitud}, y un camino de longitud $k$ es denotado por $\bm{P^k}$.
 \end{Def}
@@ -340,12 +340,12 @@ El hecho de que $\left\lbrace u,v \right\rbrace\in E$ implique $\left\lbrace \va
    \begin{center}
    $\hfill
    \begin{array}{rcl}
-      \{v_1, v_2\} \in E(G) &\text{ y }& \{\varphi_1(v_1), \varphi_1(v_2)\} = \{w_1, w_2\} \in E(G') \\
-      \{v_1, v_3\} \in E(G) &\text{ y }& \{\varphi_1(v_1), \varphi_1(v_3)\} = \{w_1, w_3\} \in E(G') \\
-      \{v_1, v_4\} \in E(G) &\text{ y }& \{\varphi_1(v_1), \varphi_1(v_4)\} = \{w_1, w_2\} \in E(G') \\
-      \{v_2, v_3\} \in E(G) &\text{ y }& \{\varphi_1(v_2), \varphi_1(v_3)\} = \{w_2, w_3\} \in E(G') \\
-      \{v_2, v_5\} \in E(G) &\text{ y }& \{\varphi_1(v_2), \varphi_1(v_5)\} = \{w_2, w_1\} \in E(G') \\
-      \{v_3, v_4\} \in E(G) &\text{ y }& \{\varphi_1(v_3), \varphi_1(v_4)\} = \{w_3, w_2\} \in E(G')
+      \{v_1, v_2\} \in E(G) &\text{ y }& \{\varphi_1(v_1), \varphi_1(v_2)\} = \{w_1, w_2\} \in E(G'), \\
+      \{v_1, v_3\} \in E(G) &\text{ y }& \{\varphi_1(v_1), \varphi_1(v_3)\} = \{w_1, w_3\} \in E(G'), \\
+      \{v_1, v_4\} \in E(G) &\text{ y }& \{\varphi_1(v_1), \varphi_1(v_4)\} = \{w_1, w_2\} \in E(G'), \\
+      \{v_2, v_3\} \in E(G) &\text{ y }& \{\varphi_1(v_2), \varphi_1(v_3)\} = \{w_2, w_3\} \in E(G'), \\
+      \{v_2, v_5\} \in E(G) &\text{ y }& \{\varphi_1(v_2), \varphi_1(v_5)\} = \{w_2, w_1\} \in E(G'), \\
+      \{v_3, v_4\} \in E(G) &\text{ y }& \{\varphi_1(v_3), \varphi_1(v_4)\} = \{w_3, w_2\} \in E(G').
    \end{array}
    \hfill$
    \end{center}
@@ -381,15 +381,15 @@ El hecho de que $\left\lbrace u,v \right\rbrace\in E$ implique $\left\lbrace \va
    \begin{center}
    $\hfill
    \begin{array}{rcl}
-      \{x_1, x_2\} \in E(H) &\text{ y }& \{\varphi_1(x_1), \varphi_1(x_2)\} = \{y_1, y_2\} \in E(H') \\
-      \{x_2, x_3\} \in E(H) &\text{ y }& \{\varphi_1(x_2), \varphi_1(x_3)\} = \{y_2, y_3\} \in E(H') \\
-      \{x_3, x_4\} \in E(H) &\text{ y }& \{\varphi_1(x_3), \varphi_1(x_4)\} = \{y_3, y_4\} \in E(H') \\
-      \{x_4, x_1\} \in E(H) &\text{ y }& \{\varphi_1(x_4), \varphi_1(x_1)\} = \{y_4, y_1\} \in E(H')
+      \{x_1, x_2\} \in E(H) &\text{ y }& \{\varphi_1(x_1), \varphi_1(x_2)\} = \{y_1, y_2\} \in E(H'), \\
+      \{x_2, x_3\} \in E(H) &\text{ y }& \{\varphi_1(x_2), \varphi_1(x_3)\} = \{y_2, y_3\} \in E(H'), \\
+      \{x_3, x_4\} \in E(H) &\text{ y }& \{\varphi_1(x_3), \varphi_1(x_4)\} = \{y_3, y_4\} \in E(H'), \\
+      \{x_4, x_1\} \in E(H) &\text{ y }& \{\varphi_1(x_4), \varphi_1(x_1)\} = \{y_4, y_1\} \in E(H').
    \end{array}
    \hfill$
    \end{center}
 \end{Ejm}
-Estamos interesados en encontrar funciones entre vértices que permitan determinar si los grafos en cuestión son ``indistinguibles'' para la teoría construida. Un homomorfismo no es suficiente para ésto: notemos que en la \Cref{Def:homomorfismo}, un homomorfismo puede envíar vértices no adyacentes en el grafo de salida a vértices adyacentes en el grafo de llegada. Como muestra de esto, en el \Cref{Ejm:homomorfismos}, se tiene que $\varphi_1$ es un homomorfismo de $G$ en $G'$, y a pesar de que $v_3$ y $v_5$ no son adyacentes en $G$, se tiene que $\varphi_1(v_3)=w_3$ y $\varphi_1(v_5)=w_1$ sí son adyacentes en $G'$. Un primer paso sería exigir que la función, además de preservar la adyacencia de los vértices del grafo de salida, no mapee vértices no adyacentes en vértices adyacentes. Sin embargo, esta propiedad la cumple la función $\psi$ del \Cref{Ejm:homomorfismos}, conectando al grafo $H$ de $4$ vértices y $4$ aristas con el grafo $H'$ de $8$ vértices y $12$ aristas. Incluir la exigencia de que la función sea biyectiva solventa el problema y resulta en la definición de \textit{isomorfismo} entre grafos.
+Estamos interesados en encontrar funciones entre vértices que permitan determinar si los grafos en cuestión son ``indistinguibles'' para la teoría construida. Un homomorfismo no es suficiente para esto: notemos que en la \Cref{Def:homomorfismo}, un homomorfismo puede enviar vértices no adyacentes en el grafo de partida a vértices adyacentes en el grafo de llegada. Como muestra de esto, en el \Cref{Ejm:homomorfismos}, se tiene que $\varphi_1$ es un homomorfismo de $G$ en $G'$, y a pesar de que $v_3$ y $v_5$ no son adyacentes en $G$, vemos que $\varphi_1(v_3)=w_3$ y $\varphi_1(v_5)=w_1$ sí son adyacentes en $G'$. Un primer paso sería exigir que la función, además de preservar la adyacencia de los vértices del grafo de partida, no envíe vértices no adyacentes en vértices adyacentes. Sin embargo, esta propiedad la cumple la función $\psi$ del \Cref{Ejm:homomorfismos}, conectando al grafo $H$ de $4$ vértices y $4$ aristas con el grafo $H'$ de $8$ vértices y $12$ aristas. Incluir la exigencia de que la función sea biyectiva solventa el problema y resulta en la definición de \textit{isomorfismo} entre grafos.
 \begin{Def}
    Sean $G=(V,E)$ y $G'=(V',E')$ dos grafos. Decimos que una función $\varphi:V\to V'$ es un \textbf{isomorfismo} de $G$ en $G'$ si $\varphi$ es biyectiva y $\left\lbrace u,v\right\rbrace\in E$, si y sólo si, $\left\lbrace \varphi(u), \varphi(v)\right\rbrace\in E'$, para cualesquiera vértices $u,v\in V$. Si existe un isomorfismo de $G$ en $G'$ decimos que $G$ y $G'$ son \textbf{isomorfos} y escribimos $G\simeq G'$. Un isomorfismo de $G$ en sí mismo es llamado un \textbf{automorfismo} de $G$.
 \end{Def}
@@ -401,26 +401,26 @@ Usualmente no hacemos distinción alguna entre grafos isomorfos. Esto es lo que 
    \begin{center}
    $\hfill
    \begin{array}{rcl}
-      \{v_1, v_2\} \in E(G) &\text{ y }& \{\varphi(v_1), \varphi(v_2)\} = \{w_1, w_2\} \in E(G') \\
-      \{v_1, v_3\} \in E(G) &\text{ y }& \{\varphi(v_1), \varphi(v_3)\} = \{w_1, w_3\} \in E(G') \\
-      \{v_2, v_3\} \in E(G) &\text{ y }& \{\varphi(v_2), \varphi(v_3)\} = \{w_2, w_3\} \in E(G') \\
-      \{v_3, v_7\} \in E(G) &\text{ y }& \{\varphi(v_3), \varphi(v_7)\} = \{w_3, w_7\} \in E(G') \\
-      \{v_3, v_6\} \in E(G) &\text{ y }& \{\varphi(v_3), \varphi(v_6)\} = \{w_3, w_6\} \in E(G') \\
-      \{v_6, v_7\} \in E(G) &\text{ y }& \{\varphi(v_6), \varphi(v_7)\} = \{w_6, w_7\} \in E(G') \\
-      \{v_4, v_7\} \in E(G) &\text{ y }& \{\varphi(v_4), \varphi(v_7)\} = \{w_4, w_7\} \in E(G') \\
-      \{v_4, v_5\} \in E(G) &\text{ y }& \{\varphi(v_4), \varphi(v_5)\} = \{w_4, w_5\} \in E(G') \\
-      \{v_5, v_6\} \in E(G) &\text{ y }& \{\varphi(v_5), \varphi(v_6)\} = \{w_5, w_6\} \in E(G')
+      \{v_1, v_2\} \in E(G) &\text{ y }& \{\varphi(v_1), \varphi(v_2)\} = \{w_1, w_2\} \in E(G'), \\
+      \{v_1, v_3\} \in E(G) &\text{ y }& \{\varphi(v_1), \varphi(v_3)\} = \{w_1, w_3\} \in E(G'), \\
+      \{v_2, v_3\} \in E(G) &\text{ y }& \{\varphi(v_2), \varphi(v_3)\} = \{w_2, w_3\} \in E(G'), \\
+      \{v_3, v_7\} \in E(G) &\text{ y }& \{\varphi(v_3), \varphi(v_7)\} = \{w_3, w_7\} \in E(G'), \\
+      \{v_3, v_6\} \in E(G) &\text{ y }& \{\varphi(v_3), \varphi(v_6)\} = \{w_3, w_6\} \in E(G'), \\
+      \{v_6, v_7\} \in E(G) &\text{ y }& \{\varphi(v_6), \varphi(v_7)\} = \{w_6, w_7\} \in E(G'), \\
+      \{v_4, v_7\} \in E(G) &\text{ y }& \{\varphi(v_4), \varphi(v_7)\} = \{w_4, w_7\} \in E(G'), \\
+      \{v_4, v_5\} \in E(G) &\text{ y }& \{\varphi(v_4), \varphi(v_5)\} = \{w_4, w_5\} \in E(G'), \\
+      \{v_5, v_6\} \in E(G) &\text{ y }& \{\varphi(v_5), \varphi(v_6)\} = \{w_5, w_6\} \in E(G').
    \end{array}
    \hfill$
    \end{center}
-   Notemos que en la anterior lista se verifica tanto que $\left\lbrace u,v\right\rbrace\in E(G)$ implica $\left\lbrace \varphi(u), \varphi(v) \right\rbrace\in E(G')$ como que $\left\lbrace \varphi(u), \varphi(v)\right\rbrace\in E(G')$ implica $\left\lbrace u,v\right\rbrace\in E(G)$, para cualesquiera $u,v\in V(G)$. Por tanto $\varphi$ es un isomorfismo de $G$ en $G'$.
+   Notemos que en la anterior lista se verifica tanto que $\left\lbrace u,v\right\rbrace\in E(G)$ implica $\left\lbrace \varphi(u), \varphi(v) \right\rbrace \allowbreak \in E(G')$ como que $\left\lbrace \varphi(u), \varphi(v)\right\rbrace\in E(G')$ implica $\left\lbrace u,v\right\rbrace\in E(G)$, para cualesquiera $u,v\in V(G)$. Por tanto $\varphi$ es un isomorfismo de $G$ en $G'$.
 \end{Ejm}
 \begin{Obs}
    En cualquier grafo $G$ la función identidad de $V(G)$ es un automorfismo de $G$.
 \end{Obs}
 El siguiente ejemplo muestra que no es suficiente que una función sea un homomorfismo biyectivo para que sea un isomorfismo.
 \begin{Ejm}
-   La función $\varphi:V(G)\to V(G'):v_i\mapsto w_i$ para $i=1,2$, es un homomorfismo biyectivo entre los grafos $G$ y $G'$ de la \Cref{fig:homomorfo_no_isomorfo} (vacíamente se tiene que $\varphi$ preserva la adyacencia entre vértices).
+   La función $\varphi:V(G)\to V(G'):v_i\mapsto w_i$ para $i=1,2$, es un homomorfismo biyectivo entre los Revisa grafos $G$ y $G'$ de la \Cref{fig:homomorfo_no_isomorfo} (vacíamente se tiene que $\varphi$ preserva la adyacencia entre vértices).
    \input{Preliminares_Grafos/Diagramas/Fig22.tex}
    Sin embargo $\varphi$ no es un isomorfismo, pues $\left\lbrace \varphi(v_1),\varphi(v_2)\right\rbrace=\left\lbrace w_1,w_2\right\rbrace\in E(G')$ pero $\left\lbrace v_1,v_2\right\rbrace\notin E(G)$.
 \end{Ejm}
