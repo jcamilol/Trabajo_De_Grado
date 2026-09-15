@@ -1,0 +1,62 @@
+En la presente sección introducimos los principales conceptos y resultados referentes a topología que serán usados en los capítulos posteriores. Nos apoyaremos principalmente en \cite{munkres2000}, a excepción de la teoría referente a \textit{espacios de Alexandroff} (que no se suele incluir en cursos estándar de topología), en la que se seguirá a \cite{mesa2019}.
+\begin{Def}
+   Sea $X$ un conjunto. Una \textbf{topología} sobre $X$ es una colección $\tau$ de subconjuntos de $X$ que satisface las siguientes propiedades:
+   \begin{itemize}
+      \item[(1)] $\emptyset$ y $X$ pertenecen a $\tau$.
+      \item[(2)] La unión arbitraria de elementos de $\tau$ pertenece a $\tau$.
+      \item[(3)] La intersección finita de elementos de $\tau$ pertenece a $\tau$.
+   \end{itemize}
+   Los elementos de $\tau$ son llamados \textbf{conjuntos abiertos}. Si $\tau$ es una topología sobre $X$, decimos que $(X,\tau)$ es un \textbf{espacio topológico}.
+\end{Def}
+\begin{Obs}
+   Si es claro cuál es la topología sobre $X$ con la cual se está trabajando, o si no hace falta hacer referencia explícita a ella, nos referiremos por \textit{espacio topológico} simplemente a $X$. También es común referirnos a los elementos de la topología meramente como \textit{``abiertos''}. De esta forma, podemos decir que una topología sobre $X$ es una colección de abiertos tal que $\emptyset$ y $X$ son abiertos, la unión arbitraria de abiertos es abierto y la intersección finita de abiertos es abierto.
+\end{Obs}
+\begin{Not}
+    Sea $X$ un espacio topológico. Denotamos $U\subseteqab X$ para expresar que $U$ es un subconjunto abierto de $X$.
+\end{Not}
+\begin{Ejm}\label{Ejm:Topologias}
+   \phantom{o}\par
+   \begin{itemize}
+      \item Tomando $X=\left\lbrace a,b,c\right\rbrace$ se tiene que $\tau_1=\left\lbrace \left\lbrace a\right\rbrace, \left\lbrace a,b\right\rbrace\right\rbrace$, $\tau_2=\{\{b\},\{a,b\},\{b,c\}\}$ y $\tau_3=\{\{b\}\}$ son topologías sobre $X$.
+      \item La colección $\tau_4=\{(-n,n)\mid n\in \mathbb{Z}^+\}\cup\{\emptyset, \mathbb{R}\}$ es una topología sobre $\mathbb{R}$. Notemos que $\bigcap_{n\in \mathbb{Z}^+}(-n,n)=\{0\}\notin \tau$, lo cual nos muestra que en una topología la unión arbitraria de abiertos no siempre es un abierto.
+      \item Para cualquier conjunto $X$, la colección de todos los subconjuntos de $X$, $\wp(X)$, es una topología sobre $X$, llamada \textbf{topología discreta}. Si $X$ está dotado con esta topología, decimos que $X$ es un \textbf{espacio discreto}.
+      \item Para cualquier conjunto $X$, la colección $\{\emptyset, X\}$ es una topología sobre $X$ llamada la \textbf{topología trivial}. Si $X$ está dotado con esta topología, decimos que $X$ es un \textbf{espacio trivial}.
+   \end{itemize}
+\end{Ejm}
+\begin{Def}
+   Sean $X$ un espacio topológico y $B\subseteq X$. Decimos que $B$ es un subconjunto \textbf{cerrado} de $X$ si $X\backslash B \subseteqab X$. Si $C\subseteq X$ es simultáneamente abierto y cerrado, decimos que $C$ es un conjunto \textbf{clopen}. 
+\end{Def}
+\begin{Not}
+    Sea $X$ un espacio topológico. Denotamos $B\subseteqcer X$ para expresar que $B$ es un subconjunto cerrado de $X$.
+\end{Not}
+En el \Cref{Ejm:Topologias}, todos los conjuntos de la forma $(-\infty,-n]\cup [n,\infty)$ con $n\in \mathbb{Z}^+$, son subconjuntos cerrados de $(\mathbb{R},\tau_4)$. En cualquier espacio trivial $X$ se tiene que $X$ y $\emptyset$ son conjuntos clopen de $X$. En cualquier espacio discreto $Y$, todo subconjunto de $Y$ es clopen.
+\begin{Def}
+   Sean $X$ un conjunto y $\mathcal{B}$ una colección de subconjuntos de $X$. Decimos que $\mathcal{B}$ es \textbf{base para una topología} sobre $X$ si la colección $\tau_\mathcal{B}:=\{\bigcup A \mid A\subseteq \mathcal{B}\}$ de uniones arbitrarias de elementos de $\mathcal{B}$ es una topología sobre $X$. En este caso llamamos \textbf{elementos básicos} a los elementos de $\mathcal{B}$, y decimos que $\tau_\mathcal{B}$ es la \textbf{topología generada} por $\mathcal{B}$.
+\end{Def}
+La siguiente proposición da definiciones equivalentes para la noción de \textit{base} para una topología sobre un conjunto.
+\begin{Prop}
+   Sean $X$ un conjunto y $\mathcal{B}$ una colección de subconjuntos de $X$. Las siguientes afirmaciones son equivalentes:
+   \begin{itemize}
+      \item[1.] $\mathcal{B}$ es base para una topología sobre $X$.
+      \item[2.] $\mathcal{B}$ satisface las siguientes dos propiedades:
+         \begin{itemize}
+            \item Para cada $x\in X$ existe $B\in \mathcal{B}$ tal que $x\in B$.
+            \item Dados $x\in X$ y $B_1,B_2\in \mathcal{B}$ cualesquiera, si $x\in B_1\cap B_2$, entonces existe $B_3\in \mathcal{B}$ tal que $x\in B_3$ y $B_3\subseteq B_1\cap B_2$.
+         \end{itemize}
+      \item[3.] $\mathcal{B}$ satisface las siguientes dos propiedades:
+         \begin{itemize}
+            \item $X$ es unión de elementos de $\mathcal{B}$.
+            \item La intersección de cualesquiera dos elementos de $\mathcal{B}$ es una unión (posiblemente vacía) de elementos de $\mathcal{B}$.
+         \end{itemize}
+   \end{itemize}
+\end{Prop}
+\begin{Def}\label{Def:base_para_tau}
+   Sean $(X,\tau)$ un espacio topológico y $\mathcal{B}$ una colección de subconjuntos de $X$. Decimos que $\mathcal{B}$ es \textbf{base para la topología} $\tau$ si $\tau_\mathcal{B}=\tau$.  
+\end{Def}
+Lo anterior nos quiere decir que si $\mathcal{B}$ es base para $\tau$, entonces cualquier elemento de $\tau$ se puede escribir como unión de elementos de $\mathcal{B}$, es decir, cualquier abierto del espacio es unión de abiertos básicos. La siguiente proposición nos da una caracterización de la \Cref{Def:base_para_tau}.
+\begin{Prop}\label{Prop:base_para_tau}
+   Sean $(X,\tau)$ un espacio topológico y $\mathcal{B}$ una colección de subconjuntos de $X$. Se tiene que $\mathcal{B}$ es base para la topología $\tau$, si y sólo si, $\mathcal{B}\subseteq\tau$ y se cumple la siguiente propiedad:
+   \begin{itemize}
+      \item Para cualquier $U\in \tau$, si $x\in U$, entonces existe $B\in \mathcal{B}$ tal que $x\in B$ y $B\subseteq U$.
+   \end{itemize}
+\end{Prop}
