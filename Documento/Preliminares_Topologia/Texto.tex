@@ -31,9 +31,9 @@ En la presente sección introducimos los principales conceptos y resultados refe
 \end{Not}
 En el \Cref{Ejm:Topologias}, todos los conjuntos de la forma $(-\infty,-n]\cup [n,\infty)$ con $n\in \mathbb{Z}^+$, son subconjuntos cerrados de $(\mathbb{R},\tau_4)$. En cualquier espacio trivial $X$ se tiene que $X$ y $\emptyset$ son conjuntos clopen de $X$. En cualquier espacio discreto $Y$, todo subconjunto de $Y$ es clopen.
 \begin{Def}
-   Sean $X$ un conjunto y $\mathcal{B}$ una colección de subconjuntos de $X$. Decimos que $\mathcal{B}$ es \textbf{base para una topología} sobre $X$ si la colección $\tau_\mathcal{B}:=\{\bigcup A \mid A\subseteq \mathcal{B}\}$ de uniones arbitrarias de elementos de $\mathcal{B}$ es una topología sobre $X$. En este caso llamamos \textbf{elementos básicos} a los elementos de $\mathcal{B}$, y decimos que $\tau_\mathcal{B}$ es la \textbf{topología generada} por $\mathcal{B}$.
+   Sean $X$ un conjunto y $\mathcal{B}$ una colección de subconjuntos de $X$. Decimos que $\mathcal{B}$ es \textbf{base para una topología} sobre $X$ si la colección $\tau_\mathcal{B}:=\left\lbrace \bigcup A \mid A\subseteq \mathcal{B}\right\rbrace$ de uniones arbitrarias de elementos de $\mathcal{B}$ es una topología sobre $X$. En este caso llamamos \textbf{elementos básicos} a los elementos de $\mathcal{B}$, y decimos que $\tau_\mathcal{B}$ es la \textbf{topología generada} por $\mathcal{B}$.
 \end{Def}
-La siguiente proposición da definiciones equivalentes para la noción de \textit{base} para una topología sobre un conjunto.
+La siguiente proposición da definiciones equivalentes para la noción de \textit{base para una topología} sobre un conjunto.
 \begin{Prop}
    Sean $X$ un conjunto y $\mathcal{B}$ una colección de subconjuntos de $X$. Las siguientes afirmaciones son equivalentes:
    \begin{itemize}
@@ -50,12 +50,12 @@ La siguiente proposición da definiciones equivalentes para la noción de \texti
          \end{itemize}
    \end{itemize}
 \end{Prop}
-\begin{Def}\label{Def:base_para_tau}
-   Sean $(X,\tau)$ un espacio topológico y $\mathcal{B}$ una colección de subconjuntos de $X$. Decimos que $\mathcal{B}$ es \textbf{base para la topología} $\tau$ si $\tau_\mathcal{B}=\tau$.  
-\end{Def}
-Lo anterior nos quiere decir que si $\mathcal{B}$ es base para $\tau$, entonces cualquier elemento de $\tau$ se puede escribir como unión de elementos de $\mathcal{B}$, es decir, cualquier abierto del espacio es unión de abiertos básicos. La siguiente proposición nos da una caracterización de la \Cref{Def:base_para_tau}.
+\begin{Obs}
+   Si $(X,\tau)$ es un espacio topológico y $\mathcal{B}$ es base para una topología sobre $X$ tal que $\tau = \tau_\mathcal{B}$, se dice indistintamente que $\mathcal{B}$ es \textbf{base para} $\tau$ o que $\mathcal{B}$ es \textbf{base para} $X$, si entendemos a $X$ como espacio topológico dotado de la topología $\tau$.
+\end{Obs}
+Con lo anterior se tiene que si $\mathcal{B}$ es base para $\tau$, entonces cualquier elemento de $\tau$ se puede escribir como unión de elementos de $\mathcal{B}$, es decir, cualquier abierto del espacio es unión de abiertos básicos. La siguiente proposición nos da una caracterización de este hecho. 
 \begin{Prop}\label{Prop:base_para_tau}
-   Sean $(X,\tau)$ un espacio topológico y $\mathcal{B}$ una colección de subconjuntos de $X$. Se tiene que $\mathcal{B}$ es base para la topología $\tau$, si y sólo si, $\mathcal{B}\subseteq\tau$ y se cumple la siguiente propiedad:
+   Sean $(X,\tau)$ un espacio topológico y $\mathcal{B}$ una colección de subconjuntos de $X$. Se tiene que $\mathcal{B}$ es base para $\tau$, si y sólo si, $\mathcal{B}\subseteq\tau$ y se cumple la siguiente propiedad:
    \begin{itemize}
       \item Para cualquier $U\in \tau$, si $x\in U$, entonces existe $B\in \mathcal{B}$ tal que $x\in B$ y $B\subseteq U$.
    \end{itemize}
@@ -74,7 +74,7 @@ Lo anterior nos quiere decir que si $\mathcal{B}$ es base para $\tau$, entonces 
    Sean $X$ un conjunto y $\mathcal{S}$ una subbase para una topología sobre $X$. El conjunto $\mathcal{B}_\mathcal{S}:=\left\lbrace \bigcap_{i=1}^{n}S_i \mid n\in \mathbb{Z}^+ \text{ y } S_i\in \mathcal{S} \text{ para todo }i \right\rbrace$ es base para una topología sobre $X$.
 \end{Prop}
 \begin{Def}
-   Sean $X$ un conjunto y $\mathcal{S}$ una subbase para una topología sobre $X$. La topología generada por $\mathcal{B}_\mathcal{S}$, denotada por $\tau_\mathcal{S}$, es llamada la \textbf{topología generada por la subbase} $\mathcal{S}$. 
+   Sean $X$ un conjunto y $\mathcal{S}$ una subbase para una topología sobre $X$. La topología generada por $\mathcal{B}_\mathcal{S}$, denotada por $\tau_\mathcal{S}$, es llamada la \textbf{topología generada por la subbase} $\mathcal{S}$.
 \end{Def}
 De esta forma, una manera de construir una topología sobre $X$ a partir de una subbase $\mathcal{S}$ es tomar intersecciones finitas de elementos de $\mathcal{S}$ para formar $\mathcal{B}_\mathcal{S}$, y luego tomar uniones arbitrarias de elementos de $\mathcal{B}_\mathcal{S}$, lo cual produce la topología $\tau_\mathcal{S}$. Este procedimiento se ejemplifica a continuación.
 \begin{Ejm}
@@ -91,3 +91,6 @@ De esta forma, una manera de construir una topología sobre $X$ a partir de una 
    \tau_\mathcal{S} = \{\emptyset, \{b\}, \{c\}, \{b, c\}, \{a, b\}, \{c, d\}, \{a, b, c\}, \{b, c, d\}, X\}.
    $$
 \end{Ejm}
+\begin{Obs}
+   Si $(X,\tau)$ es un espacio topológico y $\mathcal{S}$ es subbase para una topología sobre $X$ tal que $\tau=\tau_\mathcal{S}$, se dice indistintamente que $\mathcal{S}$ es \textbf{subbase para} $\tau$ o que $\mathcal{S}$ es \textbf{subbase para} $X$, si entendemos a $X$ como espacio topológico dotado de la topología $\tau$.
+\end{Obs}
