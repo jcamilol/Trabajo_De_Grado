@@ -60,3 +60,34 @@ Lo anterior nos quiere decir que si $\mathcal{B}$ es base para $\tau$, entonces 
       \item Para cualquier $U\in \tau$, si $x\in U$, entonces existe $B\in \mathcal{B}$ tal que $x\in B$ y $B\subseteq U$.
    \end{itemize}
 \end{Prop}
+\begin{Ejm}
+   \phantom{o}\par
+   \begin{itemize}
+      \item La colección de intervalos abiertos $\{(a,b)\mid a,b\in \mathbb{R}; a<b\}$ es base para una topología sobre $\mathbb{R}$, llamada la \textbf{topología usual} de $\mathbb{R}$.
+      \item Para cualquier conjunto $X$, la colección $\{\{ x\}\mid x\in X\}$ es base para la topología discreta sobre $X$.
+   \end{itemize}
+\end{Ejm}
+\begin{Def}
+   Sean $X$ un conjunto y $\mathcal{S}$ una colección de subconjuntos de $X$. Decimos que $\mathcal{S}$ es \textbf{subbase para una topología} sobre $X$ si $\bigcup_{A\in\mathcal{S}}A=X$. 
+\end{Def}
+\begin{Prop}
+   Sean $X$ un conjunto y $\mathcal{S}$ una subbase para una topología sobre $X$. El conjunto $\mathcal{B}_\mathcal{S}:=\left\lbrace \bigcap_{i=1}^{n}S_i \mid n\in \mathbb{Z}^+ \text{ y } S_i\in \mathcal{S} \text{ para todo }i \right\rbrace$ es base para una topología sobre $X$.
+\end{Prop}
+\begin{Def}
+   Sean $X$ un conjunto y $\mathcal{S}$ una subbase para una topología sobre $X$. La topología generada por $\mathcal{B}_\mathcal{S}$, denotada por $\tau_\mathcal{S}$, es llamada la \textbf{topología generada por la subbase} $\mathcal{S}$. 
+\end{Def}
+De esta forma, una manera de construir una topología sobre $X$ a partir de una subbase $\mathcal{S}$ es tomar intersecciones finitas de elementos de $\mathcal{S}$ para formar $\mathcal{B}_\mathcal{S}$, y luego tomar uniones arbitrarias de elementos de $\mathcal{B}_\mathcal{S}$, lo cual produce la topología $\tau_\mathcal{S}$. Este procedimiento se ejemplifica a continuación.
+\begin{Ejm}
+   Sea $X=\{a,b,c,d\}$. La colección $\mathcal{S} = \{\{a, b\}, \{b, c\}, \{c, d\}\}$ de subconjuntos de $X$ es una subbase para una topología sobre $X$, pues
+   $$
+   \bigcup_{A \in \mathcal{S}} A = \{a, b\} \cup \{b, c\} \cup \{c, d\} = \{a, b, c, d\} = X.
+   $$
+   Tomando intersecciones de $1$, $2$ y $3$ elementos de $\mathcal{S}$ obtenemos
+   $$
+   \mathcal{B}_\mathcal{S} = \{\emptyset, \{b\}, \{c\}, \{a, b\}, \{b, c\}, \{c, d\}\}.
+   $$
+   Tomando uniones de $0,1,\dots,6$ elementos de $\mathcal{B}_\mathcal{S}$ cubrimos todas las uniones arbitrarias de $\mathcal{B}_\mathcal{S}$, para obtener
+   $$
+   \tau_\mathcal{S} = \{\emptyset, \{b\}, \{c\}, \{b, c\}, \{a, b\}, \{c, d\}, \{a, b, c\}, \{b, c, d\}, X\}.
+   $$
+\end{Ejm}
