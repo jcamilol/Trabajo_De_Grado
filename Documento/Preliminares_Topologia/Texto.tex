@@ -29,7 +29,12 @@ En la presente sección introducimos los principales conceptos y resultados refe
 \begin{Not}
     Sea $X$ un espacio topológico. Denotamos $B\subseteqcer X$ para expresar que $B$ es un subconjunto cerrado de $X$.
 \end{Not}
-En el \Cref{Ejm:Topologias}, todos los conjuntos de la forma $(-\infty,-n]\cup [n,\infty)$ con $n\in \mathbb{Z}^+$, son subconjuntos cerrados de $(\mathbb{R},\tau_4)$. En cualquier espacio trivial $X$ se tiene que $X$ y $\emptyset$ son conjuntos clopen de $X$. En cualquier espacio discreto $Y$, todo subconjunto de $Y$ es clopen.
+En el \Cref{Ejm:Topologias}, todos los conjuntos de la forma $(-\infty,-n]\cup [n,\infty)$ con $n\in \mathbb{Z}^+$, son subconjuntos cerrados de $(\mathbb{R},\tau_4)$. En cualquier espacio topológico $X$ se tiene que $X$ y $\emptyset$ son conjuntos clopen de $X$. En cualquier espacio discreto $Y$, todo subconjunto de $Y$ es clopen.\\\phantom{o}\\
+Como consecuencia de las leyes de De Morgan se tiene la siguiente proposición.
+\begin{Prop}
+   En cualquier espacio topológico la intersección arbitraria de subconjuntos cerrados es un subconjunto cerrado, y la unión finita de subconjuntos cerrados es un subconjunto cerrado.
+\end{Prop}
+Las nociones de \textit{bases} y \textit{subbases} nos permiten tanto construir topologías para un conjunto a partir de ciertas familias de subconjuntos, como capturar la información necesaria para reconstruir la topología de un espacio a partir de un subconjunto de abiertos con algunas propiedades especiales. Esto se formaliza a continuación. 
 \begin{Def}
    Sean $X$ un conjunto y $\mathcal{B}$ una colección de subconjuntos de $X$. Decimos que $\mathcal{B}$ es \textbf{base para una topología} sobre $X$ si la colección $\tau_\mathcal{B}:=\left\lbrace \bigcup A \mid A\subseteq \mathcal{B}\right\rbrace$ de uniones arbitrarias de elementos de $\mathcal{B}$ es una topología sobre $X$. En este caso llamamos \textbf{elementos básicos} a los elementos de $\mathcal{B}$, y decimos que $\tau_\mathcal{B}$ es la \textbf{topología generada} por $\mathcal{B}$.
 \end{Def}
@@ -60,10 +65,10 @@ Con lo anterior se tiene que si $\mathcal{B}$ es base para $\tau$, entonces cual
       \item Para cualquier $U\in \tau$, si $x\in U$, entonces existe $B\in \mathcal{B}$ tal que $x\in B$ y $B\subseteq U$.
    \end{itemize}
 \end{Prop}
-\begin{Ejm}
+\begin{Ejm}\label{Ejm:Bases}
    \phantom{o}\par
    \begin{itemize}
-      \item La colección de intervalos abiertos $\{(a,b)\mid a,b\in \mathbb{R}; a<b\}$ es base para una topología sobre $\mathbb{R}$, llamada la \textbf{topología usual} de $\mathbb{R}$.
+      \item La colección de intervalos abiertos $\{(a,b)\mid a,b\in \mathbb{R} \text{ y } a<b\}$ es base para una topología sobre $\mathbb{R}$, llamada la \textbf{topología usual} de $\mathbb{R}$. De esta forma, en $\mathbb{R}$ con latopología usual, un subconjunto es abierto si y solo si es unión (posiblemente vacía) de intervalos abiertos.
       \item Para cualquier conjunto $X$, la colección $\{\{ x\}\mid x\in X\}$ es base para la topología discreta sobre $X$.
    \end{itemize}
 \end{Ejm}
@@ -94,3 +99,35 @@ De esta forma, una manera de construir una topología sobre $X$ a partir de una 
 \begin{Obs}
    Si $(X,\tau)$ es un espacio topológico y $\mathcal{S}$ es subbase para una topología sobre $X$ tal que $\tau=\tau_\mathcal{S}$, se dice indistintamente que $\mathcal{S}$ es \textbf{subbase para} $\tau$ o que $\mathcal{S}$ es \textbf{subbase para} $X$, si entendemos a $X$ como espacio topológico dotado de la topología $\tau$.
 \end{Obs}
+Dos nociones que son de uso común en topología son el \textit{interior} y la \textit{clausura} de un subconjunto.
+\begin{Def}\label{Def:Int_Cl}
+   Sean $X$ un espacio topológico y $A\subseteq X$. El \textbf{interior} de $A$, denotado $\operatorname{Int} A$ es el conjunto $\bigcup \left\lbrace U\mid U\subseteqab X \text{ y } U\subseteq A \right\rbrace$. Los elementos de $\operatorname{Int}A$ se llaman \textbf{puntos interiores} de $A$. La \textbf{clausura} de $A$, denotada $\overline{A}$ es el conjunto $\bigcap \left\lbrace B \mid B\subseteqcer X \text{ y } A\subseteq B\right\rbrace$. Los elementos de $\overline{A}$ se llaman \textbf{puntos de adherencia} de $A$.
+\end{Def}
+De este modo, el \textit{interior} de $A$ es la unión de todos los abiertos contenidos en $A$, y la \textit{clausura} de $A$ es la intersección de todos los cerrados que contienen a $A$. Puede verse que para cualquier $A\subseteq X$, el conjunto $\operatorname{Int}A$ es abierto, mientras que $\overline{A}$ es cerrado. Además se cumple $\operatorname{Int}\subseteq A\subseteq \overline{A}$. 
+\begin{Ejm}
+   Consideremos $\mathbb{R}$ dotado de la topología usual. Si $A=[-1,0)\cup(0,1]$ entonces $\operatorname{Int}A=(-1,0)\cup (0,1)$ y $\overline{A}=[-1,1]$. 
+\end{Ejm}
+La \Cref{Def:Int_Cl} junto con las siguiente proposición nos permite caracterizar los subconjuntos abiertos y cerrados de un espacio topológico.
+\begin{Prop}
+   Sean $X$ un espacio topológico y $A\subseteq X$. Se tiene que $A\subseteqab X$, si y solo si $A=\operatorname{Int}A$, y $A\subseteqcer X$, si y solo si $A=\overline{A}$. 
+\end{Prop}
+\begin{Def}
+   Sea $X$ un espacio topológico. Si $x\in X$ y $U\subseteqab X$ son tales que $x\in U$, entonces decimos que $U$ es una \textbf{vecindad} de $x$. Si además $X$ tiene una base $\mathcal{B}$, y $B\in\mathcal{B}$ es tal que $x\in B$, entonces decimos que $B$ es una \textbf{vecindad básica} de $x$.
+\end{Def}
+La siguiente proposición nos da algunas caracterizaciones para que un elemento de un espacio topológico sea punto de adherencia de un subconjunto.
+\begin{Prop}\label{Prop:Caracterizacion_punto_adherencia}
+   Sean $X$ un espacio topológico, $A\subseteq X$ y $x\in X$.
+   \begin{itemize}
+      \item[(a)] Se tiene que $x\in \overline{A}$, si y solo si cualquier vecindad de $x$ interseca a $A$.
+      \item[(b)] Si la topología de $X$ está dada por una base, entonces $x\in\overline{A}$, si y solo si cualquier vecindad básica de $x$ interseca a $A$. 
+   \end{itemize}
+\end{Prop}
+Cuando decimos que un conjunto $B$ interseca a $A$ nos referimos a que $B\cap A\neq \emptyset$.
+%EJEMPLOS
+\begin{Ejm}\label{Ejm:ejemplo_denso}
+   Consideremos $\mathbb{R}$ con la topología usual. Sabemos que la colección de todos los intervalos abiertos es una base para $\mathbb{R}$ con la topología usual (\Cref{Ejm:Bases}). Para cualquier $x\in\mathbb{R}$ y cualquier intervalo $(a,b)$ con $a,b\in\mathbb{R}$ y $a<b$ tal que $x\in(a,b)$, como una consecuencia de la propiedad arquimediana de los números reales se tiene que existe $q\in\mathbb{Q}$ tal que $q\in(a,b)$ (puede verse \cite{apostol1974} para una prueba de este hecho), es decir, $(a,b)$ interseca a $\mathbb{Q}$. Por la \Cref{Prop:Caracterizacion_punto_adherencia} se sigue que $x\in\overline{\mathbb{Q}}$ y por tanto $\mathbb{R}\subseteq\overline{\mathbb{Q}}$. Como además por la definición de clausura se tiene $\overline{\mathbb{Q}}\subseteq\mathbb{R}$, entonces $\overline{\mathbb{Q}}=\mathbb{R}$.
+\end{Ejm}
+Los subconjuntos que, como en el \Cref{Ejm:ejemplo_denso}, al tomarles su clausura son iguales a todo el espacio que los contiene, reciben un nombre especial.
+\begin{Def}
+   Sean $X$ un espacio topológico y $A\subseteq X$. Decimos que $A$ es \textbf{denso} en $X$ si $\overline{A}=X$. 
+\end{Def}
