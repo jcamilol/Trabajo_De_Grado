@@ -20,12 +20,12 @@ En la presente sección introducimos los principales conceptos y resultados refe
       \item Para cualquier conjunto $X$, la colección $\{\emptyset, X\}$ es una topología sobre $X$ llamada la \textbf{topología trivial}. Si $X$ está dotado de esta topología, decimos que $X$ es un \textbf{espacio trivial}.
       \item Para cualquier conjunto $X$, la colección de todos los subconjuntos de $X$, $\wp(X)$, es una topología sobre $X$, llamada \textbf{topología discreta}. Si $X$ está dotado de esta topología, decimos que $X$ es un \textbf{espacio discreto}.
       \item Tomando $X=\left\lbrace a,b,c\right\rbrace$ se tiene que $\tau_1=\left\lbrace \emptyset, \left\lbrace a\right\rbrace, \left\lbrace a,b\right\rbrace, X\right\rbrace$, $\tau_2=\{\emptyset,\{b\},\{a,b\},\allowbreak\{b,c\},X\}$ y $\tau_3=\{\emptyset,\{b\},X\}$ son topologías sobre $X$.
-      \item Para cualquier conjunto $X$, la colección $\tau_{\text{cof}}=\{U\subseteq X\mid X\backslash U \text{ es finito}\}$ es una topología sobre $X$, llamada la \textbf{topología cofinita}.
+      \item Para cualquier conjunto $X$, la colección $\tau_{\text{cof}}=\{U\subseteq X\mid X\setminus U \text{ es finito}\}$ es una topología sobre $X$, llamada la \textbf{topología cofinita}.
       \item La colección $\tau_4=\{(-n,n)\mid n\in \mathbb{Z}^+\}\cup\{\emptyset, \mathbb{R}\}$ es una topología sobre $\mathbb{R}$. Notemos que $\bigcap_{n\in \mathbb{Z}^+}(-n,n)=\{0\}\notin \tau$, lo cual nos muestra que en una topología la unión arbitraria de abiertos no siempre es un abierto.
    \end{itemize}
 \end{Ejm}
 \begin{Def}
-   Sean $X$ un espacio topológico y $B\subseteq X$. Decimos que $B$ es un subconjunto \textbf{cerrado} de $X$ si $X\backslash B \subseteqab X$. Si $C\subseteq X$ es simultáneamente abierto y cerrado, decimos que $C$ es un conjunto \textbf{clopen}. 
+   Sean $X$ un espacio topológico y $B\subseteq X$. Decimos que $B$ es un subconjunto \textbf{cerrado} de $X$ si $X\setminus B \subseteqab X$. Si $C\subseteq X$ es simultáneamente abierto y cerrado, decimos que $C$ es un conjunto \textbf{clopen}. 
 \end{Def}
 \begin{Not}
     Sea $X$ un espacio topológico. Denotamos $B\subseteqcer X$ para expresar que $B$ es un subconjunto cerrado de $X$.
@@ -158,8 +158,15 @@ Los subconjuntos que, como en el \Cref{Ejm:ejemplo_denso}, al tomarles su clausu
    Sean $X$ un espacio topológico y $A\subseteq X$. Decimos que $A$ es \textbf{denso} en $X$ si $\overline{A}=X$. 
 \end{Def}
 Una caracterización de los subconjuntos densos está dadad por la siguiente proposición.
+La siguiente proposición da algunas caracterizaciones de los espacios densos.
 \begin{Prop}
-   Sean $X$ un espacio topológico y $A\subseteq X$. Se tiene que $A$ es denso en $X$, si y solo si $\operatorname{Int}(X\backslash A)=\emptyset$. 
+   Sean $X$ un espacio topológico, $A\subseteq X$ un subconjunto y $\mathcal{B}$ una base para $X$. Las siguientes afirmaciones son equivalentes:
+   \begin{itemize}
+      \item[(a)] $A$ es denso en $X$
+      \item[(b)] $\operatorname{Int}(X\setminus A)=\emptyset$. 
+      \item[(c)] Para todo abierto no vacío $U$ de $X$ se tiene $A\cap U\ne\emptyset$.
+      \item[(d)] Para todo $B\in \mathcal{B}$ con $B\ne \emptyset$ se tiene $A\cap B\ne \emptyset$.
+   \end{itemize}
 \end{Prop}
 Dos propiedades de gran interés al trabajar con espacios topológicos son la \textit{conexidad} y la \textit{compacidad}.
 \begin{Def}
@@ -267,5 +274,3 @@ Una propiedad que se conserva bajo homeomorfismo se dice \textit{topológica}. M
    Sean $X$ y $Y$ espacios topológicos y $P$ una propiedad. Decimos que $P$ es una \textbf{propiedad topológica} si el hecho de que $X$ tenga la propiedad $P$ y $X$ sea homeomorfo a $Y$, impica que $Y$ tenga la propiedad $P$.
 \end{Def}
 Puede verse que ser conexo, compacto, $T_0$, $T_1$ o Hausdorff son ejemplos de propiedades topológicas.
-
-
