@@ -217,7 +217,7 @@ Lo anterior nos quiere decir que un subgrafo $H\subseteq G$ es una componente de
 \end{Ejm}
 Dado un grafo, se puede inducir un nuevo grafo al eliminar adecuadamente un subconjunto de vértices.
 \begin{Def}
-   Sean $G$ un grafo y $S\subseteq V(G)$. Denotamos por $\bm{G-S}$ al subgrafo de $G$ inducido por $V(G)\backslash S$, es decir, $G-S=G[V(G)\backslash S]$. 
+   Sean $G$ un grafo y $S\subseteq V(G)$. Denotamos por $\bm{G-S}$ al subgrafo de $G$ inducido por $V(G)\setminus S$, es decir, $G-S=G[V(G)\setminus S]$. 
 \end{Def}
 \begin{Ejm}\label{Ejm:Supresion}
    \phantom{0}
@@ -247,7 +247,7 @@ Como se ve con el grafo $G_3$ del \Cref{Ejm:Supresion}, la supresión de algunos
 \end{Def}
 De esta forma, un subconjunto de vértices de un grafo es independiente si ningún par de vértices es adyacente, y es un clique si cualquier par de vértices es adyacente. En el \Cref{Ejm:cuatro_grafos}, $\left\lbrace v_2,v_4,v_6\right\rbrace$ es un conjunto independiente de $G_1$, $\left\lbrace v_1,v_2,v_3,v_4\right\rbrace$ es un clique de $G_2$, $\left\lbrace v_2,v_3,v_4,v_5,v_6\right\rbrace$ es un conjunto independiente de $G_3$ y $\left\lbrace v_2,v_3,v_5,v_6\right\rbrace$ es un clique de $G_4$.
 \begin{Def}
-   Dado un grafo $G=(V,E)$, su \textbf{complemento}, denotado $\overline{G}$, es el grafo con conjunto de vértices $V$ y conjunto de aristas $[V]^2\backslash E$. 
+   Dado un grafo $G=(V,E)$, su \textbf{complemento}, denotado $\overline{G}$, es el grafo con conjunto de vértices $V$ y conjunto de aristas $[V]^2\setminus E$. 
 \end{Def}
 Así, $\overline{G}$ mantiene los vértices de $G$, pero dos vértice son adyacentes en $\overline{G}$ si y sólo si no son adyacentes en $G$.
 \begin{Ejm}
