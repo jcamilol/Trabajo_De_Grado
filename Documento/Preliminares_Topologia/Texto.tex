@@ -9,7 +9,7 @@ En la presente sección introducimos los principales conceptos y resultados refe
    Los elementos de $\tau$ son llamados \textbf{conjuntos abiertos}. Si $\tau$ es una topología sobre $X$, decimos que $(X,\tau)$ es un \textbf{espacio topológico}.
 \end{Def}
 \begin{Obs}
-   Si es claro cuál es la topología sobre $X$ con la cual se está trabajando, o si no hace falta hacer referencia explícita a ella, nos referiremos por \textit{espacio topológico} simplemente a $X$. También es común referirnos a los elementos de la topología meramente como \textit{``abiertos''}. De esta forma, podemos decir que una topología sobre $X$ es una colección de abiertos tal que $\emptyset$ y $X$ son abiertos, la unión arbitraria de abiertos es abierto y la intersección finita de abiertos es abierto.
+   Decimos que el espacio topológico $(X,\tau)$ es \textit{finito} o \textit{infinito} dependiendo de si $X$ es finito o infinito, respectivamente. Si es claro cuál es la topología sobre $X$ con la cual se está trabajando, o si no hace falta hacer referencia explícita a ella, nos referiremos por \textit{espacio topológico} simplemente a $X$. También es común referirnos a los elementos de la topología meramente como \textit{``abiertos''}. De esta forma, podemos decir que una topología sobre $X$ es una colección de abiertos tal que $\emptyset$ y $X$ son abiertos, la unión arbitraria de abiertos es abierto y la intersección finita de abiertos es abierto.
 \end{Obs}
 \begin{Not}
     Sea $X$ un espacio topológico. Denotamos $U\subseteqab X$ para expresar que $U$ es un subconjunto abierto de $X$.
@@ -17,10 +17,11 @@ En la presente sección introducimos los principales conceptos y resultados refe
 \begin{Ejm}\label{Ejm:Topologias}
    \phantom{o}\par
    \begin{itemize}
-      \item Tomando $X=\left\lbrace a,b,c\right\rbrace$ se tiene que $\tau_1=\left\lbrace \left\lbrace a\right\rbrace, \left\lbrace a,b\right\rbrace\right\rbrace$, $\tau_2=\{\{b\},\{a,b\},\{b,c\}\}$ y $\tau_3=\{\{b\}\}$ son topologías sobre $X$.
+      \item Para cualquier conjunto $X$, la colección $\{\emptyset, X\}$ es una topología sobre $X$ llamada la \textbf{topología trivial}. Si $X$ está dotado de esta topología, decimos que $X$ es un \textbf{espacio trivial}.
+      \item Para cualquier conjunto $X$, la colección de todos los subconjuntos de $X$, $\wp(X)$, es una topología sobre $X$, llamada \textbf{topología discreta}. Si $X$ está dotado de esta topología, decimos que $X$ es un \textbf{espacio discreto}.
+      \item Tomando $X=\left\lbrace a,b,c\right\rbrace$ se tiene que $\tau_1=\left\lbrace \emptyset, \left\lbrace a\right\rbrace, \left\lbrace a,b\right\rbrace, X\right\rbrace$, $\tau_2=\{\emptyset,\{b\},\{a,b\},\allowbreak\{b,c\},X\}$ y $\tau_3=\{\emptyset,\{b\},X\}$ son topologías sobre $X$.
+      \item Para cualquier conjunto $X$, la colección $\tau_{\text{cof}}=\{U\subseteq X\mid X\backslash U \text{ es finito}\}$ es una topología sobre $X$, llamada la \textbf{topología cofinita}.
       \item La colección $\tau_4=\{(-n,n)\mid n\in \mathbb{Z}^+\}\cup\{\emptyset, \mathbb{R}\}$ es una topología sobre $\mathbb{R}$. Notemos que $\bigcap_{n\in \mathbb{Z}^+}(-n,n)=\{0\}\notin \tau$, lo cual nos muestra que en una topología la unión arbitraria de abiertos no siempre es un abierto.
-      \item Para cualquier conjunto $X$, la colección de todos los subconjuntos de $X$, $\wp(X)$, es una topología sobre $X$, llamada \textbf{topología discreta}. Si $X$ está dotado con esta topología, decimos que $X$ es un \textbf{espacio discreto}.
-      \item Para cualquier conjunto $X$, la colección $\{\emptyset, X\}$ es una topología sobre $X$ llamada la \textbf{topología trivial}. Si $X$ está dotado con esta topología, decimos que $X$ es un \textbf{espacio trivial}.
    \end{itemize}
 \end{Ejm}
 \begin{Def}
@@ -107,6 +108,31 @@ De este modo, el \textit{interior} de $A$ es la unión de todos los abiertos con
 \begin{Ejm}
    Consideremos $\mathbb{R}$ dotado de la topología usual. Si $A=[-1,0)\cup(0,1]$ entonces $\operatorname{Int}A=(-1,0)\cup (0,1)$ y $\overline{A}=[-1,1]$. 
 \end{Ejm}
+La siguiente proposición nos muestra que la clausura se comporta bien respecto a la contenencia y la unión finita de conjuntos.
+\begin{Prop}
+   Sean $X$ un espacio topológico y $A,B\subseteq X$. Entonces
+   \begin{itemize}
+      \item[(a)] Si $A\subseteq B$ entonces $\overline{A}\subseteq\overline{B}$.
+      \item[(b)] $\overline{A\cup B}=\overline{A}\cup\overline{B}$.
+   \end{itemize}
+\end{Prop}
+Usando inducción sobre el ítem (b) tenemos que si $\left\lbrace A_1,\dots,A_n\right\rbrace$ es una colección de subconjuntos de $X$ entonces $\overline{\bigcup_{i=1}^{n}A_i}=\bigcup_{i=1}^{n}\overline{A_i}$. Sin embargo la igualdad no siempre se tiene para uniones infinitas, como lo muestra el siguiente ejemplo.
+\begin{Ejm}
+   En $\mathbb{R}$ con la topología usual se tiene que
+   $$
+   \begin{aligned}
+      \overline{\bigcup_{i=1}^{\infty}\left(-1+\frac{1}{i},1-\frac{1}{i}\right)} &= \overline{(-1,1)}\\
+         &=[-1,1]
+   \end{aligned}
+   $$
+   mientras que
+   $$
+   \begin{aligned}
+      \bigcup_{i=1}^{\infty}\overline{\left( -1+\frac{1}{i},1-\frac{1}{i}\right)} &= \bigcup_{i=1}^{\infty}\left[-1+\frac{1}{i},1-\frac{1}{i}\right]\\
+          &= (-1,1).
+   \end{aligned}
+   $$
+\end{Ejm}
 La \Cref{Def:Int_Cl} junto con las siguiente proposición nos permite caracterizar los subconjuntos abiertos y cerrados de un espacio topológico.
 \begin{Prop}
    Sean $X$ un espacio topológico y $A\subseteq X$. Se tiene que $A\subseteqab X$, si y solo si $A=\operatorname{Int}A$, y $A\subseteqcer X$, si y solo si $A=\overline{A}$. 
@@ -131,3 +157,115 @@ Los subconjuntos que, como en el \Cref{Ejm:ejemplo_denso}, al tomarles su clausu
 \begin{Def}
    Sean $X$ un espacio topológico y $A\subseteq X$. Decimos que $A$ es \textbf{denso} en $X$ si $\overline{A}=X$. 
 \end{Def}
+Una caracterización de los subconjuntos densos está dadad por la siguiente proposición.
+\begin{Prop}
+   Sean $X$ un espacio topológico y $A\subseteq X$. Se tiene que $A$ es denso en $X$, si y solo si $\operatorname{Int}(X\backslash A)=\emptyset$. 
+\end{Prop}
+Dos propiedades de gran interés al trabajar con espacios topológicos son la \textit{conexidad} y la \textit{compacidad}.
+\begin{Def}
+   Sea $X$ un espacio topológico. Una \textbf{separación} de $X$ es una pareja $(U,V)$ de subconjuntos abiertos, disyuntos y no vacíos de $X$ tales que $U\cup V=X$. El espacio $X$ se dice \textbf{conexo} si no existe ninguna separación de $X$. En caso contrario decimos que $X$ es \textbf{disconexo}.
+\end{Def}
+Una forma equivalente de definir \textit{conexidad} la da la siguiente caracterización.
+\begin{Prop}
+   Un espacio topológico $X$ es conexo, si y solo si, los únicos subconjuntos clopen de $X$ son $\emptyset$ y $X$. 
+\end{Prop}
+\begin{Ejm}
+   \phantom{o}
+   \begin{itemize}
+      \item Cualquier espacio trivial es conexo.
+      \item Cualquier espacio discreto $X$ con dos o más elementos es disconexo, pues si $a\in X$ entonces $\{a\}$ es un subconjunto clopen de $X$ distinto de $\emptyset$ y de $X$.
+   \end{itemize}
+\end{Ejm}
+Para dar la definición de espacio topológico \textit{compacto}, presentamos la definición de \textit{cubrimiento abierto} y \textit{subcubrimiento finito}.
+\begin{Def}
+   Sea $X$ un espacio topológico. Un \textbf{cubrimiento abierto} de $X$ es una familia $\left(U_i\right)_{i\in I}$ con $U_i\subseteqab X$ para todo $i\in I$, tal que $\bigcup_{i\in I}U_i=X$. Si $\left( U_i\right)_{i\in I}$ es un cubrimiento abierto de $X$, un \textbf{subcubrimiento finito} de $\left( U_i\right)_{i\in I}$ es una familia $\left(U_{i_j} \right)_{j=1}^{n}$ con $n\in \mathbb{Z}^+$ e $i_1,\dots,i_n\in I$, tal que $\bigcup_{j=1}^{n}U_{i_j}=X$.
+\end{Def}
+Es de precisar que todo espacio topológico $X$ admite un cubrimiento abierto: la familia cuyo único elemento es $X$ mismo.
+\begin{Def}
+   Sea $X$ un espacio topológico. Decimos que $X$ es \textbf{compacto} si todo cubrimiento abierto de $X$ tiene un subcubrimiento finito.
+\end{Def}
+\begin{Ejm}
+   \phantom{o}
+   \begin{itemize}
+      \item Todo espacio topológico finito $X$ es compacto, pues su número de subconjuntos (y por tanto también su número de abiertos) es finito, con lo cual todo cubrimiento abierto de $X$ es en sí mismo un subcubrimiento finito.
+      \item Todo espacio discreto infinito $X$ es no compacto, pues $\left\lbrace \{x\}\mid x\in X\right\rbrace$ es un cubrimiento abierto de $X$ que no tiene ningún subcubrimiento finito.
+      \item El espacio $\mathbb{R}$ con la topología usual es no compacto, pues $\{(-n,n)\mid n\in \mathbb{Z}^+\}$ es un cubrimiento abierto de $\mathbb{R}$ que no tiene ningún subcubrimiento finito.
+   \end{itemize}
+\end{Ejm}
+Ahora enunciamos algunas propiedades conocidas como \textit{propiedades de separación}.
+\begin{Def}
+   Sea $X$ un espacio topológico.
+   \begin{itemize}
+      \item Decimos que $X$ es $\bm{T_0}$ si para cualesquiera $x,y\in X$ con $x\ne y$, existe una vecindad de $x$ que no contiene a $y$, o una vecindad de $y$ que no contiene a $x$. 
+      \item Decimos que $X$ es $\bm{T_1}$ si para cualesquiera $x,y\in X$ con $x\ne y$, existen una vecindad de $x$ que no contiene a $y$, y una vecidad de $y$ que no contiene a $x$.
+      \item Decimos que $X$ es \textbf{Hausdorff} si para cualesquiera $x,y\in X$ con $x\ne y$, existen una vecindad $U_x$ de $x$ y una vecindad $U_y$ de $y$ tales que $U_x\cap U_y=\emptyset$.
+   \end{itemize}
+\end{Def}
+Es claro que todo espacio Hausdorff es $T_1$, y a su vez todo espacio $T_1$ es $T_0$.
+\begin{Ejm}
+   \phantom{o}
+   \begin{itemize}
+      \item Cualquier espacio trivial con dos o más elementos no es $T_0$.
+      \item El conjunto $X=\{a,b\}$ dotado de la topología $\tau=\{\emptyset,\{a\},X\}$ es $T_0$ pero no $T_1$.
+      \item Cualquier espacio infinito dotado de la topología cofinita es $T_1$ pero no Hausdorff.
+      \item Cualquier espacio discreto es Hausdorff.
+   \end{itemize}
+\end{Ejm}
+Ahora pasamos a definir funciones que nos permitan conectar espacios topológicos entre sí. Son de pilar importancia en topología las llamadas \textit{funciones contínuas}.
+\begin{Def}
+   Sean $(X,\tau_X), (Y,\tau_Y)$ espacios topológicos y $f:X\to Y$ una función.
+   \begin{itemize}
+      \item[(a)] Decimos que $f$ es \textbf{continua} si para todo $V\in\tau_Y$ se tiene que $f^{-1}(V)\in \tau_X$.
+      \item[(b)] Decimos que $f$ es \textbf{abierta} si para todo $U\in \tau_X$ se tiene $f(U)\in \tau_Y$.
+      \item[(c)] Decimos que $f$ es \textbf{cerrada} si para todo subconjunto cerrado $B$ de $(X,\tau_X)$ se tiene que $f(B)$ es un subconjunto cerrado de $(Y,\tau_Y)$.
+   \end{itemize}
+\end{Def}
+De esta forma, solemos decir que una función continua es aquella que ``devuelve'' abiertos en abiertos por la imagen recíproca, una función abierta es aquella que envía abiertos en abiertos por la imagen directa, y una función cerrada es aquella que envía cerrados en cerrados por la imagen directa.
+\begin{Ejm}\label{Ejm:funciones_continuas}
+   \phantom{o}
+   \begin{itemize}
+      \item Cualquier función que tenga como dominio un espacio discreto es continua.
+      \item Cualquier función que tenga como codominio un espacio trivial es continua.
+      \item Tomemos $X=\mathbb{N}$ dotado de la topología discreta y $Y=\mathbb{N}$ dotado de la topología trivial. Tomemos $f:X\to Y$ definida mediante $f(n)=n$ para todo $n\in X$. Por los ítems anteriores se tiene que $f$ es continua. Además $f$ tiene inversa $f^{-1}:Y\to X$ que satisface $f^{-1}(n)=n$ para todo $n\in Y$. Sin embargo $f^{-1}$ no es contínua, pues $\{0\}\subseteqab X$ pero $f^{-1}(\{0\})=\{0\}$ no es un subconjunto abierto de $Y$.   
+      \item Sea $X = \{1, 2, 3\}$ y consideremos la función $f: X \to X$ dada por $f(1) = 1$, $f(2) = 1$ y $f(3) = 3$. Dotamos al dominio de la topología $\tau_1 = \{\emptyset, \{1, 2\}, \{3\}, X\}$ y al codominio de la topología $\tau_2 = \{\emptyset, \{1\}, \{3\}, \{1, 3\}, X\}$. Es fácil verificar con cada elemento de $\tau_1$ que $f$ es abierta, sin embargo la imagen del subconjunto cerrado $\{3\}$ de $(X,\tau_1)$ no es cerrada en $(X,\tau_2)$, de modo que $f$ no es cerrada.
+      \item Cualquier función constante de $\mathbb{R}$ dotado de la topología usual en sí mismo es cerrada y no es abierta.
+   \end{itemize}
+\end{Ejm}
+La siguiente proposición nos da algunas caracterizaciones de la continuidad de una función.
+\begin{Prop}
+   Sean $(X,\tau_X), (Y,\tau_Y)$ espacios topológicos y $f:X\to Y$ una función. Las siguientes proposiciones son equivalentes:
+   \begin{itemize}
+      \item[(a)] $f$ es continua.
+      \item[(b)] Para todo subconjunto cerrado $B$ de $(Y,\tau_Y)$ se tiene que $f^{-1}(B)$ es un subconjunto cerrado de $(X,\tau_X)$.
+      \item[(c)] Para todo $A\subseteq X$ se tiene $f(\overline{A})\subseteq\overline{f(A)}$.
+   \end{itemize}
+\end{Prop}
+La siguiente caracterización de las funciones cerradas será usada más adelante.
+\begin{Prop}
+   Sean $(X,\tau_X), (Y,\tau_Y)$ espacios topológicos y $f:X\to Y$ una función. Las siguientes proposiciones son equivalentes:
+   \begin{itemize}
+      \item[(a)] $f$ es cerrada.
+      \item[(b)] Para todo $A\subseteq X$ se tiene $\overline{f(A)}\subseteq f(\overline{A})$. 
+   \end{itemize}
+\end{Prop}
+En el \Cref{Ejm:funciones_continuas} vimos que puede tenerse una función $f$ que sea continua e invertible, tal que $f^{-1}$ no sea continua. Las funciones continuas que tienen inversa continua reciben un nombre especial.
+\begin{Def}
+   Sean $X$ y $Y$ espacios topológicos. Si $f:X\to Y$ es una función continua e invertible, tal que $f^{-1}:Y\to X$ es continua, decimos que $f$ es un \textbf{homeomorfismo}. Si existe un homeomorfismo de $X$ en $Y$, decimos que $X$ y $Y$ son \textbf{homeomorfos}. 
+\end{Def}
+En topología dos espacios homeomorfos son indistinguibles para la teoría; pueden considerarse como dos representaciones distintas del mismo espacio.
+\begin{Ejm}
+   \phantom{o}
+   \begin{itemize}
+      \item La función identidad es un homeomorfismo de cualquier espacio en sí mismo.
+      \item Si $(X,\tau_X)$ y $(Y,\tau_Y)$ son espacios discretos con $|X|=|Y|$, entonces cualquier biyección de $X$ en $Y$ es un homeomorfismo.
+      \item Si $(X,\tau_X)$ y $(Y,\tau_Y)$ son espacios triviales con $|X|=|Y|$, entonces cualquier biyección de $X$ en $Y$ es un homeomorfismo.
+      \item Sean $X = \{1, 2, 3\}$ y $Y = \{a, b, c\}$. Dotamos a $X$ de la topología $\tau_X = \{\emptyset, \{1\},\allowbreak \{2, 3\},\allowbreak X\}$ y a $Y$ de la topología $\tau_Y = \{\emptyset, \{c\}, \{a, b\}, Y\}$. Puede verse que la función $f: X \to Y$ dada por $f(1) = c$, $f(2) = a$ y $f(3) = b$ es un homeomorfismo.
+   \end{itemize}
+\end{Ejm}
+Una propiedad que se conserva bajo homeomorfismo se dice \textit{topológica}. Más formalmente:
+\begin{Def}
+   Sean $X$ y $Y$ espacios topológicos y $P$ una propiedad. Decimos que $P$ es una \textbf{propiedad topológica} si el hecho de que $X$ tenga la propiedad $P$ y $X$ sea homeomorfo a $Y$, impica que $Y$ tenga la propiedad $P$.
+\end{Def}
+Puede verse que ser conexo, compacto, $T_0$, $T_1$ o Hausdorff son ejemplos de propiedades topológicas.
+
+
