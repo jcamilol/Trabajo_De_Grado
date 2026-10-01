@@ -3,9 +3,9 @@ A lo largo de todo el capítulo supondremos que los grafos en cuestión son loca
    Sea $G=(V,E)$ un grafo. El conjunto $\mathcal{S}_{\mathcal{A},G}:=\left\lbrace A_x\mid x\in V\right\rbrace$ es subbase para una topología sobre $V$.
 \end{Prop}
 \begin{proof}
-   Tenemos que $\mathcal{S}_{\mathcal{A},G}$ es una colección de subconjuntos de $V$. Para cualquier $v\in V$, como $G$ no tiene vértices aislados, existe $u\in V$ tal que $v\in A_u$, de modo que $v\in\bigcup_{x\in V}A_x$. Por tanto $\bigcup_{x\in V}A_x=V$ y $\mathcal{S}_{\mathcal{A},G}$ es subbase para una topología sobre $V$.
+   Por definición, $\mathcal{S}_{\mathcal{A},G}$ es una colección de subconjuntos de $V$. Si $V = \emptyset$, entonces $\mathcal{S}_{\mathcal{A},G} = \emptyset$, la cual es subbase para la topología $\{\emptyset\}$ sobre $V = \emptyset$. Supongamos $V \neq \emptyset$. Sea $v \in V$ un vértice arbitrario. Dado que $G$ no contiene vértices aislados, existe $u \in V$ tal que $v \in A_u$. En consecuencia, $v \in \bigcup_{x \in V} A_x$, de lo cual se deduce que $\bigcup_{x \in V} A_x = V$. Por lo tanto, $\mathcal{S}_{\mathcal{A},G}$ es una subbase para una topología sobre $V$.
 \end{proof}
-Como pudimos ver, la condición de no tener vértices aislados es clave para que $\mathcal{S}_{\mathcal{A},G}$ sea subbase para una topología sobre $V$, pues si $G$ tuviera algún vértice aislado $v$, se tendría $v\in V$ pero $v\notin\bigcup_{x\in V}A_x$, dado que $v\notin A_x$ para todo $x\in V$.
+Como pudimos ver, la condición de no tener vértices aislados es clave para que $\mathcal{S}_{\mathcal{A},G}$ sea subbase para una topología sobre $V$, pues si $G$ tuviera algún vértice aislado $v\in V$, se tendría $v\notin\bigcup_{x\in V}A_x$, dado que $v\notin A_x$ para todo $x\in V$.
 \begin{Def}
    Sea $G=(V,E)$ un grafo. La topología generada por la subbase $\mathcal{S}_{\mathcal{A},G}$, denotada por $\tau_{\mathcal{A},G}:=\tau_{\mathcal{S}_{\mathcal{S},G}}$, es llamada la \textbf{topología de adyacencia de $G$}.  
 \end{Def}
