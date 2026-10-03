@@ -11,9 +11,6 @@ En la presente sección introducimos los principales conceptos y resultados refe
 \begin{Obs}
    Decimos que el espacio topológico $(X,\tau)$ es \textit{finito} o \textit{infinito} dependiendo de si $X$ es finito o infinito, respectivamente. Si es claro cuál es la topología sobre $X$ con la cual se está trabajando, o si no hace falta hacer referencia explícita a ella, nos referiremos por \textit{espacio topológico} simplemente a $X$. También es común referirnos a los elementos de la topología meramente como \textit{``abiertos''}. De esta forma, podemos decir que una topología sobre $X$ es una colección de abiertos tal que $\emptyset$ y $X$ son abiertos, la unión arbitraria de abiertos es abierto y la intersección finita de abiertos es abierto.
 \end{Obs}
-\begin{Not}
-    Sea $X$ un espacio topológico. Denotamos $U\subseteqab X$ para expresar que $U$ es un subconjunto abierto de $X$.
-\end{Not}
 \begin{Ejm}\label{Ejm:Topologias}
    \phantom{o}\par
    \begin{itemize}
@@ -24,6 +21,17 @@ En la presente sección introducimos los principales conceptos y resultados refe
       \item La colección $\tau_4=\{(-n,n)\mid n\in \mathbb{Z}^+\}\cup\{\emptyset, \mathbb{R}\}$ es una topología sobre $\mathbb{R}$. Notemos que $\bigcap_{n\in \mathbb{Z}^+}(-n,n)=\{0\}\notin \tau$, lo cual nos muestra que en una topología la intersección arbitraria de abiertos no siempre es un abierto.
    \end{itemize}
 \end{Ejm}
+\begin{Not}
+    Sea $X$ un espacio topológico. Denotamos $U\subseteqab X$ para expresar que $U$ es un subconjunto abierto de $X$.
+\end{Not}
+La siguiente es una caracterización útil de los abiertos de un espacio topológico.
+\begin{Prop}\label{Prop:Caracterizacion_abiertos}
+   Sean $X$ un espacio topológico y $U\subseteq X$. Las siguientes afirmaciones son equivalentes:
+   \begin{itemize}
+      \item[1.] $U\subseteqab X$.
+      \item[2.] Para todo $x\in U$ existe $V\subseteqab X$ con $x\in V$ y $V\subseteq U$.
+   \end{itemize}
+\end{Prop}
 \begin{Def}
    Sean $X$ un espacio topológico y $B\subseteq X$. Decimos que $B$ es un subconjunto \textbf{cerrado} de $X$ si $X\setminus B \subseteqab X$. Si $C\subseteq X$ es simultáneamente abierto y cerrado, decimos que $C$ es un conjunto \textbf{clopen}. 
 \end{Def}
@@ -82,7 +90,7 @@ Con lo anterior se tiene que si $\mathcal{B}$ es base para $\tau$, entonces cual
 \begin{Def}
    Sean $X$ un conjunto y $\mathcal{S}$ una subbase para una topología sobre $X$. La topología generada por $\mathcal{B}_\mathcal{S}$, denotada por $\tau_\mathcal{S}$, es llamada la \textbf{topología generada por la subbase} $\mathcal{S}$.
 \end{Def}
-De esta forma, una manera de construir una topología sobre $X$ a partir de una subbase $\mathcal{S}$ es tomar intersecciones finitas de elementos de $\mathcal{S}$ para formar $\mathcal{B}_\mathcal{S}$, y luego tomar uniones arbitrarias de elementos de $\mathcal{B}_\mathcal{S}$, lo cual produce la topología $\tau_\mathcal{S}$. Este procedimiento se ejemplifica a continuación.
+De esta forma, una manera de construir una topología sobre $X$ a partir de una subbase $\mathcal{S}$ es tomar intersecciones finitas de elementos de $\mathcal{S}$ para formar $\mathcal{B}_\mathcal{S}$, y luego tomar uniones arbitrarias de elementos de $\mathcal{B}_\mathcal{S}$, lo cual produce la topología $\tau_\mathcal{S}$. Con lo anterior se tiene en particular que los elementos de $\mathcal{S}$ pertenecen a $\tau_\mathcal{S}$; a los abiertos de este tipo los llamaremos \textit{abiertos subbásicos}. El procedimiento para construir $\tau_\mathcal{S}$ se ejemplifica a continuación.
 \begin{Ejm}
    Sea $X=\{a,b,c,d\}$. La colección $\mathcal{S} = \{\{a, b\}, \{b, c\}, \{c, d\}\}$ de subconjuntos de $X$ es una subbase para una topología sobre $X$, pues
    $$
@@ -276,9 +284,9 @@ Una propiedad que se conserva bajo homeomorfismo se dice \textit{topológica}. M
 Puede probarse que ser conexo, compacto, $T_0$, $T_1$ o Hausdorff son ejemplos de propiedades topológicas. Las propiedades topológicas son bastante útiles para demostrar que dos espacios no son homeomorfos. Por ejemplo si un espacio $X$ es conexo y un espacio $Y$ no lo es, podemos afirmar que $X$ y $Y$ no son homeomorfos\\\phantom{o}\\
 Ahora procedomos a dar un pequeño vistazo a la teoria de \textit{Espacios de Alexandroff}.
 \begin{Def}
-   Una topología $\tau$ sobre un conjunto $X$ se dice de \textbf{Alexandrof} si $\bigcap \tau'\in\tau$ para cualquier $\tau'\subseteq\tau$. En este caso decimos que $(X,\tau)$ es un \textbf{espacio de Alexandroff}.  
+   Una topología $\tau$ sobre un conjunto $X$ se dice de \textbf{Alexandrof} si $\bigcap_{i\in I} \in\tau$ para cualquier colección $\left( U_i\right)_{i\in I}$ de elementos de $\tau$. En este caso decimos que $(X,\tau)$ es un \textbf{espacio de Alexandroff}.  
 \end{Def}
-De esta manera, un espacio topológico es de \textit{Alexandroff} si la intersección arbitraria de abierto es un abierto. En el \Cref{Ejm:Topologias} vimos un espacio topológico en el que no se tiene esta propiedad. Ahora damos ejemplos de espacios topológicos de Alexandroff.
+De esta manera, un espacio topológico es de \textit{Alexandroff} si la intersección arbitraria de abiertos es un abierto. En el \Cref{Ejm:Topologias} vimos un espacio topológico en el que no se tiene esta propiedad. Ahora damos ejemplos de espacios topológicos de Alexandroff.
 \begin{Ejm}
    \phantom{o}
    \begin{itemize}
@@ -304,6 +312,14 @@ Las vecindades y bases mínimas de un espacio de Alexandroff nos dan una condici
    \end{itemize}
    entonces $U_x$ es un clopen de $X$ y por tanto $X$ es disconexo.
 \end{Prop}
+Contar con una subbase de un espacio topológico nos permite ''ahorraronos trabajo`` para conocer si el espacio es de Alexandroff, pues para esto basta determinar si la intersección arbitraria de abiertos subbásicos es abierta. Más precisamente:
+\begin{Prop}\label{Prop:Alexandroff_con_subbase}
+   Sean $X$ un espacio topológico y $\mathcal{S}$ una subbase de $X$. Se tiene que $X$ es un espacio de Alexandroff si, y solo si, la intersección arbitraria de elementos de $\mathcal{S}$ es un abierto de $X$.
+\end{Prop}
+\begin{proof}
+   $(\Rightarrow)$ Se sigue del hecho de que los elementos de $\mathcal{S}$ son abiertos.\\
+   $(\Leftarrow)$ Supongamos que la intersección arbitraria de elementos de $\mathcal{S}$ es un abierto de $X$. Sea $\left( U_i\right)_{i\in I}$ una colección cualquiera de abiertos de $X$ y llamemos $U:=\bigcap_{i\in I}U_i$. Usamos la \Cref{Prop:Caracterizacion_abiertos} para ver que $U \subseteqab X$. Sea $x\in U$ cualquiera. Sea $i\in I$ cualquiera. Tenemos que $x\in U_i$ y $U_i=\bigcup_{B\in A_i}B$ para algún $A_i\subseteq \mathcal{B}_{\mathcal{S}}$. De este modo $x\in B_i$ para algún $B_i\in A_i$. Como en particular $B_i\in \mathcal{B}_\mathcal{S}$ entonces existen $n_i\in \mathbb{Z}^+$ y $S_{i_j}\in \mathcal{S}$ para todo $j\in\left\lbrace 1,\dots ,n_i\right\rbrace$ tales que $B_i=\bigcap_{j=1}^{n_i}S_{i_j}$. Llamemos $V:=\bigcap_{i\in I}B_i=\bigcap_{i\in I}\left( \bigcap_{j=1}^{n_i}S_{i_j}\right)$. Como $V$ es una intersección de elementos de $\mathcal{S}$, se tiene $V\subseteqab X$. Como $x\in B_i$ para todo $i\in I$, entonces $x\in V$. Además, para todo $i\in I$, como $B_i\in A_i$, entonces $B_i\subseteq \bigcup_{B\in A_i}B=U_i$, luego $V=\bigcap_{i\in I}B_i\subseteq \bigcap_{i\in I}U_i=U$. Con esto, $U\subseteqab X$ y por tanto $X$ es un espacio de Alexandroff.
+\end{proof}
 La siguiente Proposición nos habla sobre propiedades de separación en espacios de Alexandroff.
 \begin{Prop}
    Sea $X$ un espacio de Alexandroff.
