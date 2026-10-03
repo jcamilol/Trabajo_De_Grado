@@ -321,7 +321,7 @@ Contar con una subbase de un espacio topológico nos permite ''ahorraronos traba
    $(\Leftarrow)$ Supongamos que la intersección arbitraria de elementos de $\mathcal{S}$ es un abierto de $X$. Sea $\left( U_i\right)_{i\in I}$ una colección cualquiera de abiertos de $X$ y llamemos $U:=\bigcap_{i\in I}U_i$. Usamos la \Cref{Prop:Caracterizacion_abiertos} para ver que $U \subseteqab X$. Sea $x\in U$ cualquiera. Sea $i\in I$ cualquiera. Tenemos que $x\in U_i$ y $U_i=\bigcup_{B\in A_i}B$ para algún $A_i\subseteq \mathcal{B}_{\mathcal{S}}$. De este modo $x\in B_i$ para algún $B_i\in A_i$. Como en particular $B_i\in \mathcal{B}_\mathcal{S}$ entonces existen $n_i\in \mathbb{Z}^+$ y $S_{i_j}\in \mathcal{S}$ para todo $j\in\left\lbrace 1,\dots ,n_i\right\rbrace$ tales que $B_i=\bigcap_{j=1}^{n_i}S_{i_j}$. Llamemos $V:=\bigcap_{i\in I}B_i=\bigcap_{i\in I}\left( \bigcap_{j=1}^{n_i}S_{i_j}\right)$. Como $V$ es una intersección de elementos de $\mathcal{S}$, se tiene $V\subseteqab X$. Como $x\in B_i$ para todo $i\in I$, entonces $x\in V$. Además, para todo $i\in I$, como $B_i\in A_i$, entonces $B_i\subseteq \bigcup_{B\in A_i}B=U_i$, luego $V=\bigcap_{i\in I}B_i\subseteq \bigcap_{i\in I}U_i=U$. Con esto, $U\subseteqab X$ y por tanto $X$ es un espacio de Alexandroff.
 \end{proof}
 La siguiente Proposición nos habla sobre propiedades de separación en espacios de Alexandroff.
-\begin{Prop}
+\begin{Prop}\label{Prop:Separacion_Alexandroff}
    Sea $X$ un espacio de Alexandroff.
    \begin{itemize}
       \item X es $T_0$ si, y solo si, $U_x=U_y$ implica $x=y$ para cualesquiera $x,y\in X$.

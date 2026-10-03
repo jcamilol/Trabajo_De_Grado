@@ -43,9 +43,45 @@ Hasta el momento no hemos necesitado la propiedad de que los grafos sean localme
 \end{proof}
 \textcolor{red}{Mostrar un grafo que no sea localmente finito y no tenga topología de adyacencia de Alexandroff / ¿todo grafo que no es localmente finito tiene topología de adyacencia que no es de Alexandroff?}\\\\
 Como la topología de adyacencia de un grafo es de Alexandroff, podemos hablar de vecindades mínimas y bases mínimas en la forma que precisamos en \Cref{sec:Topologias_Alexandroff}.
-\begin{Prop}
+\begin{Prop}\label{Prop:U_x_2}
    Sea $G=(V,E)$ un grafo. Para todo $x\in V$ tenemos $U_x=\bigcap_{y\in A_x}A_y$ y por tanto $U_x$ es finito.
 \end{Prop}
 \begin{proof}
    Sea $x\in V$ cualquiera. Para todo $y\in A_x$ tenemos $x\in A_y$, luego $x\in\bigcap_{y\in A_x}A_y$. Además $\bigcap_{y\in A_x}A_y\subseteqab X$. Como $U_x$ es la vecindad mínima de $x$, se sigue $U_x\subseteq \bigcap_{y\in A_x}A_y$. Ahora, como $x\in U_x$ y $U_x\subseteqab X$, existe $B\in\mathcal{B}_{\mathcal{S}_{\mathcal{A},G}}$ tal que $x\in B \subseteq U_x$. Por definición de $\mathcal{B}_{\mathcal{S}_{\mathcal{A},G}}$, existe algún subconjunto finito $V'$ de $V$ tal que $B=\bigcap_{y\in V'}A_y$. Para todo $y\in V'$ se tiene $x\in A_y$ y por tanto $y\in A_x$, de donde $V'\subseteq A_x$. Con esto, $\bigcap_{y\in A_x}A_y\subseteq\bigcap_{y\in V'}A_y \subseteq U_x$. Obtenemos así $U_x=\bigcap_{y\in A_x}A_y$. Como $G$ es localmente finito, $A_y$ es finito para todo $y\in A_x$ y por tanto $U_x$ es finito.
+\end{proof}
+\textcolor{red}{Esto nos permite calcular algorítmicamente las vecindades mínimas de cada vértice de un grafo finito, y por tanto también su base mínima.}
+\begin{Obs}
+   De la \Cref{Prop:U_x_2} se tiene que si $x,y\in V$ son tales que $A_x=A_y$ entonces $U_x=\bigcap_{z\in A_x}A_z=\bigcap_{z\in A_y}A_z=U_y$.
+\end{Obs}
+\begin{Cor}
+    Sea $G=(V,E)$ un grafo. Para cualesquiera $x,z\in V$ se tiene $z\in U_x$ si, y solo si, $A_x\subseteq A_z$.
+\end{Cor}
+\begin{proof}
+   Sean $x,z\in V$ cualesquiera.\\
+   ($\Rightarrow$) Supongamos $z\in U_x$. Como $U_x=\bigcap_{y\in A_x}A_y$ entonces $z\in \bigcap_{y\in A_x}A_y$. Para cualquier $y\in A_x$ se tiene $z\in A_y$ y por tanto $y\in A_z$. Luego $A_x\subseteq A_z$.\\
+   ($\Leftarrow$) Supongamos $A_x\subseteq A_z$. Para cualquier $y\in A_x$ se tiene $y\in A_z$ y por tanto $z\in A_y$. Así, $z\in \bigcap_{y\in A_x}A_y=U_x$.
+\end{proof}
+\begin{Obs}\label{Obs:U_x}
+   Por lo anterior, para cualquier vértice $x$ de un grafo $G=(V,E)$ se tiene $U_x=\left\lbrace z\in V\mid A_x\subseteq A_z\right\rbrace$.
+\end{Obs}
+El siguiente corolario nos da una condición necesaria y suficiente para que un grafo tenga topología de adyacencia discreta.
+\begin{Cor}\label{Cor:Discreto_Alexandroff}
+    Sea $G=(V,E)$ un grafo. El espacio $(V,\tau_G)$ es discreto si, y solo si $A_x \nsubseteq A_y$ para cualesquiera $x,y\in V$ con $x\ne y$.
+\end{Cor}
+\begin{proof}
+   ($\Rightarrow$) Supongamos que $(V,\tau_{\mathcal{A},G})$ es un espacio discreto. Sean $x,y\in V$ cualesquiera con $x\ne y$. Como $(V, \tau_{\mathcal{A},G})$ es un espacio de Alexandroff discreto, se tiene que $U_x=\{x\}$. Si $A_x\subseteq A_y$ entonces por la \Cref{Obs:U_x} se tiene $y\in U_x$, contradiciendo $U_x=\{x\}$. Por tanto $A_x\nsubseteq A_y$.\\
+   ($\Leftarrow$) Supongamos $A_x\nsubseteq A_y$ para cualesquiera $x,y\in V$ con $x\ne y$. Sea $x\in V$ cualquiera. Sea $y\in V$ cualquiera con $x\ne y$. Si $y\in U_x$ entonces por la \Cref{Obs:U_x} se tiene $A_x\subseteq A_y$, de modo que $y\notin U_x$. Con esto, $\{x\}=U_x\subseteqab V$. Se sigue que $(V,\tau_{\mathcal{A},G})$ es un espacio discreto.  
+\end{proof}
+\begin{Cor}
+   Sea $G=(V,E)$ un grafo. Entonces $(V,\tau_{\mathcal{A},G})$ es $T_1$ si, y solo si, $A_x\nsubseteq A_y$ para cualesquiera $x,y\in V$ con $x\ne y$.
+\end{Cor}
+\begin{proof}
+   Se sigue directamente de la \Cref{Prop:Separacion_Alexandroff} y el \Cref{Cor:Discreto_Alexandroff}
+\end{proof}
+\begin{Cor}
+   Sea $G=(V,E)$ un grafo. Entonces $(V,\tau_{\mathcal{A},G})$ es $T_0$ si, y solo si $A_x\ne A_y$ para cualesquiera $x,y\in V$ con $x\ne y$.
+\end{Cor}
+\begin{proof}
+   ($\Rightarrow$) Supongamos que $(V,\tau_{\mathcal{A},G})$ es $T_0$. Sean $x,y\in V$ cualesquiera con $x\ne y$. Sin pérdida de generalidad podemos afirmar que existe $U\subseteqab V$ con $x\in U$ y $y\notin U$. Como $U$ es una vecindad de $x$, se tiene $U_x\subseteq U$. Si $A_x=A_y$ entonces $U_x=U_y$ y $U_y\subseteq U$, con lo cual en particular $y\in U$. Por lo tanto $A_x\ne A_y$.\\
+   ($\Leftarrow$) Supongamos que $A_x\ne A_y$ para cualesquiera $x,y\in V$ con $x\ne y$. Sean $x,y\in V$ con $x\ne y$. Tenemos $A_x\ne A_y$. Sin pérdidad de generalidad supongamos $A_x\nsubseteq A_y$. Entonces existe $z\in A_x$ con $z\notin A_y$, de donde $x\in A_z$ y $y\notin A_z$. Como $A_z\subseteqab V$, se sigue que $(V,\tau_{\mathcal{A},G})$ es $T_0$.
 \end{proof}
