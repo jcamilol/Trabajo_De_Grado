@@ -34,9 +34,10 @@ Como pudimos ver, la condición de no tener vértices aislados es clave para que
 \begin{Obs}
    Se tiene que $K^1=P^1$ está formado por un solo vértice (que por tanto es aislado), de modo que no tiene definida topología de adyacencia. Además $C^3=K^3$, y por tanto $C^3$ tiene topología de adyacencia discreta. En la \Cref{sec:computacional_adyacencia} calcularemos la topología de adyacencia de $C^4$ y veremos que no es discreta. 
 \end{Obs}
-\begin{Prop}
-   Sea $G=(V,E)$ un grafo. Entonces $(V,\tau_{\mathcal{A},G})$ es un espacio de Alexandroff.
+Hasta el momento no hemos necesitado la propiedad de que los grafos sean localmente finitos; esta la exigimos para que la topología de adyacencia sea de Alexandroff, como muestra la siguiente proposición.
+\begin{Prop}\label{Prop:Adyacencia_Alexandroff}
+   Sea $G=(V,E)$ un grafo. Se tiene que $(V,\tau_{\mathcal{A},G})$ es un espacio de Alexandroff.
 \end{Prop}
 \begin{proof}
-    
+   Sea $U$ una intersección arbitraria de elementos de $\mathcal{S}_{\mathcal{A},G}$. Por la \Cref{Prop:Alexandroff_con_subbase} basta ver que $U\subseteqab X$ para concluir que $X$ es de Alexandroff. Si $U=\emptyset$ entonces $U\subseteqab X$. Supongamos que $U\ne \emptyset$. Sea $y\in U$. Por la definición de $\mathcal{S}_{\mathcal{A},G}$, existe $V'\subseteq V$ tal que $U=\bigcap_{x\in V'}A_x$. Para todo $x\in V'$ tenemos $y\in A_x$ y por tanto $x\in A_y$, de modo que $V'\subseteq A_y$. Como $G$ es localmente finito, $A_y$ es finito, y por tanto $V'$ es finito. Con esto, $U$ es una intersección finita de conjuntos abiertos, con lo que obtenemos que $U\subseteqab X$.
 \end{proof}
