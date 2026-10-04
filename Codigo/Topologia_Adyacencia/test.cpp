@@ -76,6 +76,24 @@ vector<vector<bool>> llenarMatriz_U(vector<vector<bool>> Mat_Ady){
    return Mat_U;
 }
 
+void imprVecindadesMinimales(vector<vector<bool>> Mat_U){ //Esta función imprime todos las vecindades minimales U_{v_i} del grafo
+   for(int i=0; i<=Mat_U.size()-1; i++){
+      //Imprimimos U_{v_i+1}
+      cout << "U_{v_" << i+1 << "} = {";
+      bool aux_coma = 0; //Usamos esta variable para ayudarnos a imprimir bien las comas que separan elementos del conjunto
+      for(int j=0; j<=Mat_U.size()-1; j++){
+         if(Mat_U[i][j]){
+            if(aux_coma){
+               cout << ", ";
+            }
+            cout << "v_" << j+1;
+            aux_coma = 1;
+         }
+      }
+      cout << "}" << endl;
+   }
+}
+
 int main(){
    ifstream file("../Matrices/Mat_Ady_1.txt"); //Guarda la información de "1.txt" en la variable "file" de tipo ifstream
    
@@ -83,6 +101,10 @@ int main(){
    vector<vector<bool>> Mat_U = llenarMatriz_U(Mat_Ady); //Llenamos Mat_U de nxn con la información de Mat_ady. En ella guardamos la información de los U_{v_i} mediante (Mat_U)_{i,j}=1 ssi v_j \in U_{v_i}
 
    imprAdyacencias(Mat_Ady); //Imprimimos todos los A_{v_i}
-   imprMatriz(Mat_U);
+   cout << endl;
+   imprMatriz(Mat_U); //Imprimimos la Matriz U
+   cout << endl;
+   imprVecindadesMinimales(Mat_U); //Imprimimos todas los U_{v_i}
+
    return 0;
 }
