@@ -78,10 +78,18 @@ El siguiente corolario nos da una condición necesaria y suficiente para que un 
 \begin{proof}
    Se sigue directamente de la \Cref{Prop:Separacion_Alexandroff} y el \Cref{Cor:Discreto_Alexandroff}
 \end{proof}
-\begin{Cor}
+\begin{Cor}\label{Cor:T_0_Adyacencia}
    Sea $G=(V,E)$ un grafo. Entonces $(V,\tau_{\mathcal{A},G})$ es $T_0$ si, y solo si $A_x\ne A_y$ para cualesquiera $x,y\in V$ con $x\ne y$.
 \end{Cor}
 \begin{proof}
    ($\Rightarrow$) Supongamos que $(V,\tau_{\mathcal{A},G})$ es $T_0$. Sean $x,y\in V$ cualesquiera con $x\ne y$. Sin pérdida de generalidad podemos afirmar que existe $U\subseteqab V$ con $x\in U$ y $y\notin U$. Como $U$ es una vecindad de $x$, se tiene $U_x\subseteq U$. Si $A_x=A_y$ entonces $U_x=U_y$ y $U_y\subseteq U$, con lo cual en particular $y\in U$. Por lo tanto $A_x\ne A_y$.\\
    ($\Leftarrow$) Supongamos que $A_x\ne A_y$ para cualesquiera $x,y\in V$ con $x\ne y$. Sean $x,y\in V$ con $x\ne y$. Tenemos $A_x\ne A_y$. Sin pérdidad de generalidad supongamos $A_x\nsubseteq A_y$. Entonces existe $z\in A_x$ con $z\notin A_y$, de donde $x\in A_z$ y $y\notin A_z$. Como $A_z\subseteqab V$, se sigue que $(V,\tau_{\mathcal{A},G})$ es $T_0$.
+\end{proof}
+Si $G$ es un árbol, basta verificar la anterior condición para hojas distintas, como lo muestra el siguiente corolario.
+\begin{Cor}
+   Sea $T=(V,E)$ un árbol. Entonces $(V,\tau_{\mathcal{A},T})$ es $T_0$ si, y solo si, $A_x\ne A_y$ para cualesquiera $x,y\in V$ con $x\ne y$ y $\operatorname{deg}(x)=\operatorname{deg}(y)=1$.
+\end{Cor}
+\begin{proof}
+   ($\Rightarrow$) Es inmediato por el \Cref{Cor:T_0_Adyacencia}.\\
+   ($\Leftarrow$) 
 \end{proof}
