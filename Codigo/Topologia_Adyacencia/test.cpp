@@ -99,17 +99,34 @@ vector<vector<bool>> llenarMatriz_Preuniones(int n){//Esta matriz se usa para ha
    }
    return Mat_Preuniones;
 }
-/*
-vector<vector<bool>> llenarMatriz_tau(vector<vector<bool>> Mat_U){ //Esta función devuelve una matriz tau que contiene la información de todos los abiertos de la topología de adyacencia, en tanto que las filas forman la colección de todos los conjuntos abiertos
-   
+
+vector<bool> unir(vector<bool> Vect1, vector<bool> Vect2){ //Esta función realiza la unión de dos conjuntos
+   for(int i=0; i<=Vect1.size()-1; i++){
+      Vect1[i] = Vect1[i] || Vect2[i];
+   }
+   return Vect1;
 }
-*/
+
+vector<vector<bool>> llenarMatriz_tau(vector<vector<bool>> Mat_U){ //Esta función devuelve una matriz tau que contiene la información de todos los abiertos de la topología de adyacencia, en tanto que las filas forman la colección de todos los conjuntos abiertos
+   vector<vector<bool>> Mat_Preuniones = llenarMatriz_Preuniones(Mat_U.size());
+   int m = 1 << Mat_U.size();
+   vector<vector<bool>> Mat_tau(m, vector<bool>(Mat_U.size(), false)); //La matriz tendrá 2^n filas y n columnas (n=número de vértices)
+   for(int i=0; i<= m-1; i++){ //Hacemos la unión de los U_{v_i} que indica cada fila de Mat_Preuniones
+      for(int j=0; j<= Mat_U.size()-1; j++){
+         if(Mat_Preuniones[i][j]){
+            Mat_tau[i] = unir(Mat_tau[i],Mat_U[j]);
+         }
+      }
+   }
+   return Mat_tau;
+}
 int main(){
    ifstream file("../Matrices/Mat_Ady_1.txt"); //Guarda la información de "1.txt" en la variable "file" de tipo ifstream
    
    vector<vector<bool>> Mat_Ady = leerMatriz(file); //Creamos la matriz de adyacencia llamando la función "leerMatriz" que toma como argumento la variable file
    vector<vector<bool>> Mat_U = llenarMatriz_U(Mat_Ady); //Llenamos Mat_U de nxn con la información de Mat_ady. En ella guardamos la información de los U_{v_i} mediante (Mat_U)_{i,j}=1 ssi v_j \in U_{v_i}
    vector<vector<bool>> Mat_Preuniones = llenarMatriz_Preuniones(Mat_Ady.size());
+   vector<vector<bool>> Mat_tau = llenarMatriz_tau(Mat_U);
 
    cout << "A = " << endl;
    imprMatriz(Mat_Ady);
@@ -122,6 +139,9 @@ int main(){
    imprVecindadesMinimas(Mat_U); //Imprimimos todas los U_{v_i}
    cout << endl;
    imprMatriz(Mat_Preuniones);
+   cout << endl;
+   cout << "tau=" << endl;
+   imprMatriz(Mat_tau);
 
    return 0;
 }
