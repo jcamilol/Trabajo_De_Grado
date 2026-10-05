@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream> //Permite la lectura de archivos
 #include <vector> //Permite la creación de vectores y matrices
+#include <cmath> //Necesario para la función pow                
 
 using namespace std;
 
@@ -22,7 +23,7 @@ vector<vector<bool>> leerMatriz(ifstream& file){ //Función para crear la matriz
 
 void imprMatriz(vector<vector<bool>> Mat){ //Función para imprimir la matriz que se pasa como argumento
    for(int i=0; i<=Mat.size()-1; i++){
-      for(int j=0; j<=Mat.size()-1; j++){
+      for(int j=0; j<=Mat[0].size()-1; j++){
          cout << Mat[i][j] << "\t";
       }
       cout << endl;
@@ -47,7 +48,7 @@ void imprAdyacencias(vector<vector<bool>> Mat_Ady){ //Esta función imprime todo
    }
 }
 
-vector<bool> inter(vector<bool> vect1, vector<bool> vect2){
+vector<bool> inter(vector<bool> vect1, vector<bool> vect2){ //Esta función realiza la "intersección" de dos vectores
    for(int i=0; i<=vect1.size()-1; i++){
       vect1[i] = vect1[i] && vect2[i];
    }
@@ -57,7 +58,8 @@ vector<bool> inter(vector<bool> vect1, vector<bool> vect2){
 vector<vector<bool>> llenarMatriz_U(vector<vector<bool>> Mat_Ady){
    vector<vector<bool>> Mat_U(Mat_Ady.size(), vector<bool>(Mat_Ady.size(),true));
    for(int i=0; i<=Mat_Ady.size()-1; i++){
-      for(int j=0; j<=Mat_Ady.size()-1; j++){
+      for(int j=0; j<=Mat_Ady.size()-1; j++){ // Para cada i \in \{1,\dots, n\} se hace la intersección \bigcap_{v_j \in A_{v_i}} A_{v_j} variando j de 1 a n
+
          if(Mat_Ady[i][j]){
             Mat_U[i] = inter(Mat_U[i], Mat_Ady[j]);
          }
@@ -83,12 +85,32 @@ void imprVecindadesMinimas(vector<vector<bool>> Mat_U){ //Esta función imprime 
       cout << "}" << endl;
    }
 }
-
+vector<vector<bool>> llenarMatriz_Preuniones(int n){//Esta matriz se usa para hacer todas las posibles uniones de una familia de n conjuntos: por cada fila i pone 1 en la columna j si, y solo si, el conjunto U_j se debe incluir en la unión
+   int m = 1 << n; // 2^n equivalente en enteros
+   vector<vector<bool>> Mat_Preuniones(m, vector<bool>(n, false)); //La matriz tendrá 2^n filas y n columnas
+   for(int j=0; j<=n-1; j++){ //Llenamos la matriz como en una tabla de verdad
+      bool pert = 1; //La primera fila siempre es 1; ponemos 1 cada 2^(n-i) elementos
+      for(int i=0; i<=m-1; i++){
+         Mat_Preuniones[i][j] = pert;
+         if( ((i+1) % (1 << (n-(j+1)))) == 0){ //Cambiamos la pertenencia cada 2^(n-j) elementos
+            pert = !pert;
+         }
+      }
+   }
+   return Mat_Preuniones;
+}
+/*
+vector<vector<bool>> llenarMatriz_tau(vector<vector<bool>> Mat_U){ //Esta función devuelve una matriz tau que contiene la información de todos los abiertos de la topología de adyacencia, en tanto que las filas forman la colección de todos los conjuntos abiertos
+   
+}
+*/
 int main(){
    ifstream file("../Matrices/Mat_Ady_1.txt"); //Guarda la información de "1.txt" en la variable "file" de tipo ifstream
    
    vector<vector<bool>> Mat_Ady = leerMatriz(file); //Creamos la matriz de adyacencia llamando la función "leerMatriz" que toma como argumento la variable file
    vector<vector<bool>> Mat_U = llenarMatriz_U(Mat_Ady); //Llenamos Mat_U de nxn con la información de Mat_ady. En ella guardamos la información de los U_{v_i} mediante (Mat_U)_{i,j}=1 ssi v_j \in U_{v_i}
+   vector<vector<bool>> Mat_Preuniones = llenarMatriz_Preuniones(Mat_Ady.size());
+
    cout << "A = " << endl;
    imprMatriz(Mat_Ady);
    cout << endl;
@@ -98,6 +120,8 @@ int main(){
    imprMatriz(Mat_U); //Imprimimos la Matriz U
    cout << endl;
    imprVecindadesMinimas(Mat_U); //Imprimimos todas los U_{v_i}
+   cout << endl;
+   imprMatriz(Mat_Preuniones);
 
    return 0;
 }
