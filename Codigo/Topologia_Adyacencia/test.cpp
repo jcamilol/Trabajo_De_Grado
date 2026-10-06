@@ -154,7 +154,7 @@ vector<vector<bool>> sort(vector<vector<bool>> Mat_tau){
    int m = Mat_tau.size();
    for(int i=0; i<=m-1; i++){
       for(int j=i+1; j<=m-1; j++){
-         if(((card(Mat_tau[i])!=0 && card(Mat_tau[j])!=0)&&((card(Mat_tau[i])>card(Mat_tau[j]))||(card(Mat_tau[i])==card(Mat_tau[j])&&pivSet(Mat_tau[i],Mat_tau[j])==1)))||(card(Mat_tau[i])==0&&card(Mat_tau[j])!=0)){ 
+         if( ( (card(Mat_tau[i])!=0 && card(Mat_tau[j])!=0) && ( (card(Mat_tau[i])>card(Mat_tau[j])) || ( (card(Mat_tau[i]) == card(Mat_tau[j])) && pivSet(Mat_tau[i],Mat_tau[j])==1) ) )  ||  (card(Mat_tau[i])==0 && card(Mat_tau[j])!=0) ){ 
             //Primero miramos si ambas filas son no nulas. Si |tau_i|>|tau_j| entonces se intercambian. Si |tau_i|=|tau_j| pero tau_j tiene menor orden horizontal que tau_j entonces se intercambian. Segundo miramos si tau_i es nula y tau_j no lo es; en dado caso intercambiamos las filas. Esto último hace que las filas vacías queden abajo.
             vector<bool> temp = Mat_tau[i];
             Mat_tau[i] = Mat_tau[j];
@@ -181,6 +181,30 @@ vector<vector<bool>> llenarMatriz_tau(vector<vector<bool>> Mat_U){ //Esta funci�
    return Mat_tau;
 }
 
+void imprAbiertos(vector<vector<bool>> Mat_tau){
+   int m = Mat_tau.size();
+   int n = Mat_tau[0].size();
+   cout << "tau_{mathcal{A},G} = { vacío"; //Siempre imprimimos el vacío primero
+   for(int i=0; i<=m-1; i++){
+      bool aux_coma = 0; //Ayuda a imprimir bien las comas que separan conjuntos
+      if(card(Mat_tau[i])!=0){ //Solo imprimimos los conjuntos no vacíos
+         cout << ", {";
+         bool aux_coma_int = 0; //Ayuda a imprimir bien las comas que separan elementos
+         for(int j=0; j<=n-1; j++){
+            if(Mat_tau[i][j]){
+               if(aux_coma_int){
+                  cout << ", ";
+               }
+               cout << "v_" << j+1;
+               aux_coma_int = 1;
+            }
+         }
+         cout << "}";
+      }
+   }
+   cout << " }";  
+}
+
 int main(){
    ifstream file("../Matrices/Mat_Ady_1.txt"); //Guarda la información de "1.txt" en la variable "file" de tipo ifstream
    
@@ -199,10 +223,7 @@ int main(){
    cout << endl;
    imprVecindadesMinimas(Mat_U); //Imprimimos todas los U_{v_i}
    cout << endl;
-   imprMatriz(Mat_Preuniones);
-   cout << endl;
-   cout << "tau=" << endl;
-   imprMatriz(Mat_tau);
+   imprAbiertos(Mat_tau);
 
    return 0;
 }
