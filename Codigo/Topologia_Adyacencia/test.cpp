@@ -100,11 +100,69 @@ vector<vector<bool>> llenarMatriz_Preuniones(int n){//Esta matriz se usa para ha
    return Mat_Preuniones;
 }
 
-vector<bool> unir(vector<bool> Vect1, vector<bool> Vect2){ //Esta función realiza la unión de dos conjuntos
-   for(int i=0; i<=Vect1.size()-1; i++){
-      Vect1[i] = Vect1[i] || Vect2[i];
+vector<bool> unir(vector<bool> vect1, vector<bool> vect2){ //Esta función realiza la unión de dos conjuntos
+   for(int i=0; i<=vect1.size()-1; i++){
+      vect1[i] = vect1[i] || vect2[i];
    }
-   return Vect1;
+   return vect1;
+}
+
+bool igualdadVectores(vector<bool> vect1, vector<bool> vect2){ //Esta función determina si dos vectores son iguales
+   for(int i=0; i<=vect1.size()-1; i++){
+      if(vect1[i] != vect2[i]){
+         return false;
+      }
+   }         
+   return true;
+}
+
+vector<vector<bool>> limpiarMatriz(vector<vector<bool>> Mat_tau){ //Esta función llena de ceros las versiones repetidas de una fila
+   int m = Mat_tau.size();
+   for(int i=0; i<=m-1; i++){
+      for(int j=i+1; j<=m-1; j++){
+         if(igualdadVectores(Mat_tau[i], Mat_tau[j])){
+            Mat_tau[j].assign(Mat_tau[j].size(), false); //Si el vector es repetido, lo llena de ceros
+         }
+      }
+   }
+   return Mat_tau;
+}
+
+int card(vector<bool> vect){ //Esta función determina cuántas entradas no nulas tiene el vector
+   int card_vect = 0;
+   for(int i=0; i<=vect.size()-1; i++){
+      if(vect[i]){
+         card_vect++;
+      }
+   }
+   return card_vect;
+}
+
+bool pivSet(vector<bool> vect1, vector<bool> vect2){ //Esta función determina si vect2 tiene un "orden horizontal" inferior a vect1 (si i es la menor posición tal que vect1[i] != vect2[i] entonces vect2[i]=1), donde se asume que vect2 y vect1 tienen el mismo "cardinal" pero son distintos
+   for(int i=0; i<=vect1.size()-1; i++){
+      if(vect1[i]!=vect2[i] && vect2[i]){
+         return true;
+      }
+      if(vect1[i]!=vect2[i] && vect1[i]){
+         return false;
+      }
+   }
+   return false;
+}
+
+vector<vector<bool>> sort(vector<vector<bool>> Mat_tau){
+   int m = Mat_tau.size();
+   for(int i=0; i<=m-1; i++){
+      for(int j=i+1; j<=m-1; j++){
+         if(((card(Mat_tau[i])!=0 && card(Mat_tau[j])!=0)&&((card(Mat_tau[i])>card(Mat_tau[j]))||(card(Mat_tau[i])==card(Mat_tau[j])&&pivSet(Mat_tau[i],Mat_tau[j])==1)))||(card(Mat_tau[i])==0&&card(Mat_tau[j])!=0)){ 
+            //Primero miramos si ambas filas son no nulas. Si |tau_i|>|tau_j| entonces se intercambian. Si |tau_i|=|tau_j| pero tau_j tiene menor orden horizontal que tau_j entonces se intercambian. Segundo miramos si tau_i es nula y tau_j no lo es; en dado caso intercambiamos las filas. Esto último hace que las filas vacías queden abajo.
+            vector<bool> temp = Mat_tau[i];
+            Mat_tau[i] = Mat_tau[j];
+            Mat_tau[j] = temp;
+         }
+      }
+   }
+   return Mat_tau;
 }
 
 vector<vector<bool>> llenarMatriz_tau(vector<vector<bool>> Mat_U){ //Esta función devuelve una matriz tau que contiene la información de todos los abiertos de la topología de adyacencia, en tanto que las filas forman la colección de todos los conjuntos abiertos
@@ -118,8 +176,11 @@ vector<vector<bool>> llenarMatriz_tau(vector<vector<bool>> Mat_U){ //Esta funci�
          }
       }
    }
+   Mat_tau = limpiarMatriz(Mat_tau); //Quitamos los abiertos repetidos
+   Mat_tau = sort(Mat_tau); //Ordenamos los conjuntos por cardinal y también "horizontalmente"
    return Mat_tau;
 }
+
 int main(){
    ifstream file("../Matrices/Mat_Ady_1.txt"); //Guarda la información de "1.txt" en la variable "file" de tipo ifstream
    
