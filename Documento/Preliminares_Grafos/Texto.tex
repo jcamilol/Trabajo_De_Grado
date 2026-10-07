@@ -1,20 +1,18 @@
+\subsection{Introducción}
 Intuitivamente, podemos pensar en un \textit{grafo simple} como una colección de círculos o puntos llamados \textit{vértices}, conectados con segmentos que llamamos \textit{aristas}.
 \input{Preliminares_Grafos/Diagramas/Diag0.tex}
-En los grafos simples cada arista conecta exactamente dos vértices, de modo que no puede haber aristas que conecten un vértice consigo mismo, ni puede haber más de una arista entre dos vértices. Siguiendo a \cite{Foulds1991}, \cite{Gross2006} y \cite{Pirzada2007}, vemos que, a nivel práctico, los grafos simples son la herramienta estándar para modelar ciertas redes de contactos o relaciones sociales entre personas, organizar la asignación óptima de personal a diferentes tareas y planificar la infraestructura de redes físicas de computadores o servidores. También se utilizan para resolver problemas de asignación de frecuencias en antenas de telefonía móvil evitando interferencias electrónicas, e incluso en biología computacional y ciberseguridad para detectar conflictos genéticos o aislar virus informáticos en servidores clave mediante el análisis de coberturas mínimas. Según las fuentes, la gran ventaja de los grafos simples radica en la limpieza y eficiencia de su estructura. Al no admitir conexiones repetidas ni bucles sobre un mismo punto, pueden almacenarse en computadoras mediante matrices o listas de conexiones muy compactas, lo que mejora significativamente el uso de memoria y a su vez facilita el diseño de algoritmos de búsqueda y optimización extremadamente rápidos.\\
-
-Una ligera variante en la noción de grafo simple la presentan los llamados \textit{grafos orientados}. Podemos pensar en un grafo orientado como en un grafo simple en el cual a cada arista se le asigna una ``dirección'', de modo que ahora tenemos registro del vértice del cual ``sale'' una arista y al cuál ``llega''. Las aristas son ahora representadas por flechas apuntando desde el vértice de salida al vértice de llegada. Si el grafo orientado $D$ resulta de asignar dirección a las aristas del grafo simple $G$, decimos que $D$ es una \textit{orientación} de G.
-\input{Preliminares_Grafos/Diagramas/Fig10.tex}
-En \cite{Foulds1991} y \cite{Roberts1978} se nos muestra que esta noción de dirección única permite organizar de forma eficiente el flujo vehicular en ciudades mediante calles de un solo sentido sin generar zonas atrapadas o inaccesibles, o representar las jerarquías de victoria y derrota en competencias de tipo ''todos contra todos``. También se nos afirma que el beneficio de los grafos dirigidos frente al grafo simple es que añade una jerarquía a las conexiones; sin embargo, al prohibir arcos de ida y vuelta simultáneos entre los mismos dos puntos, conserva una estructura ligera que aún simplifica los cálculos.\\
-
-Permitiendo más de una arista entre dos vértices en un grafo orientado, así como aristas de un vértice en sí mismo, obtenemos la noción de \textit{grafo dirigido} o \textit{digrafo}. Las aristas que conectan un mismo par de vértices (sin importar en qué dirección lo hagan) son llamadas \textit{aristas múltiples}. Si un conjunto de aristas múltiples tiene la misma dirección, estas son llamadas \textit{aristas paralelas}. Las aristas que unen un vétice consigo mismo son llamados \textit{bucles}. En la representación de un grafo dirigido solemos curvar ligeramente las aristas múltiples para evitar que estas se superpongan. Ahora también etiquetamos las aristas del grafo dirigido para poder hacer distinción entre aristas paralelas.
+En los grafos simples cada arista conecta exactamente dos vértices, de modo que no puede haber aristas que conecten un vértice consigo mismo, ni puede haber más de una arista entre dos vértices. Siguiendo a \cite{Foulds1991}, \cite{Gross2006} y \cite{Pirzada2007}, vemos que, a nivel práctico, los grafos simples son la herramienta estándar para modelar ciertas redes de contactos o relaciones sociales entre personas, organizar la asignación óptima de personal a diferentes tareas y planificar la infraestructura de redes físicas de computadores o servidores. También se utilizan para resolver problemas de asignación de frecuencias en antenas de telefonía móvil evitando interferencias electrónicas, e incluso en biología computacional y ciberseguridad para detectar conflictos genéticos o aislar virus informáticos en servidores clave mediante el análisis de coberturas mínimas. Según las fuentes, la gran ventaja de los grafos simples radica en la limpieza y eficiencia de su estructura. Al no admitir conexiones repetidas ni bucles sobre un mismo punto, pueden almacenarse en computadoras mediante matrices o listas de conexiones muy compactas, lo que mejora significativamente el uso de memoria y a su vez facilita el diseño de algoritmos de búsqueda y optimización extremadamente rápidos.\\\\
+Una ligera variante en la noción de grafo simple la presentan los llamados \textit{grafos orientados}. Podemos pensar en un grafo orientado como en un grafo simple en el cual a cada arista se le asigna una ``dirección'', de modo que ahora tenemos registro del vértice del cual ``sale'' una arista y al cual ``llega''. Las aristas son ahora representadas por flechas apuntando desde el vértice de salida al vértice de llegada. Si el grafo orientado $D$ resulta de asignar dirección a las aristas del grafo simple $G$, decimos que $D$ es una \textit{orientación} de G.
+\input{Preliminares_Grafos/Diagramas/Fig10.tex}\clearpage
+En \cite{Foulds1991} y \cite{Roberts1978} se nos muestra que esta noción de dirección única permite organizar de forma eficiente el flujo vehicular en ciudades mediante calles de un solo sentido sin generar zonas atrapadas o inaccesibles, o representar las jerarquías de victoria y derrota en competencias de tipo ``todos contra todos''. También se nos afirma que el beneficio de un grafo dirigido frente al grafo simple es que añade una jerarquía a las conexiones; sin embargo, al prohibir arcos de ida y vuelta simultáneos entre los mismos dos puntos, conserva una estructura ligera que aún simplifica los cálculos.\\\\
+Permitiendo más de una arista entre dos vértices en un grafo orientado, así como aristas de un vértice en sí mismo, obtenemos la noción de \textit{grafo dirigido} o \textit{digrafo}. Las aristas que conectan un mismo par de vértices (sin importar en qué dirección lo hagan) son llamadas \textit{aristas múltiples}. Si un conjunto de aristas múltiples tiene la misma dirección, estas son llamadas \textit{aristas paralelas}. Las aristas que unen un vétice consigo mismo son llamados \textit{bucles}. En la representación de un grafo dirigido solemos curvar ligeramente las aristas múltiples para evitar que estas se superpongan. Ahora, también etiquetamos las aristas del grafo dirigido para poder hacer distinción entre aristas paralelas.
 \begin{figure}[H]
   \centering
     \resizebox{0.5\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag37.tex}} 
   \caption{Un grafo dirigido}
   \label{fig:digrafo}
 \end{figure}
-En el grafo dirigido de la \Cref{fig:digrafo} podemos señalar, por ejemplo, que $e_1, e_2$ y $e_7$ son bucles, $e_3$ y $e_4$ son aristas múltiples entre $v_1$ y $v_2$, y $e_8,e_9$ y $e_{10}$ son aristas paralelas. Tal como se señala en \cite{Foulds1991}, \cite{Gross2006} y \cite{Roberts1978}, esta flexibilidad hace que los digrafos sean indispensables para coordinar las etapas de proyectos complejos (determinando qué actividades deben terminarse antes de iniciar otras), reconstruir la secuencia original de fragmentos de ADN o ARN en biología y modelar sistemas con probabilidades de transición entre estados en economía y sociología. Las fuentes nos muestran que la ventaja de los grafos dirigidos sobre los grafos orientados es que permiten flujos bidireccionales y recorridos que vuelven al mismo punto, algo esencial para representar procesos dinámicos con retroalimentación o ciclos de repetición.\\
-
+En el grafo dirigido de la \Cref{fig:digrafo} podemos señalar, por ejemplo, que $e_1, e_2$ y $e_7$ son bucles, $e_3$ y $e_4$ son aristas múltiples entre $v_1$ y $v_2$, y $e_8,e_9$ y $e_{10}$ son aristas paralelas. Tal como se señala en \cite{Foulds1991}, \cite{Gross2006} y \cite{Roberts1978}, esta flexibilidad hace que los digrafos sean indispensables para coordinar las etapas de proyectos complejos, determinando qué actividades deben terminarse antes de iniciar otras, como reconstruir la secuencia original de fragmentos de ADN o ARN en biología y modelar sistemas con probabilidades de transición entre estados en economía y sociología, por ejemplo. Las fuentes nos muestran que la ventaja de los grafos dirigidos sobre los grafos orientados es que permiten flujos bidireccionales y recorridos que vuelven al mismo punto, algo esencial para representar procesos dinámicos con retroalimentación o ciclos de repetición.\\\\
 Si en un grafo dirigido ignoramos la dirección de sus aristas, obtenemos un \textit{multigrafo}.
 \begin{figure}[H]
   \centering
@@ -22,19 +20,20 @@ Si en un grafo dirigido ignoramos la dirección de sus aristas, obtenemos un \te
   \caption{Un multigrafo}
   \label{fig:multigrafo}
 \end{figure}
-En un multigrafo aún se permiten aristas múltiples entre vértices, así como bucles. En el multigrafo de la \Cref{fig:multigrafo} podemos ver, por ejemplo, que $e_8,e_9$ y $e_{10}$ son aristas múltiples entre $v_4$ y $v_5$, que $e_{12}$ es un bucle sobre $v_1$ y que $e_{14}$ es un bucle sobre $v_3$. De acuerdo con \cite{Andrei2008}, \cite{Butler2023}, \cite{Gross2006} y \cite{Shafie2012}, los multigrafos se aplican con éxito en el análisis de redes sociales para estudiar simultáneamente distintos tipos de lazos (como amistad, trabajo o préstamos de dinero) entre las mismas personas, en la representación de redes de transporte con varias alternativas paralelas (como tren y autobús entre dos estaciones) y en química para describir enlaces moleculares múltiples. Se nos explica que la principal ventaja de los multigrafos reside en que pueden registrar varios canales de interacción al mismo tiempo sin necesidad de simplificarlos o fusionarlos en un solo enlace, preservando la riqueza del fenómeno real.\\
-
-Si ahora permitimos que las aristas sean subconjuntos no vacíos de vértices de cualquier cardinalidad, obtenemos la noción de \textit{hipergrafo}. Las aristas de un hipergrafo se representan como diagramas de Venn encerrando únicamente los vértices que contiene.
+En un multigrafo aún se permiten aristas múltiples entre vértices, así como bucles. En el multigrafo de la \Cref{fig:multigrafo} podemos ver, por ejemplo, que $e_8,e_9$ y $e_{10}$ son aristas múltiples entre $v_4$ y $v_5$, que $e_{12}$ es un bucle sobre $v_1$ y que $e_{14}$ es un bucle sobre $v_3$. De acuerdo con \cite{Andrei2008}, \cite{Butler2023}, \cite{Gross2006} y \cite{Shafie2012}, los multigrafos se aplican con éxito en el análisis de redes sociales para estudiar simultáneamente distintos tipos de lazos entre las mismas personas (como amistad, trabajo o préstamos de dinero), en la representación de redes de transporte con varias alternativas paralelas (como tren y autobús entre dos estaciones) y en química, para describir enlaces moleculares múltiples, entre otros. Se menciona que la principal ventaja de los multigrafos reside en que pueden registrar varios canales de interacción al mismo tiempo, sin necesidad de simplificarlos o fusionarlos en un solo enlace, preservando la riqueza del fenómeno real.\clearpage
+Si ahora permitimos que las aristas sean subconjuntos de vértices no vacíos, y de cualquier cardinalidad, obtenemos la noción de \textit{hipergrafo}. Las aristas de un hipergrafo se representan como diagramas de Venn, encerrando únicamente los vértices que contiene.
 \begin{figure}[H]
   \centering
     \resizebox{0.6\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag41.tex}} 
   \caption{Un hipergrafo}
 \end{figure}
-Según lo señalado en \cite{Bretto2013} y \cite{Molnar2014}, los hipergrafos son muy útiles en informática para diseñar y organizar grandes bases de datos relacionales, coordinar horarios concurrentes sin solapamientos y analizar colaboraciones de grupo en redes de personas (como comités o artículos científicos escritos por múltiples autores). Nos muestran que el máximo beneficio de este tipo de grafos radica en romper la barrera del enlace por parejas, agrupando a un número arbitrario de participantes en una misma relación e independizando al modelo de simplificaciones bidireccionales o binarias artificiales.\\
-
-En el presente estudio trabajaremos únicamente con grafos simples, así que de ahora en adelante se entenderá \textit{grafo} y \textit{grafo simple} de manera indistinta. Iniciamos formalizando la noción de grafo que hemos introducido. Las definiciones presentadas en lo que sigue de esta sección son estándar en la teoría; las tomamos siguiendo a \cite{diestel2017}, \cite{gomez2025} y \cite{jafarian2013}.\\ 
-
-Dado un conjunto $S$ y un número natural $k$, denotamos por $[S]^k$ a la colección de todos los subconjuntos de $S$ con exactamente $k$ elementos. Así por ejemplo, tomando $S=\left\lbrace 1,2,3,4,5 \right\rbrace$, tenemos que 
+Según lo señalado en \cite{Bretto2013} y \cite{Molnar2014}, los hipergrafos son muy útiles en informática para diseñar y organizar grandes bases de datos relacionales, coordinar horarios concurrentes sin solapamientos y analizar colaboraciones de grupo en redes de personas (como comités o artículos científicos escritos por múltiples autores). Nos muestran que el máximo beneficio de este tipo de grafos radica en romper la barrera del enlace por parejas, agrupando a un número arbitrario de participantes en una misma relación e independizando al modelo de simplificaciones bidireccionales o binarias artificiales.
+\subsection{Conceptos básicos}
+En el presente estudio trabajaremos únicamente con grafos simples, así que de ahora en adelante se entenderá \textit{grafo} y \textit{grafo simple} de manera indistinta. Iniciamos formalizando la noción de grafo que hemos introducido. Las definiciones presentadas en lo que sigue de esta sección son estándar en la teoría; las tomamos siguiendo a \cite{diestel2017}, \cite{gomez2025} y \cite{jafarian2013}.
+\begin{Not}
+Dado un conjunto $S$ y un número natural $k$, denotamos por $[S]^k$ a la colección de todos los subconjuntos de $S$ con exactamente $k$ elementos.
+\end{Not}\clearpage
+Así por ejemplo, tomando $S=\left\lbrace 1,2,3,4,5 \right\rbrace$, tenemos que 
 $$
 \begin{aligned}
    [S]^3 &= \left\lbrace \left\lbrace 1,2,3\right\rbrace, \left\lbrace 1,2,4\right\rbrace, \left\lbrace 1,2,5\right\rbrace, \left\lbrace 1,3,4\right\rbrace, \left\lbrace 1,3,5\right\rbrace, \left\lbrace 1,4,5\right\rbrace, \left\lbrace 2,3,4\right\rbrace, \left\lbrace 2,3,5\right\rbrace \right.,\\
@@ -43,7 +42,7 @@ $$
 $$
 Los elementos de $[S]^k$ son llamados $k-subconjuntos$ de $S$. Con esto, damos la definición de grafo.
 \begin{Def}
-   Un \textbf{grafo} es una pareja $G=\left( V,E\right)$ de conjuntos tal que $E\subseteq [V]^2$. Los elementos de $V$ son llamados \textbf{vértices} y los elementos de $E$ son llamados \textbf{aristas}.
+   Un \textbf{grafo} (simple) es una pareja $G=\left( V,E\right)$ de conjuntos tales que $E\subseteq [V]^2$. Los elementos de $V$ son llamados \textbf{vértices} y los elementos de $E$ son llamados \textbf{aristas}.
 \end{Def}
 De este modo, las aristas de un grafo son $2-subconjuntos$ de vértices. Si es necesario, dado un grafo $G$, también se denota por $V(G)$ a su conjunto de vértices, y por $E(G)$ a su conjunto de aristas. Un grafo con conjunto de vértices $V$ también es llamado un \textit{grafo sobre V}. Para evitar ambiguedades de notación, asumimos también que $V(G)\cap E(G)=\emptyset$ para todo grafo $G$. Una arista $\left\lbrace u,v\right\rbrace$ de un grafo también puede ser representada mediante $uv$. Una manera estándar y conveniente de representar visualmente un grafo es dibujar un círculo o punto por cada vértice, y unir dos de estos círculos por una línea si y sólo si los correspondientes vértices forman una arista del grafo. La distribución particular de los círculos en el espacio, así como la forma en que las líneas son dibujadas es irrelevante; la única información que importa es qué par de vértices están conectados mediante una arista y cuáles no. Solemos referirnos por \textit{grafo} también a la respectiva representación visual.
 \begin{Ejm} \label{Ejm:cuatro_grafos}
@@ -59,8 +58,8 @@ De este modo, las aristas de un grafo son $2-subconjuntos$ de vértices. Si es n
 \begin{Not}
    El grafo $G=(\emptyset,\emptyset)$ en el cual tanto el conjunto de vértices como el de aristas son vacíos, lo llamamos \textbf{grafo vacío} y lo representamos simplemente por $\emptyset$.
 \end{Not}
-Notemos que en un grafo $G$, dada $uv\in E(G)$, se tiene que $uv$ y $vu$ hacen referencia a la misma arista, pues $uv=\left\lbrace u,v \right\rbrace=\left\lbrace v, u\right\rbrace=vu$. De esta forma, en un grafo, el orden de los vértices en la representación de una arista no es tenido en cuenta, lo cual está alineado con nuestra idea de no considerar orientación en ellas. Además, la exigencia de que las aristas de un grafo sean $2-subconjuntos$ de vértices implica que si $uv\in E(G)$ entonces $u\neq v$, es decir, no hay aristas que unan un vértice con sí mismo, de modo que los grafos que consideramos no tienen bucles. Así mismo, entre dos vértices distintos $u,v\in V(G)$ podrá haber a lo más una arista, dependiendo de si $uv$ pertenece a $E(G)$ o no, es decir, se excluye la posibilidad de que hayan aristas múltiples entre un par de vértices.\par
-Frecuentemente en matemáticas, uno de los primeros pasos al analizar una estructura formal es estudiar sus subestructuras, es decir, objetos del mismo tipo contenidos en ella. Para esto introducimos la noción de \textit{subgrafo}.
+Notemos que en un grafo $G$, dada $uv\in E(G)$, se tiene que $uv$ y $vu$ hacen referencia a la misma arista, pues $uv=\left\lbrace u,v \right\rbrace=\left\lbrace v, u\right\rbrace=vu$. De esta forma, en un grafo, el orden de los vértices en la representación de una arista no es tenido en cuenta, lo cual está alineado con nuestra idea de no considerar orientación en ella. Además, la exigencia de que las aristas de un grafo sean $2-subconjuntos$ de vértices implica que si $uv\in E(G)$ entonces $u\neq v$, es decir, no hay aristas que unan un vértice con sí mismo, de modo que los grafos que consideramos no tienen bucles. Así mismo, entre dos vértices distintos $u,v\in V(G)$ podrá haber a lo más una arista, dependiendo de si $uv$ pertenece a $E(G)$ o no, es decir, se excluye la posibilidad de que hayan aristas múltiples entre un par de vértices.\par
+Frecuentemente en matemáticas, uno de los primeros pasos al analizar una estructura formal es estudiar sus subestructuras, es decir, objetos del mismo tipo contenidos en ella. Para esto introducimos la noción de \textit{subgrafo}.\clearpage
 \begin{Def}
    Dados dos grafos $G=(V,E)$ y $G'=(V',E')$, decimos que $G'$ es un \textbf{subgrafo} de $G$ si $V'\subseteq V$ y $E'\subseteq E$. En este caso denotamos $G'\subseteq G$.
 \end{Def}
@@ -68,7 +67,7 @@ Para cualquier grafo $G$ se tiene $\emptyset\subseteq G$. Damos a continuación 
 \begin{Ejm}\label{Ejm:Contenencia}
    En cada fila de la \Cref{tab:grafos} se tiene $G'\subseteq G$.
    \input{Preliminares_Grafos/Diagramas/Fig9.tex}
-\end{Ejm}
+\end{Ejm}\clearpage
 En el \Cref{Ejm:Contenencia} se cumple que $G'_3$ conserva todas las aristas entre vértices de $V(G'_3)$ que aparecían originalmente en $G_3$, es decir, para cualesquiera $u,v\in V(G'_3)$ se tiene que $uv\in E(G_3)$ implica $uv\in E(G'_3)$. Notemos que en los ejemplos $G_1$ y $G_2$ esto no se cumple. Por ejemplo, para $G_1$ se tiene $v_3,v_5\in V(G'_1)$ y $v_3v_5\in E(G_1)$, pero $v_3v_5 \notin E(G'_1)$; para $G_2$ se tiene $v_1,v_3\in V(G'_2)$ y $v_1v_3\in E(G_2)$, pero $v_1v_3\notin E(G'_2)$. El comportamiento que se da con $G_3$ y $G'_3$ lo resumimos diciendo que $G'_3$ es el \textit{subgrafo de $G_3$ inducido} por $V(G'_3)$, y denotamos $G'_3=G[V(G'_3)]$. Más precisamente:
 \begin{Def}
    Sean $G$ un grafo y $W\subseteq V(G)$. El \textbf{subgrafo de $G$ inducido} por $W$, denotado por $G[W]$, se define como el subgrafo de $G$ tal que $V(G[W])=W$ y $E(G[W])=\left\lbrace uv\in E(G)\mid u,v\in W\right\rbrace$.
@@ -85,9 +84,9 @@ En el \Cref{Ejm:Contenencia} se cumple que $G'_3$ conserva todas las aristas ent
 \begin{Def}
    El \textbf{orden} de un grafo $G$, representado mediante $|G|$, es el cardinal del conjunto $V(G)$.
 \end{Def}
-Así, en el \Cref{Ejm:cuatro_grafos}, el grado de los cuatro primeros grafos es $6$, mientras que $|G_5|=\aleph _0$. Los grafos pueden ser \textit{finitos, infinitos, contables}, etc. dependiendo del respectivo tamaño del conjunto $G$.
+Así, en el \Cref{Ejm:cuatro_grafos}, el grado de los cuatro primeros grafos es $6$, mientras que $|G_5|=\aleph _0$. Los grafos pueden ser \textit{finitos, infinitos, contables}, etc., dependiendo del respectivo tamaño del conjunto $G$.
 \begin{Def}
-   Dado un grafo $G$ decimos que dos vértices $u,v\in V(G)$ son \textbf{adyacentes} si $uv\in E(G)$. Igualmente, decimos que el vértice $v\in V(G)$ es \textbf{incidente} con la arista $e\in E(G)$ si $v\in e$. 
+   Dado un grafo $G$, decimos que dos vértices $u,v\in V(G)$ son \textbf{adyacentes} si $uv\in E(G)$. Igualmente, decimos que el vértice $v\in V(G)$ es \textbf{incidente} con la arista $e\in E(G)$ si $v\in e$. 
 \end{Def}
 En el grafo $G_1$ del \Cref{Ejm:cuatro_grafos}, los vértices $v_3$ y $v_4$ son adyacentes, los vértices $v_2$ y $v_5$ no son adyacentes, el vértice $v_6$ es incidente con la arista $v_1v_6$ y el vértice $v_4$ no es incidente con la arista $v_2v_3$. Los grafos finitos permiten una representación mediante matrices basada en las relaciones de adyacencia de sus vértices.
 \begin{Def}
@@ -100,17 +99,17 @@ En el grafo $G_1$ del \Cref{Ejm:cuatro_grafos}, los vértices $v_3$ y $v_4$ son 
    $$
    Si $G=\emptyset$, definimos la matriz de adyacencia de $G$ como la matriz vacía de tamaño $0\times 0$.
 \end{Def}
-El uso de matrices de adyacencia para la representación de grafos finitos presenta utilidades para el manejo de estos mediante computadoras. Como afirma \cite{marimont1960}, aunque los grafos, representados visualmente, son ``intuitivamente sugestivos y fáciles de comprender'', su manejo directo mediante computadoras resulta inviable, no se presta a manipulaciones cuantitativas inmediatas, y a medida que crecen en tamaño y complejidad se va perdiendo la intuición que en principio proporcionan. Las matrices en cambio pueden ser manipuladas fácilmente por computadoras, las cuales sacan vasto provecho del procesamiento cuantitativo que ofrecen, a pesar del poco atractivo intuitivo que pueda presentar al ojo humano frente a la representación visual del grafo. En las \Cref{sec:computacional_adyacencia,sec:computacional_incidencia} hacemos uso de matrices de adyacencia en algunas implementaciones computacionales.
+El uso de matrices de adyacencia para la representación de grafos finitos presenta utilidades para su manejo mediante computadoras. Como afirma \cite{marimont1960}, aunque los grafos representados visualmente son ``intuitivamente sugestivos y fáciles de comprender'', su manejo directo mediante computadoras resulta inviable, no se presta a manipulaciones cuantitativas inmediatas, y a medida que crecen en tamaño y complejidad, se va perdiendo la intuición que en principio proporcionan. Las matrices en cambio, pueden ser manipuladas fácilmente por computadoras, las cuales sacan vasto provecho del procesamiento cuantitativo que ofrecen, a pesar del poco atractivo intuitivo que pueda presentar al ojo humano frente a la representación visual del grafo. En las \Cref{sec:computacional_adyacencia,sec:computacional_incidencia} hacemos uso de matrices de adyacencia en algunas implementaciones computacionales.\clearpage
 \begin{Ejm}
    En cada fila de la \Cref{tab:grafos_matrices} se muestra un grafo finito $G$ y su respectiva matriz de adyacencia $M$.
    \input{Preliminares_Grafos/Diagramas/Fig23.tex}
 \end{Ejm}
-La ausencia de bucles en los grafos hace que todas las entradas en la diagonal de una matriz de adyacencia sean siempre $0$. Igualmente, el hecho de que en un grafo $G$ se tenga $v_iv_j\in E(G)$ si y sólo si $v_jv_i\in E(G)$, hace que cualquier matriz de adyacencia sea simétrica.
+La ausencia de bucles en los grafos hace que todas las entradas en la diagonal principal de una matriz de adyacencia sean siempre $0$. Igualmente, el hecho de que en un grafo $G$ se tenga $v_iv_j\in E(G)$ si y sólo si $v_jv_i\in E(G)$, hace que cualquier matriz de adyacencia sea simétrica.\clearpage
 \begin{Def}
    Sea $G$ un grafo. Dado un vértice $v\in V(G)$, denotamos por $\bm{A_v}$ al conjunto de todos los vértices adyacentes a $v$, es decir $A_v=\left\lbrace u\in V(G) \mid uv\in E(G)\right\rbrace$, y por $\bm{E_v}$ al conjunto de todas las aristas con las cuales es incidente $v$, es decir $E_v=\left\lbrace e\in E(G)\mid v\in e\right\rbrace$.
 \end{Def}
 De nuestra definicón de grafo se sigue inmediatamente que para cualquier par de vértices $u,v$ de un grafo, $u\in A_v$ si, y solo si, $v\in A_u$. En el grafo $G_2$ del \Cref{Ejm:cuatro_grafos}, tenemos que $A_{v_1}=\lbrace v_2,v_3,v_4\rbrace$, $A_{v_6}=\lbrace v_5\rbrace$, $E_{v_1}=\lbrace v_1v_2,v_1v_3,v_1v_4 \rbrace$ y $E_{v_6}=\lbrace v_5v_6\rbrace$. En el grafo $G_5$ del mismo ejemplo se tiene, para todo $i\in \left\lbrace 2,3,4,\dots\right\rbrace$, $A_{v_i}=\left\lbrace v_{i-1}, v_{i+1}\right\rbrace$ y $E_{v_i}=\left\lbrace v_{i-1}v_i, v_iv_{i+1}\right\rbrace$.\\
-La siguiente proposición nos muestra el hecho natural de que la cantidad de vértices adyacentes a $v$ y la cantidad de aristas con las cuales es incidente $v$ es siempre la misma para cualquier vértice $v$ en un grafo arbitrario.
+La siguiente proposición nos muestra el hecho natural de que la cantidad de vértices adyacentes a $v$ y la cantidad de aristas con las cuales es incidente $v$ es siempre la misma para, cualquier vértice $v$ en un grafo arbitrario.
 \begin{Prop} \label{Prop:AvEv}
    En cualquier grafo $G$, dado $v\in V(G)$, se tiene $|A_v|=|E_v|$.
 \end{Prop}
@@ -175,13 +174,13 @@ Un concepto importante en el presente trabajo es el de \textit{grafo conexo}. Pa
 \begin{Ejm}
    \phantom{o}
    \begin{itemize}
-      \item En el grafo $G_4$ del \Cref{Ejm:cuatro_grafos}, los vértices $v_6$ y $v_4$ están conectados por el camino $v_6v_2v_3v_4$, pero $v_1$ y $v_6$ no están conectados por ningún camino.
+      \item En el grafo $G_4$ del \Cref{Ejm:cuatro_grafos}, los vértices $v_6$ y $v_4$ están conectados, por ejemplo, por el camino $v_6v_2v_3v_4$, mientras que $v_1$ y $v_6$ no están conectados por un camino.
       \begin{figure}[H]
         \centering
           \resizebox{0.2\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag19.tex}}
         \caption{Un camino entre $v_6$ y $v_4$}
       \end{figure}
-      \item En el grafo $G_1$ del \Cref{Ejm:Contenencia}, los vértices $v_4$ y $v_7$ están conectados por el camino $v_4v_5v_7$, pero $v_2$ y $v_6$ no están conectados por ningún camino.
+      \item En el grafo $G_1$ del \Cref{Ejm:Contenencia}, los vértices $v_4$ y $v_7$ están conectados por el camino $v_4v_5v_7$, pero $v_2$ y $v_6$ no están conectados por un camino.
       \begin{figure}[H]
         \centering
           \resizebox{0.3\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag20.tex}}
@@ -218,7 +217,7 @@ Lo anterior nos quiere decir que un subgrafo $H\subseteq G$ es una componente de
 Dado un grafo, se puede inducir un nuevo grafo al eliminar adecuadamente un subconjunto de vértices.
 \begin{Def}
    Sean $G$ un grafo y $S\subseteq V(G)$. Denotamos por $\bm{G-S}$ al subgrafo de $G$ inducido por $V(G)\setminus S$, es decir, $G-S=G[V(G)\setminus S]$. 
-\end{Def}
+\end{Def}\clearpage
 \begin{Ejm}\label{Ejm:Supresion}
    \phantom{0}
    \begin{itemize}
@@ -231,21 +230,21 @@ Dado un grafo, se puede inducir un nuevo grafo al eliminar adecuadamente un subc
 \end{Ejm}
 Como se ve con el grafo $G_3$ del \Cref{Ejm:Supresion}, la supresión de algunos vértices en un grafo puede aumentar su número de componentes. La siguiente definición trata de casos especiales donde se da esta situación.
 \begin{Def}
-   Sea $G$ un grafo. Decimos que $v\in V(G)$ es un \textbf{vértice de corte} de $G$ si $G-\left\lbrace v\right\rbrace$ tiene más componentes que $G$. Si $G$ es conexo, decimos que un subconjunto de vértices $C\subseteq V(G)$ es un \textbf{conjunto de corte} de $G$ si $G-C$ tiene más de una componente; si además ningún subconjunto propio de $C$ es un conjunto de corte de $G$, decimos que $C$ es un \textbf{conjunto de corte minimal} de $G$.  
+   Sea $G$ un grafo. Decimos que $v\in V(G)$ es un \textbf{vértice de corte} de $G$ si $G-\left\lbrace v\right\rbrace$ tiene más componentes que $G$. Si $G$ es conexo, decimos que un subconjunto de vértices $C\subseteq V(G)$ es un \textbf{conjunto de corte} de $G$ si $G-C$ tiene más de una componente. Si además, ningún subconjunto propio de $C$ es un conjunto de corte de $G$, decimos que $C$ es un \textbf{conjunto de corte minimal} de $G$.  
 \end{Def}
 \begin{Ejm}
    \phantom{o}
    \begin{itemize}
       \item En el grafo $G_1$, $v_1$ es un vértice de corte, pues $G_1-\left\lbrace v_1\right\rbrace$ tiene cuatro componentes, mientras que $G_1$ tiene dos componentes.
          \input{Preliminares_Grafos/Diagramas/Fig6.tex}  
-      \item En el grafo conexo $G_2$, $S=\left\lbrace u,v,w\right\rbrace$ es un conjunto de corte, pues $G_2-S$ tiene dos componentes; sin embargo $S$ no es un conjunto de corte minimal, pues $S':=\left\lbrace u,v\right\rbrace$ es un conjunto de corte y $S'\subsetneq S$. $S'$ sí es un conjunto de corte minimal pues ni $\left\lbrace u\right\rbrace$ ni $\left\lbrace v\right\rbrace$ son conjuntos de corte, ya que $G_2-\left\lbrace u\right\rbrace$ y $G_2-\left\lbrace v\right\rbrace$ son conexos.\par
+      \item En el grafo conexo $G_2$, $S=\left\lbrace u,v,w\right\rbrace$ es un conjunto de corte, pues $G_2-S$ tiene dos componentes; sin embargo, $S$ no es un conjunto de corte minimal, pues $S':=\left\lbrace u,v\right\rbrace$ es un conjunto de corte y $S'\subsetneq S$. $S'$ sí es un conjunto de corte minimal pues ni $\left\lbrace u\right\rbrace$ ni $\left\lbrace v\right\rbrace$ son conjuntos de corte, ya que $G_2-\left\lbrace u\right\rbrace$ y $G_2-\left\lbrace v\right\rbrace$ son conexos.\par
         \input{Preliminares_Grafos/Diagramas/Fig7.tex}
    \end{itemize}
 \end{Ejm}
 \begin{Def}
-   Sean $G$ un grafo y $S\subseteq V(G)$ un subconjunto de vértices de $G$. Decimos que $S$ es \textbf{independiente} si para cualesquiera $u,v\in S$ se tiene $uv\notin E(G)$. En cambio, decimos que $S$ es un \textbf{clique} si para cualesquiera $u,v\in S$ se tiene $uv\in V(G)$.
+   Sean $G$ un grafo y $S\subseteq V(G)$. Decimos que $S$ es \textbf{independiente} si para cualesquiera $u,v\in S$ se tiene $uv\notin E(G)$. En cambio, decimos que $S$ es un \textbf{clique} si para cualesquiera $u,v\in S$ se tiene $uv\in E(G)$.
 \end{Def}
-De esta forma, un subconjunto de vértices de un grafo es independiente si ningún par de vértices es adyacente, y es un clique si cualquier par de vértices es adyacente. En el \Cref{Ejm:cuatro_grafos}, $\left\lbrace v_2,v_4,v_6\right\rbrace$ es un conjunto independiente de $G_1$, $\left\lbrace v_1,v_2,v_3,v_4\right\rbrace$ es un clique de $G_2$, $\left\lbrace v_2,v_3,v_4,v_5,v_6\right\rbrace$ es un conjunto independiente de $G_3$ y $\left\lbrace v_2,v_3,v_5,v_6\right\rbrace$ es un clique de $G_4$.
+De esta forma, un subconjunto de vértices de un grafo es independiente si ningún par de estos vértices son adyacentes, y es un clique si cualquier par de estos vértices son adyacentes. En el \Cref{Ejm:cuatro_grafos}, $\left\lbrace v_2,v_4,v_6\right\rbrace$ es un conjunto independiente de $G_1$, $\left\lbrace v_1,v_2,v_3,v_4\right\rbrace$ es un clique de $G_2$, $\left\lbrace v_2,v_3,v_4,v_5,v_6\right\rbrace$ es un conjunto independiente de $G_3$ y $\left\lbrace v_2,v_3,v_5,v_6\right\rbrace$ es un clique de $G_4$.
 \begin{Def}
    Dado un grafo $G=(V,E)$, su \textbf{complemento}, denotado $\overline{G}$, es el grafo con conjunto de vértices $V$ y conjunto de aristas $[V]^2\setminus E$. 
 \end{Def}
@@ -256,7 +255,7 @@ Así, $\overline{G}$ mantiene los vértices de $G$, pero dos vértice son adyace
 \end{Ejm}
 Ahora procedemos a enunciar algunas clases especiales de grafos.
 \begin{Def}
-   Sea $G$ un grafo. Decimos que $G$ es \textbf{completo} si todo $V(G)$ es un clique. Un grafo completo con $n$ vértices se denota como $\bm{K^n}$.
+   Sea $G$ un grafo. Decimos que $G$ es \textbf{completo} si $V(G)$ es un clique. Un grafo completo con $n$ vértices se denota como $\bm{K^n}$.
 \end{Def}
 Por tanto, un grafo es completo si todos sus vértices son adyacentes dos a dos.
 \begin{Ejm}
@@ -296,25 +295,27 @@ Los ciclos nos permiten definir fácilmente lo que es un \textit{árbol}.
    \input{Preliminares_Grafos/Diagramas/Fig16.tex}
 \end{Ejm}
 \begin{Def}
-   Sea $G$ un grafo de orden $\ge 2$. Decimos que $G$ es \textbf{bipartito} si $V(G)$ admite una partición en dos clases $V_1$ y $V_2$ tales que $V_1$ y $V_2$ son conjuntos independientes. Si además cualesquiera dos vértices de distintas clases de la partición son adyacentes, decimos que $G$ es \textbf{bipartito completo}, y denotamos a $G$ por $K_{n_1,n_2}$, donde $n_1=|V_1|$ y $n_2=|V_2|$. Grafos de la forma $K_{1,n}$ con $n\in \mathbb{Z}^+$ son llamados \textbf{estrellas}.
+   Sea $G$ un grafo de orden mayor o igual que $2$. Decimos que $G$ es \textbf{bipartito} si $V(G)$ admite una partición en dos clases $V_1$ y $V_2$ tales que $V_1$ y $V_2$ son conjuntos independientes. Si además cualesquiera dos vértices de distintas clases de la partición son adyacentes, decimos que $G$ es \textbf{bipartito completo}, y denotamos a $G$ por $K_{n_1,n_2}$, donde $n_1=|V_1|$ y $n_2=|V_2|$. Grafos de la forma $K_{1,n}$ con $n\in \mathbb{Z}^+$ son llamados \textbf{estrellas}.
 \end{Def}
-De esta forma, en un grafo bipartito con partición de vértices $\left\lbrace V_1,V_2\right\rbrace$, cada vértice de $V_1$ puede ser adyacente únicamente a vértices de $V_2$, y cada vértice de $V_2$ puede ser adyacente únicamente a vértices de $V_1$. Si el grafo es además bipartito completo, cada vértice de $V_1$ es adyacente a todos los vértices de $V_2$ (y por tanto cada vértice de $V_2$ es adyacente a todos los vértices de $V_1$). Una estrella es entonces un grafo con dos o más vértices en que un único vértice es adyacente a todos los demás, y las únicas aristas son las que permiten estas adyacencias.
+De esta forma, en un grafo bipartito con partición de vértices $\left\lbrace V_1,V_2\right\rbrace$, cada vértice de $V_1$ puede ser adyacente únicamente a vértices de $V_2$, y cada vértice de $V_2$ puede ser adyacente únicamente a vértices de $V_1$. Si el grafo es además bipartito completo, cada vértice de $V_1$ es adyacente a todos los vértices de $V_2$ (y por tanto cada vértice de $V_2$ es adyacente a todos los vértices de $V_1$).\\\\
+Además, una estrella es un grafo con dos o más vértices en que un único vértice es adyacente a todos los demás, y las únicas aristas son las que permiten estas adyacencias.
 \begin{Obs}
     Por convención, consideramos que el grafo vacío y el grafo $K^1$ son bipartitos. Esta precisión técnica es sumamente útil, pues evita tener que arrastrar condiciones de no trivialidad en los enunciados y demostraciones de teoremas en la teoría (por ejemplo, al caracterizar los grafos bipartitos como aquellos que no contienen ciclos de longitud impar, según la Proposición~1.6.1 de \cite{diestel2017}).
 \end{Obs}
 \begin{Ejm}
-   La \Cref{fig:bipartitos_ejemplos} muestra el grafo bipartito $G_1$, que no es bipartito completo, el grafo bipartito completo $K_{3,5}$ y la estrella $K_{1,7}$. En cada grafo las respectivas particiones del conjunto de vértices son encerradas como en un diagrama de Venn.
+   La \Cref{fig:bipartitos_ejemplos} muestra el grafo bipartito $G_1$, que no es bipartito completo; el grafo bipartito completo $K_{3,5}$ y la estrella $K_{1,7}$. En cada grafo las respectivas particiones del conjunto de vértices son encerradas como en un diagrama de Venn.
    \input{Preliminares_Grafos/Diagramas/Fig17.tex}
 \end{Ejm}
 La siguiente definición aborda el problema de la coloración de grafos.
 \begin{Def}
    Sea $G$ un grafo. Una \textbf{coloración} de $G$ es una función $c: V(G) \to S$, donde $S$ es un conjunto cuyos elementos son llamados \textbf{colores}, tal que $c(u) \neq c(v)$ para cualesquiera dos vértices adyacentes $u, v \in V(G)$. Si el conjunto de colores $S$ tiene cardinalidad $k$, decimos que $c$ es una \textbf{$\bm{k}$-coloración}. Si $G$ tiene una \textbf{$\bm{k}$-coloración} decimos que $G$ es \textbf{$\bm{k}$-coloreable}. El menor cardinal $k$ para el cual existe una $k$-coloración de $G$ es el \textbf{número cromático} de $G$, el cual se denota por $\chi(G)$.
 \end{Def}
-Notemos que, en cualquier grafo $G$, la función identidad en $V(G)$ es una coloración de $G$; por tanto, todo grafo admite al menos una coloración y el número cromático $\chi(G)$ está bien definido. En particular, la función vacía de $\emptyset$ en $\emptyset$ es una coloración del grafo vacío, por lo que $\chi(\emptyset) = 0$. Para representar visualmente la coloración $c$ de un grafo, colocaremos la etiqueta correspondiente a $c(v)$ junto al círculo que representa al vértice $v$ (y no en su interior, para no confundirla con el vértice en sí). A continuación, mostramos algunos ejemplos de coloración de grafos.
+Notemos que, para cualquier grafo $G$, la función identidad en $V(G)$ es una coloración de $G$; por tanto, todo grafo admite al menos una coloración y el número cromático $\chi(G)$ está bien definido. En particular, la función vacía de $\emptyset$ en $\emptyset$ es una coloración del grafo vacío, por lo que $\chi(\emptyset) = 0$. Para representar visualmente la coloración $c$ de un grafo, colocaremos la etiqueta correspondiente a $c(v)$ junto al círculo que representa al vértice $v$ (y no en su interior, para no confundirla con el vértice en sí). A continuación, mostramos algunos ejemplos de coloración de grafos.
 \begin{Ejm}
    En la \Cref{tab:coloraciones_grafos}, para cada grafo $G_i$, con $i=1,2,3$, se tiene que $c_i$ es una coloración del grafo.
    \input{Preliminares_Grafos/Diagramas/Fig18.tex}
 \end{Ejm}
+\subsection{Homomorfismos}
 En lo que resta de esta sección nos ocuparemos de relacionar parejas de grafos mediante funciones.
 \begin{Def}\label{Def:homomorfismo}
    Sean $G=(V,E)$ y $G'=(V',E')$ dos grafos. Decimos que $\varphi:V\to V'$ es un homomorfismo de $G$ en $G'$ si $\left\lbrace u,v\right\rbrace\in E$ implica $\left\lbrace \varphi(u),\varphi(v) \right\rbrace\in E'$ para cualesquiera vértices $u,v\in V$.
@@ -375,7 +376,7 @@ El hecho de que $\left\lbrace u,v \right\rbrace\in E$ implique $\left\lbrace \va
    \end{array}
    \hfill$
    \end{center}
-   es un homomorfismo entre los grafos $H$ y $H'$ que se presentan en la \Cref{fig:homomorfismo_grafos_2}
+   es un homomorfismo entre los grafos $H$ y $H'$, que se presentan en la \Cref{fig:homomorfismo_grafos_2}
    \input{Preliminares_Grafos/Diagramas/Fig20.tex}
    pues
    \begin{center}
@@ -389,11 +390,14 @@ El hecho de que $\left\lbrace u,v \right\rbrace\in E$ implique $\left\lbrace \va
    \hfill$
    \end{center}
 \end{Ejm}
-Estamos interesados en encontrar funciones entre vértices que permitan determinar si los grafos en cuestión son ``indistinguibles'' para la teoría construida. Un homomorfismo no es suficiente para esto: notemos que en la \Cref{Def:homomorfismo}, un homomorfismo puede enviar vértices no adyacentes en el grafo de partida a vértices adyacentes en el grafo de llegada. Como muestra de esto, en el \Cref{Ejm:homomorfismos}, se tiene que $\varphi_1$ es un homomorfismo de $G$ en $G'$, y a pesar de que $v_3$ y $v_5$ no son adyacentes en $G$, vemos que $\varphi_1(v_3)=w_3$ y $\varphi_1(v_5)=w_1$ sí son adyacentes en $G'$. Un primer paso sería exigir que la función, además de preservar la adyacencia de los vértices del grafo de partida, no envíe vértices no adyacentes en vértices adyacentes. Sin embargo, esta propiedad la cumple la función $\psi$ del \Cref{Ejm:homomorfismos}, conectando al grafo $H$ de $4$ vértices y $4$ aristas con el grafo $H'$ de $8$ vértices y $12$ aristas. Incluir la exigencia de que la función sea biyectiva solventa el problema y resulta en la definición de \textit{isomorfismo} entre grafos.
+Estamos interesados en encontrar funciones entre vértices que permitan determinar si los grafos en cuestión son ``indistinguibles'' para la teoría construida. Un homomorfismo no es suficiente para esto: notemos que en la \Cref{Def:homomorfismo}, un homomorfismo puede enviar vértices no adyacentes en el grafo de partida a vértices adyacentes en el grafo de llegada. Como muestra de esto, en el \Cref{Ejm:homomorfismos}, se tiene que $\varphi_1$ es un homomorfismo de $G$ en $G'$, y a pesar de que $v_3$ y $v_5$ no son adyacentes en $G$, vemos que $\varphi_1(v_3)=w_3$ y $\varphi_1(v_5)=w_1$ sí son adyacentes en $G'$. Un primer paso sería exigir que la función, además de preservar la adyacencia de los vértices del grafo de partida, no envíe vértices no adyacentes en vértices adyacentes. Sin embargo, esta propiedad la cumple la función $\psi$ del \Cref{Ejm:homomorfismos}, conectando al grafo $H$ de $4$ vértices y $4$ aristas con el grafo $H'$ de $8$ vértices y $12$ aristas. Incluir la exigencia de que la función sea biyectiva solventa el problema y se obtiene la definición de \textit{isomorfismo} entre grafos.
 \begin{Def}
    Sean $G=(V,E)$ y $G'=(V',E')$ dos grafos. Decimos que una función $\varphi:V\to V'$ es un \textbf{isomorfismo} de $G$ en $G'$ si $\varphi$ es biyectiva y $\left\lbrace u,v\right\rbrace\in E$, si y sólo si, $\left\lbrace \varphi(u), \varphi(v)\right\rbrace\in E'$, para cualesquiera vértices $u,v\in V$. Si existe un isomorfismo de $G$ en $G'$ decimos que $G$ y $G'$ son \textbf{isomorfos} y escribimos $G\simeq G'$. Un isomorfismo de $G$ en sí mismo es llamado un \textbf{automorfismo} de $G$.
 \end{Def}
 Usualmente no hacemos distinción alguna entre grafos isomorfos. Esto es lo que nos permite hablar de ``\textit{el} camino de $6$ vértices'', ``\textit{el} grafo completo de $4$ vértices'', etc.
+\begin{Obs}
+   En cualquier grafo $G$ la función identidad de $V(G)$ es un automorfismo de $G$.
+\end{Obs}
 \begin{Ejm}
    En la \Cref{fig:primer_isomorfismo} los grafos $G$ y $G'$ son isomorfos. 
    \input{Preliminares_Grafos/Diagramas/Fig21.tex}
@@ -413,14 +417,11 @@ Usualmente no hacemos distinción alguna entre grafos isomorfos. Esto es lo que 
    \end{array}
    \hfill$
    \end{center}
-   Notemos que en la anterior lista se verifica tanto que $\left\lbrace u,v\right\rbrace\in E(G)$ implica $\left\lbrace \varphi(u), \varphi(v) \right\rbrace \allowbreak \in E(G')$ como que $\left\lbrace \varphi(u), \varphi(v)\right\rbrace\in E(G')$ implica $\left\lbrace u,v\right\rbrace\in E(G)$, para cualesquiera $u,v\in V(G)$. Por tanto $\varphi$ es un isomorfismo de $G$ en $G'$.
+   Notemos que en la anterior lista se verifica tanto que $\left\lbrace u,v\right\rbrace\in E(G)$ implica $\left\lbrace \varphi(u), \varphi(v) \right\rbrace \allowbreak \in E(G')$, como que $\left\lbrace \varphi(u), \varphi(v)\right\rbrace\in E(G')$ implica $\left\lbrace u,v\right\rbrace\in E(G)$, para cualesquiera $u,v\in V(G)$. Por tanto $\varphi$ es un isomorfismo de $G$ en $G'$.
 \end{Ejm}
-\begin{Obs}
-   En cualquier grafo $G$ la función identidad de $V(G)$ es un automorfismo de $G$.
-\end{Obs}
 El siguiente ejemplo muestra que no es suficiente que una función sea un homomorfismo biyectivo para que sea un isomorfismo.
 \begin{Ejm}
-   La función $\varphi:V(G)\to V(G'):v_i\mapsto w_i$ para $i=1,2$, es un homomorfismo biyectivo entre los Revisa grafos $G$ y $G'$ de la \Cref{fig:homomorfo_no_isomorfo} (vacíamente se tiene que $\varphi$ preserva la adyacencia entre vértices).
+   La función $\varphi:V(G)\to V(G'):v_i\mapsto w_i$ para $i=1,2$, es un homomorfismo biyectivo entre los grafos $G$ y $G'$ de la \Cref{fig:homomorfo_no_isomorfo}. Vacíamente se tiene que $\varphi$ preserva la adyacencia entre vértices.
    \input{Preliminares_Grafos/Diagramas/Fig22.tex}
    Sin embargo $\varphi$ no es un isomorfismo, pues $\left\lbrace \varphi(v_1),\varphi(v_2)\right\rbrace=\left\lbrace w_1,w_2\right\rbrace\in E(G')$ pero $\left\lbrace v_1,v_2\right\rbrace\notin E(G)$.
 \end{Ejm}
@@ -433,7 +434,7 @@ Tenemos en cambio que si una función $\varphi$ es un homomorfismo biyectivo y s
    \end{itemize}
 \end{Prop}
 \begin{proof}
-   $1\Rightarrow 2$ : Supongamos que $\varphi$ es un homomorfismo biyectivo de $G$ en $G'$ y $\varphi^{-1}$ es un homomorfismo de $G'$ en $G$. Sean $u,v \in V(G)$. Si $\left\lbrace u,v\right\rbrace\in E(G)$, como $\varphi$ es un homomorfismo, $\left\lbrace \varphi(u),\varphi(v)\right\rbrace\in E(G')$. Si $\left\lbrace \varphi(u),\varphi(v)\right\rbrace\in E(G')$, como $\varphi^{-1}$ es un homomorfismo, $\left\lbrace u,v\right\rbrace=\left\lbrace \varphi^{-1}(\varphi(u)),\varphi^{-1}(\varphi(v))\right\rbrace\in E(G)$. Por tanto $\varphi$ es un isomorfismo de $G$ en $G'$.\par
+   $1\Rightarrow 2$ : Supongamos que $\varphi$ es un homomorfismo biyectivo de $G$ en $G'$ y $\varphi^{-1}$ es un homomorfismo de $G'$ en $G$. Sean $u,v \in V(G)$. Si $\left\lbrace u,v\right\rbrace\in E(G)$, como $\varphi$ es un homomorfismo, $\left\lbrace \varphi(u),\varphi(v)\right\rbrace\in E(G')$. Si $\left\lbrace \varphi(u),\varphi(v)\right\rbrace\in E(G')$, como $\varphi^{-1}$ es un homomorfismo y $\varphi$ es biyectivo, entonces $\left\lbrace u,v\right\rbrace=\left\lbrace \varphi^{-1}(\varphi(u)),\varphi^{-1}(\varphi(v))\right\rbrace\in E(G)$. Por tanto $\varphi$ es un isomorfismo de $G$ en $G'$.\par
    $2\Rightarrow 1$ : Supongamos que $\varphi$ es un isomorfismo de $G$ en $G'$. Por definición de isomorfismo, $\varphi$ es biyectiva. Si $u,v\in V(G)$ son tales que $\left\lbrace u,v\right\rbrace\in E(G)$ entonces $\left\lbrace \varphi(u),\varphi(v)\right\rbrace\in E(G')$, y por tanto $\varphi$ es un homomorfismo de $G$ en $G'$. Supongamos que $x,y\in V(G')$ son tales que $\left\lbrace x,y\right\rbrace\in E(G')$. Como $\varphi$ es biyectiva, existen $w_x,w_y\in V(G)$ tales que $\varphi(w_x)=x$ y $\varphi(w_y)=y$, luego $\left\lbrace \varphi(w_x),\varphi(w_y)\right\rbrace\in E(G')$. Como $\varphi$ es un isomorfismo, se tiene $\left\lbrace \varphi^{-1}(x),\varphi^{-1}(y)\right\rbrace=\left\lbrace w_x,w_y\right\rbrace\in E(G)$. Por tanto $\varphi^{-1}$ es un homomorfismo de $G'$ en $G$.
 \end{proof}
 \begin{Def}

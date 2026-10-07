@@ -206,7 +206,7 @@ void imprAbiertos(vector<vector<bool>> Mat_tau){
 }
 
 int main(){
-   ifstream file("../Matrices/Mat_Ady_1.txt"); //Guarda la información de "1.txt" en la variable "file" de tipo ifstream
+   ifstream file("5_Mat_Ady.txt"); //Guarda la información de "1.txt" en la variable "file" de tipo ifstream
    
    vector<vector<bool>> Mat_Ady = leerMatriz(file); //Creamos la matriz de adyacencia llamando la función "leerMatriz" que toma como argumento la variable file
    vector<vector<bool>> Mat_U = llenarMatriz_U(Mat_Ady); //Llenamos Mat_U de nxn con la información de Mat_ady. En ella guardamos la información de los U_{v_i} mediante (Mat_U)_{i,j}=1 ssi v_j \in U_{v_i}
