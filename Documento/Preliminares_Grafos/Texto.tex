@@ -236,9 +236,29 @@ Como se ve con el grafo $G_3$ del \Cref{Ejm:Supresion}, la supresión de algunos
    \phantom{o}
    \begin{itemize}
       \item En el grafo $G_1$, $v_1$ es un vértice de corte, pues $G_1-\left\lbrace v_1\right\rbrace$ tiene cuatro componentes, mientras que $G_1$ tiene dos componentes.
-         \input{Preliminares_Grafos/Diagramas/Fig6.tex}  
-      \item En el grafo conexo $G_2$, $S=\left\lbrace u,v,w\right\rbrace$ es un conjunto de corte, pues $G_2-S$ tiene dos componentes; sin embargo, $S$ no es un conjunto de corte minimal, pues $S':=\left\lbrace u,v\right\rbrace$ es un conjunto de corte y $S'\subsetneq S$. $S'$ sí es un conjunto de corte minimal pues ni $\left\lbrace u\right\rbrace$ ni $\left\lbrace v\right\rbrace$ son conjuntos de corte, ya que $G_2-\left\lbrace u\right\rbrace$ y $G_2-\left\lbrace v\right\rbrace$ son conexos.\par
-        \input{Preliminares_Grafos/Diagramas/Fig7.tex}
+         \input{Preliminares_Grafos/Diagramas/Fig6.tex}\vspace{-0.5cm}
+      %\item En la siguiente figura, se tiene que $S:=\{u,v,w\}$ es un conjunto de corte del grafo conexo $G_2$, pues $G_2-S$ tiene dos componentes.\vspace{0.1cm}
+      \item Tomemos $S=\{u,v,w\}$ y $S'=\{u,v\}$. En el grafo conexo $G_2$ que se muestra en la siguiente figura, $S$ es un conjunto de corte, pues $G_2-S$ tiene dos componentes.\vspace{0.1cm}
+      \begin{figure}[H]
+        \centering
+        \resizebox{0.3\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag28.tex}}\hspace{2cm}
+        \resizebox{0.3\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag29.tex}}
+        \caption{$S$ es un conjunto de corte de $G_2$}
+     \end{figure}\vspace{-0.4cm}
+      Sin embargo $S$ no es un conjunto de corte minimal de $G_2$, ya que $S'\subsetneq S$ y $S'$ es un conjunto de corte de $G_2$, pues $G_2-S'$ tiene dos componentes.
+      \begin{figure}[H]
+        \centering
+          \resizebox{0.3\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag30.tex}}
+        \caption{El grafo $G_2-S'$}
+      \end{figure}
+      En cambio se tiene que $S'$ sí es un conjunto de corte minimal de $G_2$, pues ni $\{u\}$ ni $\{v\}$ son conjuntos de corte de $G_2$, ya que $G_2-\{u\}$ y $G_2-\{v\}$ son grafos conexos.\vspace{-1.2cm}
+      \begin{figure}[H]
+        \centering
+           \resizebox{0.3\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag31.tex}}\hspace{2cm}
+          \resizebox{0.3\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag32.tex}}
+          \vspace{0.5cm}
+        \caption{Los grafos $G_2-\{u\}$ y $G_2-\{v\}$ son conexos}
+      \end{figure}
    \end{itemize}
 \end{Ejm}
 \begin{Def}
@@ -250,7 +270,7 @@ De esta forma, un subconjunto de vértices de un grafo es independiente si ning�
 \end{Def}
 Así, $\overline{G}$ mantiene los vértices de $G$, pero dos vértice son adyacentes en $\overline{G}$ si y sólo si no son adyacentes en $G$.
 \begin{Ejm}
-   La siguiente figura muestra ejemplos de grafos y su complementos.
+   La siguiente figura muestra ejemplos de grafos y sus complementos.\clearpage
    \input{Preliminares_Grafos/Diagramas/Fig8.tex}
 \end{Ejm}
 Ahora procedemos a enunciar algunas clases especiales de grafos.
@@ -425,7 +445,7 @@ El siguiente ejemplo muestra que no es suficiente que una función sea un homomo
    \input{Preliminares_Grafos/Diagramas/Fig22.tex}
    Sin embargo $\varphi$ no es un isomorfismo, pues $\left\lbrace \varphi(v_1),\varphi(v_2)\right\rbrace=\left\lbrace w_1,w_2\right\rbrace\in E(G')$ pero $\left\lbrace v_1,v_2\right\rbrace\notin E(G)$.
 \end{Ejm}
-Tenemos en cambio que si una función $\varphi$ es un homomorfismo biyectivo y su inversa $\varphi^{-1}$ es también un homomorfismo, entonces $\varphi$ sí es un isomorfismo. De hecho, esto caracteriza a los isomorfismos entre grafos, como muestra la siguiente proposición.
+Tenemos en cambio que si una función $\varphi$ es un homomorfismo biyectivo y su inversa $\varphi^{-1}$ es también un homomorfismo, entonces $\varphi$ sí es un isomorfismo. De hecho, esto caracteriza a los isomorfismos entre grafos, como muestra la siguiente proposición.\clearpage
 \begin{Prop}
    Sean $G$ y $G'$ dos grafos y $\varphi:V(G)\to V(G')$ una función. Las siguientes afirmaciones son equivalentes:
    \begin{itemize}
@@ -441,6 +461,6 @@ Tenemos en cambio que si una función $\varphi$ es un homomorfismo biyectivo y s
    Decimos que un grafo $G$ es \textbf{vértice transitivo} si para cualquier par de vértices $u,v\in V(G)$ existe un automorfismo de $G$ que envía $u$ a $v$.    
 \end{Def}
 \begin{Ejm}
-   Para todo $n\in\mathbb{N}$ con $n\ge 3$ se tiene que $C^n$ es un grafo vértice transitivo. Podemos suponer que $V(C^n)$ es de la forma $\left\lbrace v_0,v_1, \dots, v_{n-1}\right\rbrace$ con $E(C^n)=\left\lbrace v_0v_1, v_1v_2, \dots ,v_{n-2}v_{n-1}, v_{n-1}v_0\right\rbrace$. Sean $v_i,v_j\in V(C^n)$ cualesquiera. La función $\varphi :V(C^n)\to V(C^n):v_k\mapsto v_{(k+j-i)\bmod n}$ para cada $k\in\left\lbrace 0,1,\dots ,n-1\right\rbrace$, es un automorfismo que envía $v_i$ a $v_j$. Si representamos a $C^n$ como en la \Cref{fig:ciclo_n}, podemos pensar en $\varphi$ como una función que ``rota'' al grafo en sentido horario hasta llevar al vértice $v_i$ a la posición del vértice $v_j$.
+   Para todo $n\in\mathbb{N}$ con $n\ge 3$ se tiene que $C^n$ es un grafo vértice transitivo. Podemos suponer que $V(C^n)$ es de la forma $\left\lbrace v_0,v_1, \dots, v_{n-1}\right\rbrace$ con $E(C^n)=\left\lbrace v_0v_1, v_1v_2, \dots ,v_{n-2}v_{n-1}, v_{n-1}v_0\right\rbrace$. Sean $v_i,v_j\in V(C^n)$ cualesquiera. La función $\varphi :V(C^n)\to V(C^n):v_k\mapsto v_{(k+j-i)\bmod n}$ para cada $k\in\left\lbrace 0,1,\dots ,n-1\right\rbrace$, es un automorfismo que envía $v_i$ a $v_j$. Si representamos a $C^n$ como en la \Cref{fig:ciclo_n}, podemos pensar en $\varphi$ como una función que ``rota'' al grafo en sentido horario hasta llevar al vértice $v_i$ a la posición del vértice $v_j$.\clearpage
    \input{Preliminares_Grafos/Diagramas/Diag69.tex}
 \end{Ejm}
