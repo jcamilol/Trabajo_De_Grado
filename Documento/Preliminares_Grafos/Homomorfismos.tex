@@ -1,0 +1,128 @@
+En lo que resta de esta sección nos ocuparemos de relacionar parejas de grafos mediante funciones.
+\begin{Def}\label{Def:homomorfismo}
+   Sean $G=(V,E)$ y $G'=(V',E')$ dos grafos. Decimos que $\varphi:V\to V'$ es un homomorfismo de $G$ en $G'$ si $\left\lbrace u,v\right\rbrace\in E$ implica $\left\lbrace \varphi(u),\varphi(v) \right\rbrace\in E'$ para cualesquiera vértices $u,v\in V$.
+\end{Def}
+El hecho de que $\left\lbrace u,v \right\rbrace\in E$ implique $\left\lbrace \varphi(u),\varphi(v)\right\rbrace\in E'$ lo resumimos diciendo que $\varphi$ preserva la adyacencia entre vértices, puesto que $\varphi$ envía vértices adyacentes de $G$ a vértices adyacentes de $G'$.
+\begin{Ejm}\label{Ejm:homomorfismos}
+   La función
+   \begin{center}
+   $\hfill
+   \begin{array}{rcl}
+      \varphi_1 \colon V(G) &\to& V(G') \\
+      v_1 &\mapsto& w_1 \\
+      v_2 &\mapsto& w_2 \\
+      v_3 &\mapsto& w_3 \\
+      v_4 &\mapsto& w_2 \\
+      v_5 &\mapsto& w_1
+   \end{array}
+   \hfill$
+   \end{center}
+   es un homomorfismo de $G$ en $G'$, donde $G$ y $G'$ son los grafos que se muestran a continuación.
+   \input{Preliminares_Grafos/Diagramas/Fig19.tex}
+   Para verificar que $\varphi_1$ es un homomorfismo notemos que $\varphi_1$ preserva la adyacencia entre vértices de $G$:
+   \begin{center}
+   $\hfill
+   \begin{array}{rcl}
+      \{v_1, v_2\} \in E(G) &\text{ y }& \{\varphi_1(v_1), \varphi_1(v_2)\} = \{w_1, w_2\} \in E(G'), \\
+      \{v_1, v_3\} \in E(G) &\text{ y }& \{\varphi_1(v_1), \varphi_1(v_3)\} = \{w_1, w_3\} \in E(G'), \\
+      \{v_1, v_4\} \in E(G) &\text{ y }& \{\varphi_1(v_1), \varphi_1(v_4)\} = \{w_1, w_2\} \in E(G'), \\
+      \{v_2, v_3\} \in E(G) &\text{ y }& \{\varphi_1(v_2), \varphi_1(v_3)\} = \{w_2, w_3\} \in E(G'), \\
+      \{v_2, v_5\} \in E(G) &\text{ y }& \{\varphi_1(v_2), \varphi_1(v_5)\} = \{w_2, w_1\} \in E(G'), \\
+      \{v_3, v_4\} \in E(G) &\text{ y }& \{\varphi_1(v_3), \varphi_1(v_4)\} = \{w_3, w_2\} \in E(G').
+   \end{array}
+   \hfill$
+   \end{center}
+   En cambio la función
+   \begin{center}
+   $\hfill
+   \begin{array}{rcl}
+      \varphi_2 \colon V(G) &\to& V(G') \\
+      v_1 &\mapsto& w_4 \\
+      v_2 &\mapsto& w_2 \\
+      v_3 &\mapsto& w_4 \\
+      v_4 &\mapsto& w_1 \\
+      v_5 &\mapsto& w_3
+   \end{array}
+   \hfill$
+   \end{center}
+   no es un homomorfismo de $G$ en $G'$, pues $\left\lbrace v_1,v_3\right\rbrace\in E(G)$ pero $\left\lbrace \varphi(v_1),\varphi(v_3)\right\rbrace=\left\lbrace w_4\right\rbrace\notin E(G')$.\\
+   Podemos ver también que la función
+   \begin{center}
+   $\hfill
+   \begin{array}{rcl}
+      \psi \colon V(H) &\to& V(H') \\
+      x_1 &\mapsto& y_1 \\
+      x_2 &\mapsto& y_2 \\
+      x_3 &\mapsto& y_3 \\
+      x_4 &\mapsto& y_4 
+   \end{array}
+   \hfill$
+   \end{center}
+   es un homomorfismo entre los grafos $H$ y $H'$, que se presentan en la \Cref{fig:homomorfismo_grafos_2}
+   \input{Preliminares_Grafos/Diagramas/Fig20.tex}
+   pues
+   \begin{center}
+   $\hfill
+   \begin{array}{rcl}
+      \{x_1, x_2\} \in E(H) &\text{ y }& \{\varphi_1(x_1), \varphi_1(x_2)\} = \{y_1, y_2\} \in E(H'), \\
+      \{x_2, x_3\} \in E(H) &\text{ y }& \{\varphi_1(x_2), \varphi_1(x_3)\} = \{y_2, y_3\} \in E(H'), \\
+      \{x_3, x_4\} \in E(H) &\text{ y }& \{\varphi_1(x_3), \varphi_1(x_4)\} = \{y_3, y_4\} \in E(H'), \\
+      \{x_4, x_1\} \in E(H) &\text{ y }& \{\varphi_1(x_4), \varphi_1(x_1)\} = \{y_4, y_1\} \in E(H').
+   \end{array}
+   \hfill$
+   \end{center}
+\end{Ejm}
+Estamos interesados en encontrar funciones entre vértices que permitan determinar si los grafos en cuestión son ``indistinguibles'' para la teoría construida. Un homomorfismo no es suficiente para esto: notemos que en la \Cref{Def:homomorfismo}, un homomorfismo puede enviar vértices no adyacentes en el grafo de partida a vértices adyacentes en el grafo de llegada. Como muestra de esto, en el \Cref{Ejm:homomorfismos}, se tiene que $\varphi_1$ es un homomorfismo de $G$ en $G'$, y a pesar de que $v_3$ y $v_5$ no son adyacentes en $G$, vemos que $\varphi_1(v_3)=w_3$ y $\varphi_1(v_5)=w_1$ sí son adyacentes en $G'$. Un primer paso sería exigir que la función, además de preservar la adyacencia de los vértices del grafo de partida, no envíe vértices no adyacentes en vértices adyacentes. Sin embargo, esta propiedad la cumple la función $\psi$ del \Cref{Ejm:homomorfismos}, conectando al grafo $H$ de $4$ vértices y $4$ aristas con el grafo $H'$ de $8$ vértices y $12$ aristas. Incluir la exigencia de que la función sea biyectiva solventa el problema y se obtiene la definición de \textit{isomorfismo} entre grafos.
+\begin{Def}
+   Sean $G=(V,E)$ y $G'=(V',E')$ dos grafos. Decimos que una función $\varphi:V\to V'$ es un \textbf{isomorfismo} de $G$ en $G'$ si $\varphi$ es biyectiva y $\left\lbrace u,v\right\rbrace\in E$, si y sólo si, $\left\lbrace \varphi(u), \varphi(v)\right\rbrace\in E'$, para cualesquiera vértices $u,v\in V$. Si existe un isomorfismo de $G$ en $G'$ decimos que $G$ y $G'$ son \textbf{isomorfos} y escribimos $G\simeq G'$. Un isomorfismo de $G$ en sí mismo es llamado un \textbf{automorfismo} de $G$.
+\end{Def}
+Usualmente no hacemos distinción alguna entre grafos isomorfos. Esto es lo que nos permite hablar de ``\textit{el} camino de $6$ vértices'', ``\textit{el} grafo completo de $4$ vértices'', etc.
+\begin{Obs}
+   En cualquier grafo $G$ la función identidad de $V(G)$ es un automorfismo de $G$.
+\end{Obs}
+\begin{Ejm}
+   En la \Cref{fig:primer_isomorfismo} los grafos $G$ y $G'$ son isomorfos. 
+   \input{Preliminares_Grafos/Diagramas/Fig21.tex}
+   Consideremos la función $\varphi:V(G)\to V(G'):v_i\mapsto w_i$ para $i=1,2,\dots ,7$. Se tiene que $\varphi$ es biyectiva. Además
+   \begin{center}
+   $\hfill
+   \begin{array}{rcl}
+      \{v_1, v_2\} \in E(G) &\text{ y }& \{\varphi(v_1), \varphi(v_2)\} = \{w_1, w_2\} \in E(G'), \\
+      \{v_1, v_3\} \in E(G) &\text{ y }& \{\varphi(v_1), \varphi(v_3)\} = \{w_1, w_3\} \in E(G'), \\
+      \{v_2, v_3\} \in E(G) &\text{ y }& \{\varphi(v_2), \varphi(v_3)\} = \{w_2, w_3\} \in E(G'), \\
+      \{v_3, v_7\} \in E(G) &\text{ y }& \{\varphi(v_3), \varphi(v_7)\} = \{w_3, w_7\} \in E(G'), \\
+      \{v_3, v_6\} \in E(G) &\text{ y }& \{\varphi(v_3), \varphi(v_6)\} = \{w_3, w_6\} \in E(G'), \\
+      \{v_6, v_7\} \in E(G) &\text{ y }& \{\varphi(v_6), \varphi(v_7)\} = \{w_6, w_7\} \in E(G'), \\
+      \{v_4, v_7\} \in E(G) &\text{ y }& \{\varphi(v_4), \varphi(v_7)\} = \{w_4, w_7\} \in E(G'), \\
+      \{v_4, v_5\} \in E(G) &\text{ y }& \{\varphi(v_4), \varphi(v_5)\} = \{w_4, w_5\} \in E(G'), \\
+      \{v_5, v_6\} \in E(G) &\text{ y }& \{\varphi(v_5), \varphi(v_6)\} = \{w_5, w_6\} \in E(G').
+   \end{array}
+   \hfill$
+   \end{center}
+   Notemos que en la anterior lista se verifica tanto que $\left\lbrace u,v\right\rbrace\in E(G)$ implica $\left\lbrace \varphi(u), \varphi(v) \right\rbrace \allowbreak \in E(G')$, como que $\left\lbrace \varphi(u), \varphi(v)\right\rbrace\in E(G')$ implica $\left\lbrace u,v\right\rbrace\in E(G)$, para cualesquiera $u,v\in V(G)$. Por tanto $\varphi$ es un isomorfismo de $G$ en $G'$.
+\end{Ejm}
+El siguiente ejemplo muestra que no es suficiente que una función sea un homomorfismo biyectivo para que sea un isomorfismo.
+\begin{Ejm}
+   La función $\varphi:V(G)\to V(G'):v_i\mapsto w_i$ para $i=1,2$, es un homomorfismo biyectivo entre los grafos $G$ y $G'$ de la \Cref{fig:homomorfo_no_isomorfo}. Vacíamente se tiene que $\varphi$ preserva la adyacencia entre vértices.
+   \input{Preliminares_Grafos/Diagramas/Fig22.tex}
+   Sin embargo $\varphi$ no es un isomorfismo, pues $\left\lbrace \varphi(v_1),\varphi(v_2)\right\rbrace=\left\lbrace w_1,w_2\right\rbrace\in E(G')$ pero $\left\lbrace v_1,v_2\right\rbrace\notin E(G)$.
+\end{Ejm}
+Tenemos en cambio que si una función $\varphi$ es un homomorfismo biyectivo y su inversa $\varphi^{-1}$ es también un homomorfismo, entonces $\varphi$ sí es un isomorfismo. De hecho, esto caracteriza a los isomorfismos entre grafos, como muestra la siguiente proposición.\clearpage
+\begin{Prop}
+   Sean $G$ y $G'$ dos grafos y $\varphi:V(G)\to V(G')$ una función. Las siguientes afirmaciones son equivalentes:
+   \begin{itemize}
+      \item[1.] $\varphi$ es un homomorfismo biyectivo de $G$ en $G'$ y $\varphi^{-1}$ es un homomorfismo de $G'$ en $G$.
+      \item[2.] $\varphi$ es un isomorfismo de $G$ en $G'$.
+   \end{itemize}
+\end{Prop}
+\begin{proof}
+   $1\Rightarrow 2$ : Supongamos que $\varphi$ es un homomorfismo biyectivo de $G$ en $G'$ y $\varphi^{-1}$ es un homomorfismo de $G'$ en $G$. Sean $u,v \in V(G)$. Si $\left\lbrace u,v\right\rbrace\in E(G)$, como $\varphi$ es un homomorfismo, $\left\lbrace \varphi(u),\varphi(v)\right\rbrace\in E(G')$. Si $\left\lbrace \varphi(u),\varphi(v)\right\rbrace\in E(G')$, como $\varphi^{-1}$ es un homomorfismo y $\varphi$ es biyectivo, entonces $\left\lbrace u,v\right\rbrace=\left\lbrace \varphi^{-1}(\varphi(u)),\varphi^{-1}(\varphi(v))\right\rbrace\in E(G)$. Por tanto $\varphi$ es un isomorfismo de $G$ en $G'$.\par
+   $2\Rightarrow 1$ : Supongamos que $\varphi$ es un isomorfismo de $G$ en $G'$. Por definición de isomorfismo, $\varphi$ es biyectiva. Si $u,v\in V(G)$ son tales que $\left\lbrace u,v\right\rbrace\in E(G)$ entonces $\left\lbrace \varphi(u),\varphi(v)\right\rbrace\in E(G')$, y por tanto $\varphi$ es un homomorfismo de $G$ en $G'$. Supongamos que $x,y\in V(G')$ son tales que $\left\lbrace x,y\right\rbrace\in E(G')$. Como $\varphi$ es biyectiva, existen $w_x,w_y\in V(G)$ tales que $\varphi(w_x)=x$ y $\varphi(w_y)=y$, luego $\left\lbrace \varphi(w_x),\varphi(w_y)\right\rbrace\in E(G')$. Como $\varphi$ es un isomorfismo, se tiene $\left\lbrace \varphi^{-1}(x),\varphi^{-1}(y)\right\rbrace=\left\lbrace w_x,w_y\right\rbrace\in E(G)$. Por tanto $\varphi^{-1}$ es un homomorfismo de $G'$ en $G$.
+\end{proof}
+\begin{Def}
+   Decimos que un grafo $G$ es \textbf{vértice transitivo} si para cualquier par de vértices $u,v\in V(G)$ existe un automorfismo de $G$ que envía $u$ a $v$.    
+\end{Def}
+\begin{Ejm}
+   Para todo $n\in\mathbb{N}$ con $n\ge 3$ se tiene que $C^n$ es un grafo vértice transitivo. Podemos suponer que $V(C^n)$ es de la forma $\left\lbrace v_0,v_1, \dots, v_{n-1}\right\rbrace$ con $E(C^n)=\left\lbrace v_0v_1, v_1v_2, \dots ,v_{n-2}v_{n-1}, v_{n-1}v_0\right\rbrace$. Sean $v_i,v_j\in V(C^n)$ cualesquiera. La función $\varphi :V(C^n)\to V(C^n):v_k\mapsto v_{(k+j-i)\bmod n}$ para cada $k\in\left\lbrace 0,1,\dots ,n-1\right\rbrace$, es un automorfismo que envía $v_i$ a $v_j$. Si representamos a $C^n$ como en la \Cref{fig:ciclo_n}, podemos pensar en $\varphi$ como una función que ``rota'' al grafo en sentido horario hasta llevar al vértice $v_i$ a la posición del vértice $v_j$.\clearpage
+   \input{Preliminares_Grafos/Diagramas/Diag69.tex}
+\end{Ejm}
