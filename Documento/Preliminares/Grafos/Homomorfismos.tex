@@ -18,7 +18,7 @@ El hecho de que $\left\lbrace u,v \right\rbrace\in E$ implique $\left\lbrace \va
    \hfill$
    \end{center}
    es un homomorfismo de $G$ en $G'$, donde $G$ y $G'$ son los grafos que se muestran a continuación.
-   \input{Preliminares_Grafos/Diagramas/Fig19.tex}
+   \input{Preliminares/Grafos/Diagramas/Fig19.tex}
    Para verificar que $\varphi_1$ es un homomorfismo notemos que $\varphi_1$ preserva la adyacencia entre vértices de $G$:
    \begin{center}
    $\hfill
@@ -59,7 +59,7 @@ El hecho de que $\left\lbrace u,v \right\rbrace\in E$ implique $\left\lbrace \va
    \hfill$
    \end{center}
    es un homomorfismo entre los grafos $H$ y $H'$, que se presentan en la \Cref{fig:homomorfismo_grafos_2}
-   \input{Preliminares_Grafos/Diagramas/Fig20.tex}
+   \input{Preliminares/Grafos/Diagramas/Fig20.tex}
    pues
    \begin{center}
    $\hfill
@@ -82,7 +82,7 @@ Usualmente no hacemos distinción alguna entre grafos isomorfos. Esto es lo que 
 \end{Obs}
 \begin{Ejm}
    En la \Cref{fig:primer_isomorfismo} los grafos $G$ y $G'$ son isomorfos. 
-   \input{Preliminares_Grafos/Diagramas/Fig21.tex}
+   \input{Preliminares/Grafos/Diagramas/Fig21.tex}
    Consideremos la función $\varphi:V(G)\to V(G'):v_i\mapsto w_i$ para $i=1,2,\dots ,7$. Se tiene que $\varphi$ es biyectiva. Además
    \begin{center}
    $\hfill
@@ -104,7 +104,7 @@ Usualmente no hacemos distinción alguna entre grafos isomorfos. Esto es lo que 
 El siguiente ejemplo muestra que no es suficiente que una función sea un homomorfismo biyectivo para que sea un isomorfismo.
 \begin{Ejm}
    La función $\varphi:V(G)\to V(G'):v_i\mapsto w_i$ para $i=1,2$, es un homomorfismo biyectivo entre los grafos $G$ y $G'$ de la \Cref{fig:homomorfo_no_isomorfo}. Vacíamente se tiene que $\varphi$ preserva la adyacencia entre vértices.
-   \input{Preliminares_Grafos/Diagramas/Fig22.tex}
+   \input{Preliminares/Grafos/Diagramas/Fig22.tex}
    Sin embargo $\varphi$ no es un isomorfismo, pues $\left\lbrace \varphi(v_1),\varphi(v_2)\right\rbrace=\left\lbrace w_1,w_2\right\rbrace\in E(G')$ pero $\left\lbrace v_1,v_2\right\rbrace\notin E(G)$.
 \end{Ejm}
 Tenemos en cambio que si una función $\varphi$ es un homomorfismo biyectivo y su inversa $\varphi^{-1}$ es también un homomorfismo, entonces $\varphi$ sí es un isomorfismo. De hecho, esto caracteriza a los isomorfismos entre grafos, como muestra la siguiente proposición.\clearpage
@@ -124,5 +124,5 @@ Tenemos en cambio que si una función $\varphi$ es un homomorfismo biyectivo y s
 \end{Def}
 \begin{Ejm}
    Para todo $n\in\mathbb{N}$ con $n\ge 3$ se tiene que $C^n$ es un grafo vértice transitivo. Podemos suponer que $V(C^n)$ es de la forma $\left\lbrace v_0,v_1, \dots, v_{n-1}\right\rbrace$ con $E(C^n)=\left\lbrace v_0v_1, v_1v_2, \dots ,v_{n-2}v_{n-1}, v_{n-1}v_0\right\rbrace$. Sean $v_i,v_j\in V(C^n)$ cualesquiera. La función $\varphi :V(C^n)\to V(C^n):v_k\mapsto v_{(k+j-i)\bmod n}$ para cada $k\in\left\lbrace 0,1,\dots ,n-1\right\rbrace$, es un automorfismo que envía $v_i$ a $v_j$. Si representamos a $C^n$ como en la \Cref{fig:ciclo_n}, podemos pensar en $\varphi$ como una función que ``rota'' al grafo en sentido horario hasta llevar al vértice $v_i$ a la posición del vértice $v_j$.\clearpage
-   \input{Preliminares_Grafos/Diagramas/Diag69.tex}
+   \input{Preliminares/Grafos/Diagramas/Diag69.tex}
 \end{Ejm}

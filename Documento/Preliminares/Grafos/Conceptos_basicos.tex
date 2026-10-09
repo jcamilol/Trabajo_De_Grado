@@ -16,11 +16,11 @@ Los elementos de $[S]^k$ son llamados $k-subconjuntos$ de $S$. Con esto, damos l
 De este modo, las aristas de un grafo son $2-subconjuntos$ de vértices. Si es necesario, dado un grafo $G$, también se denota por $V(G)$ a su conjunto de vértices, y por $E(G)$ a su conjunto de aristas. Un grafo con conjunto de vértices $V$ también es llamado un \textit{grafo sobre V}. Para evitar ambiguedades de notación, asumimos también que $V(G)\cap E(G)=\emptyset$ para todo grafo $G$. Una arista $\left\lbrace u,v\right\rbrace$ de un grafo también puede ser representada mediante $uv$. Una manera estándar y conveniente de representar visualmente un grafo es dibujar un círculo o punto por cada vértice, y unir dos de estos círculos por una línea si y sólo si los correspondientes vértices forman una arista del grafo. La distribución particular de los círculos en el espacio, así como la forma en que las líneas son dibujadas es irrelevante; la única información que importa es qué par de vértices están conectados mediante una arista y cuáles no. Solemos referirnos por \textit{grafo} también a la respectiva representación visual.
 \begin{Ejm} \label{Ejm:cuatro_grafos}
    Los siguientes son ejemplos de grafos sobre $V=\left\lbrace v_1,v_2,v_3,v_4,v_5, v_6 \right\rbrace$:
-  \input{Preliminares_Grafos/Diagramas/Fig1.tex}
+  \input{Preliminares/Grafos/Diagramas/Fig1.tex}
    Un ejemplo de grafo sobre $V'=\left\lbrace v_1, v_2, v_3, \dots\right\rbrace$ es $G_5=(V',\left\lbrace v_1v_2, v_2v_3, v_3v_4, v_4v_5, \dots\right\rbrace)$.
    \begin{figure}[H]
      \centering
-       \resizebox{0.45\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag5.tex}} 
+       \resizebox{0.45\textwidth}{!}{\input{Preliminares/Grafos/Diagramas/Diag5.tex}} 
      \caption{El grafo $G_5$ sobre $V'$}
    \end{figure}
 \end{Ejm}
@@ -35,7 +35,7 @@ Frecuentemente en matemáticas, uno de los primeros pasos al analizar una estruc
 Para cualquier grafo $G$ se tiene $\emptyset\subseteq G$. Damos a continuación más ejemplos de contenencia de grafos.
 \begin{Ejm}\label{Ejm:Contenencia}
    En cada fila de la \Cref{tab:grafos} se tiene $G'\subseteq G$.
-   \input{Preliminares_Grafos/Diagramas/Fig9.tex}
+   \input{Preliminares/Grafos/Diagramas/Fig9.tex}
 \end{Ejm}\clearpage
 En el \Cref{Ejm:Contenencia} se cumple que $G'_3$ conserva todas las aristas entre vértices de $V(G'_3)$ que aparecían originalmente en $G_3$, es decir, para cualesquiera $u,v\in V(G'_3)$ se tiene que $uv\in E(G_3)$ implica $uv\in E(G'_3)$. Notemos que en los ejemplos $G_1$ y $G_2$ esto no se cumple. Por ejemplo, para $G_1$ se tiene $v_3,v_5\in V(G'_1)$ y $v_3v_5\in E(G_1)$, pero $v_3v_5 \notin E(G'_1)$; para $G_2$ se tiene $v_1,v_3\in V(G'_2)$ y $v_1v_3\in E(G_2)$, pero $v_1v_3\notin E(G'_2)$. El comportamiento que se da con $G_3$ y $G'_3$ lo resumimos diciendo que $G'_3$ es el \textit{subgrafo de $G_3$ inducido} por $V(G'_3)$, y denotamos $G'_3=G[V(G'_3)]$. Más precisamente:
 \begin{Def}
@@ -45,9 +45,9 @@ En el \Cref{Ejm:Contenencia} se cumple que $G'_3$ conserva todas las aristas ent
    \phantom{o}
    \begin{itemize}
       \item $G_2$ es el subgrafo de $G_1$ inducido por $W=\left\lbrace v_2,v_3,v_4,v_5,v_6\right\rbrace$:
-         \input{Preliminares_Grafos/Diagramas/Fig2.tex}  
+         \input{Preliminares/Grafos/Diagramas/Fig2.tex}  
       \item $G_4$ es el subgrafo de $G_3$ inducido por $W'=\left\lbrace v_1,v_2,v_3,v_5\right\rbrace$:
-         \input{Preliminares_Grafos/Diagramas/Fig3.tex}  
+         \input{Preliminares/Grafos/Diagramas/Fig3.tex}  
    \end{itemize}
 \end{Ejm}
 \begin{Def}
@@ -71,7 +71,7 @@ En el grafo $G_1$ del \Cref{Ejm:cuatro_grafos}, los vértices $v_3$ y $v_4$ son 
 El uso de matrices de adyacencia para la representación de grafos finitos presenta utilidades para su manejo mediante computadoras. Como afirma \cite{marimont1960}, aunque los grafos representados visualmente son ``intuitivamente sugestivos y fáciles de comprender'', su manejo directo mediante computadoras resulta inviable, no se presta a manipulaciones cuantitativas inmediatas, y a medida que crecen en tamaño y complejidad, se va perdiendo la intuición que en principio proporcionan. Las matrices en cambio, pueden ser manipuladas fácilmente por computadoras, las cuales sacan vasto provecho del procesamiento cuantitativo que ofrecen, a pesar del poco atractivo intuitivo que pueda presentar al ojo humano frente a la representación visual del grafo. En las \Cref{sec:computacional_adyacencia,sec:computacional_incidencia} hacemos uso de matrices de adyacencia en algunas implementaciones computacionales.\clearpage
 \begin{Ejm}
    En cada fila de la \Cref{tab:grafos_matrices} se muestra un grafo finito $G$ y su respectiva matriz de adyacencia $M$.
-   \input{Preliminares_Grafos/Diagramas/Fig23.tex}
+   \input{Preliminares/Grafos/Diagramas/Fig23.tex}
 \end{Ejm}
 La ausencia de bucles en los grafos hace que todas las entradas en la diagonal principal de una matriz de adyacencia sean siempre $0$. Igualmente, el hecho de que en un grafo $G$ se tenga $v_iv_j\in E(G)$ si y sólo si $v_jv_i\in E(G)$, hace que cualquier matriz de adyacencia sea simétrica.\clearpage
 \begin{Def}
@@ -105,7 +105,7 @@ Todos los grafos finitos son localmente finitos. El grafo $G_5$ del \Cref{Ejm:cu
    \phantom{o}
    \begin{figure}[H]
      \centering
-       \resizebox{0.4\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag6.tex}} 
+       \resizebox{0.4\textwidth}{!}{\input{Preliminares/Grafos/Diagramas/Diag6.tex}} 
      \caption{Un grafo infinito localmente finito}
    \end{figure}
 \end{Ejm}
@@ -113,7 +113,7 @@ Todos los grafos finitos son localmente finitos. El grafo $G_5$ del \Cref{Ejm:cu
    El siguiente grafo infinito no es localmente finito, pues $d(v_1)$ no es finito.
    \begin{figure}[H]
      \centering
-       \resizebox{0.45\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag7.tex}} 
+       \resizebox{0.45\textwidth}{!}{\input{Preliminares/Grafos/Diagramas/Diag7.tex}} 
      \caption{Un grafo infinito que no es localmente finito}
    \end{figure}
 \end{Ejm}
@@ -132,7 +132,7 @@ Un concepto importante en el presente trabajo es el de \textit{grafo conexo}. Pa
       \item Un camino de longitud $6$ es el siguiente:
       \begin{figure}[H]
         \centering
-          \resizebox{0.3\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag8.tex}}
+          \resizebox{0.3\textwidth}{!}{\input{Preliminares/Grafos/Diagramas/Diag8.tex}}
         \caption{$P^7=v_1v_2v_3v_4v_5v_6v_7$}
       \end{figure}
    \end{itemize}
@@ -146,13 +146,13 @@ Un concepto importante en el presente trabajo es el de \textit{grafo conexo}. Pa
       \item En el grafo $G_4$ del \Cref{Ejm:cuatro_grafos}, los vértices $v_6$ y $v_4$ están conectados, por ejemplo, por el camino $v_6v_2v_3v_4$, mientras que $v_1$ y $v_6$ no están conectados por un camino.
       \begin{figure}[H]
         \centering
-          \resizebox{0.2\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag19.tex}}
+          \resizebox{0.2\textwidth}{!}{\input{Preliminares/Grafos/Diagramas/Diag19.tex}}
         \caption{Un camino entre $v_6$ y $v_4$}
       \end{figure}
       \item En el grafo $G_1$ del \Cref{Ejm:Contenencia}, los vértices $v_4$ y $v_7$ están conectados por el camino $v_4v_5v_7$, pero $v_2$ y $v_6$ no están conectados por un camino.
       \begin{figure}[H]
         \centering
-          \resizebox{0.3\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag20.tex}}
+          \resizebox{0.3\textwidth}{!}{\input{Preliminares/Grafos/Diagramas/Diag20.tex}}
         \caption{Un camino entre $v_4$ y $v_7$}
       \end{figure}
    \end{itemize}
@@ -169,17 +169,17 @@ Lo anterior nos quiere decir que un subgrafo $H\subseteq G$ es una componente de
    En los siguientes grafos se encierra con una línea punteada cada una de sus componentes.
    \begin{figure}[H]
      \centering
-       \resizebox{0.45\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag21.tex}}
+       \resizebox{0.45\textwidth}{!}{\input{Preliminares/Grafos/Diagramas/Diag21.tex}}
      \caption{Un grafo con una componente}
    \end{figure}
    \begin{figure}[H]
      \centering
-       \resizebox{0.35\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag22.tex}}
+       \resizebox{0.35\textwidth}{!}{\input{Preliminares/Grafos/Diagramas/Diag22.tex}}
      \caption{Un grafo con dos componentes}
    \end{figure}
    \begin{figure}[H]
      \centering
-       \resizebox{0.55\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag23.tex}}
+       \resizebox{0.55\textwidth}{!}{\input{Preliminares/Grafos/Diagramas/Diag23.tex}}
      \caption{Un grafo con tres componentes}
    \end{figure}
 \end{Ejm}
@@ -191,10 +191,10 @@ Dado un grafo, se puede inducir un nuevo grafo al eliminar adecuadamente un subc
    \phantom{0}
    \begin{itemize}
       \item Si $S=\left\lbrace v_3,v_4\right\rbrace$ entonces:  
-         \input{Preliminares_Grafos/Diagramas/Fig4.tex}  
+         \input{Preliminares/Grafos/Diagramas/Fig4.tex}  
       \item Si $S'=\left\lbrace v_2,v_3,v_5\right\rbrace$ entonces:
          \vspace{1em}
-         \input{Preliminares_Grafos/Diagramas/Fig5.tex}  
+         \input{Preliminares/Grafos/Diagramas/Fig5.tex}  
    \end{itemize}
 \end{Ejm}
 Como se ve con el grafo $G_3$ del \Cref{Ejm:Supresion}, la supresión de algunos vértices en un grafo puede aumentar su número de componentes. La siguiente definición trata de casos especiales donde se da esta situación.
@@ -205,26 +205,26 @@ Como se ve con el grafo $G_3$ del \Cref{Ejm:Supresion}, la supresión de algunos
    \phantom{o}
    \begin{itemize}
       \item En el grafo $G_1$, $v_1$ es un vértice de corte, pues $G_1-\left\lbrace v_1\right\rbrace$ tiene cuatro componentes, mientras que $G_1$ tiene dos componentes.
-         \input{Preliminares_Grafos/Diagramas/Fig6.tex}\vspace{-0.5cm}
+         \input{Preliminares/Grafos/Diagramas/Fig6.tex}\vspace{-0.5cm}
       %\item En la siguiente figura, se tiene que $S:=\{u,v,w\}$ es un conjunto de corte del grafo conexo $G_2$, pues $G_2-S$ tiene dos componentes.\vspace{0.1cm}
       \item Tomemos $S=\{u,v,w\}$ y $S'=\{u,v\}$. En el grafo conexo $G_2$ que se muestra en la siguiente figura, $S$ es un conjunto de corte, pues $G_2-S$ tiene dos componentes.\vspace{0.1cm}
       \begin{figure}[H]
         \centering
-        \resizebox{0.3\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag28.tex}}\hspace{2cm}
-        \resizebox{0.3\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag29.tex}}
+        \resizebox{0.3\textwidth}{!}{\input{Preliminares/Grafos/Diagramas/Diag28.tex}}\hspace{2cm}
+        \resizebox{0.3\textwidth}{!}{\input{Preliminares/Grafos/Diagramas/Diag29.tex}}
         \caption{$S$ es un conjunto de corte de $G_2$}
      \end{figure}\vspace{-0.4cm}
       Sin embargo $S$ no es un conjunto de corte minimal de $G_2$, ya que $S'\subsetneq S$ y $S'$ es un conjunto de corte de $G_2$, pues $G_2-S'$ tiene dos componentes.
       \begin{figure}[H]
         \centering
-          \resizebox{0.3\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag30.tex}}
+          \resizebox{0.3\textwidth}{!}{\input{Preliminares/Grafos/Diagramas/Diag30.tex}}
         \caption{El grafo $G_2-S'$}
       \end{figure}
       En cambio se tiene que $S'$ sí es un conjunto de corte minimal de $G_2$, pues ni $\{u\}$ ni $\{v\}$ son conjuntos de corte de $G_2$, ya que $G_2-\{u\}$ y $G_2-\{v\}$ son grafos conexos.\vspace{-1.2cm}
       \begin{figure}[H]
         \centering
-           \resizebox{0.3\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag31.tex}}\hspace{2cm}
-          \resizebox{0.3\textwidth}{!}{\input{Preliminares_Grafos/Diagramas/Diag32.tex}}
+           \resizebox{0.3\textwidth}{!}{\input{Preliminares/Grafos/Diagramas/Diag31.tex}}\hspace{2cm}
+          \resizebox{0.3\textwidth}{!}{\input{Preliminares/Grafos/Diagramas/Diag32.tex}}
           \vspace{0.5cm}
         \caption{Los grafos $G_2-\{u\}$ y $G_2-\{v\}$ son conexos}
       \end{figure}
@@ -240,7 +240,7 @@ De esta forma, un subconjunto de vértices de un grafo es independiente si ning�
 Así, $\overline{G}$ mantiene los vértices de $G$, pero dos vértice son adyacentes en $\overline{G}$ si y sólo si no son adyacentes en $G$.
 \begin{Ejm}
    La siguiente figura muestra ejemplos de grafos y sus complementos.\clearpage
-   \input{Preliminares_Grafos/Diagramas/Fig8.tex}
+   \input{Preliminares/Grafos/Diagramas/Fig8.tex}
 \end{Ejm}
 Ahora procedemos a enunciar algunas clases especiales de grafos.
 \begin{Def}
@@ -249,7 +249,7 @@ Ahora procedemos a enunciar algunas clases especiales de grafos.
 Por tanto, un grafo es completo si todos sus vértices son adyacentes dos a dos.
 \begin{Ejm}
    El grafo vacío y el grafo con un solo vértice son grafos completos, que se denotan por $K^0$ y $K^1$, respectivamente. A continuación se muestran grafos completos con $3$, $5$ y $7$ vértices.
-   \input{Preliminares_Grafos/Diagramas/Fig11.tex}
+   \input{Preliminares/Grafos/Diagramas/Fig11.tex}
 \end{Ejm}
 Para introducir los grafos conocidos como \textit{ciclos}, primero damos la siguiente definición.
 \begin{Def}
@@ -260,10 +260,10 @@ De esta manera, lo que hacemos es adicionar a $G$, como nuevas aristas, las pare
    \phantom{0}
    \begin{itemize}
       \item Si $F=\left\lbrace \left\lbrace v_2,v_6\right\rbrace, \left\lbrace v_2,v_5\right\rbrace, \left\lbrace v_3,v_6\right\rbrace, \left\lbrace v_3,v_5\right\rbrace\right\rbrace$ entonces:  
-         \input{Preliminares_Grafos/Diagramas/Fig12.tex}  
+         \input{Preliminares/Grafos/Diagramas/Fig12.tex}  
       \item Si $F'=\left\lbrace \left\lbrace v_2,v_3\right\rbrace, \left\lbrace v_3,v_4\right\rbrace, \left\lbrace v_4,v_5\right\rbrace, \left\lbrace v_5,v_6 \right\rbrace\right\rbrace$ entonces:
          \vspace{1em}
-         \input{Preliminares_Grafos/Diagramas/Fig13.tex}  
+         \input{Preliminares/Grafos/Diagramas/Fig13.tex}  
    \end{itemize}
 \end{Ejm}
 \begin{Def}
@@ -271,7 +271,7 @@ De esta manera, lo que hacemos es adicionar a $G$, como nuevas aristas, las pare
 \end{Def}
 \begin{Ejm}
    Se tiene que $C^3=K^3$; éste es el ciclo de menor longitud posible. A continuación mostramos los ciclos de longitud $4$, $6$ y $8$.
-   \input{Preliminares_Grafos/Diagramas/Fig14.tex}
+   \input{Preliminares/Grafos/Diagramas/Fig14.tex}
 \end{Ejm}
 Los ciclos nos permiten definir fácilmente lo que es un \textit{árbol}.
 \begin{Def}
@@ -279,9 +279,9 @@ Los ciclos nos permiten definir fácilmente lo que es un \textit{árbol}.
 \end{Def}
 \begin{Ejm}
    Todos los caminos son ejemplos de árboles. Los únicos grafos completos que son árboles son $K^1$ y $K^2$; el grafo $K^0=\emptyset$ no es un árbol porque no es conexo, y cualquier grafo completo con $3$ o más vértices contiene a $C^3$. En la \Cref{fig:arboles_ejemplos} los grafos $T_1$, $T_2$ y $T_3$ son ejemplos de árboles.
-   \input{Preliminares_Grafos/Diagramas/Fig15.tex}
+   \input{Preliminares/Grafos/Diagramas/Fig15.tex}
    En la \Cref{fig:no_arboles}, el grafo $S_1$ no es un árbol porque no es conexo; el grafo $S_2$ no es un árbol porque contiene el ciclo $C^5$.
-   \input{Preliminares_Grafos/Diagramas/Fig16.tex}
+   \input{Preliminares/Grafos/Diagramas/Fig16.tex}
 \end{Ejm}
 \begin{Def}
    Sea $G$ un grafo de orden mayor o igual que $2$. Decimos que $G$ es \textbf{bipartito} si $V(G)$ admite una partición en dos clases $V_1$ y $V_2$ tales que $V_1$ y $V_2$ son conjuntos independientes. Si además cualesquiera dos vértices de distintas clases de la partición son adyacentes, decimos que $G$ es \textbf{bipartito completo}, y denotamos a $G$ por $K_{n_1,n_2}$, donde $n_1=|V_1|$ y $n_2=|V_2|$. Grafos de la forma $K_{1,n}$ con $n\in \mathbb{Z}^+$ son llamados \textbf{estrellas}.
@@ -293,7 +293,7 @@ Además, una estrella es un grafo con dos o más vértices en que un único vér
 \end{Obs}
 \begin{Ejm}
    La \Cref{fig:bipartitos_ejemplos} muestra el grafo bipartito $G_1$, que no es bipartito completo; el grafo bipartito completo $K_{3,5}$ y la estrella $K_{1,7}$. En cada grafo las respectivas particiones del conjunto de vértices son encerradas como en un diagrama de Venn.
-   \input{Preliminares_Grafos/Diagramas/Fig17.tex}
+   \input{Preliminares/Grafos/Diagramas/Fig17.tex}
 \end{Ejm}
 La siguiente definición aborda el problema de la coloración de grafos.
 \begin{Def}
@@ -302,5 +302,5 @@ La siguiente definición aborda el problema de la coloración de grafos.
 Notemos que, para cualquier grafo $G$, la función identidad en $V(G)$ es una coloración de $G$; por tanto, todo grafo admite al menos una coloración y el número cromático $\chi(G)$ está bien definido. En particular, la función vacía de $\emptyset$ en $\emptyset$ es una coloración del grafo vacío, por lo que $\chi(\emptyset) = 0$. Para representar visualmente la coloración $c$ de un grafo, colocaremos la etiqueta correspondiente a $c(v)$ junto al círculo que representa al vértice $v$ (y no en su interior, para no confundirla con el vértice en sí). A continuación, mostramos algunos ejemplos de coloración de grafos.
 \begin{Ejm}
    En la \Cref{tab:coloraciones_grafos}, para cada grafo $G_i$, con $i=1,2,3$, se tiene que $c_i$ es una coloración del grafo.
-   \input{Preliminares_Grafos/Diagramas/Fig18.tex}
+   \input{Preliminares/Grafos/Diagramas/Fig18.tex}
 \end{Ejm}
