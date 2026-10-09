@@ -279,9 +279,9 @@ Una propiedad que se conserva bajo homeomorfismo se dice \textit{topológica}. M
 \end{Def}
 Puede probarse que ser conexo, compacto, $T_0$, $T_1$ o Hausdorff son ejemplos de propiedades topológicas. Las propiedades topológicas son bastante útiles para demostrar que dos espacios no son homeomorfos. Por ejemplo si un espacio $X$ es conexo y un espacio $Y$ no lo es, podemos afirmar que $X$ y $Y$ no son homeomorfos.
 \subsection{Espacios de Alexandroff}\label{subsec:Alexandroff}
-Ahora procedomos a dar un pequeño vistazo a la teoria de \textit{Espacios de Alexandroff}.
+Ahora procedemos a dar un pequeño vistazo a la teoria de \textit{espacios de Alexandroff}.
 \begin{Def}
-   Una topología $\tau$ sobre un conjunto $X$ se dice de \textbf{Alexandrof} si $\bigcap_{i\in I} \in\tau$ para cualquier colección $\left( U_i\right)_{i\in I}$ de elementos de $\tau$. En este caso decimos que $(X,\tau)$ es un \textbf{espacio de Alexandroff}.  
+   Una topología $\tau$ sobre un conjunto $X$ se dice de \textbf{Alexandroff} si para cualquier colección $\left( U_i\right)_{i\in I}$ de elementos de $\tau$ se tiene $\bigcap_{i\in I}U_i \in\tau$. En este caso decimos que $(X,\tau)$ es un \textbf{espacio de Alexandroff}.
 \end{Def}
 De esta manera, un espacio topológico es de \textit{Alexandroff} si la intersección arbitraria de abiertos es un abierto. En el \Cref{Ejm:Topologias} vimos un espacio topológico en el que no se tiene esta propiedad. Ahora damos ejemplos de espacios topológicos de Alexandroff.
 \begin{Ejm}
@@ -300,24 +300,24 @@ Una propiedad clave de los espacios de Alexandroff es que cada punto tiene una v
 \begin{Prop}
    Sea $X$ un espacio de Alexandroff. Para cada $x\in X$, la intersección de todas las vecindades de $x$ es una vecindad mínima de $x$, que denotamos por $U_x$. La colección $\mathcal{B}_{\operatorname{min}}=\left\lbrace U_x\mid x\in X\right\rbrace$ es una base mínima de $X$.
 \end{Prop}
-Las vecindades y bases mínimas de un espacio de Alexandroff nos dan una condición suficiente para que el espacio sea disconexo.
+Las vecindades y bases mínimas de un espacio de Alexandroff nos dan una condición suficiente para que el espacio sea disconexo, como lo muestra la siguiente proposición, cuya prueba puede encontrarse en \cite{jafarian2013}.
 \begin{Prop}\label{Prop:Conexo_Alexandroff}
    Sea $X$ un espacio de Alexandroff. Si existe $x\in X$ tal que:
    \begin{itemize}
-      \item $U_x$ es maximal en $\mathcal{B}_{\operatorname{min}}$, es decir, para todo $y\in X$, si $U_y\subseteq U_x$ entonces $U_x=U_y$, y,
-      \item $U_x$ es minimal en $\mathcal{B}_{\operatorname{min}}$, es decir, para todo $y\in X$, si $U_x\subseteq U_y$ entonces $U_x=U_y$,
+      \item $U_x$ es minimal en $\mathcal{B}_{\operatorname{min}}$, es decir, para todo $y\in X$, si $U_y\subseteq U_x$ entonces $U_x=U_y$, y,
+      \item $U_x$ es maximal en $\mathcal{B}_{\operatorname{min}}$, es decir, para todo $y\in X$, si $U_x\subseteq U_y$ entonces $U_x=U_y$,
    \end{itemize}
    entonces $U_x$ es un clopen de $X$ y por tanto $X$ es disconexo.
 \end{Prop}
-Contar con una subbase de un espacio topológico nos permite ''ahorraronos trabajo`` para conocer si el espacio es de Alexandroff, pues para esto basta determinar si la intersección arbitraria de abiertos subbásicos es abierta. Más precisamente:
+Contar con una subbase de un espacio topológico nos permite ``ahorraronos trabajo'' para conocer si el espacio es de Alexandroff, pues para esto basta determinar si la intersección arbitraria de abiertos subbásicos es abierta. Más precisamente:
 \begin{Prop}\label{Prop:Alexandroff_con_subbase}
    Sean $X$ un espacio topológico y $\mathcal{S}$ una subbase de $X$. Se tiene que $X$ es un espacio de Alexandroff si, y solo si, la intersección arbitraria de elementos de $\mathcal{S}$ es un abierto de $X$.
 \end{Prop}
 \begin{proof}
-   $(\Rightarrow)$ Se sigue del hecho de que los elementos de $\mathcal{S}$ son abiertos.\\
+   $(\Rightarrow)$ Se sigue del hecho de que los elementos de $\mathcal{S}$ son abiertos de $X$.\\
    $(\Leftarrow)$ Supongamos que la intersección arbitraria de elementos de $\mathcal{S}$ es un abierto de $X$. Sea $\left( U_i\right)_{i\in I}$ una colección cualquiera de abiertos de $X$ y llamemos $U:=\bigcap_{i\in I}U_i$. Usamos la \Cref{Prop:Caracterizacion_abiertos} para ver que $U \subseteqab X$. Sea $x\in U$ cualquiera. Sea $i\in I$ cualquiera. Tenemos que $x\in U_i$ y $U_i=\bigcup_{B\in A_i}B$ para algún $A_i\subseteq \mathcal{B}_{\mathcal{S}}$. De este modo $x\in B_i$ para algún $B_i\in A_i$. Como en particular $B_i\in \mathcal{B}_\mathcal{S}$ entonces existen $n_i\in \mathbb{Z}^+$ y $S_{i_j}\in \mathcal{S}$ para todo $j\in\left\lbrace 1,\dots ,n_i\right\rbrace$ tales que $B_i=\bigcap_{j=1}^{n_i}S_{i_j}$. Llamemos $V:=\bigcap_{i\in I}B_i=\bigcap_{i\in I}\left( \bigcap_{j=1}^{n_i}S_{i_j}\right)$. Como $V$ es una intersección de elementos de $\mathcal{S}$, se tiene $V\subseteqab X$. Como $x\in B_i$ para todo $i\in I$, entonces $x\in V$. Además, para todo $i\in I$, como $B_i\in A_i$, entonces $B_i\subseteq \bigcup_{B\in A_i}B=U_i$, luego $V=\bigcap_{i\in I}B_i\subseteq \bigcap_{i\in I}U_i=U$. Con esto, $U\subseteqab X$ y por tanto $X$ es un espacio de Alexandroff.
 \end{proof}
-La siguiente Proposición nos habla sobre propiedades de separación en espacios de Alexandroff.
+La siguiente proposición nos habla sobre propiedades de separación en espacios de Alexandroff.
 \begin{Prop}\label{Prop:Separacion_Alexandroff}
    Sea $X$ un espacio de Alexandroff.
    \begin{itemize}
@@ -329,14 +329,14 @@ El siguiente es un hecho bastante importante y útil de los espacios de Alexandr
 \begin{Prop}
    Sean $X$ y $Y$ espacios topológicos. Si $X$ es un espacio de Alexandroff y $X$ y $Y$ son homeomorfos, entonces $Y$ es también un espacio de Alexandroff. 
 \end{Prop}
-En otras palabras, ser de Alexandroff es una propiedad topológica.\\\phantom{o}\\
-Por último, enunciamos una Proposición que será utilizada más adelante. Su prueba puede verse en \cite{jafarian2013}.
+En otras palabras, ser de Alexandroff es una propiedad topológica.\\\\
+Por último, enunciamos una proposición que será utilizada más adelante. Su prueba puede verse en \cite{jafarian2013}.
 \begin{Prop}
    Sea $X$ un espacio de Alexandroff. Tomemos 
    $$
    \mathcal{B}:=\left\lbrace U_x\mid x\in X \text{ y }U_x\text{ es minimal en }\mathcal{B}_{\operatorname{min}}\right\rbrace.
    $$
-   Entonces:
+   Se tiene lo siguiente:
    \begin{itemize}
       \item[1.] Si $A$ es un subconjunto denso minimal de $X$ entonces existe una función sobreyectiva $f:\mathcal{B}\to A$ tal que $f\left( U_x\right)\in U_x$ para todo $U_x\in \mathcal{B}$. En particular,
          $$
@@ -346,4 +346,4 @@ Por último, enunciamos una Proposición que será utilizada más adelante. Su p
    \end{itemize}
    En particular, si $A$ y $A'$ son subconjuntos densos minimales de $X$ entonces $|A|=|A'|$.
 \end{Prop}
-Aclaramos que un subconjunto $A$ de $X$ es denso minimal si para cualquier otro subconjunto denso $B$ de $X$, la inclusión $B\subseteq A$ implica $B=A$.
+Aclaramos que $A$ es un subconjunto denso minimal de $X$ si para cualquier otro subconjunto denso $B$ de $X$, la inclusión $B\subseteq A$ implica $B=A$.
