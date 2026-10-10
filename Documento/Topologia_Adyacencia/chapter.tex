@@ -7,7 +7,7 @@ A lo largo de todo el capítulo supondremos que los grafos en cuestión son loca
 \end{proof}
 Como pudimos ver, la condición de no tener vértices aislados es clave para que $\mathcal{S}_{\mathcal{A},G}$ sea subbase para una topología sobre $V$, pues si $G$ tuviera algún vértice aislado $v\in V$, se tendría $v\notin\bigcup_{x\in V}A_x$, dado que $v\notin A_x$ para todo $x\in V$.
 \begin{Def}
-   Sea $G=(V,E)$ un grafo. La topología generada por la subbase $\mathcal{S}_{\mathcal{A},G}$, denotada por $\tau_{\mathcal{A},G}:=\tau_{\mathcal{S}_{\mathcal{S},G}}$, es llamada la \textbf{topología de adyacencia de $G$}.  
+   Sea $G=(V,E)$ un grafo. La topología generada por la subbase $\mathcal{S}_{\mathcal{A},G}$, denotada por $\tau_{\mathcal{A},G}:=\tau_{\mathcal{S}_{\mathcal{A},G}}$, es llamada la \textbf{topología de adyacencia de $G$}.  
 \end{Def}
 \begin{Prop}
    \phantom{o}
@@ -50,10 +50,10 @@ Como la topología de adyacencia de un grafo es de Alexandroff, podemos hablar d
    Sea $x\in V$ cualquiera. Para todo $y\in A_x$ tenemos $x\in A_y$, luego $x\in\bigcap_{y\in A_x}A_y$. Además $\bigcap_{y\in A_x}A_y\subseteqab X$. Como $U_x$ es la vecindad mínima de $x$, se sigue $U_x\subseteq \bigcap_{y\in A_x}A_y$. Ahora, como $x\in U_x$ y $U_x\subseteqab X$, existe $B\in\mathcal{B}_{\mathcal{S}_{\mathcal{A},G}}$ tal que $x\in B \subseteq U_x$. Por definición de $\mathcal{B}_{\mathcal{S}_{\mathcal{A},G}}$, existe algún subconjunto finito $V'$ de $V$ tal que $B=\bigcap_{y\in V'}A_y$. Para todo $y\in V'$ se tiene $x\in A_y$ y por tanto $y\in A_x$, de donde $V'\subseteq A_x$. Con esto, $\bigcap_{y\in A_x}A_y\subseteq\bigcap_{y\in V'}A_y \subseteq U_x$. Obtenemos así $U_x=\bigcap_{y\in A_x}A_y$. Como $G$ es localmente finito, $A_y$ es finito para todo $y\in A_x$ y por tanto $U_x$ es finito.
 \end{proof}
 \textcolor{red}{Esto nos permite calcular algorítmicamente las vecindades mínimas de cada vértice de un grafo finito, y por tanto también su base mínima.}
-\begin{Obs}
+\begin{Obs}\label{Obs:Igualdad_adyacencias_vecindades}
    De la \Cref{Prop:U_x_2} se tiene que si $x,y\in V$ son tales que $A_x=A_y$ entonces $U_x=\bigcap_{z\in A_x}A_z=\bigcap_{z\in A_y}A_z=U_y$.
 \end{Obs}
-\begin{Cor}
+\begin{Cor}\Cref{Cor:U_x_contenencia}
     Sea $G=(V,E)$ un grafo. Para cualesquiera $x,z\in V$ se tiene $z\in U_x$ si, y solo si, $A_x\subseteq A_z$.
 \end{Cor}
 \begin{proof}
@@ -66,7 +66,7 @@ Como la topología de adyacencia de un grafo es de Alexandroff, podemos hablar d
 \end{Obs}
 El siguiente corolario nos da una condición necesaria y suficiente para que un grafo tenga topología de adyacencia discreta.
 \begin{Cor}\label{Cor:Discreto_Alexandroff}
-    Sea $G=(V,E)$ un grafo. El espacio $(V,\tau_G)$ es discreto si, y solo si $A_x \nsubseteq A_y$ para cualesquiera $x,y\in V$ con $x\ne y$.
+   Sea $G=(V,E)$ un grafo. El espacio $(V,\tau_{\mathcal{A},G})$ es discreto si, y solo si $A_x \nsubseteq A_y$ para cualesquiera $x,y\in V$ con $x\ne y$.
 \end{Cor}
 \begin{proof}
    ($\Rightarrow$) Supongamos que $(V,\tau_{\mathcal{A},G})$ es un espacio discreto. Sean $x,y\in V$ cualesquiera con $x\ne y$. Como $(V, \tau_{\mathcal{A},G})$ es un espacio de Alexandroff discreto, se tiene que $U_x=\{x\}$. Si $A_x\subseteq A_y$ entonces por la \Cref{Obs:U_x} se tiene $y\in U_x$, contradiciendo $U_x=\{x\}$. Por tanto $A_x\nsubseteq A_y$.\\
@@ -76,14 +76,14 @@ El siguiente corolario nos da una condición necesaria y suficiente para que un 
    Sea $G=(V,E)$ un grafo. Entonces $(V,\tau_{\mathcal{A},G})$ es $T_1$ si, y solo si, $A_x\nsubseteq A_y$ para cualesquiera $x,y\in V$ con $x\ne y$.
 \end{Cor}
 \begin{proof}
-   Se sigue directamente de la \Cref{Prop:Separacion_Alexandroff} y el \Cref{Cor:Discreto_Alexandroff}
+   Se sigue directamente de la \Cref{Prop:Separacion_Alexandroff} y el \Cref{Cor:Discreto_Alexandroff}.
 \end{proof}
 \begin{Cor}\label{Cor:T_0_Adyacencia}
    Sea $G=(V,E)$ un grafo. Entonces $(V,\tau_{\mathcal{A},G})$ es $T_0$ si, y solo si $A_x\ne A_y$ para cualesquiera $x,y\in V$ con $x\ne y$.
 \end{Cor}
 \begin{proof}
-   ($\Rightarrow$) Supongamos que $(V,\tau_{\mathcal{A},G})$ es $T_0$. Sean $x,y\in V$ cualesquiera con $x\ne y$. Sin pérdida de generalidad podemos afirmar que existe $U\subseteqab V$ con $x\in U$ y $y\notin U$. Como $U$ es una vecindad de $x$, se tiene $U_x\subseteq U$. Si $A_x=A_y$ entonces $U_x=U_y$ y $U_y\subseteq U$, con lo cual en particular $y\in U$. Por lo tanto $A_x\ne A_y$.\\
-   ($\Leftarrow$) Supongamos que $A_x\ne A_y$ para cualesquiera $x,y\in V$ con $x\ne y$. Sean $x,y\in V$ con $x\ne y$. Tenemos $A_x\ne A_y$. Sin pérdidad de generalidad supongamos $A_x\nsubseteq A_y$. Entonces existe $z\in A_x$ con $z\notin A_y$, de donde $x\in A_z$ y $y\notin A_z$. Como $A_z\subseteqab V$, se sigue que $(V,\tau_{\mathcal{A},G})$ es $T_0$.
+   ($\Rightarrow$) Supongamos que $(V,\tau_{\mathcal{A},G})$ es $T_0$. Sean $x,y\in V$ cualesquiera con $x\ne y$. Sin pérdida de generalidad podemos afirmar que existe $U\subseteqab V$ con $x\in U$ y $y\notin U$. Como $U$ es una vecindad de $x$, se tiene $U_x\subseteq U$. Si $A_x=A_y$ entonces, por la \Cref{Obs:Igualdad_adyacencias_vecindades}, se tiene $U_x=U_y$ y por tanto $U_y\subseteq U$, con lo cual en particular $y\in U$. Por lo tanto $A_x\ne A_y$.\\
+   ($\Leftarrow$) Supongamos que $A_x\ne A_y$ para cualesquiera $x,y\in V$ con $x\ne y$. Sean $x,y\in V$ cualesquiera con $x\ne y$. Como $A_x\ne A_y$ tenemos $A_x\nsubseteq A_y$ o $A_y\nsubseteq A_x$. Sin pérdidad de generalidad supongamos $A_x\nsubseteq A_y$. Entonces existe $z\in A_x$ con $z\notin A_y$, de donde $x\in A_z$ y $y\notin A_z$. Como $A_z\subseteqab V$, se sigue que $(V,\tau_{\mathcal{A},G})$ es $T_0$.
 \end{proof}
 Si $G$ es un árbol, basta verificar la anterior condición para hojas distintas, como lo muestra el siguiente corolario.
 \begin{Cor}
@@ -91,5 +91,32 @@ Si $G$ es un árbol, basta verificar la anterior condición para hojas distintas
 \end{Cor}
 \begin{proof}
    ($\Rightarrow$) Es inmediato por el \Cref{Cor:T_0_Adyacencia}.\\
-   ($\Leftarrow$) Supongamos que $A_x\ne A_y$ para cualesquiera $x,y\in V$ con $x\ne y$ y $\operatorname{deg}(x)=\operatorname{deg}(y)=1$. Sean $z,w\in V$ cualesquiera con $z\ne w$.
+   ($\Leftarrow$) Supongamos que $A_x\ne A_y$ para cualesquiera $x,y\in V$ con $x\ne y$ y $\operatorname{deg}(x)=\operatorname{deg}(y)=1$. Veamos que esto implica $A_x\ne A_y$ para cualesquiera $x,y\in V$ con $x\ne y$. Razonando por contradicción supongamos que existen $x,y\in V$ con $x\ne y$ tales que $A_x=A_y$. Por hipótesis, $x$ y $y$ no son hojas. Por tanto $|A_x|=|A_y|\ge 2$. Existen $u,v\in A_x = A_y$ con $u\ne v$; además $u\ne x$, $u\ne y$, $v\ne x$, $v\ne y$ (pues, por ejemplo, $u=x$ implica $x\in A_x$, lo cual es una contradicción de nuestra definición de grafo simple; similarmente con las demás afirmaciones). Así, $xuyvx$ es un ciclo contenido en $T$, lo cual contradice que $T$ sea un árbol. Se sigue que $A_x\ne A_y$ para cualesquiera $x,y\in V$ con $x\ne y$. Por el \Cref{Cor:T_0_Adyacencia} se sigue que $(V,\tau_{\mathcal{A},T})$ es $T_0$.
+\end{proof}
+\begin{Cor}\label{Cor:U_x_3}
+    Sea $G=(V,E)$ un grafo. Entonces:
+    \begin{itemize}
+       \item[1.] Para todo $x\in V$ se tiene $U_x\subseteq \{x\}\cup \left\lbrace y\in V\mid d(x,y)=2\right\rbrace$.
+       \item[2.] Para todo $x\in V$ se tiene $U_x\cap A_x=\emptyset$.
+       \item[3.] Para cualesquiera $x,y\in V$, si $x$ y $y$ son adyacentes entonces $U_x\cap U_y=\emptyset$.
+      \item[4.] Para cualquier $x\in V$ se tiene $\overline{\{x\}}\subseteq \overline{U_x}\subseteq A_x^c$ y $\overline{A_x}\subseteq U_x^c$.
+    \end{itemize}
+\end{Cor}
+\begin{proof}
+   \phantom{o}
+   \begin{itemize}
+      \item[1.] Sea $x\in V$ cualquiera. Sea $z\in U_x$ cualquiera. Si $z=x$ entonces $z\in \{x\}\cup \left\lbrace y\in V\mid d(x,y)=2\right\rbrace$. Supongamos $z\ne x$. Sea $w\in A_x$. Por la \Cref{Prop:U_x_2} tenemos $U_x=\bigcap_{y\in A_x}A_y$, de modo que $z\in A_w$. Así, $zwx$ es un camino en $G$ que conecta $z$ y $x$. Si $z\in A_x$, como $z\in U_x$ se tendría $z\in A_z$, contradiciendo la definición de grafo simple. Por tanto $z\notin A_x$, de lo que se sigue que $d(x,z)=2$. Por tanto $z\in \{x\}\cup \left\lbrace y\in V\mid d(x,y)=2\right\rbrace$ y obtenemos $U_x\subseteq \{x\}\cup \left\lbrace y\in V\mid d(x,y)=2\right\rbrace$.
+      \item[2.] Sea $x\in V$ cualquiera. Si $z\in A_x$ entonces $d(x,z)=1$, y por el ítem $1.$ se sigue que $z\notin U_x$. Por tanto $U_x\cap A_x=\emptyset$.
+      \item[3.] Sean $x,y\in V$ cualesquiera y supongamos que $x$ y $y$ son adyacentes. Tenemos $y\in A_x$ y $A_x\subseteqab V$, de modo que $A_x$ es una vecindad de $y$, con lo cual $U_y\subseteq A_x$. Si existiera $z\in U_x\cap U_y$ entonces se tendría $z\in U_x\cap A_x$, contradiciendo el ítem $2.$ Por tanto $U_x\cap U_y=\emptyset$.
+      \item[4.] Sea $x\in V$ cualquiera. Sabemos que $\{x\}\subseteq U_x$, y por el ítem $2.$ se tiene $U_x\subseteq A_x^c$ y $A_x\subseteq U_x^c$. Por la \Cref{Prop:Contenencia_Clausura} se sigue que $\overline{\{x\}}\subseteq \overline{U_x}\subseteq \overline{A_x^c}$ y $\overline{A_x}\subseteq \overline{U_x^c}$. Como $A_x$ y $U_x$ son abiertos, entonces $A_x^c$ y $U_x^c$ son cerrados, de modo que $\overline{A_x^c}=A_x^c$ y $\overline{U_x^c}=U_x^c$ por la \Cref{Prop:Carac_abierto_cerrado}, con lo cual el resultado se obtiene.
+   \end{itemize}
+\end{proof}
+\textcolor{red}{Qué es la distancia entre dos vértices??????}
+\begin{Cor}
+   Sea $G=(V,E)$ un grafo. Para cualesquiera $x,y\in V$ se tiene $y\in\overline{\{x\}}$ si, y solo si, $A_y\subseteq A_x$. 
+\end{Cor}
+\begin{proof}
+   Sean $x,y\in V$ cualesquiera.\\
+   ($\Rightarrow$) Supongamos que $y\in\overline{\{x\}}$. Por la \Cref{Prop:Caracterizacion_punto_adherencia} se tiene que cualquier vecindad de $y$ contiene a $x$; en particular $x\in U_y$. Por el \Cref{Cor:U_x_contenencia} se sigue que $A_y\subseteq A_x$.\\
+   ($\Leftarrow$) Supongamos que $A_y\subseteq A_x$. Por el \Cref{Cor:U_x_contenencia} se tiene $x\in U_y$. Sea $V$ una vecindad cualquiera de $y$. Se tiene $U_y\subseteq V$ y por tanto $x\in V$, es decir, $V$ interseca a $\{x\}$. Por la \Cref{Prop:Caracterizacion_punto_adherencia} se sigue que $y\in\overline{\{x\}}$.
 \end{proof}

@@ -119,7 +119,7 @@ De este modo, el \textit{interior} de $A$ es la unión de todos los abiertos con
    Consideremos $\mathbb{R}$ dotado de la topología usual. Sea $A=[-1,0)\cup(0,1]$. Entonces $\operatorname{Int}A=(-1,0)\cup (0,1)$ y $\overline{A}=[-1,1]$. 
 \end{Ejm}
 La siguiente proposición nos muestra que la clausura se comporta bien respecto a la contenencia y la unión finita de conjuntos.
-\begin{Prop}
+\begin{Prop}\label{Prop:Contenencia_Clausura}
    Sean $X$ un espacio topológico y $A,B\subseteq X$. Entonces se cumple lo siguiente.
    \begin{itemize}
       \item[1.] Si $A\subseteq B$ entonces $\overline{A}\subseteq\overline{B}$.
@@ -144,7 +144,7 @@ Usando inducción sobre el ítem 2. tenemos que para cualquier colección de sub
    $$
 \end{Ejm}
 La \Cref{Def:Int_Cl} junto con las siguiente proposición nos permite caracterizar los subconjuntos abiertos y cerrados de un espacio topológico.
-\begin{Prop}
+\begin{Prop}\label{Carac_abierto_cerrado}
    Sean $X$ un espacio topológico y $A\subseteq X$. Se tiene que $A\subseteqab X$ si, y solo si, $A=\operatorname{Int}A$, y $A\subseteqcer X$ si, y solo si, $A=\overline{A}$. 
 \end{Prop}
 La siguiente proposición nos da algunas caracterizaciones para que un elemento de un espacio topológico sea un punto de adherencia de un subconjunto.
