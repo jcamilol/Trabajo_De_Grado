@@ -245,12 +245,13 @@ De esta forma, solemos decir que una función continua es aquella que ``devuelve
    \end{itemize}
 \end{Ejm}
 La siguiente proposición nos da algunas caracterizaciones de la continuidad de una función.
-\begin{Prop}
+\begin{Prop}\label{Prop:Caracterizacion_continuidad}
    Sean $(X,\tau_X), (Y,\tau_Y)$ espacios topológicos y $f:X\to Y$ una función. Las siguientes proposiciones son equivalentes:
    \begin{itemize}
       \item[1.] $f$ es continua.
       \item[2.] Para todo subconjunto cerrado $B$ de $(Y,\tau_Y)$ se tiene que $f^{-1}(B)$ es un subconjunto cerrado de $(X,\tau_X)$.
       \item[3.] Para todo $A\subseteq X$ se tiene $f(\overline{A})\subseteq\overline{f(A)}$.
+      \item[4.] Para cualquier $x\in X$ y cualquier vecindad $V$ de $f(x)$, existe una vecindad $U$ de $x$ tal que $f(U)\subseteq V$.
    \end{itemize}
 \end{Prop}
 La siguiente caracterización de las funciones cerradas será usada más adelante.

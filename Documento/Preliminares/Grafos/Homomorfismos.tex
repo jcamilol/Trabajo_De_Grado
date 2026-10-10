@@ -108,7 +108,7 @@ El siguiente ejemplo muestra que no es suficiente que una función sea un homomo
    Sin embargo $\varphi$ no es un isomorfismo, pues $\left\lbrace \varphi(v_1),\varphi(v_2)\right\rbrace=\left\lbrace w_1,w_2\right\rbrace\in E(G')$ pero $\left\lbrace v_1,v_2\right\rbrace\notin E(G)$.
 \end{Ejm}
 Tenemos en cambio que si una función $\varphi$ es un homomorfismo biyectivo y su inversa $\varphi^{-1}$ es también un homomorfismo, entonces $\varphi$ sí es un isomorfismo. De hecho, esto caracteriza a los isomorfismos entre grafos, como muestra la siguiente proposición.\clearpage
-\begin{Prop}
+\begin{Prop}\label{Prop:Caracterizacion_isomorfismo}
    Sean $G$ y $G'$ dos grafos y $\varphi:V(G)\to V(G')$ una función. Las siguientes afirmaciones son equivalentes:
    \begin{itemize}
       \item[1.] $\varphi$ es un homomorfismo biyectivo de $G$ en $G'$ y $\varphi^{-1}$ es un homomorfismo de $G'$ en $G$.
@@ -119,6 +119,10 @@ Tenemos en cambio que si una función $\varphi$ es un homomorfismo biyectivo y s
    $1\Rightarrow 2$ : Supongamos que $\varphi$ es un homomorfismo biyectivo de $G$ en $G'$ y $\varphi^{-1}$ es un homomorfismo de $G'$ en $G$. Sean $u,v \in V(G)$. Si $\left\lbrace u,v\right\rbrace\in E(G)$, como $\varphi$ es un homomorfismo, $\left\lbrace \varphi(u),\varphi(v)\right\rbrace\in E(G')$. Si $\left\lbrace \varphi(u),\varphi(v)\right\rbrace\in E(G')$, como $\varphi^{-1}$ es un homomorfismo y $\varphi$ es biyectivo, entonces $\left\lbrace u,v\right\rbrace=\left\lbrace \varphi^{-1}(\varphi(u)),\varphi^{-1}(\varphi(v))\right\rbrace\in E(G)$. Por tanto $\varphi$ es un isomorfismo de $G$ en $G'$.\par
    $2\Rightarrow 1$ : Supongamos que $\varphi$ es un isomorfismo de $G$ en $G'$. Por definición de isomorfismo, $\varphi$ es biyectiva. Si $u,v\in V(G)$ son tales que $\left\lbrace u,v\right\rbrace\in E(G)$ entonces $\left\lbrace \varphi(u),\varphi(v)\right\rbrace\in E(G')$, y por tanto $\varphi$ es un homomorfismo de $G$ en $G'$. Supongamos que $x,y\in V(G')$ son tales que $\left\lbrace x,y\right\rbrace\in E(G')$. Como $\varphi$ es biyectiva, existen $w_x,w_y\in V(G)$ tales que $\varphi(w_x)=x$ y $\varphi(w_y)=y$, luego $\left\lbrace \varphi(w_x),\varphi(w_y)\right\rbrace\in E(G')$. Como $\varphi$ es un isomorfismo, se tiene $\left\lbrace \varphi^{-1}(x),\varphi^{-1}(y)\right\rbrace=\left\lbrace w_x,w_y\right\rbrace\in E(G)$. Por tanto $\varphi^{-1}$ es un homomorfismo de $G'$ en $G$.
 \end{proof}
+Como consecuencia inmediata de la \Cref{Prop:Caracterizacion_isomorfismo} se tiene lo siguiente.
+\begin{Obs}\label{Cor:Inversa_isomorfismo}
+   Si $\varphi$ es un isomorfismo de $G$ en $G'$ entonces $\varphi^{-1}$ es un isomorfismo de $G'$ en $G$.
+\end{Obs}
 \begin{Def}
    Decimos que un grafo $G$ es \textbf{vértice transitivo} si para cualquier par de vértices $u,v\in V(G)$ existe un automorfismo de $G$ que envía $u$ a $v$.    
 \end{Def}

@@ -111,7 +111,7 @@ Si $G$ es un árbol, basta verificar la anterior condición para hojas distintas
       \item[4.] Sea $x\in V$ cualquiera. Sabemos que $\{x\}\subseteq U_x$, y por el ítem $2.$ se tiene $U_x\subseteq A_x^c$ y $A_x\subseteq U_x^c$. Por la \Cref{Prop:Contenencia_Clausura} se sigue que $\overline{\{x\}}\subseteq \overline{U_x}\subseteq \overline{A_x^c}$ y $\overline{A_x}\subseteq \overline{U_x^c}$. Como $A_x$ y $U_x$ son abiertos, entonces $A_x^c$ y $U_x^c$ son cerrados, de modo que $\overline{A_x^c}=A_x^c$ y $\overline{U_x^c}=U_x^c$ por la \Cref{Prop:Carac_abierto_cerrado}, con lo cual el resultado se obtiene.
    \end{itemize}
 \end{proof}
-\textcolor{red}{Qué es la distancia entre dos vértices??????}
+\textcolor{red}{Qué es la distancia entre dos vértices??????\\Ejemplo de que en 1. la otra contenencia no se tiene.}
 \begin{Cor}
    Sea $G=(V,E)$ un grafo. Para cualesquiera $x,y\in V$ se tiene $y\in\overline{\{x\}}$ si, y solo si, $A_y\subseteq A_x$. 
 \end{Cor}
@@ -119,4 +119,47 @@ Si $G$ es un árbol, basta verificar la anterior condición para hojas distintas
    Sean $x,y\in V$ cualesquiera.\\
    ($\Rightarrow$) Supongamos que $y\in\overline{\{x\}}$. Por la \Cref{Prop:Caracterizacion_punto_adherencia} se tiene que cualquier vecindad de $y$ contiene a $x$; en particular $x\in U_y$. Por el \Cref{Cor:U_x_contenencia} se sigue que $A_y\subseteq A_x$.\\
    ($\Leftarrow$) Supongamos que $A_y\subseteq A_x$. Por el \Cref{Cor:U_x_contenencia} se tiene $x\in U_y$. Sea $V$ una vecindad cualquiera de $y$. Se tiene $U_y\subseteq V$ y por tanto $x\in V$, es decir, $V$ interseca a $\{x\}$. Por la \Cref{Prop:Caracterizacion_punto_adherencia} se sigue que $y\in\overline{\{x\}}$.
+\end{proof}
+\begin{Lema}\label{Lema:lema_homeomorfismo}
+   Sean $G_1=(V_1,E_1)$ y $G_2=(V_2,E_2)$ os grafos. Si $\varphi:V_1\to V_2$ es un isomorfismo de $G_1$ en $G_2$ entonces:\begin{itemize}
+      \item[1.] $\varphi (A_x) = A_{\varphi (x)}$ para todo $x\in V_1$.
+      \item[2.] $\varphi (U_x) = U_{\varphi (x)}$ para todo $x\in V_1$.
+   \end{itemize}
+\end{Lema}
+\begin{proof}
+   \phantom{o}
+   \begin{itemize}
+      \item[1.] Sea $x\in V_1$ cualquiera.
+         \begin{itemize}
+            \item[$\subseteq$:] Sea $w\in\varphi(A_x)$ cualquiera. Existe $x_w\in A_x$ tal que $w=\varphi(x_w)$. Entonces $x_wx\in E_1$, de donde $\varphi(x_w)\varphi(x)\in E_2$, pues $\varphi$ es un isomorfismo, con lo cual $w=\varphi(w_x)\in A_{\varphi(x)}$ y por tanto $\varphi(A_x)\subseteq A_{\varphi(x)}$.
+            \item[$\supseteq$:] Sea $w\in A_{\varphi(x)}$. Como $\varphi$ es en particular sobreyectiva, existe $x_w\in V_1$ tal que $\varphi(x_w)=w$. Tenemps $\varphi(x_w)\varphi(x)=w\varphi(x)\in E_2$, de donde $x_wx\in E_1$, pues $\varphi$ es un isomorfismo, con lo cual $x_w\in A_x$ y por tanto $w=\varphi(x_w)\in\varphi(A_x)$. Con esto, $A_{\varphi(x)}\subseteq\varphi(A_x)$.
+         \end{itemize}
+      \item[2.] Sea $x\in V_1$ cualquiera. Por la \Cref{Prop:U_x_2} tenemos $U_x=\bigcap_{y\in A_x}A_y$ y $U_{\varphi(x)}=\bigcap_{w\in A_{\varphi(x)}}A_w$. Además tenemos 
+         $$
+         \begin{aligned}
+            \varphi(U_x)&=\varphi\left( \bigcap_{y\in A_x}A_y\right)\\
+                        &=\bigcap_{y\in A_x}\varphi(A_y)\\
+                        &\phantom{=}\text{(}\varphi\text{ es biyectiva)}\\
+                        &=\bigcap_{y\in A_x}A_{\varphi(y)}.\\
+                        &\phantom{=}\text{(ítem 1.)}
+         \end{aligned}
+         $$
+         Para cualquier $z\in \bigcap_{y\in A_x}A_{\varphi(y)}$ existe $y\in A_x$ tal que $z\in A_{\varphi(y)}$. Como $\varphi$ es un isomorfismo se tiene $\varphi(y)\in A_{\varphi(x)}$, y por tanto $z\in\bigcap_{w\in A_{\varphi(x)}}A_w$. Con esto, $\bigcap_{y\in A_x}A_{\varphi(y)}\subseteq\bigcap_{w\in A_{\varphi(x)}}A_w$. Ahora, para cualquier $z\in\bigcap_{w\in A_{\varphi(x)}}A_w$ existe $w\in A_{\varphi(x)}$ tal que $z\in A_w$. Como $\varphi$ es en particular sobreyectiva, exite $y\in V_1$ tal que $w=\varphi(y)$, luego $\varphi(y)\in A_{\varphi(x)}$. Como $\varphi$ es un isomorfismo, lo anterior implica $y\in A_x$, y $z\in A_w=A_{\varphi(y)}$, con lo cual $z\in \bigcap_{y\in A_x}A_{\varphi(y)}$ y tenemos $\bigcap_{w\in A_{\varphi(x)}}A_w \subseteq \bigcap_{y\in A_x}A_{\varphi(y)}$. Así,
+         $$
+         \varphi(U_x)=\bigcap_{y\in A_x}A_{\varphi(y)}=\bigcap_{w\in A_{\varphi(x)}}A_w=U_{\varphi(x)}.
+         $$
+   \end{itemize}
+\end{proof}
+\begin{Prop}\label{Prop:Isomorfismo_continua}
+   Sean $G_1=(V_1,E_1)$ y $G_2=(V_2,E_2)$ dos grafos y $\varphi:V_1\to V_2$ un isomorfismo entre $G_1$ y $G_2$. Entonce $\varphi$ es una función continua entre los espacios topológicos $(V_1,\tau_{\mathcal{A},G_1})$ y $(V_2, \tau_{\mathcal{A},G_2})$.
+\end{Prop}
+\begin{proof}
+   Usamos la caracterización dada en el ítem $4.$ de la \Cref{Prop:Caracterizacion_continuidad}. Sean $x\in V_1$ cualquiera y $A$ cualquier vecindad de $\varphi(x)$. Tenemos que $U_x$ es una vecindad de $x$, y $\varphi(U_x)=U_{\varphi(x)}$ por el \Cref{Lema:lema_homeomorfismo}, es decir, $\varphi(U_x)$ es la vecindad mínima de $\varphi(x)$, de modo que $\varphi(U_x)\subseteq A$. Por tanto $\varphi$ es continua.
+\end{proof}
+Como consecuencia inmediata de lo anterior tenemos que si dos grafos son isomorfos, entonces los respectivos espacios topológicos determinados por sus topologías de adyacencia son homeomorfos. Más precisamente:
+\begin{Cor}
+   Sean $G_1=(V_1,E_1)$ y $G_2=(V_2,E_2)$ dos grafos y $\varphi:V_1\to V_2$ un isomorfismo entre $G_1$ y $G_2$. Entonces $\varphi$ es también un homeomorfismo entre los espacios topológicos $(V_1,\tau_{\mathcal{A},G_1})$ y $(V_2,\tau_{\mathcal{A},G_2})$. 
+\end{Cor}
+\begin{proof}
+   Por el \Cref{Cor:Inversa_isomorfismo} se tiene que $\varphi^{-1}$ es un isomorfismo de $G_2$ en $G_1$. El resultado se sigue de la \Cref{Prop:Isomorfismo_continua} aplicado a $\varphi$ y $\varphi^{-1}$.
 \end{proof}
