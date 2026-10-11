@@ -2,19 +2,19 @@
 \centering
 \resizebox{0.6\textwidth}{!}{
 \begin{tikzpicture}[
-  scale=1.0,
+  scale=0.8,
   vnode/.style={circle, fill=blue!20, draw=black, thick, inner sep=2pt, minimum size=7mm},
   edge/.style={thick, draw=black}
 ]
 
   % --- Vértice superior v_1 (origen del camino y del ciclo C^5) ---
-  \node[vnode] (v1) at (0, 0) {$v_1$};
+  \node[vnode] (v1) at (0, 0) {$v_0$};
 
   % --- Vértices restantes del C^5 (disposición en pentágono regular simétrico abajo de v_1) ---
-  \node[vnode] (y2) at (-1.71, -1.24) {$y_n$};
-  \node[vnode] (y3) at ( 1.71, -1.24) {$y_2$};
-  \node[vnode] (y4) at ( 1.06, -3.51) {$y_3$};
-  \node[vnode] (y5) at (-1.06, -3.51) {$y_4$};
+  \node[vnode] (y2) at (-1.71, -1.24) {$y_{m}$};
+  \node[vnode] (y3) at ( 1.71, -1.24) {$y_1$};
+  \node[vnode] (y4) at ( 1.06, -3.51) {$y_2$};
+  \node[vnode] (y5) at (-1.06, -3.51) {$y_3$};
 
   % --- Aristas del ciclo C^5 con corte y puntos suspensivos horizontales ---
   \draw[edge] (v1) -- (y2);
@@ -44,5 +44,5 @@
   \node[draw=none, fill=none, scale=1.5] at (10.2, 0) {$\cdots$};
 
 \end{tikzpicture}}
-\caption{El grafo $G_2$}
+\caption{El grafo $G_2$, con $m=n-1$}
 \end{figure}

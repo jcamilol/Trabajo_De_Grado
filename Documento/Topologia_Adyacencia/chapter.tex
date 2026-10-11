@@ -164,31 +164,31 @@ Como consecuencia inmediata de lo anterior tenemos que si dos grafos son isomorf
    Por el \Cref{Cor:Inversa_isomorfismo} se tiene que $\varphi^{-1}$ es un isomorfismo de $G_2$ en $G_1$. El resultado se sigue de la \Cref{Prop:Isomorfismo_continua} aplicada a $\varphi$ y $\varphi^{-1}$.
 \end{proof}
 \begin{Obs}
-   No se tiene en cambio la implicación de que grafos con espacios de adyacencia homeomorfos sean isomorfos. Por ejemplo, por la \Cref{Prop:Calculo_topologias_adyacencia}, las topologías de adyacencia de $K^5$ y $C^5$ son ambas discretas; como además $|V\left( K^5\right)|=5=|V\left( C^5\right)|$ entonces, por el \Cref{Ejm:homeomorfismos}, se tiene que $\left( V\left( K^5\right),\tau_{\mathcal{A},K^5}\right)$ y $\left( V\left( C^5\right),\tau_{\mathcal{A},C^5}\right)$ son homeomorfos. Sin embargo, por la \Cref{Prop:Kn_Cn}, sabemos que $K^5$ y $C^5$ no son isomorfos. También podemos construir dos grafos infinitos no isomorfos con espacios de adyacencia isomorfos de la siguiente manera: sea $P$ el grafo sobre $V:=\{v_i\mid i\in\mathbb{Z}^+\}$ dado por $E(P)=\{v_iv_{i+1}\mid i\in \mathbb{Z}^+\}$.
+   No se tiene en cambio la implicación de que grafos con espacios de adyacencia homeomorfos sean isomorfos. Por ejemplo, por la \Cref{Prop:Calculo_topologias_adyacencia}, las topologías de adyacencia de $K^5$ y $C^5$ son ambas discretas; como además $|V\left( K^5\right)|=5=|V\left( C^5\right)|$ entonces, por el \Cref{Ejm:homeomorfismos}, se tiene que $\left( V\left( K^5\right),\tau_{\mathcal{A},K^5}\right)$ y $\left( V\left( C^5\right),\tau_{\mathcal{A},C^5}\right)$ son homeomorfos. Sin embargo, por la \Cref{Prop:Kn_Cn}, sabemos que $K^5$ y $C^5$ no son isomorfos. También podemos construir dos grafos infinitos no isomorfos con espacios de adyacencia isomorfos de la siguiente manera: sea $P$ el grafo sobre $V:=\{v_i\mid i\in\mathbb{N}\}$ dado por $E(P)=\{v_iv_{i+1}\mid i\in \mathbb{N}\}$.
    \begin{figure}[H]
      \centering
-       \resizebox{0.45\textwidth}{!}{\input{Preliminares/Grafos/Diagramas/Diag5.tex}} 
+       \resizebox{0.45\textwidth}{!}{\input{Topologia_Adyacencia/Diagramas/Diag5.tex}} 
      \caption{El grafo $P$}
    \end{figure}
-   Ahora, sea $V^*=\{v_1,y_2,y_3,\dots,y_n\}$ con $n\ge 5$ cualquiera, y tomemos $K^n$ y $C^n$ como el grafo completo sobre $V^*$ y el ciclo sobre $V^*$, respectivamente. Definimos entonces $G_1=\left( V\cup V^*, E(P)\cup E\left( K^n\right)\right)$ y $G_2=\left( V\cup V^*, E(P)\cup E\left( C^n\right) \right)$.
+   Ahora, sea $V^*=\{v_0,y_1,y_2,\dots,y_{n-1}\}$ con $n\ge 5$ cualquiera, y tomemos $K^n$ y $C^n$ como el grafo completo sobre $V^*$ y el ciclo sobre $V^*$, respectivamente. Definimos entonces $G_1=\left( V\cup V^*, E(P)\cup E\left( K^n\right)\right)$ y $G_2=\left( V\cup V^*, E(P)\cup E\left( C^n\right) \right)$.
    \input{Topologia_Adyacencia/Diagramas/Diag3.tex} 
    \input{Topologia_Adyacencia/Diagramas/Diag4.tex}
    Veamos que tanto $G_1$ como $G_2$ tienen topología de adyacencia discreta.
    \begin{itemize}
-      \item[$G_1$:] Sea $i\in\{2,3,\dots,n\}$ cualquiera. Tenemos
+      \item[$G_1$:] Sea $i\in\{1,2,\dots,n-1\}$ cualquiera. Tenemos
          $$
          \begin{aligned}
             U_{y_i} &= \bigcap_{w\in A_{y_i}}A_w \\
                     &\phantom{=} \text{(\Cref{Prop:U_x_2})} \\
-                    &= A_{v_1}\cap \left( \bigcap_{\substack{2\le j\le n \\ j\ne i}}A_{y_j}\right)\\
-                    &= A_{v_1}\cap \left( \bigcap_{\substack{2\le j\le n \\ j\ne i}}\left(V^* \setminus \{y_j\}\right)\right)\\
-                    &= A_{v_1} \cap \left( V^*\setminus \left( \bigcup_{\substack{2\le j\le n \\ j\ne i}}\{y_j\}\right)\right)\\
-                    &= A_{v_1}\cap \{v_1,y_i\}\\
-                    &= \{v_2,y_2,y_3,\dots ,y_n\}\cap\{v_1,y_1\}\\
+                    &= A_{v_0}\cap \left( \bigcap_{\substack{1\le j\le n-1 \\ j\ne i}}A_{y_j}\right)\\
+                    &= A_{v_0}\cap \left( \bigcap_{\substack{1\le j\le n-1 \\ j\ne i}}\left(V^* \setminus \{y_j\}\right)\right)\\
+                    &= A_{v_0} \cap \left( V^*\setminus \left( \bigcup_{\substack{1\le j\le n-1 \\ j\ne i}}\{y_j\}\right)\right)\\
+                    &= A_{v_0}\cap \{v_0,y_i\}\\
+                    &= \{v_1,y_1,y_2,\dots ,y_{n-1}\}\cap\{v_0,y_i\}\\
                     &= \{y_i\}.
          \end{aligned}
          $$
-         Para cualquier $i\in\{3,4,\dots\}$ tenemos
+         Para cualquier $i\in\{2,3,\dots\}$ tenemos
          $$
          \begin{aligned}
             U_{v_i} &= \bigcap_{w\in A_{v_i}}A_w \\
@@ -200,22 +200,22 @@ Como consecuencia inmediata de lo anterior tenemos que si dos grafos son isomorf
          Además
          $$
          \begin{aligned}
-            U_{v_2} &= \bigcap_{w\in A_{v_2}}A_w \\
-                    &= A_{v_1}\cap A_{v_3}\\
-                    &= \{v_2,y_2,y_3,\dots ,y_n\}\cap\{v_2,v_4\}\\
-                    &= \{v_2\},
+            U_{v_1} &= \bigcap_{w\in A_{v_1}}A_w \\
+                    &= A_{v_0}\cap A_{v_2}\\
+                    &= \{v_1,y_1,y_2,\dots ,y_{n-1}\}\cap\{v_1,v_3\}\\
+                    &= \{v_1\},
          \end{aligned}
          $$
          y
          $$
          \begin{aligned}
-            U_{v_1} &= \bigcap_{w\in A_{v_1}}A_w \\
-                    &= \left( \bigcap_{i=2}^n A_{y_i}\right)\cap A_{v_2} \\
-                    &= \left( \bigcap_{i=2}^n \left( V^*\setminus \{y_i\}\right)\right) \cap A_{v_2} \\
-                    &= \left( V^*\setminus\bigcup_{i=2}^n \{y_i\}\right)\cap A_{v_2} \\
-                    &= \{v_1\}\cap A_{v_2} \\
-                    &= \{v_1\}\cap \{v_1,v_3\} \\
-                    &= \{v_1\}.
+            U_{v_0} &= \bigcap_{w\in A_{v_0}}A_w \\
+                    &= \left( \bigcap_{i=1}^{n-1} A_{y_i}\right)\cap A_{v_1} \\
+                    &= \left( \bigcap_{i=1}^{n-1} \left( V^*\setminus \{y_i\}\right)\right) \cap A_{v_1} \\
+                    &= \left( V^*\setminus\bigcup_{i=1}^{n-1} \{y_i\}\right)\cap A_{v_1} \\
+                    &= \{v_0\}\cap A_{v_1} \\
+                    &= \{v_0\}\cap \{v_0,v_2\} \\
+                    &= \{v_0\}.
          \end{aligned}
          $$
          Por lo tanto, de la \Cref{Prop:U_x=ximplicadiscreto} se tiene que $(G_1,\tau_{\mathcal{A},G_1})$ es un espacio discreto.
