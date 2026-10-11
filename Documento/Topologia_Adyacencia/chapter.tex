@@ -218,7 +218,53 @@ Como consecuencia inmediata de lo anterior tenemos que si dos grafos son isomorf
                     &= \{v_0\}.
          \end{aligned}
          $$
-         Por lo tanto, de la \Cref{Prop:U_x=ximplicadiscreto} se tiene que $(G_1,\tau_{\mathcal{A},G_1})$ es un espacio discreto.
-      \item[$G_2$:] 
+         Por lo tanto, de la \Cref{Prop:U_x=ximplicadiscreto} se tiene que $(V(G_1),\tau_{\mathcal{A},G_1})$ es un espacio discreto.
+      \item[$G_2$:] De forma análoga a como se hizo para $G_1$ se tiene que $U_{v_i}=\{v_i\}$ para todo $i\in\{2,3,\dots\}$. Sea $i\in\{2,3,\dots ,n-2\}$ cualquiera. Denotemos $y_0=v_0$. Entonces:
+         $$
+         \begin{aligned}
+            U_{y_i} &= \bigcap_{w\in A_{y_i}}A_w \\
+                    &= A_{y_{i-1}}\cap A_{y_{i+1}} \\
+                    &= \{y_{i-2},y_i\}\cap \{y_i, y_{(i+2)\bmod n}\} \\
+                    &= \{y_i\},
+         \end{aligned}
+         $$
+         pues como $n\ge 5$ y $2\le i\le n-2$ entonces $i-2\ne (i+2)\bmod n$ y $y_{i-2}\ne y_{(i+2)\bmod n}$. Además,
+         $$
+         \begin{aligned}
+            U_{y_1} &= \bigcap_{w\in A_{y_1}}A_w \\
+                    &= A_{v_0}\cap A_{y_2} \\
+                    &= \{v_1,y_1,y_{n-1}\} \cap \{y_1,y_3\} \\
+                    &= \{y_1\},
+         \end{aligned}
+         $$
+         pues $n-1\ge 4$, luego $y_{n-1}\ne y_3$. También,
+         $$
+         \begin{aligned}
+            u_{y_{n-1}} &= \bigcap_{w\in A_{y_{n-1}}}A_w \\
+                        &= A_{v_0}\cap A_{y_{n-2}} \\
+                        &= \{v_1,y_1,y_{n-1}\}\cap \{y_{n-1},y_{n-3}\} \\
+                        &= \{y_{n-1}\},
+         \end{aligned}
+         $$
+         pues $n-3\ge 2$, luego $y_{n-3}\ne y_1$. Por último,
+         $$
+         \begin{aligned}
+            U_{v_0} &= \bigcap_{w\in A_{v_0}}A_w \\
+                    &= A_{v_1}\cap A_{y_1}\cap A_{y_{n-1}} \\
+                    &= \{v_0, v_2\}\cap \{v_0,y_2\}\cap \{v_0,y_{n-1}\} \\
+                    &= \{v_0\},
+         \end{aligned}
+         $$
+         y
+         $$
+         \begin{aligned}
+            U_{v_1} &= \bigcap_{w\in A_{v_1}}A_w \\
+                    &= A_{v_0}\cap A_{v_2} \\
+                    &= \{v_1,y_1,y_{n-1}\}\cap \{v_1,v_3\} \\
+                    &= \{v_1\}.
+         \end{aligned}
+         $$
+         Por lo tanto, de la ?? se tiene que $(V(G_2),\tau_{\mathcal{A},G_2})$ es un espacio discreto.
    \end{itemize}
+   Como $(V(G_1),\tau_{\mathcal{A},G_1})$ y $(V(G_2),\tau_{\mathcal{A},G_2})$ son espacios discretos y $|V(G_1)|=|V(G_2)|$, entonces por el \Cref{Ejm:homeomorfismos} se tiene que  $(V(G_1),\tau_{\mathcal{A},G_1})$ y $(V(G_2),\tau_{\mathcal{A},G_2})$ son homeomorfos. Sin embargo $\Delta (G_1)=n\ne 3=\Delta(G_2)$, así que por la ?? se tiene que $G_1$ y $G_2$ no son isomorfos.
 \end{Obs}
