@@ -112,7 +112,7 @@ Si $G$ es un árbol, basta verificar la anterior condición para hojas distintas
    \end{itemize}
 \end{proof}
 \textcolor{red}{Qué es la distancia entre dos vértices??????\\Ejemplo de que en 1. la otra contenencia no se tiene.}
-\begin{Cor}
+\begin{Cor}\label{Cor:Clausura_unitario}
    Sea $G=(V,E)$ un grafo. Para cualesquiera $x,y\in V$ se tiene $y\in\overline{\{x\}}$ si, y solo si, $A_y\subseteq A_x$. 
 \end{Cor}
 \begin{proof}
@@ -266,5 +266,24 @@ Como consecuencia inmediata de lo anterior tenemos que si dos grafos son isomorf
          $$
          Por lo tanto, de la ?? se tiene que $(V(G_2),\tau_{\mathcal{A},G_2})$ es un espacio discreto.
    \end{itemize}
-   Como $(V(G_1),\tau_{\mathcal{A},G_1})$ y $(V(G_2),\tau_{\mathcal{A},G_2})$ son espacios discretos y $|V(G_1)|=|V(G_2)|$, entonces por el \Cref{Ejm:homeomorfismos} se tiene que  $(V(G_1),\tau_{\mathcal{A},G_1})$ y $(V(G_2),\tau_{\mathcal{A},G_2})$ son homeomorfos. Sin embargo $G_1$ tiene un vértice de grado $n$, mientras que $G_2$ no lo tiene, así que por el \Cref{Cor:Isomorfismo_grados_iguales} se tiene que $G_1$ y $G_2$ no son isomorfos. 
+   Como $(V(G_1),\tau_{\mathcal{A},G_1})$ y $(V(G_2),\tau_{\mathcal{A},G_2})$ son espacios discretos y $|V(G_1)|=|V(G_2)|$, entonces por el \Cref{Ejm:homeomorfismos} se tiene que  $(V(G_1),\tau_{\mathcal{A},G_1})$ y $(V(G_2),\tau_{\mathcal{A},G_2})$ son homeomorfos. Sin embargo $G_1$ tiene un vértice de grado $n$, mientras que $G_2$ no lo tiene, así que por el \Cref{Cor:Isomorfismo_grados_iguales} se tiene que $G_1$ y $G_2$ no son isomorfos.
 \end{Obs}
+\begin{Prop}
+   Sea $G=(V,E)$ un grafo. Entonces $(V,\tau_{\mathcal{A},G})$ es compacto si, y solo si, $V$ es finito. 
+\end{Prop}
+\begin{proof}
+   ($\Rightarrow$) Probamos la contrarrecíproca. Supongamos que $V$ es infinito. Tenemos que $\mathcal{B}_{\operatorname{min}}=\left\lbrace U_x\mid x\in V\right\rbrace$ es un cubrimiento abierto de $V$. Para cualquier subconjunto finito $\left( U_{x_i}\right)_{i=1}^{n}$ de $\mathcal{B}_{\operatorname {min}}$, como, por la \Cref{Prop:U_x_2}, cada $U_{x_i}$ es finito, entonces $\bigcup_{i=1}^{n}U_{x_i}$ es finito y por tanto $\bigcup_{i=1}^{n}U_{x_i}\ne V$. Con esto, $\mathcal{B}_{\operatorname{min}}$ no tiene ningún subcubrimiento finito, y por tanto $(V,\tau_{\mathcal{A},G})$ no es compacto.\\
+   ($\Leftarrow$) Sabemos que cualquier espacio topológico sobre un conjunto finito es compacto.
+\end{proof}
+\begin{Prop}
+   Sean $G=(V,E)$ un grafo y $M:=\{x\in V\mid d(v)=\Delta (G)\}$. Entonces $M\in\tau_{\mathcal{A},G}$. 
+\end{Prop}
+\begin{proof}
+   Usamos la \Cref{Prop:Caracterizacion_abiertos}. Sea $x\in M$ cualquiera. Veamos que $U_x\subseteq M$. Sea $y\in U_x$ cualquiera. Por la \Cref{Prop:U_x_2} se tiene que $y\in A_w$ para todo $w\in A_x$. De esta forma, para cualquier $w\in A_x$ se tiene $y\in A_w$ y por tanto $w\in A_y$, es decir, $A_x\subseteq A_y$, con lo cual $\Delta(G)=d(x)=|A_x|\le |A_y|=d(y)\le \Delta(G)$ y por tanto $d(y)=\Delta (G)$. Con esto, $y\in M$ y $U_x\subseteq M$. Obtenemos que $U_x$ es una vecindad de $x$ contenida en $M$. Por tanto $M\in\tau_{\mathcal{A},G}$. 
+\end{proof}
+\begin{Prop}
+   Sean $G=(V,E)$ un grafo y $L:=\{x\in V\mid d(v)=\delta(G)\}$. Entonces $L$ es cerrado en $(V,\tau_{\mathcal{A},G})$. 
+\end{Prop}
+\begin{proof}
+   Por la \Cref{Prop:Alexandroff_clausura} se tiene $\overline{L}=\overline{\bigcup_{x\in L}\{x\}}=\bigcup_{x\in L}\overline{\{x\}}$. Sea $y\in \overline{L}$ cualquiera. Entonces existe $x\in L$ tal que $y\in\overline{\{x\}}$. Por el \Cref{Cor:Clausura_unitario} se tiene $A_y\subseteq A_x$. Con esto, $\delta (G)\le d(y)=|A_y|\le |A_x|=\delta (G)$ y por tanto $d(y)=\delta(G)$, es decir, $y\in L$. Obtenemos que $\overline{L}\subseteq L$. Como además $L\subseteq\overline{L}$, entonces $L=\overline{L}$, y por la \Cref{Prop:Caracterizacion_abierto_cerrado} se sigue que $L$ es cerrado en $(V,\tau_{\mathcal{A},G})$.
+\end{proof}
