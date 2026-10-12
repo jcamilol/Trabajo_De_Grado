@@ -130,12 +130,14 @@ La siguiente proposición nos muestra que un isomorfismo preserva el grado de lo
 \begin{proof}
    Sea $v\in V(G)$ cualquiera. Basta probar que $|A_v|=|A_{\varphi(v)}|$. Veamos que $\left.\varphi\right|_{A_v}$ es una biyección de $A_v$ en $A_{\varphi(v)}$. La inyectividad de $\left.\varphi\right|_{A_v}$ se hereda de la inyectividad de $\varphi$. Sea $w\in A_{\varphi(v)}$ cualquiera. Como $\varphi$ es sobreyectiva, existe $u\in V(G)$ tal que $w=\varphi(u)$, de donde $\varphi(u)\in A_{\varphi(v)}$, es decir $\varphi(u)\varphi(v)\in E(G')$. Como $\varphi$ es un isomorfismo, se tiene $uv\in E(G)$, es decir, $u\in A_v$. Con esto, $\left.\varphi\right|_{A_v}(u)=\varphi(u)=w$ y por tanto $\left.\varphi\right|_{A_v}$ es una función sobreyectiva de $A_v$ en $A_{\varphi(v)}$. Así, $\left.\varphi\right|_{A_v}$ es una biyección de $A_v$ en $A_{\varphi(v)}$, y por tanto $|A_v|=|A_{\varphi(v)}|$.
 \end{proof}
-Una aplicación de la \Cref{Prop:Isomorfismo_grado} es permitirnos afirmar que dos grafos no son isomorfismos, como lo muestra la siguiente proposición.
-\begin{Prop}\label{Prop:Kn_Cn}
-   Para todo $n\ge 4$ se tiene que $K^n$ y $C^n$ no son isomorfos. 
-\end{Prop}
+Un corolario de la \Cref{Prop:Isomorfismo_grado} es el siguiente.
+\begin{Cor}\label{Cor:Isomorfismo_grados_iguales}
+   Sean $G$ y $G'$ dos grafos isomorfos. Entonces $G$ tiene un vértice de grado $n$ si, y solo si, $G'$ tiene un vértice de grado $n$. 
+\end{Cor}
 \begin{proof}
-   Sea $n\ge 4$ cualquiera. Razonando por contradicción supongamos que existe un isomorfismo $\varphi$ entre $K^n$ y $C^n$. Entonces para cualquier vértice $v$ de $K^n$, por la \Cref{Prop:Isomorfismo_grado}, se tiene $\operatorname{deg}(v)=\operatorname{deg}(\varphi(v))$. Pero esto es una contradicción, pues sabemos que cualquier vértice de $K^n$ tiene grado $n-1$, mientras que cualquier vértice de $C^n$ tiene grado $2$; como $n\ne 3$ entonces $\operatorname{deg}(v)=n-1\ne 2=\operatorname{deg}(\varphi(v))$. Por tanto $K^n$ y $C^n$ no son isomorfos.
+   Existe un isomorfismo $\varphi$ de $G$ en $G'$.\\
+   ($\Rightarrow$) Supongamos que $G$ tiene un vértice $v$ de grado $n$. Entonces $\operatorname{deg} (\varphi(v)) = \operatorname{deg} (v) = n$, con $\varphi(v)\in V(G')$.\\
+   ($\Leftarrow$) Supongamos que $G'$ tiene un vértice $w$ de grado $n$. Como $\varphi ^{-1}$ es un isomorfismo de $G'$ en $G$ entonces $\operatorname{deg}\left( \varphi^{-1}(w)\right)=\operatorname{deg} (w)=n$, con $\varphi ^{-1}(w)\in V(G)$.
 \end{proof}
 \begin{Def}
    Decimos que un grafo $G$ es \textbf{vértice transitivo} si para cualquier par de vértices $u,v\in V(G)$ existe un automorfismo de $G$ que envía $u$ a $v$.    
