@@ -20,8 +20,12 @@ Ahora damos ejemplos de espacios topológicos de Alexandroff.
    Sean $X$ un espacio topológico y $x\in X$. Decimos que una vecindad $V$ de $x$ es una \textbf{vecindad mínima} de $x$ si para cualquier otra vecidad $U$ de $x$ se tiene $V\subseteq U$. Igualmente, decimos que una base $\mathcal{B}$ de $X$ es una \textbf{base mínima} si para cualquier base $\mathcal{B}'$ de $X$ se tiene $\mathcal{B}\subseteq\mathcal{B}'$.
 \end{Def}
 Una propiedad clave de los espacios de Alexandroff es que cada punto tiene una vecindad mínima, y cada espacio tiene una base mínima. Más precisamente:
-\begin{Prop}
+\begin{Prop}\label{Prop:Alexandroff_discreto}
    Sea $X$ un espacio de Alexandroff. Para cada $x\in X$, la intersección de todas las vecindades de $x$ es una vecindad mínima de $x$, que denotamos por $U_x$. La colección $\mathcal{B}_{\operatorname{min}}=\left\lbrace U_x\mid x\in X\right\rbrace$ es una base mínima de $X$.
+\end{Prop}
+Usando las vecindades mínimas podemos caracterizar los espacios de Alexandroff discretos de la siguiente manera.
+\begin{Prop}
+   Sea $X$ un espacio de Alexandroff. Entonces $X$ es discreto si, y solo si, $U_x=\{x\}$ para todo $x\in X$. 
 \end{Prop}
 Las vecindades y bases mínimas de un espacio de Alexandroff nos dan una condición suficiente para que el espacio sea disconexo, como lo muestra la siguiente proposición, cuya prueba puede encontrarse en \cite{jafarian2013}.
 \begin{Prop}\label{Prop:Conexo_Alexandroff}
@@ -52,7 +56,7 @@ La siguiente proposición nos habla sobre propiedades de separación en espacios
    Sea $X$ un espacio de Alexandroff.
    \begin{itemize}
       \item X es $T_0$ si, y solo si, $U_x=U_y$ implica $x=y$ para cualesquiera $x,y\in X$.
-      \item X es $T_1$ si, y solo si, $X$ es discreto, lo cual es equivalente a que $U_x=\{x\}$ para todo $x\in X$.
+      \item X es $T_1$ si, y solo si, $X$ es discreto.
    \end{itemize}
 \end{Prop}
 El siguiente es un hecho bastante importante y útil de los espacios de Alexandroff.
