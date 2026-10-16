@@ -291,9 +291,13 @@ Como consecuencia inmediata de lo anterior tenemos que si dos grafos son isomorf
    Sean $G=(V,E)$ un grafo y $x\in V$. Si $x$ es un vértice de corte de $G$ entonces $\{x\}\in\tau_{\mathcal{A},G}$.
 \end{Prop}
 \begin{proof}
-    
+   Supongamos que $x$ es un vértice de corte de $G$. Por el \Cref{Lema:x_x}, existen $y_1,y_2\in A_x$ y $D_1,D_2$ componentes distintas de $G-\{x\}$ tales que $y_1\in V(D_1)$ y $y_2\in V(D_2)$. Sea $z\in A_{y_1}\cap A_{y_2}$ cualquiera. Si $z\ne x$ entonces $z\in V(G)\setminus \{x\}=V(G-\{x\})$, de modo que $y_1zy_2$ es un camino en $G-\{x\}$ que conecta $y_1$ y $y_2$, contradiciendo la \Cref{Prop:Componentes_no_conectan}. Por tanto $z=x$ y $A_{y_1}\cap A_{y_2}\subseteq \{x\}$. De esta manera, usando la \Cref{Prop:U_x_2} tenemos
+   $$
+   \{x\}\subseteq U_x=\bigcap_{w\in A_x}A_w\subseteq A_{y_1}\cap A_{y_2}\subseteq \{x\},
+   $$
+   con lo cual $\{x\}=U_x\in \tau_{\mathcal{A},G}$.
 \end{proof}
-\begin{Lema}
+\begin{Lema}\label{Lema:x_x}
    Sean $G$ un grafo y $x\in V(G)$ un vértice de corte de $G$. Entonces existen $y_1,y_2\in A_x$ y $D_1,D_2$ componentes distintas de $G-\{x\}$ tales que $y_1\in V(D_1)$ y $y_2\in V(D_2)$.
 \end{Lema}
 \begin{proof}
