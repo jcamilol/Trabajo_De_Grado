@@ -1,7 +1,7 @@
 En el presente estudio trabajaremos únicamente con grafos simples, así que de ahora en adelante se entenderá \textit{grafo} y \textit{grafo simple} de manera indistinta. Iniciamos formalizando la noción de grafo que hemos introducido. Las definiciones presentadas en lo que sigue de esta sección son estándar en la teoría; las tomamos siguiendo a \cite{diestel2017}, \cite{gomez2025} y \cite{jafarian2013}.
 \begin{Not}
 Dado un conjunto $S$ y un número natural $k$, denotamos por $[S]^k$ a la colección de todos los subconjuntos de $S$ con exactamente $k$ elementos.
-\end{Not}\clearpage
+\end{Not}
 Así por ejemplo, tomando $S=\left\lbrace 1,2,3,4,5 \right\rbrace$, tenemos que 
 $$
 \begin{aligned}
@@ -27,16 +27,16 @@ De este modo, las aristas de un grafo son $2-subconjuntos$ de vértices. Si es n
 \begin{Not}
    El grafo $G=(\emptyset,\emptyset)$ en el cual tanto el conjunto de vértices como el de aristas son vacíos, lo llamamos \textbf{grafo vacío} y lo representamos simplemente por $\emptyset$.
 \end{Not}
-Notemos que en un grafo $G$, dada $uv\in E(G)$, se tiene que $uv$ y $vu$ hacen referencia a la misma arista, pues $uv=\left\lbrace u,v \right\rbrace=\left\lbrace v, u\right\rbrace=vu$. De esta forma, en un grafo, el orden de los vértices en la representación de una arista no es tenido en cuenta, lo cual está alineado con nuestra idea de no considerar orientación en ella. Además, la exigencia de que las aristas de un grafo sean $2-subconjuntos$ de vértices implica que si $uv\in E(G)$ entonces $u\neq v$, es decir, no hay aristas que unan un vértice con sí mismo, de modo que los grafos que consideramos no tienen bucles. Así mismo, entre dos vértices distintos $u,v\in V(G)$ podrá haber a lo más una arista, dependiendo de si $uv$ pertenece a $E(G)$ o no, es decir, se excluye la posibilidad de que hayan aristas múltiples entre un par de vértices.\par
-Frecuentemente en matemáticas, uno de los primeros pasos al analizar una estructura formal es estudiar sus subestructuras, es decir, objetos del mismo tipo contenidos en ella. Para esto introducimos la noción de \textit{subgrafo}.\clearpage
+Notemos que en un grafo $G$, dada $uv\in E(G)$, se tiene que $uv$ y $vu$ hacen referencia a la misma arista, pues $uv=\left\lbrace u,v \right\rbrace=\left\lbrace v, u\right\rbrace=vu$. De esta forma, en un grafo, el orden de los vértices en la representación de una arista no es tenido en cuenta, lo cual está alineado con nuestra idea de no considerar orientación en ella. Además, la exigencia de que las aristas de un grafo sean $2-subconjuntos$ de vértices implica que si $uv\in E(G)$ entonces $u\neq v$, es decir, no hay aristas que unan un vértice con sí mismo, de modo que los grafos que consideramos no tienen bucles. Así mismo, entre dos vértices distintos $u,v\in V(G)$ podrá haber a lo más una arista, dependiendo de si $uv$ pertenece a $E(G)$ o no, es decir, se excluye la posibilidad de que hayan aristas múltiples entre un par de vértices.\\\\
+Frecuentemente en matemáticas, uno de los primeros pasos al analizar una estructura formal es estudiar sus subestructuras, es decir, objetos del mismo tipo contenidos en ella. Para esto introducimos la noción de \textit{subgrafo}.
 \begin{Def}
    Dados dos grafos $G=(V,E)$ y $G'=(V',E')$, decimos que $G'$ es un \textbf{subgrafo} de $G$ si $V'\subseteq V$ y $E'\subseteq E$. En este caso denotamos $G'\subseteq G$.
 \end{Def}
-Para cualquier grafo $G$ se tiene $\emptyset\subseteq G$. Damos a continuación más ejemplos de contenencia de grafos.
+Para cualquier grafo $G$ se tiene $\emptyset\subseteq G$. Notemos además que si $G_1$, $G_2$ y $G_3$ son grafos, con $G_1\subseteq G_2$ y $G_2\subseteq G_3$ entonces $G_1\subseteq G_3$, pues $V(G_1)\subseteq V(G_2)$ y $V(G_2)\subseteq V(G_3)$, implicando $V(G_1)\subseteq V(G_3)$, y también $E(G_1)\subseteq E(G_2)$ y $E(G_2)\subseteq E(G_3)$, implicando $E(G_1)\subseteq E(G_3)$.  Damos a continuación más ejemplos de contenencia de grafos.
 \begin{Ejm}\label{Ejm:Contenencia}
    En cada fila de la \Cref{tab:grafos} se tiene $G'\subseteq G$.
    \input{Preliminares/Grafos/Diagramas/Fig9.tex}
-\end{Ejm}\clearpage
+\end{Ejm}
 En el \Cref{Ejm:Contenencia} se cumple que $G'_3$ conserva todas las aristas entre vértices de $V(G'_3)$ que aparecían originalmente en $G_3$, es decir, para cualesquiera $u,v\in V(G'_3)$ se tiene que $uv\in E(G_3)$ implica $uv\in E(G'_3)$. Notemos que en los ejemplos $G_1$ y $G_2$ esto no se cumple. Por ejemplo, para $G_1$ se tiene $v_3,v_5\in V(G'_1)$ y $v_3v_5\in E(G_1)$, pero $v_3v_5 \notin E(G'_1)$; para $G_2$ se tiene $v_1,v_3\in V(G'_2)$ y $v_1v_3\in E(G_2)$, pero $v_1v_3\notin E(G'_2)$. El comportamiento que se da con $G_3$ y $G'_3$ lo resumimos diciendo que $G'_3$ es el \textit{subgrafo de $G_3$ inducido} por $V(G'_3)$, y denotamos $G'_3=G[V(G'_3)]$. Más precisamente:
 \begin{Def}
    Sean $G$ un grafo y $W\subseteq V(G)$. El \textbf{subgrafo de $G$ inducido} por $W$, denotado por $G[W]$, se define como el subgrafo de $G$ tal que $V(G[W])=W$ y $E(G[W])=\left\lbrace uv\in E(G)\mid u,v\in W\right\rbrace$.
@@ -68,12 +68,12 @@ En el grafo $G_1$ del \Cref{Ejm:cuatro_grafos}, los vértices $v_3$ y $v_4$ son 
    $$
    Si $G=\emptyset$, definimos la matriz de adyacencia de $G$ como la matriz vacía de tamaño $0\times 0$.
 \end{Def}
-El uso de matrices de adyacencia para la representación de grafos finitos presenta utilidades para su manejo mediante computadoras. Como afirma \cite{marimont1960}, aunque los grafos representados visualmente son ``intuitivamente sugestivos y fáciles de comprender'', su manejo directo mediante computadoras resulta inviable, no se presta a manipulaciones cuantitativas inmediatas, y a medida que crecen en tamaño y complejidad, se va perdiendo la intuición que en principio proporcionan. Las matrices en cambio, pueden ser manipuladas fácilmente por computadoras, las cuales sacan vasto provecho del procesamiento cuantitativo que ofrecen, a pesar del poco atractivo intuitivo que pueda presentar al ojo humano frente a la representación visual del grafo. En las \Cref{sec:computacional_adyacencia,sec:computacional_incidencia} hacemos uso de matrices de adyacencia en algunas implementaciones computacionales.\clearpage
+El uso de matrices de adyacencia para la representación de grafos finitos presenta utilidades para su manejo mediante computadoras. Como afirma \cite{marimont1960}, aunque los grafos representados visualmente son ``intuitivamente sugestivos y fáciles de comprender'', su manejo directo mediante computadoras resulta inviable, no se presta a manipulaciones cuantitativas inmediatas, y a medida que crecen en tamaño y complejidad, se va perdiendo la intuición que en principio proporcionan. Las matrices en cambio, pueden ser manipuladas fácilmente por computadoras, las cuales sacan vasto provecho del procesamiento cuantitativo que ofrecen, a pesar del poco atractivo intuitivo que pueda presentar al ojo humano frente a la representación visual del grafo. En las \Cref{sec:computacional_adyacencia,sec:computacional_incidencia} hacemos uso de matrices de adyacencia en algunas implementaciones computacionales.
 \begin{Ejm}
    En cada fila de la \Cref{tab:grafos_matrices} se muestra un grafo finito $G$ y su respectiva matriz de adyacencia $M$.
    \input{Preliminares/Grafos/Diagramas/Fig23.tex}
 \end{Ejm}
-La ausencia de bucles en los grafos hace que todas las entradas en la diagonal principal de una matriz de adyacencia sean siempre $0$. Igualmente, el hecho de que en un grafo $G$ se tenga $v_iv_j\in E(G)$ si y sólo si $v_jv_i\in E(G)$, hace que cualquier matriz de adyacencia sea simétrica.\clearpage
+La ausencia de bucles en los grafos hace que todas las entradas en la diagonal principal de una matriz de adyacencia sean siempre $0$. Igualmente, el hecho de que en un grafo $G$ se tenga $v_iv_j\in E(G)$ si y sólo si $v_jv_i\in E(G)$, hace que cualquier matriz de adyacencia sea simétrica.
 \begin{Def}
    Sea $G$ un grafo. Dado un vértice $v\in V(G)$, denotamos por $\bm{A_v}$ al conjunto de todos los vértices adyacentes a $v$, es decir $A_v=\left\lbrace u\in V(G) \mid uv\in E(G)\right\rbrace$, y por $\bm{E_v}$ al conjunto de todas las aristas con las cuales es incidente $v$, es decir $E_v=\left\lbrace e\in E(G)\mid v\in e\right\rbrace$.
 \end{Def}
@@ -123,7 +123,7 @@ Un concepto importante en el presente trabajo es el de \textit{grafo conexo}. Pa
    $$
    V=\left\lbrace x_0, x_1, \dots, x_k\right\rbrace, \quad E=\left\lbrace x_0x_1, x_1x_2, \dots , x_{k-1}x_k\right\rbrace,
    $$
-   para $k\in \mathbb{N}$, y donde todos los $x_i$, con $i\in \left\lbrace 0,1,\dots,k\right\rbrace$, son distintos. En este caso denotamos a $P$ mediante $x_0x_1\dots x_k$ o $x_kx_{k-1}\dots x_0$. Decimos que los vértices $x_0$ y $x_k$ están \textbf{conectados} por el camino P, y que $x_0$ y $x_k$ son los \textbf{extremos} de $P$. El número de aristas de un camino es su \textbf{longitud}. Denotamos por $\bm{P^k}$ a cualquier camino con $k$ vértices.
+   para $k\in \mathbb{N}$, y donde todos los $x_i$, con $i\in \left\lbrace 0,1,\dots,k\right\rbrace$, son distintos. En este caso denotamos a $P$ mediante $x_0x_1\dots x_k$ o $x_kx_{k-1}\dots x_0$. Decimos que los vértices $x_0$ y $x_k$ están \textbf{conectados} por el camino $P$, y que $x_0$ y $x_k$ son los \textbf{extremos} de $P$. El número de aristas de un camino es su \textbf{longitud}. Denotamos por $\bm{P^k}$ a cualquier camino con $k$ vértices.
 \end{Def}
 \begin{Ejm}
    \phantom{o}
@@ -157,12 +157,31 @@ Un concepto importante en el presente trabajo es el de \textit{grafo conexo}. Pa
       \end{figure}
    \end{itemize}
 \end{Ejm}
+\begin{Not}
+   Siempre que en un camino aparezca una expresión de la forma $p_i\dots p_j$ con $i<j$, entendemos que entre $p_i$ y $p_j$ están, aumentando su subíndice de uno en uno, todos los $p_k$ tales que $i<k<j$. Esta notación nos será útil para trabajar con caminos satisfaciendo la exigencia, dada en la definición, de que todos los $p_i$ en un camino sean distintos.
+\end{Not}
+\begin{Prop}\label{Prop:Conexion_caminos}
+    Sean $G$ un grafo y $x,y,z\in V(G)$ cualesquiera, tales que, tanto $x$ y $y$, como $x$ y $z$, están conectados por un camino en $G$. Entonces $y$ y $z$ están conectados por un camino en $G$.
+\end{Prop}
+\begin{proof}
+   Si $x,y,z$ no son distintos dos a dos es inmediato que $y$ y $z$ están conectados por un camino en $G$. Supongamos $x\ne y$, $x\ne z$ y $y\ne z$. Entonces existen $p_0\dots p_n$ y $p_n\dots p_m$ caminos en $G$, con $n\ge 1$, $m\ge n+1$, $p_0=y$, $p_n=x$ y $p_m=z$. Si $p_i\ne p_j$ para cualesquiera $i\in \{0,\dots,n-1\},\, j\in\{n+1,\dots,m\}$, entonces $p_0\dots p_n\dots p_m$ es un camino en $G$ que conecta $y$ y $z$. Si $p_i=p_j$ para algunos $i\in\{0,\dots ,n-1\}, \, j\in\{n+1,\dots ,m\}$ entonces tomamos $i^*$ como el menor $i\in \{0,\dots ,n-1\}$ tal que existe $j\in \{n+1,\dots ,m\}$ con $p_i=p_j$, y tomamos $j^*$ como el único $j\in \{n+1,\dots,m\}$ tal que $p_{i^*}=p_j$. Si $i^*=0$ tomamos $P=p_{j^*}\dots p_m$. Supongamos $i^*>0$. Si $j^*=m$  tomamos $P=p_0\dots p_{i^*}$. Si $j^*=m-1$, tomamos $P=p_0\dots p_{i^*}p_m$. Si $j^*<m-1$ tomamos $P=p_0\dots p_{i^*}p_{j^*+1}\dots p_m$. En cualquier caso $P$ es un camino en $G$ que conecta $y$ y $z$.
+\end{proof}
+\begin{Def}
+   Sean $G$ un grafo y $x\in V(G)$ cualquiera. Para cualquier $y\in V(G)$ decimos que $y$ es \textbf{alcanzable} desde $x$ en $G$ si existe un camino $P\subseteq G$ que conecta $x$ y $y$.  
+\end{Def}
+De esta manera, en el grafo $G_4$ del \Cref{Ejm:cuatro_grafos}, se tiene que $v_4$ es alcanzable desde $v_6$ pero $v_1$ no es alcanzable desde $v_6$.
 \begin{Def}
    Un grafo $G$ es llamado \textbf{conexo} si $G\neq \emptyset$ y cualesquiera par de vértices  de $G$ están conectados por un camino en $G$. Si $G$ no es conexo, decimos que es \textbf{disconexo}. 
 \end{Def}
-Así, en el \Cref{Ejm:cuatro_grafos}, los grafos $G_1$, $G_3$ y $G_5$ son conexos, mientras que $G_2$ y $G_4$ son disconexos. Los grafos con un solo vértice son conexos.
+Así, en el \Cref{Ejm:cuatro_grafos}, los grafos $G_1$, $G_3$ y $G_5$ son conexos, mientras que $G_2$ y $G_4$ son disconexos. Los grafos con un solo vértice son conexos. Dado un grafo conexo $G$, podemos embeber propiamente a $G$ en un grafo conexo de la siguiente manera.
+\begin{Prop}\label{Prop:Conexo+1}
+   Sean $G$ un grafo conexo, $x\in V(G)$ y $z\notin V(G)$. Entonces $G':=(V(G)\cup \{z\}, E(G)\cup \{xz\})$ es un grafo conexo y $G\subsetneq G'$. 
+\end{Prop}
+\begin{proof}
+   Es claro que $G'$ es un grafo y $G\subsetneq G'$. Veamos que $G'$ es conexo. Como $G$ es conexo, basta ver que $z$ es alcanzable en $G'$ desde cualquier vértice de $G$. Sea $y\in V(G)$ cualquiera. Como $x,y\in V(G)$, existe un camino en $G$ (y por tanto en $G'$) que conecta $x$ y $y$. Además, $xz$ es un camino en $G'$ que conecta $x$ y $z$. Por la \Cref{Prop:Conexion_caminos}, existe un camino en $G'$ que conecta $y$ y $z$. Esto completa la prueba.
+\end{proof}
 \begin{Def}
-   Sea $G$ un grafo. Un subgrafo conexo maximal de $G$ es llamado una \textbf{componente} de $G$. 
+   Sea $G$ un grafo. Un subgrafo conexo-maximal de $G$ es llamado una \textbf{componente} de $G$. 
 \end{Def}
 Lo anterior nos quiere decir que un subgrafo $H\subseteq G$ es una componente de $G$ si y sólo si $H$ es conexo y además $H$ no está propiamente contenido en otro subgrafo conexo de $G$. Naturalmente, un grafo es conexo si y sólo si tiene una única componente. Además, como los grafos conexos son no vacíos, se sigue que el grafo vacío no tiene componentes.
 \begin{Ejm}
@@ -183,10 +202,30 @@ Lo anterior nos quiere decir que un subgrafo $H\subseteq G$ es una componente de
      \caption{Un grafo con tres componentes}
    \end{figure}
 \end{Ejm}
+La colección de componentes de un grafo induce una partición del conjunto de vértices del grafo en el siguiente sentido.
+\begin{Prop}\label{Prop:Componentes_particion}
+   Sea $G$ un grafo. Denotamos por $\mathcal{C}$ a la colección de todas las componentes de $G$. Entonces $\{V(C)\mid C\in\mathcal{C}\}$ es una partición de $V(G)$. Más aún, para cualesquiera $C_1,C_2\in\mathcal{C}$, si $V(C_1)\cap V(C_2)\ne \emptyset$ entonces $C_1=C_2$.
+\end{Prop}
+\begin{proof}
+   Para todo $C\in\mathcal{C}$ se tiene, por definición de componente de un grafo, que $C\ne \emptyset$, y por tanto $V(C)\ne\emptyset$. Además $C\subseteq G$ y con esto $V(C)\subseteq V(G)$. Así, $\{V(C)\mid C\in\mathcal{C}\}$ es una colección de subconjuntos no vacíos de $V(G)$.\\\\
+   Veamos que $\bigcup_{C\in\mathcal{C}}V(C)=V(G)$. La contenencia $\bigcup_{C\in\mathcal{C}}V(C)\subseteq V(G)$ se sigue de que $V(C)\subseteq V(G)$ para todo $C\in\mathcal{C}$. Ahora, sea $x\in V(G)$ cualquiera. Definimos $V_x=\{y\in V(G)\mid y\text{ es alcanzable desde }x\text{ en }G\}$ y $C_x=G[V_x]$. Tenemos que $C_x\subseteq G$ y $C_x\ne \emptyset$ pues, como $x$ es alcanzable desde $x$ en $G$ por el camino $P^1$, entonces $x\in V_x=V(C_x)$. Dados $y,z\in V(C_x)=V_x$ cualesquiera, existen caminos $P,Q\subseteq G$ tales que $P$ conecta $x$ y $y$, y $Q$ conecta $x$ y $z$. Por la \Cref{Prop:Conexion_caminos} se tiene que existe un camino en $G$ que conecta $y$ y $z$. Por lo tanto $C_x$ es conexo. Sea $H$ un subgrafo conexo de $G$ cualquiera tal que $C_x\subseteq H$. Sea $w\in V(H)$ cualquiera. Como $x\in V(C_x)\subseteq V(H)$ entonces $x\in V(H)$. Como $H$ es conexo, existe un camino en $G$ que conecta $x$ y $w$, de modo que $w$ es alcanzable desde $x$ en $G$, es decir, $w\in V_x=V(C_x)$. Por tanto $V(H)\subseteq V(C_x)$. Sea $e\in E(H)$ cualquiera. Existen $w,t\in V(H)$ tales que $e=wt$. En particular $w,t\in V(C_x)=V_x$  y $wt\in E(G)$. Por tanto $e\in\{uv\in E(G)\mid u,v \in V_x\}=E(C_x)$. Así, $E(H)\subseteq E(C_x)$, con lo cual $H\subseteq C_x$ y $H=C_x$. Con lo anterior, $C_x$ es conexo-maximal en $G$ y por tanto $C_x$ es una componente de $G$. Así, $x\in V(C_x)$ y $C_x\in \mathcal{C}$, de donde $x\in \bigcup_{C\in\mathcal{C}}V(C)$ y $V(G)\subseteq \bigcup_{c\in\mathcal{C}}V(C)$. Obtenemos $\bigcup_{C\in\mathcal{C}}V(C)=V(G)$.\\\\
+   Veamos que los elementos de $\{V(C)\mid C\in\mathcal{C}\}$ son disyuntos dos a dos. Tomemos $V(C_1),V(C_2)\in \{V(C)\mid C\in\mathcal{C}\}$ cualesquiera, con $C_1,C_2\in\mathcal{C}$, y supongamos $V(C_1)\ne V(C_2)$. Razonando por contradicción, supongamos que existe $x\in V(C_1)\cap V(C_2)$. Se tiene $V(C_1)\nsubseteq V(C_2)$ o $V(C_2)\nsubseteq V(C_1)$. Sin pérdidad de generalidad supongamos $V(C_2)\nsubseteq V(C_1)$. Sea $y\in V(C_2)\setminus V(C_1)$. Como $x,y\in V(C_2)$ y $C_2$ es conexo, entonces existe un camino $p_0\dots p_n\subseteq C_2$ con $n\ge 1$, $p_0=x$ y $p_n=y$. Sea $j$ el menor índice en $\{1,\dots, n\}$ tal que $p_j \in V(C_2)\setminus V(C_1)$. Notemos que $p_{j-1}\in V(C_1)$. Como además $C_1$ es conexo, entonces, por la \Cref{Prop:Conexo+1}, $(V(C_1)\cup \{p_j\},E(C_1)\cup \{p_{j-1}p_j\})$ es un subgrafo conexo de $G$ que contiene propiamente a $C_1$, contradiciendo que $C_1$ es un subgrafo conexo-maximal de $G$. Por tanto $V(C_1)\cap V(C_2)=\emptyset$, y obtenemos que $\{V(C)\mid C\in\mathcal{C}\}$ es una partición de $V(G)$.\\\\
+   Ahora, sean $C_1,C_2\in\mathcal{C}$ cualesquiera, y supongamos $V(C_1)\cap V(C_2)\ne \emptyset$. De lo desarrollado anteriormente se tiene que $V(C_1)=V(C_2)$. Sea $e\in E(C_1)$ cualquiera. Entonces $e=uv$ para algunos $u,v\in V(C_1)$, luego $u,v\in V(C_2)$ y $C_3:=\left( V(C_2),E(C_2)\cup \{e\}\right)$ es un grafo, con $C_2\subseteq C_3\subseteq G$. Como $C_2$ es conexo, se sigue que $C_3$ es conexo. Pero $C_2$ es un subconjunto conexo-maximal de $G$, así que $C_2=C_3$ y por tanto $e\in E(C_2)$, con lo cual $E(C_1)\subseteq E(C_2)$. De forma similar se prueba que $E(C_2)\subseteq E(C_1)$ y por tanto $E(C_1)=E(C_2)$, con lo que concluimos que $C_1=C_2$. 
+\end{proof}
+Como consecuencia de la \Cref{Prop:Componentes_particion} se obtiene lo siguiente.
+\begin{Prop}\label{Prop:Componentes_no_conectan}
+   Sean $G$ un grafo y $C_1, C_2$ componentes distintas de $G$. Para cualesquiera $x_1\in V(C_1), x_2\in V(C_2)$ se tiene que $x_1$ y $x_2$ no están conectados por un camino en $G$.
+\end{Prop}
+\begin{proof}
+   Por la \Cref{Prop:Componentes_particion} se tiene $x_2\notin V(C_1)$. Razonando por contradicción, supongamos que existe un camino $p_0\dots p_n$ en $G$, con $n\ge 1$, $p_0=x_1$, y $p_n=x_2$. Sea $j$ el menor índice en $\{1,\dots ,n\}$ tal que $p_j\notin V(C_1)$. Notemos que $p_{j-1}\in V(C_1)$. Por la \Cref{Prop:Conexo+1}, $\left( V(C_1)\cup \{p_{j}\},E(C_1)\cup\{p_{j-1}p_j\}\right)$ es un subgrafo conexo de $G$ que contiene propiamente a $C_1$, contradiciendo que $C_1$ es un subgrafo conexo-maximal de $G$. Por tanto $x_1$ y $x_2$ no están conectados por un camino en $G$.
+\end{proof}
+\begin{Obs}\label{Obs:Componentes_no_adyacentes}
+   En particular, vértices de distintas componentes de un grafo son no adyacentes. 
+\end{Obs}
 Dado un grafo, se puede inducir un nuevo grafo al eliminar adecuadamente un subconjunto de vértices.
 \begin{Def}
    Sean $G$ un grafo y $S\subseteq V(G)$. Denotamos por $\bm{G-S}$ al subgrafo de $G$ inducido por $V(G)\setminus S$, es decir, $G-S=G[V(G)\setminus S]$. 
-\end{Def}\clearpage
+\end{Def}
 \begin{Ejm}\label{Ejm:Supresion}
    \phantom{0}
    \begin{itemize}
@@ -206,7 +245,6 @@ Como se ve con el grafo $G_3$ del \Cref{Ejm:Supresion}, la supresión de algunos
    \begin{itemize}
       \item En el grafo $G_1$, $v_1$ es un vértice de corte, pues $G_1-\left\lbrace v_1\right\rbrace$ tiene cuatro componentes, mientras que $G_1$ tiene dos componentes.
          \input{Preliminares/Grafos/Diagramas/Fig6.tex}\vspace{-0.5cm}
-      %\item En la siguiente figura, se tiene que $S:=\{u,v,w\}$ es un conjunto de corte del grafo conexo $G_2$, pues $G_2-S$ tiene dos componentes.\vspace{0.1cm}
       \item Tomemos $S=\{u,v,w\}$ y $S'=\{u,v\}$. En el grafo conexo $G_2$ que se muestra en la siguiente figura, $S$ es un conjunto de corte, pues $G_2-S$ tiene dos componentes.\vspace{0.1cm}
       \begin{figure}[H]
         \centering
@@ -239,7 +277,7 @@ De esta forma, un subconjunto de vértices de un grafo es independiente si ning�
 \end{Def}
 Así, $\overline{G}$ mantiene los vértices de $G$, pero dos vértice son adyacentes en $\overline{G}$ si y sólo si no son adyacentes en $G$.
 \begin{Ejm}
-   La siguiente figura muestra ejemplos de grafos y sus complementos.\clearpage
+   La siguiente figura muestra ejemplos de grafos y sus complementos.
    \input{Preliminares/Grafos/Diagramas/Fig8.tex}
 \end{Ejm}
 Ahora procedemos a enunciar algunas clases especiales de grafos.
