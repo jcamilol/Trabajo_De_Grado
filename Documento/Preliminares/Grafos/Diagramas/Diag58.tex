@@ -6,8 +6,13 @@
 ]
   \useasboundingbox (-2.3,-3.1) rectangle (2.3,2.4);
 
-  % Partición 2 (Venn): Anillo exterior que encierra los 7 vértices
-  \draw[thick, draw=gray!70, fill=gray!10, even odd rule] (0,0) circle (2.15cm) (0,0) circle (1.25cm);
+  % Partición 2 (Venn): Anillo exterior abierto entre el tercer y el cuarto vértice
+  \draw[thick, draw=gray!70, fill=gray!10, rounded corners=2mm]
+    (232:1.7) -- (232:2.15)
+    arc[start angle=232, end angle=569, radius=2.15]
+    -- (569:1.25)
+    arc[start angle=569, end angle=232, radius=1.25]
+    -- cycle;
 
   % Partición 1 (Venn): Círculo central que encierra el vértice central
   \draw[thick, draw=gray!70, fill=gray!10] (0,0) circle (0.65cm);

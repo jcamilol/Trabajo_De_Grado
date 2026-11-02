@@ -78,7 +78,7 @@ La ausencia de bucles en los grafos hace que todas las entradas en la diagonal p
    Sea $G$ un grafo. Dado un vértice $v\in V(G)$, denotamos por $\bm{A_v}$ al conjunto de todos los vértices adyacentes a $v$, es decir $A_v=\left\lbrace u\in V(G) \mid uv\in E(G)\right\rbrace$, y por $\bm{E_v}$ al conjunto de todas las aristas con las cuales es incidente $v$, es decir $E_v=\left\lbrace e\in E(G)\mid v\in e\right\rbrace$.
 \end{Def}
 De nuestra definicón de grafo se sigue inmediatamente que para cualquier par de vértices $u,v$ de un grafo, $u\in A_v$ si, y solo si, $v\in A_u$. En el grafo $G_2$ del \Cref{Ejm:cuatro_grafos}, tenemos que $A_{v_1}=\lbrace v_2,v_3,v_4\rbrace$, $A_{v_6}=\lbrace v_5\rbrace$, $E_{v_1}=\lbrace v_1v_2,v_1v_3,v_1v_4 \rbrace$ y $E_{v_6}=\lbrace v_5v_6\rbrace$. En el grafo $G_5$ del mismo ejemplo se tiene, para todo $i\in \left\lbrace 2,3,4,\dots\right\rbrace$, $A_{v_i}=\left\lbrace v_{i-1}, v_{i+1}\right\rbrace$ y $E_{v_i}=\left\lbrace v_{i-1}v_i, v_iv_{i+1}\right\rbrace$.\\
-La siguiente proposición nos muestra el hecho natural de que la cantidad de vértices adyacentes a $v$ y la cantidad de aristas con las cuales es incidente $v$ es siempre la misma para, cualquier vértice $v$ en un grafo arbitrario.
+La siguiente proposición nos muestra el hecho natural de que la cantidad de vértices adyacentes a $v$ y la cantidad de aristas con las cuales es incidente $v$ es siempre la misma, para cualquier vértice $v$ en un grafo arbitrario.
 \begin{Prop} \label{Prop:AvEv}
    En cualquier grafo $G$, dado $v\in V(G)$, se tiene $|A_v|=|E_v|$.
 \end{Prop}
@@ -245,20 +245,20 @@ Como se ve con el grafo $G_3$ del \Cref{Ejm:Supresion}, la supresión de algunos
    \begin{itemize}
       \item En el grafo $G_1$, $v_1$ es un vértice de corte, pues $G_1-\left\lbrace v_1\right\rbrace$ tiene cuatro componentes, mientras que $G_1$ tiene dos componentes.
          \input{Preliminares/Grafos/Diagramas/Fig6.tex}\vspace{-0.5cm}
-      \item Tomemos $S=\{u,v,w\}$ y $S'=\{u,v\}$. En el grafo conexo $G_2$ que se muestra en la siguiente figura, $S$ es un conjunto de corte, pues $G_2-S$ tiene dos componentes.\vspace{0.1cm}
+      \item En el grafo $G_2$ que se muestra en la siguiente figura, tomemos $S=\{u,v,w\}$ y $S'=\{u,v\}$. Se tiene que $S$ es un conjunto de corte, pues $G_2-S$ tiene dos componentes.\vspace{0.1cm}
       \begin{figure}[H]
         \centering
         \resizebox{0.3\textwidth}{!}{\input{Preliminares/Grafos/Diagramas/Diag28.tex}}\hspace{2cm}
         \resizebox{0.3\textwidth}{!}{\input{Preliminares/Grafos/Diagramas/Diag29.tex}}
         \caption{$S$ es un conjunto de corte de $G_2$}
      \end{figure}\vspace{-0.4cm}
-      Sin embargo $S$ no es un conjunto de corte minimal de $G_2$, ya que $S'\subsetneq S$ y $S'$ es un conjunto de corte de $G_2$, pues $G_2-S'$ tiene dos componentes.
+      Sin embargo, $S$ no es un conjunto de corte minimal de $G_2$, ya que $S'\subsetneq S$ y $S'$ es un conjunto de corte de $G_2$, pues $G_2-S'$ tiene dos componentes.
       \begin{figure}[H]
         \centering
           \resizebox{0.3\textwidth}{!}{\input{Preliminares/Grafos/Diagramas/Diag30.tex}}
         \caption{El grafo $G_2-S'$}
       \end{figure}
-      En cambio se tiene que $S'$ sí es un conjunto de corte minimal de $G_2$, pues ni $\{u\}$ ni $\{v\}$ son conjuntos de corte de $G_2$, ya que $G_2-\{u\}$ y $G_2-\{v\}$ son grafos conexos.\vspace{-1.2cm}
+      Además, $S'$ sí es un conjunto de corte minimal de $G_2$, pues ni $\{u\}$ ni $\{v\}$ son conjuntos de corte de $G_2$, ya que $G_2-\{u\}$ y $G_2-\{v\}$ son grafos conexos.\vspace{-1.2cm}
       \begin{figure}[H]
         \centering
            \resizebox{0.3\textwidth}{!}{\input{Preliminares/Grafos/Diagramas/Diag31.tex}}\hspace{2cm}

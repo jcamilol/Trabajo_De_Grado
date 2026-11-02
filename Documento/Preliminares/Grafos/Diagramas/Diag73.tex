@@ -1,0 +1,49 @@
+\begin{tikzpicture}[
+  scale=.8,
+  auto=left,
+  vnode/.style={circle, fill=blue!20, draw=black, thick},
+  % Flechas de la función: la punta va en la posición indicada de la curva
+  % (por defecto en la mitad)
+  funcion/.style={line width=1.4pt, postaction={decorate}, decoration={markings,
+    mark=at position #1 with {\arrow{Stealth[length=3mm]}}}},
+  funcion/.default=0.5,
+  % Estilo de las flechas según su imagen (color y trazo distintos para impresión en blanco y negro)
+  img1/.style={color=blue!70!black, solid},
+  img2/.style={color=red!75!black, dash dot},
+  img3/.style={color=green!50!black, dash pattern=on 6pt off 2pt}
+]
+  % ---------------- Grafo G ----------------
+  \node[vnode] (n1) at (0, 4) {$v_1$};
+  \node[vnode] (n2) at (4, 4) {$v_2$};
+  \node[vnode] (n3) at (1.5, 2) {$v_3$};
+  \node[vnode] (n4) at (0, -1) {$v_4$};
+  \node[vnode] (n5) at (4, -1) {$v_5$};
+
+  \foreach \from/\to in {n1/n2, n1/n3, n1/n4, n2/n3, n2/n5, n3/n4}
+    \draw (\from) -- (\to);
+
+  \node[scale=1.5] at (2, -4.3) {$G$};
+
+  % ---------------- Grafo G' ----------------
+  \begin{scope}[xshift=10.5cm]
+    \node[vnode] (m1) at (0, 4) {$w_1$};
+    \node[vnode] (m2) at (0, -1) {$w_2$};
+    \node[vnode] (m3) at (2, 1.5) {$w_3$};
+    \node[vnode] (m4) at (5, 1.5) {$w_4$};
+
+    \foreach \from/\to in {m1/m2, m1/m3, m1/m4, m2/m3, m2/m4, m3/m4}
+      \draw (\from) -- (\to);
+
+    \node[scale=1.5] at (2.5, -4.3) {$G'$};
+  \end{scope}
+
+  % ---------------- Función \varphi_1 ----------------
+  % Se dibuja en el fondo para que los vértices y aristas queden por encima
+  \begin{pgfonlayer}{background}
+    \draw[funcion, img1, shorten <=2pt, shorten >=2pt] (n1) to[out=40, in=140] (m1);
+    \draw[funcion=0.45, img2, shorten <=2pt, shorten >=2pt] (n2) to[out=-20, in=160] (m2);
+    \draw[funcion=0.3, img3, shorten <=2pt, shorten >=2pt] (n3) to[out=10, in=175] (m3);
+    \draw[funcion, img2, shorten <=2pt, shorten >=2pt] (n4) to[out=-45, in=-135, looseness=1.2] (m2);
+    \draw[funcion=0.6, img1, shorten <=2pt, shorten >=2pt] (n5) to[out=50, in=190] (m1);
+  \end{pgfonlayer}
+\end{tikzpicture}

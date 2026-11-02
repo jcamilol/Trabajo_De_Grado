@@ -20,31 +20,80 @@
   \input{Preliminares/Grafos/Diagramas/Diag61.tex} \\
   \hline
   
-  % FILA 3: Funciones alineadas
-  $\begin{aligned}[t]
-      c_1 \!:\phantom{o} V(G_1) &\to \{1, 2, 3, 4\} \\
-     v_1 &\mapsto 1 \\
-     v_2 &\mapsto 2 \\
-     v_3 &\mapsto 3 \\
-     v_4 &\mapsto 4 \\
-     v_5 &\mapsto 1 \\
-     v_6 &\mapsto 3 \\
-     v_7 &\mapsto 1
-  \end{aligned}$ 
+  % FILA 3: Funciones (diagramas de flechas para c_1 y c_2)
+  \begin{tikzpicture}[
+    baseline=(t.base),
+    conj/.style={draw=gray!70, thick},
+    vert/.style={inner sep=1pt},
+    num/.style={inner sep=1pt},
+    flecha/.style={-{Stealth[length=1.8mm]}, thick},
+    tramo/.style={thick},
+    % Estilo de las flechas según su imagen (color y trazo distintos para impresión en blanco y negro)
+    img1/.style={draw=blue!70!black, fill=blue!70!black, solid},
+    img2/.style={draw=red!75!black, fill=red!75!black, dashed},
+    img3/.style={draw=green!50!black, fill=green!50!black, dash pattern=on 6pt off 2pt},
+    img4/.style={draw=orange!90!black, fill=orange!90!black, dash dot}
+  ]
+    % Encabezado: V(G_1) sobre los vértices y el codominio sobre los números
+    \node (t) at (0,0) {$V(G_1)$};
+    \node (cod) at (2.16,0) {$\{1, 2, 3, 4\}$};
+    \node[anchor=base east, inner sep=0pt] at (t.base west) {$c_1 \!:\phantom{o}$};
+    \draw[-{To[length=1.5mm]}] (t.east) -- (cod.west);
+    \draw[conj] (0,-3.1) ellipse (0.6 and 2.5);
+    \draw[conj] (2.16,-3.1) ellipse (0.45 and 1.95);
+    \foreach \i in {1,...,7} {
+      \node[vert] (v\i) at (0,{-0.7-0.6*\i}) {$v_{\i}$};
+    }
+    \foreach \k in {1,...,4} {
+      \node[num] (n\k) at (2.16,{-3.1+(2.5-\k)*0.9}) {$\k$};
+    }
+    % Flechas: las que llegan al mismo número tienen el mismo color y trazo.
+    % Primero se trazan los segmentos y luego, encima, las puntas en la mitad.
+    \foreach \i/\k in {1/1, 2/2, 3/3, 4/4, 5/1, 6/3, 7/1} {
+      \draw[tramo, img\k, shorten <=1pt, shorten >=1pt] (v\i.east) -- (n\k.west);
+    }
+    \foreach \i/\k in {1/1, 2/2, 3/3, 4/4, 5/1, 6/3, 7/1} {
+      \path (v\i.east) -- (n\k.west) coordinate[pos=0.5] (m);
+      \draw[flecha, img\k, shorten <=1pt] (v\i.east) -- (m);
+    }
+  \end{tikzpicture}
   &
-  $\begin{aligned}[t]
-     c_2 \!:\phantom{o} V(G_2) &\to \{1, 2, 3\} \\
-     v_1 &\mapsto 1 \\
-     v_2 &\mapsto 2 \\
-     v_3 &\mapsto 3 \\
-     v_4 &\mapsto 1 \\
-     v_5 &\mapsto 2 \\
-     v_6 &\mapsto 3 \\
-     v_7 &\mapsto 1 \\
-     v_8 &\mapsto 2 \\
-     v_9 &\mapsto 2 \\
-     v_{10} &\mapsto 2
-  \end{aligned}$ 
+  \begin{tikzpicture}[
+    baseline=(t.base),
+    conj/.style={draw=gray!70, thick},
+    vert/.style={inner sep=1pt},
+    num/.style={inner sep=1pt},
+    flecha/.style={-{Stealth[length=1.8mm]}, thick},
+    tramo/.style={thick},
+    % Estilo de las flechas según su imagen (color y trazo distintos para impresión en blanco y negro)
+    img1/.style={draw=blue!70!black, fill=blue!70!black, solid},
+    img2/.style={draw=red!75!black, fill=red!75!black, dashed},
+    img3/.style={draw=green!50!black, fill=green!50!black, dash pattern=on 6pt off 2pt},
+    img4/.style={draw=orange!90!black, fill=orange!90!black, dash dot}
+  ]
+    % Encabezado: V(G_2) sobre los vértices y el codominio sobre los números
+    \node (t) at (0,0) {$V(G_2)$};
+    \node (cod) at (2.16,0) {$\{1, 2, 3\}$};
+    \node[anchor=base east, inner sep=0pt] at (t.base west) {$c_2 \!:\phantom{o}$};
+    \draw[-{To[length=1.5mm]}] (t.east) -- (cod.west);
+    \draw[conj] (0,-4) ellipse (0.6 and 3.45);
+    \draw[conj] (2.16,-4) ellipse (0.45 and 1.6);
+    \foreach \i in {1,...,10} {
+      \node[vert] (v\i) at (0,{-0.7-0.6*\i}) {$v_{\i}$};
+    }
+    \foreach \k in {1,2,3} {
+      \node[num] (n\k) at (2.16,{-4+(2-\k)*1.0}) {$\k$};
+    }
+    % Flechas: las que llegan al mismo número tienen el mismo color y trazo.
+    % Primero se trazan los segmentos y luego, encima, las puntas en la mitad.
+    \foreach \i/\k in {1/1, 2/2, 3/3, 4/1, 5/2, 6/3, 7/1, 8/2, 9/2, 10/2} {
+      \draw[tramo, img\k, shorten <=1pt, shorten >=1pt] (v\i.east) -- (n\k.west);
+    }
+    \foreach \i/\k in {1/1, 2/2, 3/3, 4/1, 5/2, 6/3, 7/1, 8/2, 9/2, 10/2} {
+      \path (v\i.east) -- (n\k.west) coordinate[pos=0.45] (m);
+      \draw[flecha, img\k, shorten <=1pt] (v\i.east) -- (m);
+    }
+  \end{tikzpicture}
   &
   $\begin{aligned}[t]
      c_3 \!:\phantom{o} V(G_3) &\to \{1, 2\} \\
