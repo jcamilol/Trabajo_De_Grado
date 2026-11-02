@@ -46,7 +46,7 @@ Las nociones de \textit{bases} y \textit{subbases} nos permiten tanto construir 
    Sean $X$ un conjunto y $\mathcal{B}$ una colección de subconjuntos de $X$. Decimos que $\mathcal{B}$ es \textbf{base para una topología} sobre $X$ si $\tau_\mathcal{B}:=\left\lbrace \bigcup A \mid A\subseteq \mathcal{B}\right\rbrace$ (la colección de todas las uniones de elementos de $\mathcal{B}$) es una topología sobre $X$. En este caso llamamos \textbf{abiertos básicos} de $X$ a los elementos de $\mathcal{B}$, y decimos que $\tau_\mathcal{B}$ es la \textbf{topología generada} por $\mathcal{B}$. Si $B\in\mathcal{B}$ y $x\in B$, decimos que $B$ es una \textbf{vecindad básica} de $x$.
 \end{Def}
 La siguiente proposición establece varias condiciones equivalentes para que una familia de subconjuntos sea base para una topología.
-\begin{Prop}
+\begin{Prop}\label{Prop:Caracterizacion_base}
    Sean $X$ un conjunto y $\mathcal{B}$ una colección de subconjuntos de $X$. Las siguientes afirmaciones son equivalentes:
    \begin{itemize}
       \item[1.] $\mathcal{B}$ es base para una topología sobre $X$.
@@ -169,7 +169,7 @@ Los subconjuntos que, como en el \Cref{Ejm:ejemplo_denso}, al tomarles su clausu
    Sean $X$ un espacio topológico y $A\subseteq X$. Decimos que $A$ es \textbf{denso} en $X$ si $\overline{A}=X$. 
 \end{Def}
 La siguiente proposición da algunas caracterizaciones para que un subconjunto de un espacio sea denso en él.
-\begin{Prop}
+\begin{Prop}\label{Prop:Caracterizacion_denso}
    Sean $X$ un espacio topológico, $A\subseteq X$ y $\mathcal{B}$ una base para $X$. Las siguientes afirmaciones son equivalentes:
    \begin{itemize}
       \item[1.] $A$ es denso en $X$

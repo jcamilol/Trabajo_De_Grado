@@ -64,20 +64,71 @@ El siguiente es un hecho bastante importante y útil de los espacios de Alexandr
    Sean $X$ y $Y$ espacios topológicos. Si $X$ es un espacio de Alexandroff y $X$ y $Y$ son homeomorfos, entonces $Y$ es también un espacio de Alexandroff. 
 \end{Prop}
 En otras palabras, ser de Alexandroff es una propiedad topológica.\\\\
-Por último, enunciamos una proposición que será utilizada más adelante. Su prueba puede verse en \cite{jafarian2013}.
+Por último, enunciamos una proposición que será utilizada más adelante.
 \begin{Prop}
    Sea $X$ un espacio de Alexandroff. Tomemos 
    $$
    \mathcal{B}:=\left\lbrace U_x\mid x\in X \text{ y }U_x\text{ es minimal en }\mathcal{B}_{\operatorname{min}}\right\rbrace.
    $$
-   Se tiene lo siguiente:
-   \begin{itemize}
-      \item[1.] Si $A$ es un subconjunto denso minimal de $X$ entonces existe una función sobreyectiva $f:\mathcal{B}\to A$ tal que $f\left( U_x\right)\in U_x$ para todo $U_x\in \mathcal{B}$. En particular,
+   Si $A$ es un subconjunto denso minimal de $X$ entonces existe una función sobreyectiva $f:\mathcal{B}\to A$ tal que $f\left( U_x\right)\in U_x$ para todo $U_x\in \mathcal{B}$. En particular,
          $$
          A\subseteq\left\lbrace x\in X\mid U_x \text{ es minimal en }\mathcal{B}_{\operatorname{min}}\right\rbrace.
          $$
-      \item[2.] Recíprocamente, si $f:\mathcal{B}\to X$ es una función tal que $f\left( U_x\right)\in U_x$ para todo $U_x\in \mathcal{B}$, entonces $f\left( \mathcal{B}\right)$ es un subconjunto denso minimal de $X$.
-   \end{itemize}
-   En particular, si $A$ y $A'$ son subconjuntos densos minimales de $X$ entonces $|A|=|A'|$.
+   Además, si $A$ y $A'$ son subconjuntos densos minimales de $X$ entonces $|A|=|A'|$.
 \end{Prop}
-Aclaramos que $A$ es un subconjunto denso minimal de $X$ si para cualquier otro subconjunto denso $B$ de $X$, la inclusión $B\subseteq A$ implica $B=A$.
+\begin{proof}
+   Sea $A$ un subconjunto denso minimal de $X$. Sea $U_x\in\mathcal{B}$. Como $x\in U_x\subseteqab X$ y $x\in X=\overline{A}$, entonces $U_x\cap A\ne\emptyset$, de modo que existe $x^*\in U_x\cap A$. Sea $y\in U_x\cap A$. Como $A\setminus\{y\}\subsetneq A$, entonces $A\setminus\{y\}$ no es denso en $X$, con lo cual existen $z\in X$ y $V$ vecindad de $z$ con $V\cap\left( A\setminus\{y\}\right)=\emptyset$. Pero $z\in X=\overline{A}$, luego $V\cap A\ne\emptyset$, con lo cual $V\cap A=\{y\}$. Como $y\in U_x\subseteqab X$, entonces $U_y\subseteq U_x$; como $U_x$ es minimal en $\mathcal{B}_{\operatorname{min}}$, entonces $U_y=U_x$. Notemos que $y\in V\subseteqab X$, luego $U_x=U_y\subseteq V$. Así, $x^*\in U_x\cap A\subseteq V\cap A=\{y\}$, y por tanto $y=x^*$. Obtenemos así que $U_x\cap A=\{x^*\}$. Entonces definimos $f:\mathcal{B}\to A$ mediante $f(U_x)=x^*$ para cada $U_x\in\mathcal{B}$. Veamos que $f$ es sobreyectiva. Sea $a\in A$. Como $A\setminus\{a\}\subsetneq A$, se tiene que $A\setminus\{a\}$ no es denso en $X$, de modo que existen $z\in X$ y $V$ vecindad de $z$, con $V\cap\left( A\setminus\{a\}\right)=\emptyset$. Pero $z\in X=\overline{A}$, luego $V\cap A\ne\emptyset$, de modo que $V\cap A=\{a\}$. Como $a\in V$ entonces $U_a\subseteq V$. Sea $U_x\in\mathcal{B}_{\operatorname{min}}$ con $U_x\subseteq U_a$. Tenemos $x\in U_x\subseteqab X$ y $x\in X=\overline{A}$, luego $U_x\cap A\ne\emptyset$. Así, existe $w\in U_x\cap A\subseteq U_a\cap A\subseteq V\cap A=\{a\}$, es decir, $a=w\in U_x$, luego $U_a\subseteq U_x$ y $U_x=U_a$. Por tanto, $U_a$ es minimal en $\mathcal{B}_{\operatorname{min}}$, es decir, $U_a\in\mathcal{B}$. Como $a\in U_a\cap A=\{a^*\}$, entonces $a=a^*=f(U_a)$, de modo que $f$ es sobreyectiva. Tenemos además que, para cualquier $U_x\in\mathcal{B}$, $f(U_x)=x^*\in U_x\cap A$, y por tanto $f(U_x)\in U_x$. También, como vimos, si $a\in A$ entonces $U_a\in\mathcal{B}$, luego $U_a$ es minimal en $\mathcal{B}_{\operatorname{min}}$. Por tanto,
+   $$
+   A\subseteq\left\lbrace x\in X\mid U_x\text{ es minimal en }\mathcal{B}_{\operatorname{min}}\right\rbrace.
+   $$
+   Ahora, notemos que si $U_x,U_y\in\mathcal{B}$ con $f(U_x)=f(U_y)$, como $f(U_x)\in U_x$ y $f(U_y)\in U_y$, se tiene $U_x\cap U_y\ne\emptyset$. Así, existe $z\in U_x$ con $z\in U_y$. Como $U_x$ y $U_y$ son abiertos, se tiene $U_z\subseteq U_x$ y $U_z\subseteq U_y$. Por la minimalidad de $U_x$ y $U_y$ en $\mathcal{B}_{\operatorname{min}}$ se sigue que $U_x=U_z=U_y$. Por tanto $f$ es inyectiva. Así, $f$ es biyectiva y $|\mathcal{B}|=|A|$, con $A$ un subconjunto denso minimal de $X$ arbitrario. Por tanto, si $A$ y $A'$ son subconjuntos densos minimales de $X$ entonces $|A|=|\mathcal{B}|=|A'|$.
+\end{proof}
+\vspace{1em}
+{\color[HTML]{188539}
+   En \cite{jafarian2013} se presenta el anterior Teorema junto con otro ítem. Lo transcribo literalmente, junto con el párrafo que lo antecede:\\\\
+The following theorem which we could not find any proof for it elsewhere, is true in every Alexandroff topological space and specially in every graphic topological space.\\\\
+\textbf{Theorem 8.4.} \textit{Let $(V,\tau)$ be an Alexandroff topological space, $\mathcal{B}_\tau=\left\lbrace U_x\mid x\in V\right\rbrace$ and $\mathcal{B}=\left\lbrace U_x\mid x\in V,\, U_x \text{ is minimal in }\mathcal{B}_\tau\right\rbrace$.}
+\begin{itemize}
+   \item[1.] \textit{If $A\subseteq V$ is a minimal dense subset in $(V,\tau)$, then there exists a surjective function $f:\mathcal{B}\longrightarrow A$ such that $f(U_x)\in U_x$ for every $U_x\in\mathcal{B}$. In particular, $A\subseteq\left\lbrace x\in V\mid U_x \text{ is minimal in }\mathcal{B}_\tau\right\rbrace$.}
+   \item[2.] \textit{Conversely, if $f:\mathcal{B}\longrightarrow V$ is a function such that $f(U_x)\in U_x$ for every $U_x\in\mathcal{B}$, then $f(\mathcal{B})$ is a minimal dense subset in $(V,\tau)$.}
+\end{itemize}
+\textit{Specially, if $A$ and $A'$ are minimal dense subsets in $(V,\tau)$, then we have $|A|=|A'|$.}\\\\
+Sin embargo creo que el ítem 2. es falso. A continuación desarrollo lo que considero es un contraejemplo (algo similar a la topología de colas (a derecha) abiertas y cerradas, pero sobre $\mathbb{N}$ para hacerlo más sencillo, y agregando $\left\lbrace 0\right\rbrace$ como abierto para garantizar que $\mathcal{B}$ no es vacío, lo cual de por sí ya daría un contraejemplo, pero bastante trivial, tomando $f$ como la función vacía).
+\begin{Prop}
+   Para cada $n\in\mathbb{N}$ definimos $n_{\ge}:=\left\lbrace m\in\mathbb{N}\mid m\ge n\right\rbrace$. Tomamos $\mathcal{C}=\left\lbrace n_{\ge}\mid n\in\mathbb{N}\right\rbrace\cup\left\lbrace\{0\}\right\rbrace$. Entonces $\mathcal{C}$ es base para una topología sobre $\mathbb{N}$.
+\end{Prop}
+\begin{proof}
+   Usamos el ítem 3. de la \Cref{Prop:Caracterizacion_base}. Tenemos que $\mathcal{C}$ es una colección de subconjuntos de $\mathbb{N}$. Notemos que $0_{\ge}=\mathbb{N}$ y $0_{\ge}\in\mathcal{C}$, luego $\mathbb{N}=\bigcup\mathcal{C}$. Además:
+   \begin{itemize}
+      \item $\{0\}\cap 0_{\ge}=\{0\}\in\mathcal{C}$;
+      \item $\{0\}\cap n_{\ge}=\emptyset$ para todo $n\in\mathbb{N}\setminus\{0\}$;
+      \item $m_{\ge}\cap n_{\ge}=\left(\max\{m,n\}\right)_{\ge}\in\mathcal{C}$ para cualesquiera $m,n\in\mathbb{N}$,
+   \end{itemize}
+   con lo cual la intersección de cualesquiera dos elementos de $\mathcal{C}$ es unión (posiblemente vacía) de elementos de $\mathcal{C}$. Obtenemos que $\mathcal{C}$ es base para una topología sobre $\mathbb{N}$.
+\end{proof}
+\begin{Prop}
+   La topología $\tau_{\mathcal{C}}$ generada por $\mathcal{C}$ es una topología de Alexandroff sobre $\mathbb{N}$.
+\end{Prop}
+\begin{proof}
+   Veamos que la intersección arbitraria de abiertos básicos es abierta. Sea $\left\lbrace C_i\right\rbrace_{i\in I}$ una colección de elementos de $\mathcal{C}$; sin pérdida de generalidad podemos suponer que sus elementos son distintos y que $|I|>1$.
+   \begin{itemize}
+      \item Supongamos que $I$ es finito. Si $\left\lbrace C_i\right\rbrace_{i\in I}=\left\lbrace \{0\},0_{\ge}\right\rbrace$ entonces $\bigcap_{i\in I}C_i=\{0\}\in\tau_{\mathcal{C}}$. Si para algún $n>0$ se tiene $\{0\},n_{\ge}\in\left\lbrace C_i\right\rbrace_{i\in I}$ entonces $\bigcap_{i\in I}C_i\subseteq\{0\}\cap n_{\ge}=\emptyset\in\tau_{\mathcal{C}}$. Si $\{0\}\notin\left\lbrace C_i\right\rbrace_{i\in I}$, tomando $n=\max\left\lbrace m\mid m_{\ge}\in\left\lbrace C_i\right\rbrace_{i\in I}\right\rbrace$, se tiene $\bigcap_{i\in I}C_i=n_{\ge}\in\tau_{\mathcal{C}}$.
+      \item Supongamos que $I$ es infinito. Veamos que $\bigcap_{i\in I}C_i=\emptyset$. Razonando por contradicción supongamos que existe $z\in\bigcap_{i\in I}C_i$. Si no existiera $w>z$ con $w_{\ge}\in\left\lbrace C_i\right\rbrace_{i\in I}$ entonces $\left\lbrace C_i\right\rbrace_{i\in I}\subseteq\left\lbrace \{0\},0_{\ge},1_{\ge},\dots,z_{\ge}\right\rbrace$, contradiciendo que $I$ es infinito. Por tanto existe $w>z$ con $w_{\ge}\in\left\lbrace C_i\right\rbrace_{i\in I}$. Pero entonces $z\in\bigcap_{i\in I}C_i\subseteq w_{\ge}$, luego $z\in w_{\ge}$, es decir $z\ge w$, contradiciendo $w>z$. Por tanto $\bigcap_{i\in I}C_i=\emptyset\in\tau_{\mathcal{C}}$.
+   \end{itemize}
+   Obtenemos así que $\tau_{\mathcal{C}}$ es una topología de Alexandroff.
+\end{proof}
+\begin{Prop}
+   En $(\mathbb{N},\tau_{\mathcal{C}})$ se tiene $U_0=\{0\}$ y $U_n=n_{\ge}$ para cualquier $n\in\mathbb{N}$ con $n>0$.
+\end{Prop}
+\begin{proof}
+   Como $\{0\}\subseteqab\mathbb{N}$, se tiene $U_0=\{0\}$. Sea $n\in\mathbb{N}$ con $n>0$. Si $V$ es una vecindad de $n$, se tiene que $V=m_{\ge}$ para algún $m\in\mathbb{N}$ con $m>0$. Como $n\in m_{\ge}$ entonces $n\ge m$, luego para todo $l\ge n$ se tiene $l\ge m$, es decir $n_{\ge}=\left\lbrace l\mid l\ge n\right\rbrace\subseteq\left\lbrace l\mid l\ge m\right\rbrace=m_{\ge}=V$. Por tanto $n_{\ge}$ es la menor vecindad de $n$, es decir, $U_n=n_{\ge}$.
+\end{proof}
+\begin{Prop}
+   En $(\mathbb{N},\tau_{\mathcal{C}})$, tomando la notación del Teorema 8.4 de \cite{jafarian2013}, se tiene $\mathcal{B}=\left\lbrace U_0\right\rbrace$.
+\end{Prop}
+\begin{proof}
+   Claramente $U_0=\{0\}$ es minimal en $\mathcal{B}_\tau$, pues los elementos de $\mathcal{B}_\tau$ son no vacíos y por tanto no están propiamente contenidos en $\{0\}$. Así, $U_0\in\mathcal{B}$. Además, para cualquier $n\in\mathbb{N}$ con $n>0$ se tiene $U_{n+1}=(n+1)_{\ge}\subsetneq n_{\ge}=U_n$, luego $U_n$ no es minimal en $\mathcal{B}_\tau$, es decir, $U_n\notin\mathcal{B}$. Como $\mathcal{B}\subseteq\mathcal{B}_\tau=\left\lbrace U_n\mid n\in\mathbb{N}\right\rbrace$, se tiene $\mathcal{B}=\left\lbrace U_0\right\rbrace$.
+\end{proof}
+En $(\mathbb{N},\tau_{\mathcal{C}})$ tomemos entonces $f:\mathcal{B}\to\mathbb{N}:U_0\mapsto 0$. Como $f(U_0)=0\in\{0\}=U_0$, se cumple que $f(U_x)\in U_x$ para todo $U_x\in\mathcal{B}$. Tenemos $f(\mathcal{B})=\{0\}$ pero, por ejemplo, $\{0\}\cap 1_{\ge}=\{0\}\cap\left\lbrace l\mid l\ge 1\right\rbrace=\emptyset$, con $1_{\ge}$ abierto no vacío de $\mathbb{N}$, así que por el ítem 3. de la \Cref{Prop:Caracterizacion_denso} se tiene que $f(\mathcal{B})$ no es un subconjunto denso en $(\mathbb{N},\tau_{\mathcal{C}})$.\\\\
+En la demostración que presenta \cite{jafarian2013} para el Teorema 8.4 se lee, sin ninguna prueba, ``For every $x\in V$, there exists an element $a\in V$ such that $U_a\subseteq U_x$ and $U_a\in\mathcal{B}$''. Sin embargo, en general esto es falso. En $(\mathbb{N},\tau_{\mathcal{C}})$, por ejemplo, la afirmación sólo se cumple para $0$, pues como vimos, $\mathcal{B}=\left\lbrace U_0\right\rbrace$ con $U_0=\{0\}$, así que para $n\in\mathbb{N}$ con $n>0$, $U_n=n_{\ge}$ no contiene ningún elemento de $\mathcal{B}$.
+}
