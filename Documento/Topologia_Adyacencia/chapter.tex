@@ -21,13 +21,13 @@ Como pudimos ver, la condición de no tener vértices aislados es clave para que
 \begin{proof}
    \phantom{o}
    \begin{itemize}
-      \item[1.] Sea $n\ge 2$ cualquiera. Denotemos $V\left( K^n\right)=\{v_1,\dots, v_n\}$. Sea $i\in\{1,\dots, n\}$ cualquiera. Basta ver que $\left\lbrace v_i\right\rbrace\in \tau_{\mathcal{A},K^n}$ Veamos que $\left\lbrace v_i\right\rbrace=\bigcap_{1\le j\le n, j\ne i}A_{v_j}$. Por la definición de $K^n$ se tiene $v_i\in A_{v_j}$ para todo $j$ tal que $1\le j\le n$ y $j\ne i$. Por tanto $v_i\in\bigcap_{1\le j\le n, j\ne i} A_{v_j}$ y $\left\lbrace v_i\right\rbrace\subseteq \bigcap_{1\le j\le n, j\ne i} A_{v_j}$. Ahora, dado cualquier $k$ con $1\le k\le n$ y $k\ne i$ se tiene $v_k\notin A_{v_k}$, luego $v_k\notin \bigcap_{1\le j\le n, j\ne i} A_{v_j}$. Con esto, $V\setminus \left\lbrace v_i\right\rbrace\subseteq V\setminus \bigcap_{1\le j\le n, j\ne i} A_{v_j}$, es decir $\bigcap_{1\le j\le n, j\ne i} A_{v_j} \subseteq \left\lbrace v_i\right\rbrace$. Obtenemos así $\left\lbrace v_i\right\rbrace=\bigcap_{1\le j\le n, j\ne i} A_{v_j}$. Como $\left\lbrace v_i\right\rbrace$ es una intersección finita de elementos de $\mathcal{S}_{\mathcal{A},K^n}$, se tiene $\left\lbrace v_i\right\rbrace\in \tau_{\mathcal{A},K^n}$.
-      \item[2.] Sea $n\ge 5$ cualquiera. Denotemos $V\left( C^n\right)=\left\lbrace v_0,\dots,v_{n-1}\right\rbrace$. Basta ver que $\left\lbrace v_i\right\rbrace\in\tau_{\mathcal{A},C^n}$ para cualquier $i\in\{0,\dots,n-1\}$.
+      \item[1.] Sea $n\ge 2$. Denotemos $V\left( K^n\right)=\{v_1,\dots, v_n\}$. Sea $i\in\{1,\dots, n\}$. Basta ver que $\left\lbrace v_i\right\rbrace\in \tau_{\mathcal{A},K^n}$ Veamos que $\left\lbrace v_i\right\rbrace=\bigcap_{1\le j\le n, j\ne i}A_{v_j}$. Por la definición de $K^n$ se tiene $v_i\in A_{v_j}$ para todo $j$ tal que $1\le j\le n$ y $j\ne i$. Por tanto $v_i\in\bigcap_{1\le j\le n, j\ne i} A_{v_j}$ y $\left\lbrace v_i\right\rbrace\subseteq \bigcap_{1\le j\le n, j\ne i} A_{v_j}$. Ahora, dado $k$ con $1\le k\le n$ y $k\ne i$ se tiene $v_k\notin A_{v_k}$, luego $v_k\notin \bigcap_{1\le j\le n, j\ne i} A_{v_j}$. Con esto, $V\setminus \left\lbrace v_i\right\rbrace\subseteq V\setminus \bigcap_{1\le j\le n, j\ne i} A_{v_j}$, es decir $\bigcap_{1\le j\le n, j\ne i} A_{v_j} \subseteq \left\lbrace v_i\right\rbrace$. Obtenemos así $\left\lbrace v_i\right\rbrace=\bigcap_{1\le j\le n, j\ne i} A_{v_j}$. Como $\left\lbrace v_i\right\rbrace$ es una intersección finita de elementos de $\mathcal{S}_{\mathcal{A},K^n}$, se tiene $\left\lbrace v_i\right\rbrace\in \tau_{\mathcal{A},K^n}$.
+      \item[2.] Sea $n\ge 5$. Denotemos $V\left( C^n\right)=\left\lbrace v_0,\dots,v_{n-1}\right\rbrace$. Basta ver que $\left\lbrace v_i\right\rbrace\in\tau_{\mathcal{A},C^n}$ para $i\in\{0,\dots,n-1\}$.
          \input{Topologia_Adyacencia/Diagramas/Diag1.tex}
          Para todo $i\in\{0,\dots,n-1\}$ se tiene $A_{v_i}=\left\lbrace v_{(i-1)\bmod n},v_{(i+1)\bmod n}\right\rbrace$ y por tanto $A_{v_{(i-1)\bmod n}}=\left\lbrace v_{(i-2)\bmod n},v_i\right\rbrace$ y $A_{v_{(i+1)\bmod n}}=\left\lbrace v_i,v_{(i+2)\bmod n}\right\rbrace$. Como $n\ge 5$ se tiene $(i-2)\bmod n\ne (i+2)\bmod n$, de modo que $v_{(i-2)\bmod n}\ne v_{(i+2)\bmod n}$ y por tanto $\left\lbrace v_i\right\rbrace=A_{v_{(i-1)\bmod n}}\cap A_{v_{(i+1)\bmod n}}$. Como $\left\lbrace v_i\right\rbrace$ es una intersección finita de elementos de $\mathcal{S}_{\mathcal{A},C^n}$ entonces $\left\lbrace v_i\right\rbrace\in\tau_{\mathcal{A},C^n}$.
-      \item[3.] Sea $n\ge 3$ cualquiera.
+      \item[3.] Sea $n\ge 3$.
          \input{Topologia_Adyacencia/Diagramas/Diag2.tex}
-         Veamos que $\left\lbrace v_1\right\rbrace\notin\tau_{\mathcal{A},P^n}$. Sea $U\in\tau_{\mathcal{A},P^n}$ cualquiera con $v_1\in U$. Basta probar que $v_3\in U$. Tenemos $A_{v_1}=\left\lbrace v_2\right\rbrace$, $A_{v_i}=\left\lbrace v_{i-1},v_{i+1}\right\rbrace$ para cualquier $i$ con $2\le i\le n-1$ y $A_{v_n}=\left\lbrace v_{n-1}\right\rbrace$. Existe $B\subseteq\mathcal{B}_{\mathcal{S}_{\mathcal{A},P^n}}$ tal que $U=\bigcup B$. Entonces $v_1\in S$ para algún $S\in B$. Como en particular $S\in \mathcal{B}_{\mathcal{S}_{\mathcal{A},P^n}}$, luego $S=\bigcap_{j=1}^{m}A_{v_{i_j}}$ para algún $m\in \mathbb{Z}^+$ y con $i_j\in\{1,\dots,n\}$ para todo $j\in\{1,\dots,m\}$. Tenemos que $v_1\in A_{v_{i_j}}$ para todo $j\in\{1,\dots,m\}$. Como $v_1\in A_{v_2}$ y $v_1\notin A_{v_k}$ para todo $k\in\{3,\dots,n\}$ entonces $A_{v_{i_j}}=A_{v_2}$ para todo $j\in\{1,\dots,m\}$, de modo que $A_{v_2}=S\subseteq U$ y por tanto $v_3\in U$.
+         Veamos que $\left\lbrace v_1\right\rbrace\notin\tau_{\mathcal{A},P^n}$. Sea $U\in\tau_{\mathcal{A},P^n}$ con $v_1\in U$. Basta probar que $v_3\in U$. Tenemos $A_{v_1}=\left\lbrace v_2\right\rbrace$, $A_{v_i}=\left\lbrace v_{i-1},v_{i+1}\right\rbrace$ para cualquier $i$ con $2\le i\le n-1$ y $A_{v_n}=\left\lbrace v_{n-1}\right\rbrace$. Existe $B\subseteq\mathcal{B}_{\mathcal{S}_{\mathcal{A},P^n}}$ tal que $U=\bigcup B$. Entonces $v_1\in S$ para algún $S\in B$. Como en particular $S\in \mathcal{B}_{\mathcal{S}_{\mathcal{A},P^n}}$, luego $S=\bigcap_{j=1}^{m}A_{v_{i_j}}$ para algún $m\in \mathbb{Z}^+$ y con $i_j\in\{1,\dots,n\}$ para todo $j\in\{1,\dots,m\}$. Tenemos que $v_1\in A_{v_{i_j}}$ para todo $j\in\{1,\dots,m\}$. Como $v_1\in A_{v_2}$ y $v_1\notin A_{v_k}$ para todo $k\in\{3,\dots,n\}$ entonces $A_{v_{i_j}}=A_{v_2}$ para todo $j\in\{1,\dots,m\}$, de modo que $A_{v_2}=S\subseteq U$ y por tanto $v_3\in U$.
       \item[4.] Sean $n,m\ge 1$ cualesquiera. Dado $a\in A$ se tiene $A_a=B$, y dado $b\in B$ se tiene $A_b=A$. Por tanto $\mathcal{S}_{\mathcal{A},K_{n,m}}=\left\lbrace A,B\right\rbrace$. Como $A\cap B=\emptyset$, tenemos $\mathcal{B}_{\mathcal{S}_{\mathcal{A},K_{n,m}}}=\left\lbrace A,B\right\rbrace$, y como $A\cup B=V$ entonces $\tau_{\mathcal{A},k_{n,m}}=\left\lbrace \emptyset,V,A,B\right\rbrace$. 
    \end{itemize}
 \end{proof}
@@ -41,15 +41,14 @@ Hasta el momento no hemos necesitado la propiedad de que los grafos sean localme
 \begin{proof}
    Sea $U$ una intersección arbitraria de elementos de $\mathcal{S}_{\mathcal{A},G}$. Por la \Cref{Prop:Alexandroff_con_subbase} basta ver que $U\subseteqab X$ para concluir que $X$ es de Alexandroff. Si $U=\emptyset$ entonces $U\subseteqab X$. Supongamos que $U\ne \emptyset$. Sea $y\in U$. Por la definición de $\mathcal{S}_{\mathcal{A},G}$, existe $V'\subseteq V$ tal que $U=\bigcap_{x\in V'}A_x$. Para todo $x\in V'$ tenemos $y\in A_x$ y por tanto $x\in A_y$, de modo que $V'\subseteq A_y$. Como $G$ es localmente finito, $A_y$ es finito, y por tanto $V'$ es finito. Con esto, $U$ es una intersección finita de conjuntos abiertos, con lo que obtenemos que $U\subseteqab X$.
 \end{proof}
-\textcolor{red}{Mostrar un grafo que no sea localmente finito y no tenga topología de adyacencia de Alexandroff / ¿todo grafo que no es localmente finito tiene topología de adyacencia que no es de Alexandroff?}\\\\
+%\textcolor{red}{Mostrar un grafo que no sea localmente finito y no tenga topología de adyacencia de Alexandroff / ¿todo grafo que no es localmente finito tiene topología de adyacencia que no es de Alexandroff?}\\\\
 Como la topología de adyacencia de un grafo es de Alexandroff, podemos hablar de vecindades mínimas y bases mínimas en la forma que precisamos en \Cref{sec:Topologias_Alexandroff}.
 \begin{Prop}\label{Prop:U_x_2}
    Sea $G=(V,E)$ un grafo. Para todo $x\in V$ tenemos $U_x=\bigcap_{y\in A_x}A_y$ y por tanto $U_x$ es finito.
 \end{Prop}
 \begin{proof}
-   Sea $x\in V$ cualquiera. Para todo $y\in A_x$ tenemos $x\in A_y$, luego $x\in\bigcap_{y\in A_x}A_y$. Además $\bigcap_{y\in A_x}A_y\subseteqab X$. Como $U_x$ es la vecindad mínima de $x$, se sigue $U_x\subseteq \bigcap_{y\in A_x}A_y$. Ahora, como $x\in U_x$ y $U_x\subseteqab X$, existe $B\in\mathcal{B}_{\mathcal{S}_{\mathcal{A},G}}$ tal que $x\in B \subseteq U_x$. Por definición de $\mathcal{B}_{\mathcal{S}_{\mathcal{A},G}}$, existe algún subconjunto finito $V'$ de $V$ tal que $B=\bigcap_{y\in V'}A_y$. Para todo $y\in V'$ se tiene $x\in A_y$ y por tanto $y\in A_x$, de donde $V'\subseteq A_x$. Con esto, $\bigcap_{y\in A_x}A_y\subseteq\bigcap_{y\in V'}A_y \subseteq U_x$. Obtenemos así $U_x=\bigcap_{y\in A_x}A_y$. Como $G$ es localmente finito, $A_y$ es finito para todo $y\in A_x$ y por tanto $U_x$ es finito.
+   Sea $x\in V$. Para todo $y\in A_x$ tenemos $x\in A_y$, luego $x\in\bigcap_{y\in A_x}A_y$. Además $\bigcap_{y\in A_x}A_y\subseteqab X$. Como $U_x$ es la vecindad mínima de $x$, se sigue $U_x\subseteq \bigcap_{y\in A_x}A_y$. Ahora, como $x\in U_x$ y $U_x\subseteqab X$, existe $B\in\mathcal{B}_{\mathcal{S}_{\mathcal{A},G}}$ tal que $x\in B \subseteq U_x$. Por definición de $\mathcal{B}_{\mathcal{S}_{\mathcal{A},G}}$, existe algún subconjunto finito $V'$ de $V$ tal que $B=\bigcap_{y\in V'}A_y$. Para todo $y\in V'$ se tiene $x\in A_y$ y por tanto $y\in A_x$, de donde $V'\subseteq A_x$. Con esto, $\bigcap_{y\in A_x}A_y\subseteq\bigcap_{y\in V'}A_y \subseteq U_x$. Obtenemos así $U_x=\bigcap_{y\in A_x}A_y$. Como $G$ es localmente finito, $A_y$ es finito para todo $y\in A_x$ y por tanto $U_x$ es finito.
 \end{proof}
-\textcolor{red}{Esto nos permite calcular algorítmicamente las vecindades mínimas de cada vértice de un grafo finito, y por tanto también su base mínima.}
 \begin{Obs}\label{Obs:Igualdad_adyacencias_vecindades}
    De la \Cref{Prop:U_x_2} se tiene que si $x,y\in V$ son tales que $A_x=A_y$ entonces $U_x=\bigcap_{z\in A_x}A_z=\bigcap_{z\in A_y}A_z=U_y$.
 \end{Obs}
@@ -57,7 +56,7 @@ Como la topología de adyacencia de un grafo es de Alexandroff, podemos hablar d
     Sea $G=(V,E)$ un grafo. Para cualesquiera $x,z\in V$ se tiene $z\in U_x$ si, y solo si, $A_x\subseteq A_z$.
 \end{Cor}
 \begin{proof}
-   Sean $x,z\in V$ cualesquiera.\\
+   Sean $x,z\in V$.\\
    ($\Rightarrow$) Supongamos $z\in U_x$. Como $U_x=\bigcap_{y\in A_x}A_y$ entonces $z\in \bigcap_{y\in A_x}A_y$. Para cualquier $y\in A_x$ se tiene $z\in A_y$ y por tanto $y\in A_z$. Luego $A_x\subseteq A_z$.\\
    ($\Leftarrow$) Supongamos $A_x\subseteq A_z$. Para cualquier $y\in A_x$ se tiene $y\in A_z$ y por tanto $z\in A_y$. Así, $z\in \bigcap_{y\in A_x}A_y=U_x$.
 \end{proof}
@@ -70,7 +69,7 @@ El siguiente corolario nos da una condición necesaria y suficiente para que un 
 \end{Cor}
 \begin{proof}
    ($\Rightarrow$) Supongamos que $(V,\tau_{\mathcal{A},G})$ es un espacio discreto. Sean $x,y\in V$ cualesquiera con $x\ne y$. Como $(V, \tau_{\mathcal{A},G})$ es un espacio de Alexandroff discreto, se tiene que $U_x=\{x\}$. Si $A_x\subseteq A_y$ entonces por la \Cref{Obs:U_x} se tiene $y\in U_x$, contradiciendo $U_x=\{x\}$. Por tanto $A_x\nsubseteq A_y$.\\
-   ($\Leftarrow$) Supongamos $A_x\nsubseteq A_y$ para cualesquiera $x,y\in V$ con $x\ne y$. Sea $x\in V$ cualquiera. Sea $y\in V$ cualquiera con $x\ne y$. Si $y\in U_x$ entonces por la \Cref{Obs:U_x} se tiene $A_x\subseteq A_y$, de modo que $y\notin U_x$. Con esto, $\{x\}=U_x\subseteqab V$. Se sigue que $(V,\tau_{\mathcal{A},G})$ es un espacio discreto.  
+   ($\Leftarrow$) Supongamos $A_x\nsubseteq A_y$ para cualesquiera $x,y\in V$ con $x\ne y$. Sea $x\in V$. Sea $y\in V$ con $x\ne y$. Si $y\in U_x$ entonces por la \Cref{Obs:U_x} se tiene $A_x\subseteq A_y$, de modo que $y\notin U_x$. Con esto, $\{x\}=U_x\subseteqab V$. Se sigue que $(V,\tau_{\mathcal{A},G})$ es un espacio discreto.  
 \end{proof}
 \begin{Cor}
    Sea $G=(V,E)$ un grafo. Entonces $(V,\tau_{\mathcal{A},G})$ es $T_1$ si, y solo si, $A_x\nsubseteq A_y$ para cualesquiera $x,y\in V$ con $x\ne y$.
@@ -105,10 +104,10 @@ Si $G$ es un árbol, basta verificar la anterior condición para hojas distintas
 \begin{proof}
    \phantom{o}
    \begin{itemize}
-      \item[1.] Sea $x\in V$ cualquiera. Sea $z\in U_x$ cualquiera. Si $z=x$ entonces $z\in \{x\}\cup \left\lbrace y\in V\mid d(x,y)=2\right\rbrace$. Supongamos $z\ne x$. Sea $w\in A_x$. Por la \Cref{Prop:U_x_2} tenemos $U_x=\bigcap_{y\in A_x}A_y$, de modo que $z\in A_w$. Así, $zwx$ es un camino en $G$ que conecta $z$ y $x$. Si $z\in A_x$, como $z\in U_x$ se tendría $z\in A_z$, contradiciendo la definición de grafo simple. Por tanto $z\notin A_x$, de lo que se sigue que $d(x,z)=2$. Por tanto $z\in \{x\}\cup \left\lbrace y\in V\mid d(x,y)=2\right\rbrace$ y obtenemos $U_x\subseteq \{x\}\cup \left\lbrace y\in V\mid d(x,y)=2\right\rbrace$.
-      \item[2.] Sea $x\in V$ cualquiera. Si $z\in A_x$ entonces $d(x,z)=1$, y por el ítem $1.$ se sigue que $z\notin U_x$. Por tanto $U_x\cap A_x=\emptyset$.
+      \item[1.] Sea $x\in V$. Sea $z\in U_x$. Si $z=x$ entonces $z\in \{x\}\cup \left\lbrace y\in V\mid d(x,y)=2\right\rbrace$. Supongamos $z\ne x$. Sea $w\in A_x$. Por la \Cref{Prop:U_x_2} tenemos $U_x=\bigcap_{y\in A_x}A_y$, de modo que $z\in A_w$. Así, $zwx$ es un camino en $G$ que conecta $z$ y $x$. Si $z\in A_x$, como $z\in U_x$ se tendría $z\in A_z$, contradiciendo la definición de grafo simple. Por tanto $z\notin A_x$, de lo que se sigue que $d(x,z)=2$. Por tanto $z\in \{x\}\cup \left\lbrace y\in V\mid d(x,y)=2\right\rbrace$ y obtenemos $U_x\subseteq \{x\}\cup \left\lbrace y\in V\mid d(x,y)=2\right\rbrace$.
+      \item[2.] Sea $x\in V$. Si $z\in A_x$ entonces $d(x,z)=1$, y por el ítem $1.$ se sigue que $z\notin U_x$. Por tanto $U_x\cap A_x=\emptyset$.
       \item[3.] Sean $x,y\in V$ cualesquiera y supongamos que $x$ y $y$ son adyacentes. Tenemos $y\in A_x$ y $A_x\subseteqab V$, de modo que $A_x$ es una vecindad de $y$, con lo cual $U_y\subseteq A_x$. Si existiera $z\in U_x\cap U_y$ entonces se tendría $z\in U_x\cap A_x$, contradiciendo el ítem $2.$ Por tanto $U_x\cap U_y=\emptyset$.
-      \item[4.] Sea $x\in V$ cualquiera. Sabemos que $\{x\}\subseteq U_x$, y por el ítem $2.$ se tiene $U_x\subseteq A_x^c$ y $A_x\subseteq U_x^c$. Por la \Cref{Prop:Contenencia_Clausura} se sigue que $\overline{\{x\}}\subseteq \overline{U_x}\subseteq \overline{A_x^c}$ y $\overline{A_x}\subseteq \overline{U_x^c}$. Como $A_x$ y $U_x$ son abiertos, entonces $A_x^c$ y $U_x^c$ son cerrados, de modo que $\overline{A_x^c}=A_x^c$ y $\overline{U_x^c}=U_x^c$ por la \Cref{Prop:Carac_abierto_cerrado}, con lo cual el resultado se obtiene.
+      \item[4.] Sea $x\in V$. Sabemos que $\{x\}\subseteq U_x$, y por el ítem $2.$ se tiene $U_x\subseteq A_x^c$ y $A_x\subseteq U_x^c$. Por la \Cref{Prop:Contenencia_Clausura} se sigue que $\overline{\{x\}}\subseteq \overline{U_x}\subseteq \overline{A_x^c}$ y $\overline{A_x}\subseteq \overline{U_x^c}$. Como $A_x$ y $U_x$ son abiertos, entonces $A_x^c$ y $U_x^c$ son cerrados, de modo que $\overline{A_x^c}=A_x^c$ y $\overline{U_x^c}=U_x^c$ por la \Cref{Prop:Carac_abierto_cerrado}, con lo cual el resultado se obtiene.
    \end{itemize}
 \end{proof}
 \textcolor{red}{Qué es la distancia entre dos vértices??????\\Ejemplo de que en 1. la otra contenencia no se tiene.}
@@ -118,7 +117,7 @@ Si $G$ es un árbol, basta verificar la anterior condición para hojas distintas
 \begin{proof}
    Sean $x,y\in V$ cualesquiera.\\
    ($\Rightarrow$) Supongamos que $y\in\overline{\{x\}}$. Por la \Cref{Prop:Caracterizacion_punto_adherencia} se tiene que cualquier vecindad de $y$ contiene a $x$; en particular $x\in U_y$. Por el \Cref{Cor:U_x_contenencia} se sigue que $A_y\subseteq A_x$.\\
-   ($\Leftarrow$) Supongamos que $A_y\subseteq A_x$. Por el \Cref{Cor:U_x_contenencia} se tiene $x\in U_y$. Sea $V$ una vecindad cualquiera de $y$. Se tiene $U_y\subseteq V$ y por tanto $x\in V$, es decir, $V$ interseca a $\{x\}$. Por la \Cref{Prop:Caracterizacion_punto_adherencia} se sigue que $y\in\overline{\{x\}}$.
+   ($\Leftarrow$) Supongamos que $A_y\subseteq A_x$. Por el \Cref{Cor:U_x_contenencia} se tiene $x\in U_y$. Sea $V$ una vecindad de $y$. Se tiene $U_y\subseteq V$ y por tanto $x\in V$, es decir, $V$ interseca a $\{x\}$. Por la \Cref{Prop:Caracterizacion_punto_adherencia} se sigue que $y\in\overline{\{x\}}$.
 \end{proof}
 \begin{Lema}\label{Lema:lema_homeomorfismo}
    Sean $G_1=(V_1,E_1)$ y $G_2=(V_2,E_2)$ os grafos. Si $\varphi:V_1\to V_2$ es un isomorfismo de $G_1$ en $G_2$ entonces:\begin{itemize}
@@ -129,12 +128,12 @@ Si $G$ es un árbol, basta verificar la anterior condición para hojas distintas
 \begin{proof}
    \phantom{o}
    \begin{itemize}
-      \item[1.] Sea $x\in V_1$ cualquiera.
+      \item[1.] Sea $x\in V_1$.
          \begin{itemize}
-            \item[$\subseteq$:] Sea $w\in\varphi(A_x)$ cualquiera. Existe $x_w\in A_x$ tal que $w=\varphi(x_w)$. Entonces $x_wx\in E_1$, de donde $\varphi(x_w)\varphi(x)\in E_2$, pues $\varphi$ es un isomorfismo, con lo cual $w=\varphi(w_x)\in A_{\varphi(x)}$ y por tanto $\varphi(A_x)\subseteq A_{\varphi(x)}$.
+            \item[$\subseteq$:] Sea $w\in\varphi(A_x)$. Existe $x_w\in A_x$ tal que $w=\varphi(x_w)$. Entonces $x_wx\in E_1$, de donde $\varphi(x_w)\varphi(x)\in E_2$, pues $\varphi$ es un isomorfismo, con lo cual $w=\varphi(w_x)\in A_{\varphi(x)}$ y por tanto $\varphi(A_x)\subseteq A_{\varphi(x)}$.
             \item[$\supseteq$:] Sea $w\in A_{\varphi(x)}$. Como $\varphi$ es en particular sobreyectiva, existe $x_w\in V_1$ tal que $\varphi(x_w)=w$. Tenemps $\varphi(x_w)\varphi(x)=w\varphi(x)\in E_2$, de donde $x_wx\in E_1$, pues $\varphi$ es un isomorfismo, con lo cual $x_w\in A_x$ y por tanto $w=\varphi(x_w)\in\varphi(A_x)$. Con esto, $A_{\varphi(x)}\subseteq\varphi(A_x)$.
          \end{itemize}
-      \item[2.] Sea $x\in V_1$ cualquiera. Por la \Cref{Prop:U_x_2} tenemos $U_x=\bigcap_{y\in A_x}A_y$ y $U_{\varphi(x)}=\bigcap_{w\in A_{\varphi(x)}}A_w$. Además tenemos 
+      \item[2.] Sea $x\in V_1$. Por la \Cref{Prop:U_x_2} tenemos $U_x=\bigcap_{y\in A_x}A_y$ y $U_{\varphi(x)}=\bigcap_{w\in A_{\varphi(x)}}A_w$. Además tenemos 
          $$
          \begin{aligned}
             \varphi(U_x)&=\varphi\left( \bigcap_{y\in A_x}A_y\right)\\
@@ -154,7 +153,7 @@ Si $G$ es un árbol, basta verificar la anterior condición para hojas distintas
    Sean $G_1=(V_1,E_1)$ y $G_2=(V_2,E_2)$ dos grafos y $\varphi:V_1\to V_2$ un isomorfismo entre $G_1$ y $G_2$. Entonce $\varphi$ es una función continua entre los espacios topológicos $(V_1,\tau_{\mathcal{A},G_1})$ y $(V_2, \tau_{\mathcal{A},G_2})$.
 \end{Prop}
 \begin{proof}
-   Usamos la caracterización dada en el ítem $4.$ de la \Cref{Prop:Caracterizacion_continuidad}. Sean $x\in V_1$ cualquiera y $A$ cualquier vecindad de $\varphi(x)$. Tenemos que $U_x$ es una vecindad de $x$, y $\varphi(U_x)=U_{\varphi(x)}$ por el \Cref{Lema:lema_homeomorfismo}, es decir, $\varphi(U_x)$ es la vecindad mínima de $\varphi(x)$, de modo que $\varphi(U_x)\subseteq A$. Por tanto $\varphi$ es continua.
+   Usamos la caracterización dada en el ítem $4.$ de la \Cref{Prop:Caracterizacion_continuidad}. Sean $x\in V_1$ y $A$ una vecindad de $\varphi(x)$. Tenemos que $U_x$ es una vecindad de $x$, y $\varphi(U_x)=U_{\varphi(x)}$ por el \Cref{Lema:lema_homeomorfismo}, es decir, $\varphi(U_x)$ es la vecindad mínima de $\varphi(x)$, de modo que $\varphi(U_x)\subseteq A$. Por tanto $\varphi$ es continua.
 \end{proof}
 Como consecuencia inmediata de lo anterior tenemos que si dos grafos son isomorfos, entonces sus espacios de adyacencia son homeomorfos. Más precisamente:
 \begin{Cor}
@@ -170,12 +169,12 @@ Como consecuencia inmediata de lo anterior tenemos que si dos grafos son isomorf
        \resizebox{0.45\textwidth}{!}{\input{Topologia_Adyacencia/Diagramas/Diag5.tex}} 
      \caption{El grafo $P$}
    \end{figure}
-   Ahora, sea $V^*=\{v_0,y_1,y_2,\dots,y_{n-1}\}$ con $n\ge 5$ cualquiera, y tomemos $K^n$ y $C^n$ como el grafo completo sobre $V^*$ y el ciclo sobre $V^*$, respectivamente. Definimos entonces $G_1=\left( V\cup V^*, E(P)\cup E\left( K^n\right)\right)$ y $G_2=\left( V\cup V^*, E(P)\cup E\left( C^n\right) \right)$.
+   Ahora, sea $V^*=\{v_0,y_1,y_2,\dots,y_{n-1}\}$ con $n\ge 5$, y tomemos $K^n$ y $C^n$ como el grafo completo sobre $V^*$ y el ciclo sobre $V^*$, respectivamente. Definimos entonces $G_1=\left( V\cup V^*, E(P)\cup E\left( K^n\right)\right)$ y $G_2=\left( V\cup V^*, E(P)\cup E\left( C^n\right) \right)$.
    \input{Topologia_Adyacencia/Diagramas/Diag3.tex} 
    \input{Topologia_Adyacencia/Diagramas/Diag4.tex}
    Veamos que tanto $G_1$ como $G_2$ tienen topología de adyacencia discreta.
    \begin{itemize}
-      \item[$G_1$:] Sea $i\in\{1,2,\dots,n-1\}$ cualquiera. Tenemos
+      \item[$G_1$:] Sea $i\in\{1,2,\dots,n-1\}$. Tenemos
          $$
          \begin{aligned}
             U_{y_i} &= \bigcap_{w\in A_{y_i}}A_w \\
@@ -219,7 +218,7 @@ Como consecuencia inmediata de lo anterior tenemos que si dos grafos son isomorf
          \end{aligned}
          $$
          Por lo tanto, de la \Cref{Prop:U_x=ximplicadiscreto} se tiene que $(V(G_1),\tau_{\mathcal{A},G_1})$ es un espacio discreto.
-      \item[$G_2$:] De forma análoga a como se hizo para $G_1$ se tiene que $U_{v_i}=\{v_i\}$ para todo $i\in\{2,3,\dots\}$. Sea $i\in\{2,3,\dots ,n-2\}$ cualquiera. Denotemos $y_0=v_0$. Entonces:
+      \item[$G_2$:] De forma análoga a como se hizo para $G_1$ se tiene que $U_{v_i}=\{v_i\}$ para todo $i\in\{2,3,\dots\}$. Sea $i\in\{2,3,\dots ,n-2\}$. Denotemos $y_0=v_0$. Entonces:
          $$
          \begin{aligned}
             U_{y_i} &= \bigcap_{w\in A_{y_i}}A_w \\
@@ -279,13 +278,13 @@ Como consecuencia inmediata de lo anterior tenemos que si dos grafos son isomorf
    Sean $G=(V,E)$ un grafo y $M:=\{x\in V\mid d(v)=\Delta (G)\}$. Entonces $M\in\tau_{\mathcal{A},G}$. 
 \end{Prop}
 \begin{proof}
-   Usamos la \Cref{Prop:Caracterizacion_abiertos}. Sea $x\in M$ cualquiera. Veamos que $U_x\subseteq M$. Sea $y\in U_x$ cualquiera. Por la \Cref{Prop:U_x_2} se tiene que $y\in A_w$ para todo $w\in A_x$. De esta forma, para cualquier $w\in A_x$ se tiene $y\in A_w$ y por tanto $w\in A_y$, es decir, $A_x\subseteq A_y$, con lo cual $\Delta(G)=d(x)=|A_x|\le |A_y|=d(y)\le \Delta(G)$ y por tanto $d(y)=\Delta (G)$. Con esto, $y\in M$ y $U_x\subseteq M$. Obtenemos que $U_x$ es una vecindad de $x$ contenida en $M$. Por tanto $M\in\tau_{\mathcal{A},G}$. 
+   Usamos la \Cref{Prop:Caracterizacion_abiertos}. Sea $x\in M$. Veamos que $U_x\subseteq M$. Sea $y\in U_x$. Por la \Cref{Prop:U_x_2} se tiene que $y\in A_w$ para todo $w\in A_x$. De esta forma, para cualquier $w\in A_x$ se tiene $y\in A_w$ y por tanto $w\in A_y$, es decir, $A_x\subseteq A_y$, con lo cual $\Delta(G)=d(x)=|A_x|\le |A_y|=d(y)\le \Delta(G)$ y por tanto $d(y)=\Delta (G)$. Con esto, $y\in M$ y $U_x\subseteq M$. Obtenemos que $U_x$ es una vecindad de $x$ contenida en $M$. Por tanto $M\in\tau_{\mathcal{A},G}$. 
 \end{proof}
 \begin{Prop}
    Sean $G=(V,E)$ un grafo y $L:=\{x\in V\mid d(v)=\delta(G)\}$. Entonces $L$ es cerrado en $(V,\tau_{\mathcal{A},G})$. 
 \end{Prop}
 \begin{proof}
-   Por la \Cref{Prop:Alexandroff_clausura} se tiene $\overline{L}=\overline{\bigcup_{x\in L}\{x\}}=\bigcup_{x\in L}\overline{\{x\}}$. Sea $y\in \overline{L}$ cualquiera. Entonces existe $x\in L$ tal que $y\in\overline{\{x\}}$. Por el \Cref{Cor:Clausura_unitario} se tiene $A_y\subseteq A_x$. Con esto, $\delta (G)\le d(y)=|A_y|\le |A_x|=\delta (G)$ y por tanto $d(y)=\delta(G)$, es decir, $y\in L$. Obtenemos que $\overline{L}\subseteq L$. Como además $L\subseteq\overline{L}$, entonces $L=\overline{L}$, y por la \Cref{Prop:Caracterizacion_abierto_cerrado} se sigue que $L$ es cerrado en $(V,\tau_{\mathcal{A},G})$.
+   Por la \Cref{Prop:Alexandroff_clausura} se tiene $\overline{L}=\overline{\bigcup_{x\in L}\{x\}}=\bigcup_{x\in L}\overline{\{x\}}$. Sea $y\in \overline{L}$. Entonces existe $x\in L$ tal que $y\in\overline{\{x\}}$. Por el \Cref{Cor:Clausura_unitario} se tiene $A_y\subseteq A_x$. Con esto, $\delta (G)\le d(y)=|A_y|\le |A_x|=\delta (G)$ y por tanto $d(y)=\delta(G)$, es decir, $y\in L$. Obtenemos que $\overline{L}\subseteq L$. Como además $L\subseteq\overline{L}$, entonces $L=\overline{L}$, y por la \Cref{Prop:Caracterizacion_abierto_cerrado} se sigue que $L$ es cerrado en $(V,\tau_{\mathcal{A},G})$.
 \end{proof}
 \begin{Lema}\label{Lema:x_x}
    Sean $G$ un grafo y $x\in V(G)$ un vértice de corte de $G$. Entonces existen $y_1,y_2\in A_x$ y $D_1,D_2$ componentes distintas de $G-\{x\}$ tales que $y_1\in V(D_1)$ y $y_2\in V(D_2)$.
@@ -294,13 +293,13 @@ Como consecuencia inmediata de lo anterior tenemos que si dos grafos son isomorf
    Llamemos $\mathcal{C}$ a la colección de componentes de $G$ y $\mathcal{D}$ a la colección de componentes de $G-\{x\}$. Como $G$ no tiene vértices asilados, existe $y_1\in A_x$. Por la definición de grafo simple tenemos $y_1\ne x$, es decir, $y_1\in V(G)\setminus \{x\}=V(G-\{x\})$. Por la \Cref{Prop:Componentes_particion}, existe $D_1\in\mathcal{D}$ tal que $y_1\in V(D_1)$. Razonando por contradicción supongamos que $A_x\subseteq V(D_1)$.\\\\
    Veamos que $\mathcal{D}=\{C\in \mathcal{C}\mid x\notin V(C)\}\cup \{D_1\}$.
    \begin{itemize}
-      \item[$\subseteq$:] Sea $D\in\mathcal{D}$ cualquiera. Consideremos dos casos.
+      \item[$\subseteq$:] Sea $D\in\mathcal{D}$. Consideremos dos casos.
          \begin{itemize}
             \item[\textbf{I.}] Supongamos que $A_x\cap V(D) \ne\emptyset$. Sea $w\in A_x\cap V(D)$. Como $A_x\subseteq V(D_1)$ entonces $w\in V(D_1)$. Además $w\in V(D)$. De esta forma, $V(D)\cap V(D_1)\ne\emptyset$. Como $D,D_1\in\mathcal{D}$, por la \Cref{Prop:Componentes_particion} se sigue que $D=D_1$.   
-            \item[\textbf{II.}] Supongamos que $A_x\cap V(D) = \emptyset$. Como $D$ es una componente de $G-\{x\}$, se tiene que $x\notin V(D)$ y que $D$ es conexo. Como $D\subseteq G-\{x\} \subseteq G$, tenemos que $D$ es un subgrafo de $G$. Sea $H$ un subgrafo conexo de $G$ tal que $D\subseteq H$. Veamos que $D=H$. Razonando por contradicción supongamos $V(H)\nsubseteq V(D)$. Tomemos $w\in V(H)\setminus V(D)$. Como las componentes de un grafo son no vacías, podemos tomar $d\in V(D)$. Tenemos que $d,w\in V(H)$ y $H$ es conexo, luego existe un camino $p_0\dots p_n$ contenido en $H$ con $n\ge 1$, $p_0=d$ y $p_n=w$. Sea $j$ el menor índice en $\{1,\dots , n\}$ tal que $p_j\notin V(D)$. Como $p_{j-1}\in V(D)$, por la \Cref{Prop:Conexo+1} se tiene que $H':=(V(D)\cup \{p_j\},E(D)\cup \{p_{j-1}p_j\})$ es un grafo conexo con $D\subsetneq H'$. Notemos además que si $p_j=x$ entonces $p_{j-1}\in A_x\cap V(D)$, contradiciendo $A_x\cap V(D)=\emptyset$. Por tanto $p_j\ne x$ y se sigue que $H'\subseteq G-\{x\}$. Pero entonces se contradice que $D$ sea un subgrafo conexo-maximal de $G-\{x\}$. Por lo tanto $V(H)\subseteq V(D)$ y $V(D)=V(H)$. Ahora, sea $e\in E(H)$ cualquiera. Entonces $e=st$ para algunos $s,t\in V(H)$. Como $V(H)=V(D)\subseteq V(G-\{x\})=V(G)\setminus\{x\}$ entonces $s,t\in V(G)\setminus\{x\}$. Además $H\subseteq G$, así que $E(H)\subseteq E(G)$ y $st\in E(G)$. De esta forma $e\in\{uv\in E(G)\mid u,v\in V(G)\setminus \{x\}\}=E(G-\{x\})$. Con esto, $E(H)\subseteq E(G-\{x\})$ y se tiene $H\subseteq G-\{x\}$, con $H$ conexo y $D\subseteq H$. Como $D$ es un subgrafo conexo-maximal de $G-\{x\}$ entonces $D=H$. Por lo tanto $D$ es un subgrafo conexo-maximal de $G$, es decir $D\in\mathcal{C}$, y además tenemos $x\notin V(D)$.
+            \item[\textbf{II.}] Supongamos que $A_x\cap V(D) = \emptyset$. Como $D$ es una componente de $G-\{x\}$, se tiene que $x\notin V(D)$ y que $D$ es conexo. Como $D\subseteq G-\{x\} \subseteq G$, tenemos que $D$ es un subgrafo de $G$. Sea $H$ un subgrafo conexo de $G$ tal que $D\subseteq H$. Veamos que $D=H$. Razonando por contradicción supongamos $V(H)\nsubseteq V(D)$. Tomemos $w\in V(H)\setminus V(D)$. Como las componentes de un grafo son no vacías, podemos tomar $d\in V(D)$. Tenemos que $d,w\in V(H)$ y $H$ es conexo, luego existe un camino $p_0\dots p_n$ contenido en $H$ con $n\ge 1$, $p_0=d$ y $p_n=w$. Sea $j$ el menor índice en $\{1,\dots , n\}$ tal que $p_j\notin V(D)$. Como $p_{j-1}\in V(D)$, por la \Cref{Prop:Conexo+1} se tiene que $H':=(V(D)\cup \{p_j\},E(D)\cup \{p_{j-1}p_j\})$ es un grafo conexo con $D\subsetneq H'$. Notemos además que si $p_j=x$ entonces $p_{j-1}\in A_x\cap V(D)$, contradiciendo $A_x\cap V(D)=\emptyset$. Por tanto $p_j\ne x$ y se sigue que $H'\subseteq G-\{x\}$. Pero entonces se contradice que $D$ sea un subgrafo conexo-maximal de $G-\{x\}$. Por lo tanto $V(H)\subseteq V(D)$ y $V(D)=V(H)$. Ahora, sea $e\in E(H)$. Entonces $e=st$ para algunos $s,t\in V(H)$. Como $V(H)=V(D)\subseteq V(G-\{x\})=V(G)\setminus\{x\}$ entonces $s,t\in V(G)\setminus\{x\}$. Además $H\subseteq G$, así que $E(H)\subseteq E(G)$ y $st\in E(G)$. De esta forma $e\in\{uv\in E(G)\mid u,v\in V(G)\setminus \{x\}\}=E(G-\{x\})$. Con esto, $E(H)\subseteq E(G-\{x\})$ y se tiene $H\subseteq G-\{x\}$, con $H$ conexo y $D\subseteq H$. Como $D$ es un subgrafo conexo-maximal de $G-\{x\}$ entonces $D=H$. Por lo tanto $D$ es un subgrafo conexo-maximal de $G$, es decir $D\in\mathcal{C}$, y además tenemos $x\notin V(D)$.
          \end{itemize}
-         En cualquier caso $D\in \{C\in \mathcal{C}\mid x\notin V(C)\}\cup \{D_1\}$ y por tanto $\mathcal{D}\subseteq \{C\in \mathcal{C}\mid x\notin V(C)\}\cup \{D_1\}$.
-      \item[$\supseteq$:] Sabemos que $D_1\in \mathcal{D}$. Sea $C\in\mathcal{C}$ con $x\notin V(C)$ cualquiera. Como $C\subseteq G$ tenemos $V(C)\subseteq V(G)$; además $x\notin V(C)$, luego $V(C)\subseteq V(G)\setminus \{x\}=V(G-\{x\})$. Sea $e\in E(C)$ cualquiera. Entonces $e=st$ para algunos $s,t\in V(C)$. En particular $s,t\in V(G)\setminus \{x\}$. Como $C\subseteq G$ entonces $E(C)\subseteq E(G)$ y $st\in E(G)$. De esta forma $e\in \{uv\in E(G)\mid u,v\in V(G)\setminus \{x\}\}=E(G-\{x\})$ y $E(C)\subseteq E(G-\{x\})$. Por tanto $C\subseteq G-\{x\}$. Además sabemos que $C$ es conexo. Supongamos que $H$ es un subgrafo conexo de $G-\{x\}$ tal que $C\subseteq H$. Como $G-\{x\}\subseteq G$, se tiene $H\subseteq G$. Como $C$ es un subgrafo conexo-maximal de $G$ se tiene $C=H$. Por lo tanto $C$ es un subgrafo conexo-maximal de $G-\{x\}$, es decir $C\in\mathcal{D}$. Obtenemos $\{C\in \mathcal{C}\mid x\notin V(C)\}\cup \{D_1\}\subseteq\mathcal{D}$.
+         En cualquier caso, $D\in \{C\in \mathcal{C}\mid x\notin V(C)\}\cup \{D_1\}$ y por tanto $\mathcal{D}\subseteq \{C\in \mathcal{C}\mid x\notin V(C)\}\cup \{D_1\}$.
+      \item[$\supseteq$:] Sabemos que $D_1\in \mathcal{D}$. Sea $C\in\mathcal{C}$ con $x\notin V(C)$. Como $C\subseteq G$ tenemos $V(C)\subseteq V(G)$; además $x\notin V(C)$, luego $V(C)\subseteq V(G)\setminus \{x\}=V(G-\{x\})$. Sea $e\in E(C)$. Entonces $e=st$ para algunos $s,t\in V(C)$. En particular $s,t\in V(G)\setminus \{x\}$. Como $C\subseteq G$ entonces $E(C)\subseteq E(G)$ y $st\in E(G)$. De esta forma $e\in \{uv\in E(G)\mid u,v\in V(G)\setminus \{x\}\}=E(G-\{x\})$ y $E(C)\subseteq E(G-\{x\})$. Por tanto $C\subseteq G-\{x\}$. Además sabemos que $C$ es conexo. Supongamos que $H$ es un subgrafo conexo de $G-\{x\}$ tal que $C\subseteq H$. Como $G-\{x\}\subseteq G$, se tiene $H\subseteq G$. Como $C$ es un subgrafo conexo-maximal de $G$ se tiene $C=H$. Por lo tanto $C$ es un subgrafo conexo-maximal de $G-\{x\}$, es decir $C\in\mathcal{D}$. Obtenemos $\{C\in \mathcal{C}\mid x\notin V(C)\}\cup \{D_1\}\subseteq\mathcal{D}$.
    \end{itemize}
    De lo anterior, $\mathcal{D}=\{C\in \mathcal{C}\mid x\notin V(C)\}\cup \{D_1\}$. Definimos entonces
    \begin{equation*}
@@ -324,7 +323,7 @@ Como consecuencia inmediata de lo anterior tenemos que si dos grafos son isomorf
    Sean $G=(V,E)$ un grafo y $x\in V$. Si $x$ es un vértice de corte de $G$ entonces $\{x\}\in\tau_{\mathcal{A},G}$.
 \end{Prop}
 \begin{proof}
-   Supongamos que $x$ es un vértice de corte de $G$. Por el \Cref{Lema:x_x}, existen $y_1,y_2\in A_x$ y $D_1,D_2$ componentes distintas de $G-\{x\}$ tales que $y_1\in V(D_1)$ y $y_2\in V(D_2)$. Sea $z\in A_{y_1}\cap A_{y_2}$ cualquiera. Si $z\ne x$ entonces $z\in V(G)\setminus \{x\}=V(G-\{x\})$, de modo que $y_1zy_2$ es un camino en $G-\{x\}$ que conecta $y_1$ y $y_2$, contradiciendo la \Cref{Prop:Componentes_no_conectan}. Por tanto $z=x$ y $A_{y_1}\cap A_{y_2}\subseteq \{x\}$. De esta manera, usando la \Cref{Prop:U_x_2} tenemos
+   Supongamos que $x$ es un vértice de corte de $G$. Por el \Cref{Lema:x_x}, existen $y_1,y_2\in A_x$ y $D_1,D_2$ componentes distintas de $G-\{x\}$ tales que $y_1\in V(D_1)$ y $y_2\in V(D_2)$. Sea $z\in A_{y_1}\cap A_{y_2}$. Si $z\ne x$ entonces $z\in V(G)\setminus \{x\}=V(G-\{x\})$, de modo que $y_1zy_2$ es un camino en $G-\{x\}$ que conecta $y_1$ y $y_2$, contradiciendo la \Cref{Prop:Componentes_no_conectan}. Por tanto $z=x$ y $A_{y_1}\cap A_{y_2}\subseteq \{x\}$. De esta manera, usando la \Cref{Prop:U_x_2} tenemos
    $$
    \{x\}\subseteq U_x=\bigcap_{w\in A_x}A_w\subseteq A_{y_1}\cap A_{y_2}\subseteq \{x\},
    $$

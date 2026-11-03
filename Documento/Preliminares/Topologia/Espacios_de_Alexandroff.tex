@@ -1,6 +1,6 @@
-Ahora procedemos a dar un pequeño vistazo a la teoria de \textit{espacios de Alexandroff}.
+Ahora procedemos a dar un pequeño vistazo a la teoría de \textit{espacios de Alexandroff}.
 \begin{Def}
-   Una topología $\tau$ sobre un conjunto $X$ se dice de \textbf{Alexandroff} si para cualquier colección $\left( U_i\right)_{i\in I}$ de elementos de $\tau$ se tiene $\bigcap_{i\in I}U_i \in\tau$. En este caso decimos que $(X,\tau)$ es un \textbf{espacio de Alexandroff}.
+   Una topología $\tau$ sobre un conjunto $X$ se dice de \textbf{Alexandroff} si para cualquier colección $\left\{ U_i\right\}_{i\in I}$ de elementos de $\tau$ se tiene $\bigcap_{i\in I}U_i \in\tau$. En este caso decimos que $(X,\tau)$ es un \textbf{espacio de Alexandroff}.
 \end{Def}
 De esta manera, un espacio topológico es de \textit{Alexandroff} si la intersección arbitraria de abiertos es un abierto. En el \Cref{Ejm:Topologias} vimos un espacio topológico en el que no se tiene esta propiedad. Como consecuencia de las leyes de De Morgan se tiene la siguiente equivalencia.
 \begin{Prop}\label{Prop:Uniones_cerrados_Alexandroff}
@@ -11,17 +11,21 @@ Ahora damos ejemplos de espacios topológicos de Alexandroff.
    \phantom{o}
    \begin{itemize}
       \item Cualquier espacio finito es de Alexandroff.
-      \item Cualquier espacio con topología finita (en particular los espacios triviales) es de Alexandroff.
+      \item Cualquier espacio con topología finita es de Alexandroff, en particular los espacios triviales.
       \item Cualquier espacio discreto es de Alexandroff.
       \item $\mathbb{R}$ junto con la topología generada por la familia de intervalos $\left\lbrace [x,\infty)\mid x\in \mathbb{R}\right\rbrace$, llamada la topología de colas (a derecha) abiertas y cerradas, es un espacio de Alexandroff.
    \end{itemize}
 \end{Ejm}
 \begin{Def}
-   Sean $X$ un espacio topológico y $x\in X$. Decimos que una vecindad $V$ de $x$ es una \textbf{vecindad mínima} de $x$ si para cualquier otra vecidad $U$ de $x$ se tiene $V\subseteq U$. Igualmente, decimos que una base $\mathcal{B}$ de $X$ es una \textbf{base mínima} si para cualquier base $\mathcal{B}'$ de $X$ se tiene $\mathcal{B}\subseteq\mathcal{B}'$.
+   Sean $X$ un espacio topológico y $x\in X$. Decimos que una vecindad $V$ de $x$ es una \textbf{vecindad mínima} de $x$ si para cualquier vecidad $U$ de $x$ se tiene $V\subseteq U$. Igualmente, decimos que una base $\mathcal{B}$ de $X$ es una \textbf{base mínima}, si para cualquier base $\mathcal{B}'$ de $X$ se tiene $\mathcal{B}\subseteq\mathcal{B}'$.
+\end{Def}
+En la literatura de referencia para espacios de Alexandroff, como por ejemplo \cite{arenas1999} y \cite{speer2007}, se suelen usar las palabras vecindad \textit{minimal} (\textit{minimal neighborhood}, en inglés), en lugar de vecindad \textit{mínima}, y base \textit{minimal} (\textit{minimal base}, en inglés) en lugar de base \textit{mínima}. Sin embargo, en el presente trabajo optamos por tomar las acepciones clásicas que en teoría de retículos y teoría de conjuntos ordenados se hacen de \textit{elemento mínimo} (\textit{minimum element} o \textit{least element}, en inglés) y \textit{elemento minimal} (\textit{minimal element}, en inglés). Por ejemplo, \cite{davey2002} define:
+\begin{Def}
+    
 \end{Def}
 Una propiedad clave de los espacios de Alexandroff es que cada punto tiene una vecindad mínima, y cada espacio tiene una base mínima. Más precisamente:
 \begin{Prop}\label{Prop:Alexandroff_discreto}
-   Sea $X$ un espacio de Alexandroff. Para cada $x\in X$, la intersección de todas las vecindades de $x$ es una vecindad mínima de $x$, que denotamos por $U_x$. La colección $\mathcal{B}_{\operatorname{min}}=\left\lbrace U_x\mid x\in X\right\rbrace$ es una base mínima de $X$.
+   Sea $X$ un espacio de Alexandroff. Para cada $x\in X$, la intersección de todas las vecindades de $x$ es una vecindad mínima de $x$, que denotamos por $U_x$. La colección $\mathcal{B}_{\min}=\left\lbrace U_x\mid x\in X\right\rbrace$ es una base mínima de $X$.
 \end{Prop}
 Usando las vecindades mínimas podemos caracterizar los espacios de Alexandroff discretos de la siguiente manera.
 \begin{Prop}
@@ -31,27 +35,27 @@ Las vecindades y bases mínimas de un espacio de Alexandroff nos dan una condici
 \begin{Prop}\label{Prop:Conexo_Alexandroff}
    Sea $X$ un espacio de Alexandroff. Si existe $x\in X$ tal que:
    \begin{itemize}
-      \item $U_x$ es minimal en $\mathcal{B}_{\operatorname{min}}$, es decir, para todo $y\in X$, si $U_y\subseteq U_x$ entonces $U_x=U_y$, y,
-      \item $U_x$ es maximal en $\mathcal{B}_{\operatorname{min}}$, es decir, para todo $y\in X$, si $U_x\subseteq U_y$ entonces $U_x=U_y$,
+      \item $U_x$ es minimal en $\mathcal{B}_{\min}$, es decir, para todo $y\in X$, si $U_y\subseteq U_x$ entonces $U_x=U_y$, y,
+      \item $U_x$ es maximal en $\mathcal{B}_{\min}$, es decir, para todo $y\in X$, si $U_x\subseteq U_y$ entonces $U_x=U_y$,
    \end{itemize}
-   entonces $U_x$ es un clopen de $X$ y por tanto $X$ es disconexo.
+   entonces $U_x$ es un clopen de $X$ y por lo tanto, $X$ es disconexo.
 \end{Prop}
-Contar con una subbase de un espacio topológico nos permite ``ahorraronos trabajo'' para conocer si el espacio es de Alexandroff, pues para esto basta determinar si la intersección arbitraria de abiertos subbásicos es abierta. Más precisamente:
+Contar con una subbase de un espacio topológico nos permite ``ahorrar trabajo'' para conocer si el espacio es de Alexandroff, pues para esto basta determinar si la intersección arbitraria de abiertos subbásicos es abierta. Más precisamente:
 \begin{Prop}\label{Prop:Alexandroff_con_subbase}
    Sean $X$ un espacio topológico y $\mathcal{S}$ una subbase de $X$. Se tiene que $X$ es un espacio de Alexandroff si, y solo si, la intersección arbitraria de elementos de $\mathcal{S}$ es un abierto de $X$.
 \end{Prop}
 \begin{proof}
    $(\Rightarrow)$ Se sigue del hecho de que los elementos de $\mathcal{S}$ son abiertos de $X$.\\
-   $(\Leftarrow)$ Supongamos que la intersección arbitraria de elementos de $\mathcal{S}$ es un abierto de $X$. Sea $\left( U_i\right)_{i\in I}$ una colección cualquiera de abiertos de $X$ y llamemos $U:=\bigcap_{i\in I}U_i$. Usamos la \Cref{Prop:Caracterizacion_abiertos} para ver que $U \subseteqab X$. Sea $x\in U$ cualquiera. Sea $i\in I$ cualquiera. Tenemos que $x\in U_i$ y $U_i=\bigcup_{B\in A_i}B$ para algún $A_i\subseteq \mathcal{B}_{\mathcal{S}}$. De este modo $x\in B_i$ para algún $B_i\in A_i$. Como en particular $B_i\in \mathcal{B}_\mathcal{S}$ entonces existen $n_i\in \mathbb{Z}^+$ y $S_{i_j}\in \mathcal{S}$ para todo $j\in\left\lbrace 1,\dots ,n_i\right\rbrace$ tales que $B_i=\bigcap_{j=1}^{n_i}S_{i_j}$. Llamemos $V:=\bigcap_{i\in I}B_i=\bigcap_{i\in I}\left( \bigcap_{j=1}^{n_i}S_{i_j}\right)$. Como $V$ es una intersección de elementos de $\mathcal{S}$, se tiene $V\subseteqab X$. Como $x\in B_i$ para todo $i\in I$, entonces $x\in V$. Además, para todo $i\in I$, como $B_i\in A_i$, entonces $B_i\subseteq \bigcup_{B\in A_i}B=U_i$, luego $V=\bigcap_{i\in I}B_i\subseteq \bigcap_{i\in I}U_i=U$. Con esto, $U\subseteqab X$ y por tanto $X$ es un espacio de Alexandroff.
+   $(\Leftarrow)$ Supongamos que la intersección arbitraria de elementos de $\mathcal{S}$ es un abierto de $X$. Sea $\left\{ U_i\right\}_{i\in I}$ una colección de abiertos de $X$ y llamemos $U:=\bigcap_{i\in I}U_i$. Usamos la \Cref{Prop:Caracterizacion_abiertos} para ver que $U \subseteqab X$. Sea $x\in U$. Para cada $i\in I$ tenemos que $x\in U_i$ y $U_i=\bigcup_{B\in A_i}B$ para algún $A_i\subseteq \mathcal{B}_{\mathcal{S}}$. De este modo $x\in B_i$ para algún $B_i\in A_i$. Como en particular, $B_i\in \mathcal{B}_\mathcal{S}$ entonces existen $n_i\in \mathbb{Z}^+$ y $S_{i_j}\in \mathcal{S}$ para todo $j\in\left\lbrace 1,\dots ,n_i\right\rbrace$ tales que $B_i=\bigcap_{j=1}^{n_i}S_{i_j}$. Llamemos $V:=\bigcap_{i\in I}B_i=\bigcap_{i\in I}\left( \bigcap_{j=1}^{n_i}S_{i_j}\right)$. Como $V$ es una intersección de elementos de $\mathcal{S}$, se tiene que $V\subseteqab X$, por hipótesis. Como $x\in B_i$ para todo $i\in I$, entonces $x\in V$. Además, para todo $i\in I$, como $B_i\in A_i$, entonces $B_i\subseteq \bigcup_{B\in A_i}B=U_i$, luego $V=\bigcap_{i\in I}B_i\subseteq \bigcap_{i\in I}U_i=U$. Con esto, $U\subseteqab X$ y por tanto, $X$ es un espacio de Alexandroff.
 \end{proof}
 En un espacio de Alexandroff sí se tiene que la clausura ``respeta'' las uniones arbitrarias de subconjuntos, como lo muestra la siguiente proposición.
 \begin{Prop}\label{Prop:Alexandroff_clausura}
-   Sean $X$ un espacio de Alexandroff y $\left( A_i\right)_{i\in I}$ una colección cualquiera de subconjuntos de $X$. Entonces $\overline{\bigcup_{i\in I}A_i}=\bigcup_{i\in I}\overline{A_i}$. 
+   Sean $X$ un espacio de Alexandroff y $\left\{ A_i\right\}_{i\in I}$ una colección cualquiera de subconjuntos de $X$. Entonces $\overline{\bigcup_{i\in I}A_i}=\bigcup_{i\in I}\overline{A_i}$. 
 \end{Prop}
 \begin{proof}
    Por la \Cref{Prop:Clausura_uniones_finitas} se tiene $\bigcup_{i\in I}\overline{A_i}\subseteq \overline{\bigcup_{i\in I}A_i}$. Ahora, como $\overline{A_i}$ es cerrado para todo $i\in I$, y como $X$ es de Alexandroff, por la \Cref{Prop:Uniones_cerrados_Alexandroff} se tiene que $\bigcup_{i\in I}\overline{A_i}$ es cerrado. Además, para todo $i\in I$ se tiene $A_i\subseteq \overline{A_i}$, con lo cual $\bigcup_{i\in I}A_i\subseteq \bigcup_{i\in I}\overline{A_i}$. Por la definición de clausura de un conjunto se sigue que $\overline{\bigcup_{i\in I}A_i}\subseteq \bigcup_{i\in I}\overline{A_i}$, lo cual completa la prueba.
 \end{proof}
-La siguiente proposición nos habla sobre propiedades de separación en espacios de Alexandroff.
+La siguiente proposición nos presenta algunas características de las propiedades de separación en los espacios de Alexandroff.
 \begin{Prop}\label{Prop:Separacion_Alexandroff}
    Sea $X$ un espacio de Alexandroff.
    \begin{itemize}
@@ -64,24 +68,24 @@ El siguiente es un hecho bastante importante y útil de los espacios de Alexandr
    Sean $X$ y $Y$ espacios topológicos. Si $X$ es un espacio de Alexandroff y $X$ y $Y$ son homeomorfos, entonces $Y$ es también un espacio de Alexandroff. 
 \end{Prop}
 En otras palabras, ser de Alexandroff es una propiedad topológica.\\\\
-Por último, enunciamos una proposición que será utilizada más adelante.
+Por último, enunciamos y demostramos un resultado que será utilizado más adelante.
 \begin{Prop}
    Sea $X$ un espacio de Alexandroff. Tomemos 
    $$
-   \mathcal{B}:=\left\lbrace U_x\mid x\in X \text{ y }U_x\text{ es minimal en }\mathcal{B}_{\operatorname{min}}\right\rbrace.
+   \mathcal{B}:=\left\lbrace U_x\mid x\in X \text{ y }U_x\text{ es minimal en }\mathcal{B}_{\min}\right\rbrace.
    $$
    Si $A$ es un subconjunto denso minimal de $X$ entonces existe una función sobreyectiva $f:\mathcal{B}\to A$ tal que $f\left( U_x\right)\in U_x$ para todo $U_x\in \mathcal{B}$. En particular,
          $$
-         A\subseteq\left\lbrace x\in X\mid U_x \text{ es minimal en }\mathcal{B}_{\operatorname{min}}\right\rbrace.
+         A\subseteq\left\lbrace x\in X\mid U_x \text{ es minimal en }\mathcal{B}_{\min}\right\rbrace.
          $$
    Además, si $A$ y $A'$ son subconjuntos densos minimales de $X$ entonces $|A|=|A'|$.
 \end{Prop}
 \begin{proof}
-   Sea $A$ un subconjunto denso minimal de $X$. Sea $U_x\in\mathcal{B}$. Como $x\in U_x\subseteqab X$ y $x\in X=\overline{A}$, entonces $U_x\cap A\ne\emptyset$, de modo que existe $x^*\in U_x\cap A$. Sea $y\in U_x\cap A$. Como $A\setminus\{y\}\subsetneq A$, entonces $A\setminus\{y\}$ no es denso en $X$, con lo cual existen $z\in X$ y $V$ vecindad de $z$ con $V\cap\left( A\setminus\{y\}\right)=\emptyset$. Pero $z\in X=\overline{A}$, luego $V\cap A\ne\emptyset$, con lo cual $V\cap A=\{y\}$. Como $y\in U_x\subseteqab X$, entonces $U_y\subseteq U_x$; como $U_x$ es minimal en $\mathcal{B}_{\operatorname{min}}$, entonces $U_y=U_x$. Notemos que $y\in V\subseteqab X$, luego $U_x=U_y\subseteq V$. Así, $x^*\in U_x\cap A\subseteq V\cap A=\{y\}$, y por tanto $y=x^*$. Obtenemos así que $U_x\cap A=\{x^*\}$. Entonces definimos $f:\mathcal{B}\to A$ mediante $f(U_x)=x^*$ para cada $U_x\in\mathcal{B}$. Veamos que $f$ es sobreyectiva. Sea $a\in A$. Como $A\setminus\{a\}\subsetneq A$, se tiene que $A\setminus\{a\}$ no es denso en $X$, de modo que existen $z\in X$ y $V$ vecindad de $z$, con $V\cap\left( A\setminus\{a\}\right)=\emptyset$. Pero $z\in X=\overline{A}$, luego $V\cap A\ne\emptyset$, de modo que $V\cap A=\{a\}$. Como $a\in V$ entonces $U_a\subseteq V$. Sea $U_x\in\mathcal{B}_{\operatorname{min}}$ con $U_x\subseteq U_a$. Tenemos $x\in U_x\subseteqab X$ y $x\in X=\overline{A}$, luego $U_x\cap A\ne\emptyset$. Así, existe $w\in U_x\cap A\subseteq U_a\cap A\subseteq V\cap A=\{a\}$, es decir, $a=w\in U_x$, luego $U_a\subseteq U_x$ y $U_x=U_a$. Por tanto, $U_a$ es minimal en $\mathcal{B}_{\operatorname{min}}$, es decir, $U_a\in\mathcal{B}$. Como $a\in U_a\cap A=\{a^*\}$, entonces $a=a^*=f(U_a)$, de modo que $f$ es sobreyectiva. Tenemos además que, para cualquier $U_x\in\mathcal{B}$, $f(U_x)=x^*\in U_x\cap A$, y por tanto $f(U_x)\in U_x$. También, como vimos, si $a\in A$ entonces $U_a\in\mathcal{B}$, luego $U_a$ es minimal en $\mathcal{B}_{\operatorname{min}}$. Por tanto,
+   Sea $A$ un subconjunto denso minimal de $X$. Sea $U_x\in\mathcal{B}$. Como $x\in U_x\subseteqab X$ y $x\in X=\overline{A}$, entonces $U_x\cap A\ne\emptyset$, de modo que existe $x^*\in U_x\cap A$. Sea $y\in U_x\cap A$. Como $A\setminus\{y\}\subsetneq A$, entonces $A\setminus\{y\}$ no es denso en $X$, con lo cual existen $z\in X$ y $V$ vecindad de $z$ con $V\cap\left( A\setminus\{y\}\right)=\emptyset$. Pero $z\in X=\overline{A}$, luego $V\cap A\ne\emptyset$, con lo cual $V\cap A=\{y\}$. Como $y\in U_x\subseteqab X$, entonces $U_y\subseteq U_x$; como $U_x$ es minimal en $\mathcal{B}_{\min}$, entonces $U_y=U_x$. Notemos que $y\in V\subseteqab X$, luego $U_x=U_y\subseteq V$. Así, $x^*\in U_x\cap A\subseteq V\cap A=\{y\}$, y por tanto $y=x^*$. Obtenemos así que $U_x\cap A=\{x^*\}$. Entonces definimos $f:\mathcal{B}\to A$ mediante $f(U_x)=x^*$ para cada $U_x\in\mathcal{B}$. Veamos que $f$ es sobreyectiva. Sea $a\in A$. Como $A\setminus\{a\}\subsetneq A$, se tiene que $A\setminus\{a\}$ no es denso en $X$, de modo que existen $z\in X$ y $V$ vecindad de $z$, con $V\cap\left( A\setminus\{a\}\right)=\emptyset$. Pero $z\in X=\overline{A}$, luego $V\cap A\ne\emptyset$, de modo que $V\cap A=\{a\}$. Como $a\in V$ entonces $U_a\subseteq V$. Sea $U_x\in\mathcal{B}_{\min}$ con $U_x\subseteq U_a$. Tenemos $x\in U_x\subseteqab X$ y $x\in X=\overline{A}$, luego $U_x\cap A\ne\emptyset$. Así, existe $w\in U_x\cap A\subseteq U_a\cap A\subseteq V\cap A=\{a\}$, es decir, $a=w\in U_x$, luego $U_a\subseteq U_x$ y $U_x=U_a$. Por tanto, $U_a$ es minimal en $\mathcal{B}_{\min}$, es decir, $U_a\in\mathcal{B}$. Como $a\in U_a\cap A=\{a^*\}$, entonces $a=a^*=f(U_a)$, de modo que $f$ es sobreyectiva. Tenemos además que, para cualquier $U_x\in\mathcal{B}$, $f(U_x)=x^*\in U_x\cap A$, y por tanto $f(U_x)\in U_x$. También, como vimos, si $a\in A$ entonces $U_a\in\mathcal{B}$, luego $U_a$ es minimal en $\mathcal{B}_{\min}$. Por tanto,
    $$
-   A\subseteq\left\lbrace x\in X\mid U_x\text{ es minimal en }\mathcal{B}_{\operatorname{min}}\right\rbrace.
+   A\subseteq\left\lbrace x\in X\mid U_x\text{ es minimal en }\mathcal{B}_{\min}\right\rbrace.
    $$
-   Ahora, notemos que si $U_x,U_y\in\mathcal{B}$ con $f(U_x)=f(U_y)$, como $f(U_x)\in U_x$ y $f(U_y)\in U_y$, se tiene $U_x\cap U_y\ne\emptyset$. Así, existe $z\in U_x$ con $z\in U_y$. Como $U_x$ y $U_y$ son abiertos, se tiene $U_z\subseteq U_x$ y $U_z\subseteq U_y$. Por la minimalidad de $U_x$ y $U_y$ en $\mathcal{B}_{\operatorname{min}}$ se sigue que $U_x=U_z=U_y$. Por tanto $f$ es inyectiva. Así, $f$ es biyectiva y $|\mathcal{B}|=|A|$, con $A$ un subconjunto denso minimal de $X$ arbitrario. Por tanto, si $A$ y $A'$ son subconjuntos densos minimales de $X$ entonces $|A|=|\mathcal{B}|=|A'|$.
+   Ahora, notemos que si $U_x,U_y\in\mathcal{B}$ con $f(U_x)=f(U_y)$, como $f(U_x)\in U_x$ y $f(U_y)\in U_y$, se tiene $U_x\cap U_y\ne\emptyset$. Así, existe $z\in U_x$ con $z\in U_y$. Como $U_x$ y $U_y$ son abiertos, se tiene $U_z\subseteq U_x$ y $U_z\subseteq U_y$. Por la minimalidad de $U_x$ y $U_y$ en $\mathcal{B}_{\min}$ se sigue que $U_x=U_z=U_y$. Por tanto $f$ es inyectiva. Así, $f$ es biyectiva y $|\mathcal{B}|=|A|$, con $A$ un subconjunto denso minimal de $X$ arbitrario. Por tanto, si $A$ y $A'$ son subconjuntos densos minimales de $X$ entonces $|A|=|\mathcal{B}|=|A'|$.
 \end{proof}
 \vspace{1em}
 {\color[HTML]{188539}
