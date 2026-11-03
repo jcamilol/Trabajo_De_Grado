@@ -19,10 +19,15 @@ Ahora damos ejemplos de espacios topológicos de Alexandroff.
 \begin{Def}
    Sean $X$ un espacio topológico y $x\in X$. Decimos que una vecindad $V$ de $x$ es una \textbf{vecindad mínima} de $x$ si para cualquier vecidad $U$ de $x$ se tiene $V\subseteq U$. Igualmente, decimos que una base $\mathcal{B}$ de $X$ es una \textbf{base mínima}, si para cualquier base $\mathcal{B}'$ de $X$ se tiene $\mathcal{B}\subseteq\mathcal{B}'$.
 \end{Def}
-En la literatura de referencia para espacios de Alexandroff, como por ejemplo \cite{arenas1999} y \cite{speer2007}, se suelen usar las palabras vecindad \textit{minimal} (\textit{minimal neighborhood}, en inglés), en lugar de vecindad \textit{mínima}, y base \textit{minimal} (\textit{minimal base}, en inglés) en lugar de base \textit{mínima}. Sin embargo, en el presente trabajo optamos por tomar las acepciones clásicas que en teoría de retículos y teoría de conjuntos ordenados se hacen de \textit{elemento mínimo} (\textit{minimum element} o \textit{least element}, en inglés) y \textit{elemento minimal} (\textit{minimal element}, en inglés). Por ejemplo, \cite{davey2002} define:
+En la literatura de referencia para espacios de Alexandroff, como por ejemplo \cite{arenas1999} y \cite{speer2007}, se suelen usar las palabras vecindad \textit{minimal} (\textit{minimal neighborhood}, en inglés), en lugar de vecindad \textit{mínima}, y base \textit{minimal} (\textit{minimal base}, en inglés), en lugar de base \textit{mínima}. Sin embargo, optamos por tomar las acepciones clásicas que en teoría de conjuntos ordenados se hacen de \textit{elemento mínimo} (\textit{least element}, en inglés) y \textit{elemento minimal} (\textit{minimal element}, en inglés). Por ejemplo, \cite{bloch2011} define:
 \begin{Def}
-    
+   Sean $(A,\preccurlyeq)$ un conjunto parcialmente ordenado, y $a\in A$. Se dice que $a$ es un \textbf{elemento mínimo} de $A$ si $a\preccurlyeq x$ para todo $x\in A$. Se dice que $a$ es un \textbf{elemento minimal} de $A$ si no existe $x\in A$ tal que $x\preccurlyeq a$ y $a\ne x$. 
 \end{Def}
+Esta decisión se toma porque a lo largo del presente trabajo nos reservamos el término \textit{minimal} para usarlo en este sentido, como lo hacemos en las Definiciones \ref{Def:cortes} y \ref{Def:denso_minimal}, y más adelante en las Proposiciones \ref{Prop:Conexo_Alexandroff} y \ref{Prop:cardinal_densos_minimales}.\\\\ 
+Los principales órdenes parciales que acá tenemos en cuenta son aquellos que surgen de considerar conjuntos, espacios topológicos, o colecciones de grafos, ordenados por la contenencia. Nótese que en cualquier conjunto parcialmente ordenado $(A,\preccurlyeq)$, si $a$ es un mínimo de $A$, entonces $a$ es un elemento minimal de $A$, ya que para cualquier $x\in A$ con $x\preccurlyeq a$, por la minimalidad de $a$ se tiene que $a\preccurlyeq x$, y por la antisimetría de $\preccurlyeq$ se sigue que $x=a$. Sin embargo, ser elemento minimal no implica ser elemento mínimo. Por nombrar un caso, en la colección de subconjuntos no vacíos de $\mathbb{R}$, ordenada por la contenencia, se tiene que $\{0\}$ es un elemento minimal, pues ningún subconjunto no vacío de $\mathbb{R}$ está propiamente contenido en él. Sin embargo, $\{0\}$ no es un elemento mínimo, pues, por ejemplo, $\{0\}\nsubseteq \{1\}$. Puede verse que cualquier colección de conjuntos que contenga a $\emptyset$, oredenada por la contenencia, tiene a $\emptyset$ como elemento mínimo. A continuación mostramos algunas vecindades mínimas y bases mínimas en un par de espacios de Alexandroff.
+\begin{Ejm}
+   En cualquier espacio discreto $X$, se tiene que $\{x\}$ es una vecindad mínima de cualquier $x\in X$, y el conjunto $\{\{x\}\mid x\in X\}$ es una base mínima de $X$. En $\mathbb{R}$ dotado de la topología de colas (a derecha) abiertas y cerradas, $[x,\infty)$ es una vecindad mínima de $x$, y el conjunto $\{[x,\infty)\mid x\in \mathbb{R}\}$ es una base mínima de este espacio. 
+\end{Ejm}
 Una propiedad clave de los espacios de Alexandroff es que cada punto tiene una vecindad mínima, y cada espacio tiene una base mínima. Más precisamente:
 \begin{Prop}\label{Prop:Alexandroff_discreto}
    Sea $X$ un espacio de Alexandroff. Para cada $x\in X$, la intersección de todas las vecindades de $x$ es una vecindad mínima de $x$, que denotamos por $U_x$. La colección $\mathcal{B}_{\min}=\left\lbrace U_x\mid x\in X\right\rbrace$ es una base mínima de $X$.
@@ -69,7 +74,7 @@ El siguiente es un hecho bastante importante y útil de los espacios de Alexandr
 \end{Prop}
 En otras palabras, ser de Alexandroff es una propiedad topológica.\\\\
 Por último, enunciamos y demostramos un resultado que será utilizado más adelante.
-\begin{Prop}
+\begin{Prop}\label{Prop:cardinal_densos_minimales}
    Sea $X$ un espacio de Alexandroff. Tomemos 
    $$
    \mathcal{B}:=\left\lbrace U_x\mid x\in X \text{ y }U_x\text{ es minimal en }\mathcal{B}_{\min}\right\rbrace.
