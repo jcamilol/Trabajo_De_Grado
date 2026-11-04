@@ -172,7 +172,7 @@ Como consecuencia inmediata de lo anterior tenemos que si dos grafos son isomorf
    Por el \Cref{Cor:Inversa_isomorfismo} se tiene que $\varphi^{-1}$ es un isomorfismo de $G_2$ en $G_1$. El resultado se sigue de la \Cref{Prop:Isomorfismo_continua} aplicada a $\varphi$ y $\varphi^{-1}$.
 \end{proof}
 \begin{Obs}
-   No se tiene en cambio la implicación de que grafos con espacios de adyacencia homeomorfos sean isomorfos. Por ejemplo, por la \Cref{Prop:Calculo_topologias_adyacencia}, las topologías de adyacencia de $K^5$ y $C^5$ son ambas discretas; como además $|V\left( K^5\right)|=5=|V\left( C^5\right)|$ entonces, por el \Cref{Ejm:homeomorfismos}, se tiene que $\left( V\left( K^5\right),\tau_{\mathcal{A},K^5}\right)$ y $\left( V\left( C^5\right),\tau_{\mathcal{A},C^5}\right)$ son homeomorfos. Sin embargo, por el \Cref{Cor:Isomorfismo_grado_iguales}, como $K^5$ tiene un vértice de grado $5$, mientras que $C^5$ no lo tiene, sabemos que $K^5$ y $C^5$ no son isomorfos. También podemos construir dos grafos infinitos no isomorfos con espacios de adyacencia isomorfos de la siguiente manera: sea $P$ el grafo sobre $V:=\{v_i\mid i\in\mathbb{N}\}$ dado por $E(P)=\{v_iv_{i+1}\mid i\in \mathbb{N}\}$.
+   No se tiene en cambio la implicación de que grafos con espacios de adyacencia homeomorfos sean isomorfos. Por ejemplo, por la \Cref{Prop:Calculo_topologias_adyacencia}, las topologías de adyacencia de $K^5$ y $C^5$ son ambas discretas; como además $|V\left( K^5\right)|=5=|V\left( C^5\right)|$ entonces, por el \Cref{Ejm:homeomorfismos}, se tiene que $\left( V\left( K^5\right),\tau_{\mathcal{A},K^5}\right)$ y $\left( V\left( C^5\right),\tau_{\mathcal{A},C^5}\right)$ son homeomorfos. Sin embargo, por el \Cref{Cor:Isomorfismo_grados_iguales}, como $K^5$ tiene un vértice de grado $5$, mientras que $C^5$ no lo tiene, sabemos que $K^5$ y $C^5$ no son isomorfos. También podemos construir dos grafos infinitos no isomorfos con espacios de adyacencia isomorfos de la siguiente manera: sea $P$ el grafo sobre $V:=\{v_i\mid i\in\mathbb{N}\}$ dado por $E(P)=\{v_iv_{i+1}\mid i\in \mathbb{N}\}$.
    \begin{figure}[H]
      \centering
        \resizebox{0.45\textwidth}{!}{\input{Topologia_Adyacencia/Diagramas/Diag5.tex}} 
@@ -184,8 +184,8 @@ Como consecuencia inmediata de lo anterior tenemos que si dos grafos son isomorf
    Veamos que tanto $G_1$ como $G_2$ tienen topología de adyacencia discreta.
    \begin{itemize}
       \item[$G_1$:] Sea $i\in\{1,2,\dots,n-1\}$. Tenemos
-         $$
-         \begin{aligned}
+         \begin{ceqn}
+         \begin{align*}
             U_{y_i} &= \bigcap_{w\in A_{y_i}}A_w \\
                     &\phantom{=} \text{(\Cref{Prop:U_x_2})} \\
                     &= A_{v_0}\cap \left( \bigcap_{\substack{1\le j\le n-1 \\ j\ne i}}A_{y_j}\right)\\
@@ -194,29 +194,29 @@ Como consecuencia inmediata de lo anterior tenemos que si dos grafos son isomorf
                     &= A_{v_0}\cap \{v_0,y_i\}\\
                     &= \{v_1,y_1,y_2,\dots ,y_{n-1}\}\cap\{v_0,y_i\}\\
                     &= \{y_i\}.
-         \end{aligned}
-         $$
+         \end{align*}
+         \end{ceqn}
          Para cualquier $i\in\{2,3,\dots\}$ tenemos
-         $$
-         \begin{aligned}
+         \begin{ceqn}
+         \begin{align*}
             U_{v_i} &= \bigcap_{w\in A_{v_i}}A_w \\
                     &= A_{v_{i-1}}\cap A_{v_{i+1}} \\
                     &= \{v_{i-2},v_i\}\cap\{v_i,v_{i+2}\}\\
                     &= \{v_i\}.
-         \end{aligned}
-         $$
+         \end{align*}
+         \end{ceqn}
          Además
-         $$
-         \begin{aligned}
+         \begin{ceqn}
+         \begin{align*}
             U_{v_1} &= \bigcap_{w\in A_{v_1}}A_w \\
                     &= A_{v_0}\cap A_{v_2}\\
                     &= \{v_1,y_1,y_2,\dots ,y_{n-1}\}\cap\{v_1,v_3\}\\
                     &= \{v_1\},
-         \end{aligned}
-         $$
+         \end{align*}
+         \end{ceqn}
          y
-         $$
-         \begin{aligned}
+         \begin{ceqn}
+         \begin{align*}
             U_{v_0} &= \bigcap_{w\in A_{v_0}}A_w \\
                     &= \left( \bigcap_{i=1}^{n-1} A_{y_i}\right)\cap A_{v_1} \\
                     &= \left( \bigcap_{i=1}^{n-1} \left( V^*\setminus \{y_i\}\right)\right) \cap A_{v_1} \\
@@ -224,54 +224,54 @@ Como consecuencia inmediata de lo anterior tenemos que si dos grafos son isomorf
                     &= \{v_0\}\cap A_{v_1} \\
                     &= \{v_0\}\cap \{v_0,v_2\} \\
                     &= \{v_0\}.
-         \end{aligned}
-         $$
-         Por lo tanto, de la \Cref{Prop:U_x=ximplicadiscreto} se tiene que $(V(G_1),\tau_{\mathcal{A},G_1})$ es un espacio discreto.
+         \end{align*}
+         \end{ceqn}
+         Por lo tanto, de la \Cref{Prop:Alexandroff_discreto} se tiene que $(V(G_1),\tau_{\mathcal{A},G_1})$ es un espacio discreto.
       \item[$G_2$:] De forma análoga a como se hizo para $G_1$ se tiene que $U_{v_i}=\{v_i\}$ para todo $i\in\{2,3,\dots\}$. Sea $i\in\{2,3,\dots ,n-2\}$. Denotemos $y_0=v_0$. Entonces:
-         $$
-         \begin{aligned}
+         \begin{ceqn}
+         \begin{align*}
             U_{y_i} &= \bigcap_{w\in A_{y_i}}A_w \\
                     &= A_{y_{i-1}}\cap A_{y_{i+1}} \\
                     &= \{y_{i-2},y_i\}\cap \{y_i, y_{(i+2)\bmod n}\} \\
                     &= \{y_i\},
-         \end{aligned}
-         $$
+         \end{align*}
+         \end{ceqn}
          pues como $n\ge 5$ y $2\le i\le n-2$ entonces $i-2\ne (i+2)\bmod n$ y $y_{i-2}\ne y_{(i+2)\bmod n}$. Además,
-         $$
-         \begin{aligned}
+         \begin{ceqn}
+         \begin{align*}
             U_{y_1} &= \bigcap_{w\in A_{y_1}}A_w \\
                     &= A_{v_0}\cap A_{y_2} \\
                     &= \{v_1,y_1,y_{n-1}\} \cap \{y_1,y_3\} \\
                     &= \{y_1\},
-         \end{aligned}
-         $$
+         \end{align*}
+         \end{ceqn}
          pues $n-1\ge 4$, luego $y_{n-1}\ne y_3$. También,
-         $$
-         \begin{aligned}
+         \begin{ceqn}
+         \begin{align*}
             u_{y_{n-1}} &= \bigcap_{w\in A_{y_{n-1}}}A_w \\
                         &= A_{v_0}\cap A_{y_{n-2}} \\
                         &= \{v_1,y_1,y_{n-1}\}\cap \{y_{n-1},y_{n-3}\} \\
                         &= \{y_{n-1}\},
-         \end{aligned}
-         $$
+         \end{align*}
+         \end{ceqn}
          pues $n-3\ge 2$, luego $y_{n-3}\ne y_1$. Por último,
-         $$
-         \begin{aligned}
+         \begin{ceqn}
+         \begin{align*}
             U_{v_0} &= \bigcap_{w\in A_{v_0}}A_w \\
                     &= A_{v_1}\cap A_{y_1}\cap A_{y_{n-1}} \\
                     &= \{v_0, v_2\}\cap \{v_0,y_2\}\cap \{v_0,y_{n-1}\} \\
                     &= \{v_0\},
-         \end{aligned}
-         $$
+         \end{align*}
+         \end{ceqn}
          y
-         $$
-         \begin{aligned}
+         \begin{ceqn}
+         \begin{align*}
             U_{v_1} &= \bigcap_{w\in A_{v_1}}A_w \\
                     &= A_{v_0}\cap A_{v_2} \\
                     &= \{v_1,y_1,y_{n-1}\}\cap \{v_1,v_3\} \\
                     &= \{v_1\}.
-         \end{aligned}
-         $$
+         \end{align*}
+         \end{ceqn}
          Por lo tanto, de la \Cref{Prop:Alexandroff_discreto} se tiene que $(V(G_2),\tau_{\mathcal{A},G_2})$ es un espacio discreto.
    \end{itemize}
    Como $(V(G_1),\tau_{\mathcal{A},G_1})$ y $(V(G_2),\tau_{\mathcal{A},G_2})$ son espacios discretos y $|V(G_1)|=|V(G_2)|$, entonces por el \Cref{Ejm:homeomorfismos} se tiene que  $(V(G_1),\tau_{\mathcal{A},G_1})$ y $(V(G_2),\tau_{\mathcal{A},G_2})$ son homeomorfos. Sin embargo $G_1$ tiene un vértice de grado $n$, mientras que $G_2$ no lo tiene, así que por el \Cref{Cor:Isomorfismo_grados_iguales} se tiene que $G_1$ y $G_2$ no son isomorfos.
@@ -293,7 +293,7 @@ Como consecuencia inmediata de lo anterior tenemos que si dos grafos son isomorf
    Sean $G=(V,E)$ un grafo y $L:=\{x\in V\mid \operatorname{deg}(v)=\delta(G)\}$. Entonces $L$ es cerrado en $(V,\tau_{\mathcal{A},G})$. 
 \end{Prop}
 \begin{proof}
-   Por la \Cref{Prop:Alexandroff_clausura} se tiene $\overline{L}=\overline{\bigcup_{x\in L}\{x\}}=\bigcup_{x\in L}\overline{\{x\}}$. Sea $y\in \overline{L}$. Entonces existe $x\in L$ tal que $y\in\overline{\{x\}}$. Por el \Cref{Cor:Clausura_unitario} se tiene $A_y\subseteq A_x$. Con esto, $\delta (G)\le \operatorname{deg}(y)=|A_y|\le |A_x|=\delta (G)$ y por tanto $\operatorname{deg}(y)=\delta(G)$, es decir, $y\in L$. Obtenemos que $\overline{L}\subseteq L$. Como además $L\subseteq\overline{L}$, entonces $L=\overline{L}$, y por la \Cref{Prop:Caracterizacion_abierto_cerrado} se sigue que $L$ es cerrado en $(V,\tau_{\mathcal{A},G})$.
+   Por la \Cref{Prop:Alexandroff_clausura} se tiene $\overline{L}=\overline{\bigcup_{x\in L}\{x\}}=\bigcup_{x\in L}\overline{\{x\}}$. Sea $y\in \overline{L}$. Entonces existe $x\in L$ tal que $y\in\overline{\{x\}}$. Por el \Cref{Cor:Clausura_unitario} se tiene $A_y\subseteq A_x$. Con esto, $\delta (G)\le \operatorname{deg}(y)=|A_y|\le |A_x|=\delta (G)$ y por tanto $\operatorname{deg}(y)=\delta(G)$, es decir, $y\in L$. Obtenemos que $\overline{L}\subseteq L$. Como además $L\subseteq\overline{L}$, entonces $L=\overline{L}$, y por la \Cref{Prop:Carac_abierto_cerrado} se sigue que $L$ es cerrado en $(V,\tau_{\mathcal{A},G})$.
 \end{proof}
 \begin{Lema}\label{Lema:x_x}
    Sean $G$ un grafo y $x\in V(G)$ un vértice de corte de $G$. Entonces existen $y_1,y_2\in A_x$ y $D_1,D_2$ componentes distintas de $G-\{x\}$ tales que $y_1\in V(D_1)$ y $y_2\in V(D_2)$.
