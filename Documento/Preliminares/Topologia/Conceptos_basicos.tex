@@ -82,6 +82,7 @@ Con lo anterior se tiene que $\mathcal{B}$ es base para $\tau$ si, y solo si, cu
 \begin{Def}
    Sean $X$ un conjunto y $\mathcal{S}$ una colección de subconjuntos de $X$. Decimos que $\mathcal{S}$ es \textbf{subbase para una topología} sobre $X$ si $X=\bigcup \mathcal{S}$. 
 \end{Def}
+Notemos que por el ítem 3. de la \Cref{Prop:Caracterizacion_base}, toda base de una topología es en particular una subbase.
 \begin{Prop}
    Sean $X$ un conjunto y $\mathcal{S}$ una subbase para una topología sobre $X$. Entonces $\mathcal{B}_\mathcal{S}$, la colección de todas las intersecciones finitas no vacías de elementos de $\mathcal{S}$, es base para una topología sobre $X$.
 \end{Prop}
@@ -148,7 +149,7 @@ En general, solo se tiene un contenencia:
    Sea $X$ un espacio topológico. Para cualquier colección $\left( U_i\right)_{i\in I}$ de subconjuntos abiertos de $X$ se tiene $\bigcup_{i\in I}\overline{U_i}\subseteq \overline{\bigcup_{i\in I}U_i}$.
 \end{Prop}
 La \Cref{Def:Int_Cl} junto con las siguiente proposición nos permite caracterizar los subconjuntos abiertos y cerrados de un espacio topológico.
-\begin{Prop}\label{Carac_abierto_cerrado}
+\begin{Prop}\label{Prop:Carac_abierto_cerrado}
    Sean $X$ un espacio topológico y $A\subseteq X$. Se tiene que $A\subseteqab X$ si, y solo si, $A=\operatorname{Int}A$, y $A\subseteqcer X$ si, y solo si, $A=\overline{A}$. 
 \end{Prop}
 La siguiente proposición nos da algunas caracterizaciones para que un elemento de un espacio topológico sea un punto de adherencia de un subconjunto.
@@ -190,7 +191,7 @@ Dos propiedades de gran interés al trabajar con espacios topológicos son la \t
    Sea $X$ un espacio topológico. Una \textbf{separación} de $X$ es un par $\{U,V\}$ de subconjuntos abiertos de $X$, no vacíos y disyuntos, tales que $U\cup V=X$. El espacio $X$ se dice \textbf{conexo} si no existe ninguna separación de $X$. En caso contrario decimos que $X$ es \textbf{disconexo}.
 \end{Def}
 Una forma equivalente de \textit{conexidad} se presenta en la siguiente caracterización.
-\begin{Prop}
+\begin{Prop}\label{Prop:Caracterizacion_conexo}
    Un espacio topológico $X$ es conexo si, y solo si, los únicos subconjuntos clopen de $X$ son $\emptyset$ y $X$. 
 \end{Prop}
 \begin{Ejm}

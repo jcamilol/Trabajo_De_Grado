@@ -40,15 +40,6 @@ Usando las vecindades mínimas podemos caracterizar los espacios de Alexandroff 
 \begin{Prop}
    Sea $X$ un espacio de Alexandroff. Entonces $X$ es discreto si, y solo si, $U_x=\{x\}$ para todo $x\in X$. 
 \end{Prop}
-Las vecindades y bases mínimas de un espacio de Alexandroff nos dan una condición suficiente para que el espacio sea disconexo, como lo muestra la siguiente proposición, cuya prueba puede encontrarse en \cite{jafarian2013}.
-\begin{Prop}\label{Prop:Conexo_Alexandroff}
-   Sea $X$ un espacio de Alexandroff. Si existe $x\in X$ tal que:
-   \begin{itemize}
-      \item $U_x$ es minimal en $\mathcal{B}_{\min}$, es decir, para todo $y\in X$, si $U_y\subseteq U_x$ entonces $U_x=U_y$, y,
-      \item $U_x$ es maximal en $\mathcal{B}_{\min}$, es decir, para todo $y\in X$, si $U_x\subseteq U_y$ entonces $U_x=U_y$,
-   \end{itemize}
-   entonces $U_x$ es un clopen de $X$ y por lo tanto, $X$ es disconexo.
-\end{Prop}
 Contar con una subbase de un espacio topológico nos permite ``ahorrar trabajo'' para conocer si el espacio es de Alexandroff, pues para esto basta determinar si la intersección arbitraria de abiertos subbásicos es abierta. Más precisamente:
 \begin{Prop}\label{Prop:Alexandroff_con_subbase}
    Sean $X$ un espacio topológico y $\mathcal{S}$ una subbase de $X$. Se tiene que $X$ es un espacio de Alexandroff si, y solo si, la intersección arbitraria de elementos de $\mathcal{S}$ es un abierto de $X$.
@@ -57,6 +48,7 @@ Contar con una subbase de un espacio topológico nos permite ``ahorrar trabajo''
    $(\Rightarrow)$ Se sigue del hecho de que los elementos de $\mathcal{S}$ son abiertos de $X$.\\
    $(\Leftarrow)$ Supongamos que la intersección arbitraria de elementos de $\mathcal{S}$ es un abierto de $X$. Sea $\left\{ U_i\right\}_{i\in I}$ una colección de abiertos de $X$ y llamemos $U:=\bigcap_{i\in I}U_i$. Usamos la \Cref{Prop:Caracterizacion_abiertos} para ver que $U \subseteqab X$. Sea $x\in U$. Para cada $i\in I$ tenemos que $x\in U_i$ y $U_i=\bigcup_{B\in A_i}B$ para algún $A_i\subseteq \mathcal{B}_{\mathcal{S}}$. De este modo $x\in B_i$ para algún $B_i\in A_i$. Como en particular, $B_i\in \mathcal{B}_\mathcal{S}$ entonces existen $n_i\in \mathbb{Z}^+$ y $S_{i_j}\in \mathcal{S}$ para todo $j\in\left\lbrace 1,\dots ,n_i\right\rbrace$ tales que $B_i=\bigcap_{j=1}^{n_i}S_{i_j}$. Llamemos $V:=\bigcap_{i\in I}B_i=\bigcap_{i\in I}\left( \bigcap_{j=1}^{n_i}S_{i_j}\right)$. Como $V$ es una intersección de elementos de $\mathcal{S}$, se tiene que $V\subseteqab X$, por hipótesis. Como $x\in B_i$ para todo $i\in I$, entonces $x\in V$. Además, para todo $i\in I$, como $B_i\in A_i$, entonces $B_i\subseteq \bigcup_{B\in A_i}B=U_i$, luego $V=\bigcap_{i\in I}B_i\subseteq \bigcap_{i\in I}U_i=U$. Con esto, $U\subseteqab X$ y por tanto, $X$ es un espacio de Alexandroff.
 \end{proof}
+Como una base de un espacio tolpológico es en particular una subbase, la \Cref{Prop:Alexandroff_con_subbase} también puede aplicarse cuando conocemos una base del espacio en cuestión.\\\\
 En un espacio de Alexandroff sí se tiene que la clausura ``respeta'' las uniones arbitrarias de subconjuntos, como lo muestra la siguiente proposición.
 \begin{Prop}\label{Prop:Alexandroff_clausura}
    Sean $X$ un espacio de Alexandroff y $\left\{ A_i\right\}_{i\in I}$ una colección cualquiera de subconjuntos de $X$. Entonces $\overline{\bigcup_{i\in I}A_i}=\bigcup_{i\in I}\overline{A_i}$. 
@@ -64,6 +56,20 @@ En un espacio de Alexandroff sí se tiene que la clausura ``respeta'' las unione
 \begin{proof}
    Por la \Cref{Prop:Clausura_uniones_finitas} se tiene $\bigcup_{i\in I}\overline{A_i}\subseteq \overline{\bigcup_{i\in I}A_i}$. Ahora, como $\overline{A_i}$ es cerrado para todo $i\in I$, y como $X$ es de Alexandroff, por la \Cref{Prop:Uniones_cerrados_Alexandroff} se tiene que $\bigcup_{i\in I}\overline{A_i}$ es cerrado. Además, para todo $i\in I$ se tiene $A_i\subseteq \overline{A_i}$, con lo cual $\bigcup_{i\in I}A_i\subseteq \bigcup_{i\in I}\overline{A_i}$. Por la definición de clausura de un conjunto se sigue que $\overline{\bigcup_{i\in I}A_i}\subseteq \bigcup_{i\in I}\overline{A_i}$, lo cual completa la prueba.
 \end{proof}
+Las vecindades y bases mínimas de un espacio de Alexandroff nos dan una condición suficiente para que el espacio sea disconexo, como lo muestra la siguiente proposición.
+\begin{Prop}\label{Prop:Conexo_Alexandroff}
+   Sea $X$ un espacio de Alexandroff. Si existe $x\in X$ tal que:
+   \begin{itemize}
+      \item $U_x$ es minimal en $\mathcal{B}_{\min}$, es decir, para todo $y\in X$, si $U_y\subseteq U_x$ entonces $U_x=U_y$, y,
+      \item $U_x$ es maximal en $\mathcal{B}_{\min}$, es decir, para todo $y\in X$, si $U_x\subseteq U_y$ entonces $U_x=U_y$,
+   \end{itemize}
+   entonces $U_x$ es un clopen de $X$. Por lo tanto, si $U_x\ne X$, entonces $X$ es disconexo.
+\end{Prop}
+\begin{proof}
+   Supongamos que $x\in X$ es tal que $U_x$ es tanto maximal como minimal en $\mathcal{B}_{\operatorname{min}}$. Ya sabemos que $U_x$ es abierto. Para ver que $U_x$ es cerrado, por la \Cref{Prop:Carac_abierto_cerrado} basta ver que $\overline{U_x}\subseteq U_x$. Sea $y\in\overline{U_x}$. Como, por la \Cref{Prop:Alexandroff_clausura}, tenemos $\overline{U_x}=\overline{\bigcup_{z\in U_x}\{z\}}=\bigcup_{z\in U_x}\overline{\{z\}}$, entonces $y\in\overline{\{z\}}$ para algún $z\in U_x$. Como $y\in U_y\subseteqab X$ entonces $U_y\cap\{z\}\ne\emptyset$, es decir, $z\in U_y$, luego $U_z\subseteq U_y$. Como $z\in U_x\subseteqab X$, se tiene $U_z\subseteq U_x$. Por la maximalidad de $U_x$ en $\mathcal{B}_{\operatorname{min}}$, se tiene $U_z=U_x$. Así, $U_x\subseteq U_y$. Por la minimalidad de $U_x$ en $\mathcal{B}_{\operatorname{min}}$, se tiene $U_x=U_y$. Como $y\in U_y$, entonces $y\in U_x$ y obtenemos $\overline{U_x}\subseteq U_x$. Por lo tanto, $U_x$ es un clopen de $X$. Como $x\in U_x$, entonces $U_x\ne\emptyset$. Así, si $U_x\ne X$, por la \Cref{Prop:Caracterizacion_conexo}, se sigue que $X$ es disconexo.
+\end{proof}
+{\color[HTML]{188539}
+En \cite{jafarian2013}, el enunciado de la proposición (Proposición 6.4) no precisa la condición $U_x\ne X$ para concluir que $X$ es disconexo. Sin embargo esto es necesario. Por ejemplo, tomando $X=\{x\}$ con la topología trivial, tenemos $\mathcal{B}_{\operatorname{min}}=\left\lbrace U_x\right\rbrace=\left\lbrace\{x\}\right\rbrace$, de modo que $U_x$ es minimal y maximal en $\mathcal{B}_{\operatorname{min}}$. Sin embargo, $X$ es conexo por ser trivial.}\\\\
 La siguiente proposición nos presenta algunas características de las propiedades de separación en los espacios de Alexandroff.
 \begin{Prop}\label{Prop:Separacion_Alexandroff}
    Sea $X$ un espacio de Alexandroff.
