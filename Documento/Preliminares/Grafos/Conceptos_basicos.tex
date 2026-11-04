@@ -237,7 +237,7 @@ Dado un grafo, se puede inducir un nuevo grafo al eliminar adecuadamente un subc
    \end{itemize}
 \end{Ejm}
 Como se ve con el grafo $G_3$ del \Cref{Ejm:Supresion}, la supresión de algunos vértices en un grafo puede aumentar su número de componentes. La siguiente definición trata de casos especiales donde se da esta situación.
-\begin{Def}
+\begin{Def}\label{Def:cortes}
    Sea $G$ un grafo. Decimos que $v\in V(G)$ es un \textbf{vértice de corte} de $G$ si $G-\left\lbrace v\right\rbrace$ tiene más componentes que $G$. Si $G$ es conexo, decimos que un subconjunto de vértices $C\subseteq V(G)$ es un \textbf{conjunto de corte} de $G$ si $G-C$ tiene más de una componente. Si además, ningún subconjunto propio de $C$ es un conjunto de corte de $G$, decimos que $C$ es un \textbf{conjunto de corte minimal} de $G$.  
 \end{Def}
 \begin{Ejm}
