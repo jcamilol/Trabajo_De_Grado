@@ -65,7 +65,7 @@ Como la topología de adyacencia de un grafo es de Alexandroff, podemos hablar d
 \end{Obs}
 El siguiente corolario nos da una condición necesaria y suficiente para que un grafo tenga topología de adyacencia discreta.
 \begin{Cor}\label{Cor:Discreto_Alexandroff}
-   Sea $G=(V,E)$ un grafo. El espacio $(V,\tau_{\mathcal{A},G})$ es discreto si, y solo si $A_x \nsubseteq A_y$ para cualesquiera $x,y\in V$ con $x\ne y$.
+   Sea $G=(V,E)$ un grafo. El espacio $(V,\tau_{\mathcal{A},G})$ es discreto si, y solo si, $A_x \nsubseteq A_y$ para cualesquiera $x,y\in V$ con $x\ne y$.
 \end{Cor}
 \begin{proof}
    ($\Rightarrow$) Supongamos que $(V,\tau_{\mathcal{A},G})$ es un espacio discreto. Sean $x,y\in V$ con $x\ne y$. Como $(V, \tau_{\mathcal{A},G})$ es un espacio de Alexandroff discreto, se tiene que $U_x=\{x\}$. Si $A_x\subseteq A_y$ entonces por la \Cref{Obs:U_x} se tiene $y\in U_x$, contradiciendo $U_x=\{x\}$. Por tanto $A_x\nsubseteq A_y$.\\
@@ -78,7 +78,7 @@ El siguiente corolario nos da una condición necesaria y suficiente para que un 
    Se sigue directamente de la \Cref{Prop:Separacion_Alexandroff} y el \Cref{Cor:Discreto_Alexandroff}.
 \end{proof}
 \begin{Cor}\label{Cor:T_0_Adyacencia}
-   Sea $G=(V,E)$ un grafo. Entonces $(V,\tau_{\mathcal{A},G})$ es $T_0$ si, y solo si $A_x\ne A_y$ para cualesquiera $x,y\in V$ con $x\ne y$.
+   Sea $G=(V,E)$ un grafo. Entonces $(V,\tau_{\mathcal{A},G})$ es $T_0$ si, y solo si, $A_x\ne A_y$ para cualesquiera $x,y\in V$ con $x\ne y$.
 \end{Cor}
 \begin{proof}
    ($\Rightarrow$) Supongamos que $(V,\tau_{\mathcal{A},G})$ es $T_0$. Sean $x,y\in V$ con $x\ne y$. Sin pérdida de generalidad podemos afirmar que existe $U\subseteqab V$ con $x\in U$ y $y\notin U$. Como $U$ es una vecindad de $x$, se tiene $U_x\subseteq U$. Si $A_x=A_y$ entonces, por la \Cref{Obs:Igualdad_adyacencias_vecindades}, se tiene $U_x=U_y$ y por tanto $U_y\subseteq U$, con lo cual en particular $y\in U$. Por lo tanto $A_x\ne A_y$.\\
@@ -275,16 +275,16 @@ Como consecuencia inmediata de lo anterior tenemos que si dos grafos son isomorf
    ($\Leftarrow$) Sabemos que cualquier espacio topológico sobre un conjunto finito es compacto.
 \end{proof}
 \begin{Prop}
-   Sean $G=(V,E)$ un grafo y $M:=\{x\in V\mid d(v)=\Delta (G)\}$. Entonces $M\in\tau_{\mathcal{A},G}$. 
+   Sean $G=(V,E)$ un grafo y $M:=\{x\in V\mid \operatorname{deg}(v)=\Delta (G)\}$. Entonces $M\in\tau_{\mathcal{A},G}$. 
 \end{Prop}
 \begin{proof}
-   Usamos la \Cref{Prop:Caracterizacion_abiertos}. Sea $x\in M$. Veamos que $U_x\subseteq M$. Sea $y\in U_x$. Por la \Cref{Prop:U_x_2} se tiene que $y\in A_w$ para todo $w\in A_x$. De esta forma, para cualquier $w\in A_x$ se tiene $y\in A_w$ y por tanto $w\in A_y$, es decir, $A_x\subseteq A_y$, con lo cual $\Delta(G)=d(x)=|A_x|\le |A_y|=d(y)\le \Delta(G)$ y por tanto $d(y)=\Delta (G)$. Con esto, $y\in M$ y $U_x\subseteq M$. Obtenemos que $U_x$ es una vecindad de $x$ contenida en $M$. Por tanto $M\in\tau_{\mathcal{A},G}$. 
+   Usamos la \Cref{Prop:Caracterizacion_abiertos}. Sea $x\in M$. Veamos que $U_x\subseteq M$. Sea $y\in U_x$. Por la \Cref{Prop:U_x_2} se tiene que $y\in A_w$ para todo $w\in A_x$. De esta forma, para cualquier $w\in A_x$ se tiene $y\in A_w$ y por tanto $w\in A_y$, es decir, $A_x\subseteq A_y$, con lo cual $\Delta(G)=\operatorname{deg}(x)=|A_x|\le |A_y|=\operatorname{deg}(y)\le \Delta(G)$ y por tanto $\operatorname{deg}(y)=\Delta (G)$. Con esto, $y\in M$ y $U_x\subseteq M$. Obtenemos que $U_x$ es una vecindad de $x$ contenida en $M$. Por tanto $M\in\tau_{\mathcal{A},G}$. 
 \end{proof}
 \begin{Prop}
-   Sean $G=(V,E)$ un grafo y $L:=\{x\in V\mid d(v)=\delta(G)\}$. Entonces $L$ es cerrado en $(V,\tau_{\mathcal{A},G})$. 
+   Sean $G=(V,E)$ un grafo y $L:=\{x\in V\mid \operatorname{deg}(v)=\delta(G)\}$. Entonces $L$ es cerrado en $(V,\tau_{\mathcal{A},G})$. 
 \end{Prop}
 \begin{proof}
-   Por la \Cref{Prop:Alexandroff_clausura} se tiene $\overline{L}=\overline{\bigcup_{x\in L}\{x\}}=\bigcup_{x\in L}\overline{\{x\}}$. Sea $y\in \overline{L}$. Entonces existe $x\in L$ tal que $y\in\overline{\{x\}}$. Por el \Cref{Cor:Clausura_unitario} se tiene $A_y\subseteq A_x$. Con esto, $\delta (G)\le d(y)=|A_y|\le |A_x|=\delta (G)$ y por tanto $d(y)=\delta(G)$, es decir, $y\in L$. Obtenemos que $\overline{L}\subseteq L$. Como además $L\subseteq\overline{L}$, entonces $L=\overline{L}$, y por la \Cref{Prop:Caracterizacion_abierto_cerrado} se sigue que $L$ es cerrado en $(V,\tau_{\mathcal{A},G})$.
+   Por la \Cref{Prop:Alexandroff_clausura} se tiene $\overline{L}=\overline{\bigcup_{x\in L}\{x\}}=\bigcup_{x\in L}\overline{\{x\}}$. Sea $y\in \overline{L}$. Entonces existe $x\in L$ tal que $y\in\overline{\{x\}}$. Por el \Cref{Cor:Clausura_unitario} se tiene $A_y\subseteq A_x$. Con esto, $\delta (G)\le \operatorname{deg}(y)=|A_y|\le |A_x|=\delta (G)$ y por tanto $\operatorname{deg}(y)=\delta(G)$, es decir, $y\in L$. Obtenemos que $\overline{L}\subseteq L$. Como además $L\subseteq\overline{L}$, entonces $L=\overline{L}$, y por la \Cref{Prop:Caracterizacion_abierto_cerrado} se sigue que $L$ es cerrado en $(V,\tau_{\mathcal{A},G})$.
 \end{proof}
 \begin{Lema}\label{Lema:x_x}
    Sean $G$ un grafo y $x\in V(G)$ un vértice de corte de $G$. Entonces existen $y_1,y_2\in A_x$ y $D_1,D_2$ componentes distintas de $G-\{x\}$ tales que $y_1\in V(D_1)$ y $y_2\in V(D_2)$.
