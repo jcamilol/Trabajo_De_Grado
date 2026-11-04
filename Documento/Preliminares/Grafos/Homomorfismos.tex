@@ -54,29 +54,79 @@ El hecho de que $\left\lbrace u,v \right\rbrace\in E$ implique $\left\lbrace \va
    \end{center}
    En cambio la función
    \begin{center}
-   $\hfill
-   \begin{array}{rcl}
-      \varphi_2 \colon V(G) &\to& V(G') \\
-      v_1 &\mapsto& w_4 \\
-      v_2 &\mapsto& w_2 \\
-      v_3 &\mapsto& w_4 \\
-      v_4 &\mapsto& w_1 \\
-      v_5 &\mapsto& w_3
-   \end{array}
-   \hfill$
+   \begin{tikzpicture}[
+     conj/.style={draw=gray!70, thick},
+     vert/.style={inner sep=1pt},
+     num/.style={inner sep=1pt},
+     flecha/.style={-{Stealth[length=1.8mm]}, thick},
+     tramo/.style={thick},
+     % Estilo de las flechas según su imagen (color y trazo distintos para impresión en blanco y negro)
+     img1/.style={draw=blue!70!black, fill=blue!70!black, solid},
+     img2/.style={draw=red!75!black, fill=red!75!black, dash dot},
+     img3/.style={draw=green!50!black, fill=green!50!black, dash pattern=on 6pt off 2pt},
+     img4/.style={draw=orange!90!black, fill=orange!90!black, densely dotted}
+   ]
+     % Encabezado: V(G) sobre los vértices de G y V(G') sobre los de G'
+     \node (t) at (0,0) {$V(G)$};
+     \node (cod) at (2.6,0) {$V(G')$};
+     \node[anchor=base east, inner sep=0pt] at (t.base west) {$\varphi_2 \!:\phantom{o}$};
+     \draw[-{To[length=1.5mm]}] (t.east) -- (cod.west);
+     \draw[conj] (0,-2.5) ellipse (0.6 and 1.9);
+     \draw[conj] (2.6,-2.5) ellipse (0.6 and 1.7);
+     \foreach \i in {1,...,5} {
+       \node[vert] (v\i) at (0,{-0.7-0.6*\i}) {$v_{\i}$};
+     }
+     \foreach \k in {1,...,4} {
+       \node[num] (n\k) at (2.6,{-2.5+(2.5-\k)*0.75}) {$w_{\k}$};
+     }
+     % Flechas: las que llegan al mismo vértice tienen el mismo color y trazo.
+     % Primero se trazan los segmentos y luego, encima, las puntas.
+     \foreach \i/\k in {1/4, 2/2, 3/4, 4/1, 5/3} {
+       \draw[tramo, img\k, shorten <=1pt, shorten >=1pt] (v\i.east) -- (n\k.west);
+     }
+     % (la tercera entrada es la posición de la punta sobre cada segmento)
+     \foreach \i/\k/\p in {1/4/0.75, 2/2/0.8, 3/4/0.75, 4/1/0.75, 5/3/0.35} {
+       \path (v\i.east) -- (n\k.west) coordinate[pos=\p] (m);
+       \draw[flecha, img\k, shorten <=1pt] (v\i.east) -- (m);
+     }
+   \end{tikzpicture}
    \end{center}
    no es un homomorfismo de $G$ en $G'$, pues $\left\lbrace v_1,v_3\right\rbrace\in E(G)$ pero $\left\lbrace \varphi(v_1),\varphi(v_3)\right\rbrace=\left\lbrace w_4\right\rbrace\notin E(G')$.\\
    Podemos ver también que la función
    \begin{center}
-   $\hfill
-   \begin{array}{rcl}
-      \psi \colon V(H) &\to& V(H') \\
-      x_1 &\mapsto& y_1 \\
-      x_2 &\mapsto& y_2 \\
-      x_3 &\mapsto& y_3 \\
-      x_4 &\mapsto& y_4 
-   \end{array}
-   \hfill$
+   \begin{tikzpicture}[
+     conj/.style={draw=gray!70, thick},
+     vert/.style={inner sep=1pt},
+     num/.style={inner sep=1pt},
+     flecha/.style={-{Stealth[length=1.8mm]}, thick},
+     tramo/.style={thick},
+     % Estilo de las flechas según su imagen (color y trazo distintos para impresión en blanco y negro)
+     img1/.style={draw=blue!70!black, fill=blue!70!black, solid},
+     img2/.style={draw=red!75!black, fill=red!75!black, dash dot},
+     img3/.style={draw=green!50!black, fill=green!50!black, dash pattern=on 6pt off 2pt},
+     img4/.style={draw=orange!90!black, fill=orange!90!black, densely dotted}
+   ]
+     % Encabezado: V(H) sobre los vértices de H y V(H') sobre los de H'
+     \node (t) at (0,0) {$V(H)$};
+     \node (cod) at (2.6,0) {$V(H')$};
+     \node[anchor=base east, inner sep=0pt] at (t.base west) {$\psi \!:\phantom{o}$};
+     \draw[-{To[length=1.5mm]}] (t.east) -- (cod.west);
+     \draw[conj] (0,-2.2) ellipse (0.6 and 1.6);
+     \draw[conj] (2.6,-2.2) ellipse (0.6 and 1.6);
+     \foreach \i in {1,...,4} {
+       \node[vert] (v\i) at (0,{-0.7-0.6*\i}) {$x_{\i}$};
+       \node[num] (n\i) at (2.6,{-0.7-0.6*\i}) {$y_{\i}$};
+     }
+     % Flechas: cada una con el color y trazo de su imagen.
+     % Primero se trazan los segmentos y luego, encima, las puntas en la mitad.
+     \foreach \i/\k in {1/1, 2/2, 3/3, 4/4} {
+       \draw[tramo, img\k, shorten <=1pt, shorten >=1pt] (v\i.east) -- (n\k.west);
+     }
+     \foreach \i/\k in {1/1, 2/2, 3/3, 4/4} {
+       \path (v\i.east) -- (n\k.west) coordinate[pos=0.5] (m);
+       \draw[flecha, img\k, shorten <=1pt] (v\i.east) -- (m);
+     }
+   \end{tikzpicture}
    \end{center}
    es un homomorfismo entre los grafos $H$ y $H'$, que se presentan en la \Cref{fig:homomorfismo_grafos_2}.
    \input{Preliminares/Grafos/Diagramas/Fig20.tex}

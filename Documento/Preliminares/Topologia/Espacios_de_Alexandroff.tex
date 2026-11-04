@@ -33,11 +33,11 @@ Los principales órdenes parciales que acá tenemos en cuenta son aquellos que s
    En cualquier espacio discreto $X$, se tiene que $\{x\}$ es una vecindad mínima de cualquier $x\in X$, y el conjunto $\{\{x\}\mid x\in X\}$ es una base mínima de $X$. En $\mathbb{R}$ dotado de la topología de colas (a derecha) abiertas y cerradas, $[x,\infty)$ es una vecindad mínima de $x$, y el conjunto $\{[x,\infty)\mid x\in \mathbb{R}\}$ es una base mínima de este espacio. 
 \end{Ejm}
 Una propiedad clave de los espacios de Alexandroff es que cada punto tiene una vecindad mínima, y cada espacio tiene una base mínima. Más precisamente:
-\begin{Prop}\label{Prop:Alexandroff_discreto}
+\begin{Prop}\label{Prop:vecindades_bases_minimas}
    Sea $X$ un espacio de Alexandroff. Para cada $x\in X$, la intersección de todas las vecindades de $x$ es una vecindad mínima de $x$, que denotamos por $U_x$. La colección $\mathcal{B}_{\min}=\left\lbrace U_x\mid x\in X\right\rbrace$ es una base mínima de $X$.
 \end{Prop}
-Usando las vecindades mínimas podemos caracterizar los espacios de Alexandroff discretos de la siguiente manera.
-\begin{Prop}
+De esta manera, si $V$ es una vecindad de $x$ se tiene que $U_x\subseteq V$, y si $\mathcal{B}$ es una base de $X$, entonces $\mathcal{B}_{\min}\subseteq \mathcal{B}$. Usando las vecindades mínimas también podemos caracterizar los espacios de Alexandroff discretos de la siguiente manera.
+\begin{Prop}\label{Prop:Alexandroff_discreto}
    Sea $X$ un espacio de Alexandroff. Entonces $X$ es discreto si, y solo si, $U_x=\{x\}$ para todo $x\in X$. 
 \end{Prop}
 Contar con una subbase de un espacio topológico nos permite ``ahorrar trabajo'' para conocer si el espacio es de Alexandroff, pues para esto basta determinar si la intersección arbitraria de abiertos subbásicos es abierta. Más precisamente:

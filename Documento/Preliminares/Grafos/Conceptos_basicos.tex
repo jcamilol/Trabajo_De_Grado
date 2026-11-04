@@ -77,7 +77,7 @@ La ausencia de bucles en los grafos hace que todas las entradas en la diagonal p
 \begin{Def}
    Sea $G$ un grafo. Dado un vértice $v\in V(G)$, denotamos por $\bm{A_v}$ al conjunto de todos los vértices adyacentes a $v$, es decir $A_v=\left\lbrace u\in V(G) \mid uv\in E(G)\right\rbrace$, y por $\bm{E_v}$ al conjunto de todas las aristas con las cuales es incidente $v$, es decir $E_v=\left\lbrace e\in E(G)\mid v\in e\right\rbrace$.
 \end{Def}
-De nuestra definicón de grafo se sigue inmediatamente que para cualquier par de vértices $u,v$ de un grafo, $u\in A_v$ si, y solo si, $v\in A_u$. En el grafo $G_2$ del \Cref{Ejm:cuatro_grafos}, tenemos que $A_{v_1}=\lbrace v_2,v_3,v_4\rbrace$, $A_{v_6}=\lbrace v_5\rbrace$, $E_{v_1}=\lbrace v_1v_2,v_1v_3,v_1v_4 \rbrace$ y $E_{v_6}=\lbrace v_5v_6\rbrace$. En el grafo $G_5$ del mismo ejemplo se tiene, para todo $i\in \left\lbrace 2,3,4,\dots\right\rbrace$, $A_{v_i}=\left\lbrace v_{i-1}, v_{i+1}\right\rbrace$ y $E_{v_i}=\left\lbrace v_{i-1}v_i, v_iv_{i+1}\right\rbrace$.\\
+De nuestra definicón de grafo se sigue inmediatamente que para cualquier par de vértices $u,v$ de un grafo, $u\in A_v$ si, y solo si, $v\in A_u$. En el grafo $G_2$ del \Cref{Ejm:cuatro_grafos}, tenemos que $A_{v_1}=\lbrace v_2,v_3,v_4\rbrace$, $A_{v_6}=\lbrace v_5\rbrace$, $E_{v_1}=\lbrace v_1v_2,v_1v_3,v_1v_4 \rbrace$ y $E_{v_6}=\lbrace v_5v_6\rbrace$. En el grafo $G_5$ del mismo ejemplo se tiene, para todo $i\in \left\lbrace 2,3,4,\dots\right\rbrace$, $A_{v_i}=\left\lbrace v_{i-1}, v_{i+1}\right\rbrace$ y $E_{v_i}=\left\lbrace v_{i-1}v_i, v_iv_{i+1}\right\rbrace$.\\\\
 La siguiente proposición nos muestra el hecho natural de que la cantidad de vértices adyacentes a $v$ y la cantidad de aristas con las cuales es incidente $v$ es siempre la misma, para cualquier vértice $v$ en un grafo arbitrario.
 \begin{Prop} \label{Prop:AvEv}
    En cualquier grafo $G$, dado $v\in V(G)$, se tiene $|A_v|=|E_v|$.
@@ -160,6 +160,7 @@ Un concepto importante en el presente trabajo es el de \textit{grafo conexo}. Pa
 \begin{Not}
    Siempre que en un camino aparezca una expresión de la forma $p_i\dots p_j$ con $i<j$, entendemos que entre $p_i$ y $p_j$ están, aumentando su subíndice de uno en uno, todos los $p_k$ tales que $i<k<j$. Esta notación nos será útil para trabajar con caminos satisfaciendo la exigencia, dada en la definición, de que todos los $p_i$ en un camino sean distintos.
 \end{Not}
+La siguiente proposición garantiza que podemos ``conectar'' caminos con un vértice en común para formar un nuevo camino.
 \begin{Prop}\label{Prop:Conexion_caminos}
     Sean $G$ un grafo y $x,y,z\in V(G)$ cualesquiera, tales que, tanto $x$ y $y$, como $x$ y $z$, están conectados por un camino en $G$. Entonces $y$ y $z$ están conectados por un camino en $G$.
 \end{Prop}
@@ -169,7 +170,12 @@ Un concepto importante en el presente trabajo es el de \textit{grafo conexo}. Pa
 \begin{Def}
    Sean $G$ un grafo y $x\in V(G)$ cualquiera. Para cualquier $y\in V(G)$ decimos que $y$ es \textbf{alcanzable} desde $x$ en $G$ si existe un camino $P\subseteq G$ que conecta $x$ y $y$.  
 \end{Def}
-De esta manera, en el grafo $G_4$ del \Cref{Ejm:cuatro_grafos}, se tiene que $v_4$ es alcanzable desde $v_6$ pero $v_1$ no es alcanzable desde $v_6$.
+De esta manera, en el grafo $G_4$ del \Cref{Ejm:cuatro_grafos}, se tiene que $v_4$ es alcanzable desde $v_6$ pero $v_1$ no es alcanzable desde $v_6$.\\\\
+Los caminos también nos permiten definir la distancia entre un par de vértices de un grafo.
+\begin{Def}
+   Sean $G=(V,E)$ un grafo y $u,v\in V$. La \textbf{distancia} entre $u$ y $v$, denotada por $d(u,v)$, se define como la longitud del camino más corto en $G$, que conecta a $u$ y $v$. Si tal camino no existe tomamos $d(u,v):=\infty$.
+\end{Def}
+Así, en el \Cref{Ejm:cuatro_grafos}, en el grafo $G_4$, se tiene $d(v_6,v_4)=2$ y $d(v_1,v_2)=\infty$, mientras que en el grafo $G_1$ se tiene $d(v_1,v_6)=1$ y $d(v_1,v_4)=3$.
 \begin{Def}
    Un grafo $G$ es llamado \textbf{conexo} si $G\neq \emptyset$ y cualesquiera par de vértices  de $G$ están conectados por un camino en $G$. Si $G$ no es conexo, decimos que es \textbf{disconexo}. 
 \end{Def}
