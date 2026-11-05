@@ -1,0 +1,17 @@
+En este capítulo no exigimos que los grafos en cuestión sean localmente finitos. Sin embargo mantenemos la condición de que los grafos no tengan vértices aislados.
+\begin{Prop}
+   Sea $G=(V,E)$ un grafo. El conjunto $E$ es subbase para una topología sobre $V$. 
+\end{Prop}
+En \cite{kilicman2018} se define primero, para cada arista del grafo $G$, el conjunto $I_e$ de todos los vértices ``incidentes'' con $e$, para luego tomar como subbase el conjunto $S_{IG}=\{I_e\mid e\in E\}$. Sin embargo, con las definiciones que desarrollamos en el \Cref{chap:Preliminares}, cada conjunto $I_e$ concide exactamente con $e$, y por tanto el conjunto $S_{IG}$ es igual al conjunto de aristas del grafo, $E$.
+\begin{Def}
+   Sea $G=(V,E)$ un grafo. La topología generada por el conjunto $E$, denotada por $\tau_{\mathcal{I},G}$, es llamada la \textbf{topología de incidencia} de $G$. El espacio topológico $(V,\tau_{\mathcal{I},G})$ es llamado el \textbf{espacio de incidencia} de $G$. 
+\end{Def}
+\begin{Prop}
+   Sea $G=(V,E)$ un grafo. Se tiene que $(V,\tau_{\mathcal{I},G}))$ es un espacio de Alexandroff. 
+\end{Prop}
+\begin{Prop}
+   Sea $G=(V,E)$ un grafo. Para toda $x\in V$ tenemos $U_x=\bigcap_{v\in e}e$.
+\end{Prop}
+\begin{Prop}
+   Sean $G=(V,E)$ un grafo y $x\in V$. Si $\operatorname{deg}(v)\ge 2$ entonces $U_x=\{x\}$ 
+\end{Prop}

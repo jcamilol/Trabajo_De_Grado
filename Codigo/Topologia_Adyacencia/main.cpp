@@ -59,7 +59,6 @@ vector<vector<bool>> llenarMatriz_U(vector<vector<bool>> Mat_Ady){
    vector<vector<bool>> Mat_U(Mat_Ady.size(), vector<bool>(Mat_Ady.size(),true));
    for(int i=0; i<=Mat_Ady.size()-1; i++){
       for(int j=0; j<=Mat_Ady.size()-1; j++){ // Para cada i \in \{1,\dots, n\} se hace la intersección \bigcap_{v_j \in A_{v_i}} A_{v_j} variando j de 1 a n
-
          if(Mat_Ady[i][j]){
             Mat_U[i] = inter(Mat_U[i], Mat_Ady[j]);
          }
@@ -74,7 +73,7 @@ void imprVecindadesMinimas(vector<vector<bool>> Mat_U){ //Esta función imprime 
       cout << "U_{v_" << i+1 << "} = {";
       bool aux_coma = 0; //Usamos esta variable para ayudarnos a imprimir bien las comas que separan elementos del conjunto
       for(int j=0; j<=Mat_U.size()-1; j++){
-         if(Mat_U[i][j]){
+         if(Mat_U[i][j]){ //Si v_i y v_j están conectados, se imprime v_j
             if(aux_coma){
                cout << ", ";
             }
@@ -85,6 +84,7 @@ void imprVecindadesMinimas(vector<vector<bool>> Mat_U){ //Esta función imprime 
       cout << "}" << endl;
    }
 }
+
 vector<vector<bool>> llenarMatriz_Preuniones(int n){//Esta matriz se usa para hacer todas las posibles uniones de una familia de n conjuntos: por cada fila i pone 1 en la columna j si, y solo si, el conjunto U_j se debe incluir en la unión
    int m = 1 << n; // 2^n equivalente en enteros
    vector<vector<bool>> Mat_Preuniones(m, vector<bool>(n, false)); //La matriz tendrá 2^n filas y n columnas
@@ -184,7 +184,7 @@ vector<vector<bool>> llenarMatriz_tau(vector<vector<bool>> Mat_U){ //Esta funci�
 void imprAbiertos(vector<vector<bool>> Mat_tau){
    int m = Mat_tau.size();
    int n = Mat_tau[0].size();
-   cout << "tau_{mathcal{A},G} = { vacío"; //Siempre imprimimos el vacío primero
+   cout << "tau_{mathcal{A},G} = { emptyset"; //Siempre imprimimos el vacío primero
    for(int i=0; i<=m-1; i++){
       bool aux_coma = 0; //Ayuda a imprimir bien las comas que separan conjuntos
       if(card(Mat_tau[i])!=0){ //Solo imprimimos los conjuntos no vacíos
@@ -210,7 +210,6 @@ int main(){
    
    vector<vector<bool>> Mat_Ady = leerMatriz(file); //Creamos la matriz de adyacencia llamando la función "leerMatriz" que toma como argumento la variable file
    vector<vector<bool>> Mat_U = llenarMatriz_U(Mat_Ady); //Llenamos Mat_U de nxn con la información de Mat_ady. En ella guardamos la información de los U_{v_i} mediante (Mat_U)_{i,j}=1 ssi v_j \in U_{v_i}
-   vector<vector<bool>> Mat_Preuniones = llenarMatriz_Preuniones(Mat_Ady.size());
    vector<vector<bool>> Mat_tau = llenarMatriz_tau(Mat_U);
 
    cout << "A = " << endl;
