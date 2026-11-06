@@ -13,7 +13,7 @@ Para la implementación de las funciones usamos cuatro cabeceras de la bibliotec
 #include <vector>
 #include <cmath>
 \end{lstlisting}
-La cabecera \texttt{<iostream>} no es necesaria para imprimir texto en la terminal. La cabecera \texttt{<fstream>} la incluimos para poder leer archivos del tipo \texttt{.txt}, donde guardaremos el número de vértices y la matriz de adyacencia del grafo en cuestión. La cabecera \texttt{<vector>} nos permite la creación y manipulación de vectores y matrices. Por último, la cabecera \texttt{<cmath>} la implementamos para usar la función \texttt{pow}, con la cual realizamos la operación potencia de números enteros.
+La cabecera \texttt{<iostream>} no es necesaria para imprimir texto en la terminal. La cabecera \texttt{<fstream>} la incluimos para poder leer archivos del tipo \texttt{.txt}, donde guardaremos el número de vértices y la matriz de adyacencia del grafo en cuestión. La cabecera \texttt{<vector>} nos permite la creación y manipulación de vectores y matrices. Por último, la cabecera \texttt{<cmath>} la implementamos para usar la función \texttt{pow}, con la cual realizamos la operación potencia de números enteros. 
 \begin{lstlisting}[caption={Función \lstinline|leerMatriz|: lectura de la matriz de adyacencia desde un archivo}, label={cod:leerMatriz}]
 vector<vector<bool>> leerMatriz(ifstream& file){
    int n; 
