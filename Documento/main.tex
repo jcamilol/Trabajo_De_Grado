@@ -161,6 +161,9 @@
 % ==============================================================================
 % HIPERVÍNCULOS
 % ==============================================================================
+\usepackage{xcolor}
+\usepackage{listings}
+
 \usepackage{hyperref}
 \hypersetup{
   colorlinks=true,
@@ -183,6 +186,52 @@
 % ==============================================================================
 \usepackage{etoolbox}
 \usepackage[spanish,noabbrev]{cleveref}
+
+% =========================================================
+% CÓDIGO FUENTE (listings con paleta bosque)
+% =========================================================
+
+% Paleta bosque
+\definecolor{bosqueOscuro}{HTML}{0B3D2E}
+\definecolor{bosqueMusgo}{HTML}{6A994E}
+\definecolor{bosqueTierra}{HTML}{BC6C25}
+\definecolor{bosqueCrema}{HTML}{FEFAE0}
+\definecolor{bosqueTexto}{HTML}{283618}
+% Versiones oscurecidas para texto (contraste >= 4.5:1 sobre el fondo crema)
+\colorlet{bosqueMusgoTexto}{bosqueMusgo!80!black}   % #557A3E
+\colorlet{bosqueHoja}{bosqueMusgo!70!black}         % #4A6B37
+\colorlet{bosqueTierraTexto}{bosqueTierra!85!black} % #A05C1F
+
+\lstdefinestyle{cpp}{
+  language=C++,
+  basicstyle=\ttfamily\small\color{bosqueTexto},
+  keywordstyle=\color{bosqueTierraTexto}\bfseries,
+  commentstyle=\color{bosqueMusgoTexto},
+  stringstyle=\color{bosqueHoja},
+  directivestyle=\color{bosqueOscuro}\bfseries,
+  morekeywords={vector,string,ifstream,ofstream},
+  backgroundcolor=\color{bosqueCrema},
+  frame=single, rulecolor=\color{bosqueMusgo}, framesep=4pt,
+  numbers=left, numberstyle=\tiny\color{bosqueMusgoTexto}, numbersep=8pt,
+  xleftmargin=2.2em, framexleftmargin=1.6em,
+  breaklines=true, breakatwhitespace=true,
+  postbreak=\mbox{\textcolor{bosqueMusgo}{$\hookrightarrow$}\space},
+  tabsize=3, showstringspaces=false, columns=fullflexible, keepspaces=true,
+  captionpos=b,
+  escapeinside={(*@}{@*)},
+  literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+           {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+           {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {ü}{{\"u}}1 {¿}{{?`}}1 {¡}{{!`}}1
+}
+\lstset{style=cpp}
+
+% Nombres en español
+\renewcommand{\lstlistingname}{Código}
+\renewcommand{\lstlistlistingname}{Lista de códigos}
+\AtBeginDocument{%
+  \crefname{listing}{código}{códigos}%
+  \Crefname{listing}{Código}{Códigos}%
+}
 
 % Nombres de referencias
 \crefname{Ejm}{ejemplo}{ejemplos}
@@ -217,6 +266,9 @@
 
 \crefname{section}{sección}{secciones}
 \Crefname{section}{Sección}{Secciones}
+
+\crefname{line}{línea}{líneas}%
+\Crefname{line}{Línea}{Líneas}%
 
 % Vinculación de los entornos compartidos con el contador 'equation'
 \AtBeginEnvironment{Ejm}{\crefalias{equation}{Ejm}}
@@ -256,8 +308,7 @@
 \chapter{Topología de incidencia}\label{chap:topologia_de_incidencia}
 \input{Topologia_Incidencia/chapter.tex}
 \chapter{Implementación computacional}\label{chap:implementacion_computacional}
-\section{Topología de adyacencia}\label{sec:adyacencia_computacional}
-\section{Topología de incidencia}\label{sec:incidencia_computacional}
+\input{Implementacion_computacional/chapter.tex}
 % ==============================================================================
 % BIBLIOGRAFÍA
 % ==============================================================================

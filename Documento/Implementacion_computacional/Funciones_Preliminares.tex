@@ -1,0 +1,32 @@
+\newcommand{\Cpp}{C\nolinebreak\hspace{-.05em}\raisebox{.4ex}{\tiny\textbf{+}}\nolinebreak\hspace{-.10em}\raisebox{.4ex}{\tiny\textbf{+}}}
+En esta sección describimos las funciones que se usarán conjuntamente para el cálculo de la topología de adyacencia y de la topología de incidencia. El objetivo grande que se desea con el grueso de funciones es lograr realizar intersecciones y uniones de conjuntos. Para esto nos apoyaremos fuertemente en el uso de matrices y vectores, y de las funcionalidades básicas que ofrece el lenguaje \Cpp{} para la manipulación de éstas.
+\begin{itemize}
+   \item \textbf{<iostream>} Nos permite leer datos del teclado y escibir en la terminal.
+   \item \textbf{<fstream>} Nos permite la lectura de archivos tipo .txt en los que almacenamos la información esencial de los grafos a considerar, y que describiremos más adelante.
+   \item \textbf{<vector>} Nos permite la creación y manipulación de vectores y matrices.
+   \item \textbf{<cmath>} Nos permite usar la función \textit{pow} para calcular la potencia de números enteros.
+\end{itemize}
+Para la implementación de las funciones usamos cuatro cabeceras de la biblioteca estándar de \Cpp{}.
+\begin{lstlisting}[caption={Encabezado del código}, label={cod:encabezado}]
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <cmath>
+\end{lstlisting}
+La cabecera \texttt{<iostream>} no es necesaria para imprimir texto en la terminal. La cabecera \texttt{<fstream>} la incluimos para poder leer archivos del tipo \texttt{.txt}, donde guardaremos el número de vértices y la matriz de adyacencia del grafo en cuestión. La cabecera \texttt{<vector>} nos permite la creación y manipulación de vectores y matrices. Por último, la cabecera \texttt{<cmath>} la implementamos para usar la función \texttt{pow}, con la cual realizamos la operación potencia de números enteros.
+\begin{lstlisting}[caption={Función \lstinline|leerMatriz|: lectura de la matriz de adyacencia desde un archivo}, label={cod:leerMatriz}]
+vector<vector<bool>> leerMatriz(ifstream& file){
+   int n; 
+   file >> n; (*@\label{lin:leer_n}@*)
+   vector<vector<bool>> Mat_Ady(n, vector<bool>(n));
+   for(int i=0; i<=n-1; i++){
+      for(int j=0; j<=n-1; j++){
+         bool valor;
+         file >> valor;
+         Mat_Ady[i][j] = valor;
+      }
+   }
+   return Mat_Ady;
+}
+\end{lstlisting}
+La lectura de la matriz se hace con la función del \Cref{cod:leerMatriz}. En la \Cref{lin:leer_n} \Cpp{}
