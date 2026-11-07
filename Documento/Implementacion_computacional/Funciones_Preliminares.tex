@@ -1,16 +1,15 @@
 En esta sección describimos las funciones que se usarán conjuntamente para el cálculo de la topología de adyacencia y de la topología de incidencia. El objetivo grande que se desea con el grueso de funciones es lograr realizar intersecciones y uniones de conjuntos. Para esto nos apoyaremos fuertemente en el uso de matrices y vectores, y de las funcionalidades básicas que ofrece \Cpp{} para la manipulación de éstas.
 Para la implementación de las funciones usamos cuatro cabeceras de la biblioteca estándar de \Cpp{}.
-\begin{lstlisting}[caption={Encabezado del código}, label={cod:encabezado}]
+\begin{lstlisting}[caption={Cabeceras necesarias para el uso de los códigos}, label={cod:encabezado}]
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <cmath>
 \end{lstlisting}
-La cabecera \texttt{<iostream>} no es necesaria para imprimir texto en la terminal. La cabecera \texttt{<fstream>} la incluimos para poder leer archivos del tipo \texttt{.txt}, donde guardaremos el número de vértices y la matriz de adyacencia del grafo en cuestión. La cabecera \texttt{<vector>} nos permite la creación y manipulación de vectores y matrices. Por último, la cabecera \texttt{<cmath>} la implementamos para usar la función \texttt{pow}, con la cual realizamos la operación potencia de números enteros.\\\\
-Para el funcionamiento del código usaremos archivos \texttt{.txt} para almacenar la información necesaria del grafo al que se le calcularán las topologías da adyacencia y de incidencia. Esta se conforma únicamente por un número entero que representa el número de vértices del grafo en cuestión, y un arreglo rectangular de ceros y unos, separados por \texttt{tabs} y renglones, que representa la matriz de adyacencia del mismo. Mostramos a continuación un par de ejemplos.
+La cabecera \texttt{<iostream>} es necesaria para imprimir texto en la terminal. La cabecera \texttt{<fstream>} la incluimos para poder leer archivos del tipo \texttt{.txt}, donde guardaremos el número de vértices y la matriz de adyacencia del grafo en cuestión. Por último, la cabecera \texttt{<vector>} nos permite la creación y manipulación de vectores y matrices.\\\\
+Para el funcionamiento del código usaremos archivos \texttt{.txt} para almacenar la información necesaria del grafo al que se le calcularán las topologías de adyacencia y de incidencia. Esta se conforma únicamente por un número entero que representa el número de vértices del grafo en cuestión, y un arreglo rectangular de ceros y unos, separados por \texttt{tabs} y renglones, que representa la matriz de adyacencia del mismo. Mostramos a continuación un par de ejemplos.
 \input{Implementacion_computacional/Diagramas/Fig1.tex}
 \input{Implementacion_computacional/Diagramas/Fig2.tex}
-Así, por ejemplo, en la \Cref{lin:r1_1_Mat_Ady} del \Cref{cod:1_Mat_Ady}, el número $5$ hace referencia al número de vectores del grafo $G_1$, mientras que la \Cref{lin:r1_2_Mat_Ady} del \Cref{cod:2_Mat_Ady} hace referencia al número de vértices del grafo $K_{3,5}$. Igualmente, en las \Crefrange{lin:inicio_1_Mat_Ady}{lin:fin_1_Mat_Ady} del \Cref{cod:1_Mat_Ady}, se representa la matriz de adyacencia
+Así, por ejemplo, en la \Cref{lin:r1_1_Mat_Ady} del \Cref{cod:1_Mat_Ady}, el número $5$ hace referencia al número de vértices del grafo $G_1$, mientras que la \Cref{lin:r1_2_Mat_Ady} del \Cref{cod:2_Mat_Ady} hace referencia al número de vértices del grafo $K_{3,5}$. Igualmente, en las \Crefrange{lin:inicio_1_Mat_Ady}{lin:fin_1_Mat_Ady} del \Cref{cod:1_Mat_Ady}, se representa la matriz de adyacencia
 \begin{ceqn}
 \[
 \begin{pmatrix}
@@ -22,7 +21,7 @@ Así, por ejemplo, en la \Cref{lin:r1_1_Mat_Ady} del \Cref{cod:1_Mat_Ady}, el n�
 \end{pmatrix}
 \]
 \end{ceqn}
-del grafo $G_1$. Análogamente, en las líneas \Crefrange{lin:inicio_2_Mat_Ady}{lin:fin_2_Mat_Ady} del \Cref{cod:2_Mat_Ady}, se representa la matriz de adyacencia
+del grafo $G_1$. Análogamente, en las \Crefrange{lin:inicio_2_Mat_Ady}{lin:fin_2_Mat_Ady} del \Cref{cod:2_Mat_Ady}, se representa la matriz de adyacencia
 \begin{ceqn}
 \[
 \begin{pmatrix}
@@ -37,7 +36,8 @@ del grafo $G_1$. Análogamente, en las líneas \Crefrange{lin:inicio_2_Mat_Ady}{
 \end{pmatrix}
 \]
 \end{ceqn}
-del grafo $K_{3,5}$.
+del grafo $K_{3,5}$.\\\\
+Dentro
 \begin{lstlisting}[caption={Función \lstinline|leerMatriz|: lectura de la matriz de adyacencia desde un archivo}, label={cod:leerMatriz}]
 std::vector<std::vector<bool>> leerMatriz(std::ifstream& file){
    int n;
