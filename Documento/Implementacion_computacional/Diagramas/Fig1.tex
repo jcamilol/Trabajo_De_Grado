@@ -1,0 +1,31 @@
+\begin{figure}[H]
+   \centering
+   % Fila 1: el grafo y el archivo, centrados verticalmente
+   \begin{minipage}[c]{0.40\textwidth}
+      \centering
+      \resizebox{0.78\linewidth}{!}{\input{Implementacion_computacional/Diagramas/Diag1.tex}}
+   \end{minipage}%
+   \hspace{1.5em}%
+   \begin{minipage}[c]{0.42\textwidth}
+\begin{lstlisting}[framexrightmargin=-4.4pt]
+5 (*@\label{lin:r1_1_Mat_Ady}@*)
+0  1  1  1  0 (*@\label{lin:inicio_1_Mat_Ady}@*)
+1  0  1  1  0
+1  1  0  1  1
+1  1  1  0  0
+0  0  1  0  0 (*@\label{lin:fin_1_Mat_Ady}@*)
+\end{lstlisting}
+   \end{minipage}
+
+   % Fila 2: los pies, alineados arriba y centrados
+   \captionsetup{format=plain, justification=centering}
+   \begin{minipage}[t]{0.40\textwidth}
+      \captionof{figure}{Grafo $G_1$}
+      \label{fig:G_1}
+   \end{minipage}%
+   \hspace{1.5em}%
+   \begin{minipage}[t]{0.42\textwidth}
+      \captionof{lstlisting}{Archivo \texttt{1\_Mat\_Ady.txt} para guardar la información de $G_1$}
+      \label{cod:1_Mat_Ady}
+   \end{minipage}
+\end{figure}
