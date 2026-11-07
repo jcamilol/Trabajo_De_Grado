@@ -1,14 +1,11 @@
 #include <iostream>
 #include <fstream> //Permite la lectura de archivos
 #include <vector> //Permite la creación de vectores y matrices
-#include <cmath> //Necesario para la función pow                
 
 std::vector<std::vector<bool>> leerMatriz(std::ifstream& file){ //Función para crear la matriz y llenarla con los datos del archivo. Toma una variable ifstream y retorna una matriz
    int n; //Crea la variable para guardar el tamaño de la matriz
    file >> n; //Se lee el tamaño de la matriz, que siempre es el primer número del archivo "1.txt"
-   
    std::vector<std::vector<bool>> Mat_Ady(n, std::vector<bool>(n)); //Creamos una matriz de booleanos de tamaño nxn
-   
    for(int i=0; i<=n-1; i++){ //Se llena la matriz Mat_Ady con los datos de "1.txt"
       for(int j=0; j<=n-1; j++){
          bool valor;
@@ -47,10 +44,11 @@ void imprAdyacencias(std::vector<std::vector<bool>> Mat_Ady){ //Esta función im
 }
 
 std::vector<bool> inter(std::vector<bool> vect1, std::vector<bool> vect2){ //Esta función realiza la "intersección" de dos vectores
+   std::vector<bool> vect3(vect1.size()); //Guardaremos la intersección en vect3; podría hacerse vect1 o vect2 pero lo hacemos en otro con motivos pedagógicos
    for(int i=0; i<=vect1.size()-1; i++){
-      vect1[i] = vect1[i] && vect2[i];
+      vect3[i] = vect1[i] && vect2[i];
    }
-   return vect1;
+   return vect3;
 }
 
 std::vector<std::vector<bool>> llenarMatriz_U(std::vector<std::vector<bool>> Mat_Ady){
@@ -204,7 +202,7 @@ void imprAbiertos(std::vector<std::vector<bool>> Mat_tau){
 }
 
 int main(){
-   std::ifstream file("11_Mat_Ady.txt"); //Guarda la información de "1.txt" en la variable "file" de tipo ifstream
+   std::ifstream file("1_Mat_Ady.txt"); //Guarda la información de "1.txt" en la variable "file" de tipo ifstream
    
    std::vector<std::vector<bool>> Mat_Ady = leerMatriz(file); //Creamos la matriz de adyacencia llamando la función "leerMatriz" que toma como argumento la variable file
    std::vector<std::vector<bool>> Mat_U = llenarMatriz_U(Mat_Ady); //Llenamos Mat_U de nxn con la información de Mat_ady. En ella guardamos la información de los U_{v_i} mediante (Mat_U)_{i,j}=1 ssi v_j \in U_{v_i}

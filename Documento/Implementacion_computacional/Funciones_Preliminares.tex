@@ -36,19 +36,116 @@ del grafo $G_1$. Análogamente, en las \Crefrange{lin:inicio_2_Mat_Ady}{lin:fin_
 \end{pmatrix}
 \]
 \end{ceqn}
-del grafo $K_{3,5}$.\\\\
-Dentro
-\begin{lstlisting}[caption={Función \lstinline|leerMatriz|: lectura de la matriz de adyacencia desde un archivo}, label={cod:leerMatriz}]
+del grafo $K_{3,5}$. Notemos que el número de vértices del respectivo grafo es igual también al tamaño de su matriz de adyacencia.\\\\
+Las funciones que más adelante vamos a describir hacen uso de variables tipo \texttt{ifstream} para almacenar la información que será leída desde archivos como \texttt{1\_Mat\_Ady.txt} o \texttt{2\_Mat\_Ady.txt}. Por ejemplo, con la siguiente línea
+\begin{lstlisting}[caption={Almacenamiento de \texttt{1\_Mat\_Ady} en la variable \texttt{file}}, label={cod:alamcenar_en_ifstream}]
+std::ifstream file("1_Mat_Ady.txt");
+\end{lstlisting}
+guardamos en la variable \texttt{file} de tipo \texttt{ifstream} el contenido del archivo \texttt{1\_Mat\_Ady.txt}. Para la correcta ejecución del código, debemos tener guardados tanto éste como el archivo \texttt{1\_Mat\_Ady.txt} en la misma carpeta. A partir de esta instrucción, tenemos disponible en \texttt{file} la información de la matriz para nuestro uso. Por ejemplo, podemos pasar \texttt{file} como argumento en la siguiente función.
+\begin{lstlisting}[caption={Función \texttt{leerMatriz}}, label={cod:leerMatriz}]
 std::vector<std::vector<bool>> leerMatriz(std::ifstream& file){
-   int n;
-   file >> n;
-   std::vector<std::vector<bool>> Mat_Ady(n, std::vector<bool>(n));
-   for(int i=0; i<=n-1; i++){
+   int n; (*@\label{lin:2_leerMatriz}@*)
+   file >> n; (*@\label{lin:3_leerMatriz}@*)
+   std::vector<std::vector<bool>> Mat_Ady(n, std::vector<bool>(n));(*@\label{lin:4_leerMatriz}@*)
+   for(int i=0; i<=n-1; i++){(*@\label{lin:5_leerMatriz}@*)
       for(int j=0; j<=n-1; j++){
          bool valor;
          file >> valor;
          Mat_Ady[i][j] = valor;
       }
-   }
-   return Mat_Ady;
+   }(*@\label{lin:11_leerMatriz}@*)
+   return Mat_Ady;(*@\label{lin:12_leerMatriz}@*)
 }\end{lstlisting}
+La función \texttt{leerMatriz} toma como argumento una variable de tipo \texttt{ifstream}, y retorna una matriz con entradas de tipo \texttt{bool}. Ahora y en lo que sigue, a menos que se especifique lo contrario, asumiremos que \texttt{file} ya ha sido inicializado como en el \Cref{cod:alamcenar_en_ifstream}, y tiene guardada la información del archivo \texttt{1\_Mat\_Ady} del \Cref{cod:1_Mat_Ady}. En la \Cref{lin:2_leerMatriz} del \Cref{cod:leerMatriz} se declara la variable \texttt{n} de tipo \texttt{int}, en la que guardaremos el tamaño de la matriz de adyacencia del grafo, que es igual al número de vértices del mismo. Como este dato es el primero en aparecer en \texttt{1\_Mat\_Ady.txt}, y por tanto el primero al que se puede acceder mediante la lectura de \texttt{file}, la instrucción de la \Cref{lin:2_leerMatriz} le asigna a \texttt{n} como valor el tamaño de la matriz de adyacencia, en este caso, de $5$. En la \Cref{lin:4_leerMatriz} inicializamos la matriz \texttt{Mat\_Ady} con entradas tipo \texttt{bool} de tamaño $\texttt{n}\times\texttt{n}$ que almacenará los datos de la correspondiente matriz de adyacencia. Recordemos que en \Cpp{}, así como en la mayoría de lenguajes de programación, a la primera componente de un vector se le asigna la posición $0$. De forma similar, la primera entrada de una matriz tiene asignada la posición $(0,0)$. Igualmente, siguiendo esta lógica, en una matriz de tamaño $n$, la entrada que en matemáticas ocuparía la posición $(n,n)$, para \Cpp{} estará almacenada en la posición $(n-1,n-1)$. Con esto en mente, mediante las \Crefrange{lin:5_leerMatriz}{lin:11_leerMatriz} se accede a la información de \texttt{file} para llenar la matriz \texttt{Mat\_Ady} con los datos de nuestra matriz de adyacencia. La \Cref{lin:11_leerMatriz} retorna la matriz \texttt{Mat\_Ady}, que ya contiene la información que nos interesa.
+\begin{lstlisting}[caption={Función \texttt{inter}}, label={cod:inter}]
+std::vector<bool> inter(std::vector<bool> vect1, std::vector<bool> vect2){
+   std::vector<bool> vect3(vect1.size());(*@\label{lin:2_inter}@*)
+   for(int i=0; i<=vect1.size()-1; i++){(*@\label{lin:3_inter}@*)
+      vect3[i] = vect1[i] && vect2[i];
+   }(*@\label{lin:5_inter}@*)
+   return vect3;(*@\label{lin:6_inter}@*)
+}
+\end{lstlisting}
+La función \texttt{inter} presentada en el \Cref{cod:inter} recibe como argumento dos vectores con entradas tipo \texttt{bool}, \texttt{vect1} y \texttt{vect2}, y retorna así mismo un vector con entradas tipo \texttt{bool}. A pesar de que técnicamente no se especifique, en la práctica los vectores \texttt{vect1} y \texttt{vect2} siempre tendrán el mismo tamaño. Nuestra idea es representar conjuntos de finitos de vértices del tipo $\{v_1,v_2,\dots ,v_n\}$ mediante vectores, de modo que el respectivo vector tenga un $1$ en la posición $i$ precisamente cuando el conjunto en cuestión contega el vértice $v_i$, y un $0$ en caso contrario (acá y en adelante, a menos que se especifique lo contrario, por ``posición'' del vector, usamos la convención común que se tiene en matemáticas, no en programación). Así, por ejemplo, el conjunto $\{v_1,v_2,v_4\}$ lo podemos representar mediante el vector $(1,1,0,1)$, y el vector $(0,0,1,1,0,0)$ representa el conjunto $\{v_3,v_4\}$. Cualquier vector con todas sus entradas nulas representa al conjunto $\emptyset$. En este sentido, la función \texttt{inter} nos permite usar las representaciones vectoriales de dos conjuntos para hallar su conjunto intersección. En la \Cref{lin:2_inter} declaramos el vector \texttt{vect\_3} de tipo \texttt{bool}, del mismo tamaño que \texttt{vect1}, en el que se guardará la ``intersección'' de \texttt{vect1} y \texttt{vect2}. En las \Crefrange{lin:2_inter}{lin:4_leerMatriz}, se almacena, en la i-ésima posición de \texttt{vect3}, un 1 si, y solo si, tanto \texttt{vect1} como \texttt{vect2} tienen un $1$ en su i-ésima posición; en caso contrario se alamcena un $0$. Lo anterior ``traduce'' la definición usada en teoría de conjuntos, en la cual un elemento pertenece a la intersección de dos conjuntos si, y solo si, pertenece a cada uno de ellos. En la \Cref{lin:6_inter} se retorna el vector \texttt{vect3} con la información requerida ya alamcenada. La \Cref{tab:ejemplos_inter} muestra el vector \texttt{vect3} que retornará la función para distintos valores de entrada de \texttt{vect1} y \texttt{vect2}. Se muestra también el conjunto que es representado por cada vector.
+\begin{table}[H]
+   \centering
+   \setlength{\tabcolsep}{4pt}
+   \begin{tabular}{cccccc}
+      \hline
+      \texttt{vect1} & Conjunto 1 & \texttt{vect2} & Conjunto 2 & \begin{tabular}[c]{@{}c@{}}\texttt{vect3}\end{tabular} & \begin{tabular}[c]{@{}c@{}}Conjunto $3$\end{tabular} \\
+      \hline
+      $(1,0,1,1,0)$ & $\{v_1,v_3,v_4\}$ & $(1,1,0,1,0)$ & $\{v_1,v_2,v_4\}$ & $(1,0,0,1,0)$ & $\{v_1,v_4\}$ \\
+      $(1,1,1,0)$ & $\{v_1,v_2,v_3\}$ & $(0,1,1,1)$ & $\{v_2,v_3,v_4\}$ & $(0,0,1,0)$ & $\{v_2\}$ \\
+      $(1,0,1,0,1)$ & $\{v_1,v_3,v_5\}$ & $(0,1,0,1,0)$ & $\{v_2,v_4\}$ & $(0,0,0,0,0)$ & $\emptyset$ \\
+      \hline
+   \end{tabular}
+   \caption{Ejemplos de entradas y retornos de la función \texttt{inter}}
+   \label{tab:ejemplos_inter}
+\end{table}
+\begin{lstlisting}[caption={Función \texttt{llenarMatriz\_Preuniones}}, label={cod:llenarMatriz_Preuniones}]
+std::vector<std::vector<bool>> llenarMatriz_Preuniones(int n){
+   int m = 1 << n;
+   std::vector<std::vector<bool>> Mat_Preuniones(m, std::vector<bool>(n, false));
+   for(int j=0; j<=n-1; j++){
+      bool pert = 1;
+      for(int i=0; i<=m-1; i++){
+         Mat_Preuniones[i][j] = pert;
+         if( ((i+1) % (1 << (n-(j+1)))) == 0){
+            pert = !pert;
+         }
+      }
+   }
+   return Mat_Preuniones;
+}
+\end{lstlisting}
+En la \Cref{tab:preuniones} se muestra la matriz \texttt{Mat\_Preuniones} retornada por la función\\\texttt{llenarMatriz\_Preuniones}, para diversos valores de \texttt{n}.
+\begin{table}[H]
+   \centering
+   \begin{tabular}{S{c}S{c}}
+      \hline
+      \texttt{n} & \texttt{Mat\_Preuniones}\\
+      \hline
+      $2$ &
+      $\begin{pmatrix}
+         1 & 1 \\
+         1 & 0 \\
+         0 & 1 \\
+         0 & 0
+      \end{pmatrix}$ \\
+      \hline
+      $3$ &
+      $\begin{pmatrix}
+         1 & 1 & 1 \\
+         1 & 1 & 0 \\
+         1 & 0 & 1 \\
+         1 & 0 & 0 \\
+         0 & 1 & 1 \\
+         0 & 1 & 0 \\
+         0 & 0 & 1 \\
+         0 & 0 & 0
+      \end{pmatrix}$ \\
+      \hline
+      $4$ &
+      $\begin{pmatrix}
+         1 & 1 & 1 & 1 \\
+         1 & 1 & 1 & 0 \\
+         1 & 1 & 0 & 1 \\
+         1 & 1 & 0 & 0 \\
+         1 & 0 & 1 & 1 \\
+         1 & 0 & 1 & 0 \\
+         1 & 0 & 0 & 1 \\
+         1 & 0 & 0 & 0 \\
+         0 & 1 & 1 & 1 \\
+         0 & 1 & 1 & 0 \\
+         0 & 1 & 0 & 1 \\
+         0 & 1 & 0 & 0 \\
+         0 & 0 & 1 & 1 \\
+         0 & 0 & 1 & 0 \\
+         0 & 0 & 0 & 1 \\
+         0 & 0 & 0 & 0
+      \end{pmatrix}$ \\
+      \hline
+   \end{tabular}
+   \caption{Ejemplos de entradas y retornos de la función \texttt{llenarMatriz\_Preuniones}}
+   \label{tab:preuniones}
+\end{table}
