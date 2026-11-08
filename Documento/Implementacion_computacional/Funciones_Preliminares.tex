@@ -9,7 +9,7 @@ La cabecera \texttt{<iostream>} es necesaria para imprimir texto en la terminal.
 Para el funcionamiento del código usaremos archivos \texttt{.txt} para almacenar la información necesaria del grafo al que se le calcularán las topologías de adyacencia y de incidencia. Esta se conforma únicamente por un número entero que representa el número de vértices del grafo en cuestión, y un arreglo rectangular de ceros y unos, separados por \texttt{tabs} y renglones, que representa la matriz de adyacencia del mismo. Mostramos a continuación un par de ejemplos.
 \input{Implementacion_computacional/Diagramas/Fig1.tex}
 \input{Implementacion_computacional/Diagramas/Fig2.tex}
-Así, por ejemplo, en la \Cref{lin:r1_1_Mat_Ady} del \Cref{cod:1_Mat_Ady}, el número $5$ hace referencia al número de vértices del grafo $G_1$, mientras que la \Cref{lin:r1_2_Mat_Ady} del \Cref{cod:2_Mat_Ady} hace referencia al número de vértices del grafo $K_{3,5}$. Igualmente, en las \Crefrange{lin:inicio_1_Mat_Ady}{lin:fin_1_Mat_Ady} del \Cref{cod:1_Mat_Ady}, se representa la matriz de adyacencia
+Así, por ejemplo, en la \linea{cod:1_Mat_Ady}{1} del \Cref{cod:1_Mat_Ady}, el número $5$ hace referencia al número de vértices del grafo $G_1$, mientras que la \linea{cod:2_Mat_Ady}{1} del \Cref{cod:2_Mat_Ady} hace referencia al número de vértices del grafo $K_{3,5}$. Igualmente, en las \lineas{cod:1_Mat_Ady}{2}{6} del \Cref{cod:1_Mat_Ady}, se representa la matriz de adyacencia
 \begin{ceqn}
 \[
 \begin{pmatrix}
@@ -21,7 +21,7 @@ Así, por ejemplo, en la \Cref{lin:r1_1_Mat_Ady} del \Cref{cod:1_Mat_Ady}, el n�
 \end{pmatrix}
 \]
 \end{ceqn}
-del grafo $G_1$. Análogamente, en las \Crefrange{lin:inicio_2_Mat_Ady}{lin:fin_2_Mat_Ady} del \Cref{cod:2_Mat_Ady}, se representa la matriz de adyacencia
+del grafo $G_1$. Análogamente, en las \lineas{cod:2_Mat_Ady}{2}{9} del \Cref{cod:2_Mat_Ady}, se representa la matriz de adyacencia
 \begin{ceqn}
 \[
 \begin{pmatrix}
@@ -44,29 +44,29 @@ std::ifstream file("1_Mat_Ady.txt");
 guardamos en la variable \texttt{file} de tipo \texttt{ifstream} el contenido del archivo \texttt{1\_Mat\_Ady.txt}. Para la correcta ejecución del código, debemos tener guardados tanto éste como el archivo \texttt{1\_Mat\_Ady.txt} en la misma carpeta. A partir de esta instrucción, tenemos disponible en \texttt{file} la información de la matriz para nuestro uso. Por ejemplo, podemos pasar \texttt{file} como argumento en la siguiente función.
 \begin{lstlisting}[caption={Función \texttt{leerMatriz}}, label={cod:leerMatriz}]
 std::vector<std::vector<bool>> leerMatriz(std::ifstream& file){
-   int n; (*@\label{lin:2_leerMatriz}@*)
-   file >> n; (*@\label{lin:3_leerMatriz}@*)
-   std::vector<std::vector<bool>> Mat_Ady(n, std::vector<bool>(n));(*@\label{lin:4_leerMatriz}@*)
-   for(int i=0; i<=n-1; i++){(*@\label{lin:5_leerMatriz}@*)
+   int n;
+   file >> n;
+   std::vector<std::vector<bool>> Mat_Ady(n, std::vector<bool>(n));
+   for(int i=0; i<=n-1; i++){
       for(int j=0; j<=n-1; j++){
          bool valor;
          file >> valor;
          Mat_Ady[i][j] = valor;
       }
-   }(*@\label{lin:11_leerMatriz}@*)
-   return Mat_Ady;(*@\label{lin:12_leerMatriz}@*)
+   }
+   return Mat_Ady;
 }\end{lstlisting}
-La función \texttt{leerMatriz} toma como argumento una variable de tipo \texttt{ifstream}, y retorna una matriz con entradas de tipo \texttt{bool}. Ahora y en lo que sigue, a menos que se especifique lo contrario, asumiremos que \texttt{file} ya ha sido inicializado como en el \Cref{cod:alamcenar_en_ifstream}, y tiene guardada la información del archivo \texttt{1\_Mat\_Ady} del \Cref{cod:1_Mat_Ady}. En la \Cref{lin:2_leerMatriz} del \Cref{cod:leerMatriz} se declara la variable \texttt{n} de tipo \texttt{int}, en la que guardaremos el tamaño de la matriz de adyacencia del grafo, que es igual al número de vértices del mismo. Como este dato es el primero en aparecer en \texttt{1\_Mat\_Ady.txt}, y por tanto el primero al que se puede acceder mediante la lectura de \texttt{file}, la instrucción de la \Cref{lin:2_leerMatriz} le asigna a \texttt{n} como valor el tamaño de la matriz de adyacencia, en este caso, de $5$. En la \Cref{lin:4_leerMatriz} inicializamos la matriz \texttt{Mat\_Ady} con entradas tipo \texttt{bool} de tamaño $\texttt{n}\times\texttt{n}$ que almacenará los datos de la correspondiente matriz de adyacencia. Recordemos que en \Cpp{}, así como en la mayoría de lenguajes de programación, a la primera componente de un vector se le asigna la posición $0$. De forma similar, la primera entrada de una matriz tiene asignada la posición $(0,0)$. Igualmente, siguiendo esta lógica, en una matriz de tamaño $n$, la entrada que en matemáticas ocuparía la posición $(n,n)$, para \Cpp{} estará almacenada en la posición $(n-1,n-1)$. Con esto en mente, mediante las \Crefrange{lin:5_leerMatriz}{lin:11_leerMatriz} se accede a la información de \texttt{file} para llenar la matriz \texttt{Mat\_Ady} con los datos de nuestra matriz de adyacencia. La \Cref{lin:11_leerMatriz} retorna la matriz \texttt{Mat\_Ady}, que ya contiene la información que nos interesa.
+La función \texttt{leerMatriz} toma como argumento una variable de tipo \texttt{ifstream}, y retorna una matriz con entradas de tipo \texttt{bool}. Ahora y en lo que sigue, a menos que se especifique lo contrario, asumiremos que \texttt{file} ya ha sido inicializado como en el \Cref{cod:alamcenar_en_ifstream}, y tiene guardada la información del archivo \texttt{1\_Mat\_Ady} del \Cref{cod:1_Mat_Ady}. En la \linea{cod:leerMatriz}{2} del \Cref{cod:leerMatriz} se declara la variable \texttt{n} de tipo \texttt{int}, en la que guardaremos el tamaño de la matriz de adyacencia del grafo, que es igual al número de vértices del mismo. Como este dato es el primero en aparecer en \texttt{1\_Mat\_Ady.txt}, y por tanto el primero al que se puede acceder mediante la lectura de \texttt{file}, la instrucción de la \linea{cod:leerMatriz}{3} le asigna a \texttt{n} como valor el tamaño de la matriz de adyacencia, en este caso, de $5$. En la \linea{cod:leerMatriz}{4} inicializamos la matriz \texttt{Mat\_Ady} con entradas tipo \texttt{bool} de tamaño $\texttt{n}\times\texttt{n}$ que almacenará los datos de la correspondiente matriz de adyacencia. Recordemos que en \Cpp{}, así como en la mayoría de lenguajes de programación, a la primera componente de un vector se le asigna la posición $0$. De forma similar, la primera entrada de una matriz tiene asignada la posición $(0,0)$. Igualmente, siguiendo esta lógica, en una matriz de tamaño $n$, la entrada que en matemáticas ocuparía la posición $(n,n)$, para \Cpp{} estará almacenada en la posición $(n-1,n-1)$. Con esto en mente, mediante las \lineas{cod:leerMatriz}{5}{11} se accede a la información de \texttt{file} para llenar la matriz \texttt{Mat\_Ady} con los datos de nuestra matriz de adyacencia. La \linea{cod:leerMatriz}{12} retorna la matriz \texttt{Mat\_Ady}, que ya contiene la información que nos interesa.
 \begin{lstlisting}[caption={Función \texttt{inter}}, label={cod:inter}]
 std::vector<bool> inter(std::vector<bool> vect1, std::vector<bool> vect2){
-   std::vector<bool> vect3(vect1.size());(*@\label{lin:2_inter}@*)
-   for(int i=0; i<=vect1.size()-1; i++){(*@\label{lin:3_inter}@*)
+   std::vector<bool> vect3(vect1.size());
+   for(int i=0; i<=vect1.size()-1; i++){
       vect3[i] = vect1[i] && vect2[i];
-   }(*@\label{lin:5_inter}@*)
-   return vect3;(*@\label{lin:6_inter}@*)
+   }
+   return vect3;
 }
 \end{lstlisting}
-La función \texttt{inter} presentada en el \Cref{cod:inter} recibe como argumento dos vectores con entradas tipo \texttt{bool}, \texttt{vect1} y \texttt{vect2}, y retorna así mismo un vector con entradas tipo \texttt{bool}. A pesar de que técnicamente no se especifique, en la práctica los vectores \texttt{vect1} y \texttt{vect2} siempre tendrán el mismo tamaño. Nuestra idea es representar conjuntos finitos de vértices del tipo $\{v_1,v_2,\dots ,v_n\}$ mediante vectores, de modo que el respectivo vector tenga un $1$ en la posición $i$ precisamente cuando el conjunto en cuestión contenga el vértice $v_i$, y un $0$ en caso contrario (acá y en adelante, a menos que se especifique lo contrario, por ``posición'' del vector, usamos la convención común que se tiene en matemáticas, no en programación). Así, por ejemplo, el conjunto $\{v_1,v_2,v_4\}$ lo podemos representar mediante el vector $(1,1,0,1)$, y el vector $(0,0,1,1,0,0)$ representa el conjunto $\{v_3,v_4\}$. Cualquier vector con todas sus entradas nulas representa al conjunto $\emptyset$. En este sentido, la función \texttt{inter} nos permite usar las representaciones vectoriales de dos conjuntos para hallar su conjunto intersección. En la \Cref{lin:2_inter} declaramos el vector \texttt{vect3} de tipo \texttt{bool}, del mismo tamaño que \texttt{vect1}, en el que se guardará la ``intersección'' de \texttt{vect1} y \texttt{vect2}. En las \Crefrange{lin:2_inter}{lin:4_leerMatriz}, se almacena, en la i-ésima posición de \texttt{vect3}, un 1 si, y solo si, tanto \texttt{vect1} como \texttt{vect2} tienen un $1$ en su i-ésima posición; en caso contrario se almacena un $0$. Lo anterior ``traduce'' la definición usada en teoría de conjuntos, en la cual un elemento pertenece a la intersección de dos conjuntos si, y solo si, pertenece a cada uno de ellos. En la \Cref{lin:6_inter} se retorna el vector \texttt{vect3} con la información requerida ya alamcenada. La \Cref{tab:ejemplos_inter} muestra el vector \texttt{vect3} que retornará la función para distintos valores de entrada de \texttt{vect1} y \texttt{vect2}. Se muestra también el conjunto que es representado por cada vector.
+La función \texttt{inter} presentada en el \Cref{cod:inter} recibe como argumento dos vectores con entradas tipo \texttt{bool}, \texttt{vect1} y \texttt{vect2}, y retorna así mismo un vector con entradas tipo \texttt{bool}. A pesar de que técnicamente no se especifique, en la práctica los vectores \texttt{vect1} y \texttt{vect2} siempre tendrán el mismo tamaño. Nuestra idea es representar conjuntos finitos de vértices del tipo $\{v_1,v_2,\dots ,v_n\}$ mediante vectores, de modo que el respectivo vector tenga un $1$ en la posición $i$ precisamente cuando el conjunto en cuestión contenga el vértice $v_i$, y un $0$ en caso contrario (acá y en adelante, a menos que se especifique lo contrario, por ``posición'' del vector, usamos la convención común que se tiene en matemáticas, no en programación). Así, por ejemplo, el conjunto $\{v_1,v_2,v_4\}$ lo podemos representar mediante el vector $(1,1,0,1)$, y el vector $(0,0,1,1,0,0)$ representa el conjunto $\{v_3,v_4\}$. Cualquier vector con todas sus entradas nulas representa al conjunto $\emptyset$. En este sentido, la función \texttt{inter} nos permite usar las representaciones vectoriales de dos conjuntos para hallar su conjunto intersección. En la \linea{cod:inter}{2} declaramos el vector \texttt{vect3} de tipo \texttt{bool}, del mismo tamaño que \texttt{vect1}, en el que se guardará la ``intersección'' de \texttt{vect1} y \texttt{vect2}. En las \lineas{cod:inter}{3}{5}, se almacena, en la i-ésima posición de \texttt{vect3}, un 1 si, y solo si, tanto \texttt{vect1} como \texttt{vect2} tienen un $1$ en su i-ésima posición; en caso contrario se almacena un $0$. Lo anterior ``traduce'' la definición usada en teoría de conjuntos, en la cual un elemento pertenece a la intersección de dos conjuntos si, y solo si, pertenece a cada uno de ellos. En la \linea{cod:inter}{6} se retorna el vector \texttt{vect3} con la información requerida ya almacenada. La \Cref{tab:ejemplos_inter} muestra el vector \texttt{vect3} que retornará la función para distintos valores de entrada de \texttt{vect1} y \texttt{vect2}. Se muestra también el conjunto que es representado por cada vector.
 \begin{table}[H]
    \centering
    \setlength{\tabcolsep}{4pt}
@@ -84,9 +84,9 @@ La función \texttt{inter} presentada en el \Cref{cod:inter} recibe como argumen
 \end{table}
 \begin{lstlisting}[caption={Función \texttt{llenarMatriz\_Preuniones}}, label={cod:llenarMatriz_Preuniones}]
 std::vector<std::vector<bool>> llenarMatriz_Preuniones(int n){
-   int m = 1 << n; (*@\label{lin:2_llenarMatriz_Preuniones}@*)
-   std::vector<std::vector<bool>> Mat_Preuniones(m, std::vector<bool>(n, 0)); (*@\label{lin:3_llenarMatriz_Preuniones}@*)
-   for(int j=0; j<=n-1; j++){ (*@\label{lin:4_llenarMatriz_Preuniones}@*)
+   int m = 1 << n;
+   std::vector<std::vector<bool>> Mat_Preuniones(m, std::vector<bool>(n, 0));
+   for(int j=0; j<=n-1; j++){
       bool pert = 1;
       for(int i=0; i<=m-1; i++){
          Mat_Preuniones[i][j] = pert;
@@ -94,11 +94,11 @@ std::vector<std::vector<bool>> llenarMatriz_Preuniones(int n){
             pert = !pert;
          }
       }
-   }(*@\label{lin:12_llenarMatriz_Preuniones}@*)
+   }
    return Mat_Preuniones;
 }
 \end{lstlisting}
-La utilidad principal de la función \texttt{llenarMatriz\_Preuniones} es crear una matriz auxiliar para hallar todas las uniones posibles de una colección de $n$ conjuntos. La función recibe como entrada una variable \texttt{n} de tipo \texttt{int}. En la \Cref{lin:2_llenarMatriz_Preuniones}, del \Cref{cod:llenarMatriz_Preuniones}, se declara la variable \texttt{m} de tipo \texttt{int} y se le asigna el valor de $2^n$, calculado mediante el código \texttt{1 \textless{}\textless{} n}. En la \Cref{lin:3_llenarMatriz_Preuniones} se declara la matriz \texttt{Mat\_Preuniones} con entradas tipo \texttt{bool}, iniciadas todas en $0$, y de tamaño \texttt{m$\times$n}, de modo que tendrá $2^n$ filas y $n$ columnas. Deseamos que las filas de \texttt{Mat\_Preuniones} tengan todas las formas de ``armar una cadena'', de $n$ puestos, en la que cada puesto pueda contener un $0$ o un $1$. Por el principio del producto, hay $\underbrace{2\times 2\times \cdots \times 2}_{n \text{ veces}}=2^n$ de tales cadenas, cada una de longitud n, de modo que las dimensiones de \texttt{Mat\_Preuniones} son las adecuadas. En las \Crefrange{lin:4_llenarMatriz_Preuniones}{lin:12_llenarMatriz_Preuniones} se realiza el ``llenado'' de la matriz \texttt{Mat\_Preuniones} mediante el siguiente procedimiento: a la primera mitad de la primera columna se le cambia su valor de $0$ a $1$, mientras la segunda mitad se deja en $0$. Notemos que la mitad de cada columna tiene tamaño $2^n/2$, de modo que el anterior paso también se puede describir como, iniciando en $1$, ``ubicar'' $1$'s y $0$'s alternadamente, cambiando de valor cada $2^n/2$ puestos. En la segunda columna, realizamos el mismo procedimiento, pero cambiando la asignación de valor cada $2^n/2^2$ puestos. Así, en general, para la columna $j$ se realizará el cambio cada $2^n/2^j$ elementos, hasta que, en la columna $n$ se realice el cambio cada elemento, pues $1=2^n/2^n$. En la \Cref{tab:preuniones} se muestra la matriz \texttt{Mat\_Preuniones} retornada por la función \texttt{llenarMatriz\_Preuniones}, para diversos valores de \texttt{n}.
+La utilidad principal de la función \texttt{llenarMatriz\_Preuniones} es crear una matriz auxiliar para hallar todas las uniones posibles de una colección de $n$ conjuntos. La función recibe como entrada una variable \texttt{n} de tipo \texttt{int}. En la \linea{cod:llenarMatriz_Preuniones}{2}, del \Cref{cod:llenarMatriz_Preuniones}, se declara la variable \texttt{m} de tipo \texttt{int} y se le asigna el valor de $2^n$, calculado mediante el código \texttt{1 \textless{}\textless{} n}. En la \linea{cod:llenarMatriz_Preuniones}{3} se declara la matriz \texttt{Mat\_Preuniones} con entradas tipo \texttt{bool}, iniciadas todas en $0$, y de tamaño \texttt{m$\times$n}, de modo que tendrá $2^n$ filas y $n$ columnas. Deseamos que las filas de \texttt{Mat\_Preuniones} tengan todas las formas de ``armar una cadena'', de $n$ puestos, en la que cada puesto pueda contener un $0$ o un $1$. Por el principio del producto, hay $\underbrace{2\times 2\times \cdots \times 2}_{n \text{ veces}}=2^n$ de tales cadenas, cada una de longitud n, de modo que las dimensiones de \texttt{Mat\_Preuniones} son las adecuadas. En las \lineas{cod:llenarMatriz_Preuniones}{4}{12} se realiza el ``llenado'' de la matriz \texttt{Mat\_Preuniones} mediante el siguiente procedimiento: a la primera mitad de la primera columna se le cambia su valor de $0$ a $1$, mientras la segunda mitad se deja en $0$. Notemos que la mitad de cada columna tiene tamaño $2^n/2$, de modo que el anterior paso también se puede describir como, iniciando en $1$, ``ubicar'' $1$'s y $0$'s alternadamente, cambiando de valor cada $2^n/2$ puestos. En la segunda columna, realizamos el mismo procedimiento, pero cambiando la asignación de valor cada $2^n/2^2$ puestos. Así, en general, para la columna $j$ se realizará el cambio cada $2^n/2^j$ elementos, hasta que, en la columna $n$ se realice el cambio cada elemento, pues $1=2^n/2^n$. En la \Cref{tab:preuniones} se muestra la matriz \texttt{Mat\_Preuniones} retornada por la función \texttt{llenarMatriz\_Preuniones}, para diversos valores de \texttt{n}.
 \begin{table}[H]
    \centering
    \begin{tabular}{S{c}S{c}}
