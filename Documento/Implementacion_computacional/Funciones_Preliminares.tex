@@ -84,9 +84,9 @@ La función \texttt{inter} presentada en el \Cref{cod:inter} recibe como argumen
 \end{table}
 \begin{lstlisting}[caption={Función \texttt{llenarMatriz\_Preuniones}}, label={cod:llenarMatriz_Preuniones}]
 std::vector<std::vector<bool>> llenarMatriz_Preuniones(int n){
-   int m = 1 << n;
-   std::vector<std::vector<bool>> Mat_Preuniones(m, std::vector<bool>(n, false));
-   for(int j=0; j<=n-1; j++){
+   int m = 1 << n; (*@\label{lin:2_llenarMatriz_Preuniones}@*)
+   std::vector<std::vector<bool>> Mat_Preuniones(m, std::vector<bool>(n, 0)); (*@\label{lin:3_llenarMatriz_Preuniones}@*)
+   for(int j=0; j<=n-1; j++){ (*@\label{lin:4_llenarMatriz_Preuniones}@*)
       bool pert = 1;
       for(int i=0; i<=m-1; i++){
          Mat_Preuniones[i][j] = pert;
@@ -94,11 +94,11 @@ std::vector<std::vector<bool>> llenarMatriz_Preuniones(int n){
             pert = !pert;
          }
       }
-   }
+   }(*@\label{lin:12_llenarMatriz_Preuniones}@*)
    return Mat_Preuniones;
 }
 \end{lstlisting}
-En la \Cref{tab:preuniones} se muestra la matriz \texttt{Mat\_Preuniones} retornada por la función\\\texttt{llenarMatriz\_Preuniones}, para diversos valores de \texttt{n}.
+La utilidad principal de la función \texttt{llenarMatriz\_Preuniones} es crear una matriz auxiliar para hallar todas las uniones posibles de una colección de $n$ conjuntos. La función recibe como entrada una variable \texttt{n} de tipo \texttt{int}. En la \Cref{lin:2_llenarMatriz_Preuniones}, del \Cref{cod:llenarMatriz_Preuniones}, se declara la variable \texttt{m} de tipo \texttt{int} y se le asigna el valor de $2^n$, calculado mediante el código \texttt{1 \textless{}\textless{} n}. En la \Cref{lin:3_llenarMatriz_Preuniones} se declara la matriz \texttt{Mat\_Preuniones} con entradas tipo \texttt{bool}, iniciadas todas en $0$, y de tamaño \texttt{m$\times$n}, de modo que tendrá $2^n$ filas y $n$ columnas. Deseamos que las filas de \texttt{Mat\_Preuniones} tengan todas las formas de ``armar una cadena'', de $n$ puestos, en la que cada puesto pueda contener un $0$ o un $1$. Por el principio del producto, hay $\underbrace{2\times 2\times \cdots \times 2}_{n \text{ veces}}=2^n$ de tales cadenas, cada una de longitud n, de modo que las dimensiones de \texttt{Mat\_Preuniones} son las adecuadas. En las \Crefrange{lin:4_llenarMatriz_Preuniones}{lin:12_llenarMatriz_Preuniones} se realiza el ``llenado'' de la matriz \texttt{Mat\_Preuniones} mediante el siguiente procedimiento: a la primera mitad de la primera columna se le cambia su valor de $0$ a $1$, mientras la segunda mitad se deja en $0$. Notemos que la mitad de cada columna tiene tamaño $2^n/2$, de modo que el anterior paso también se puede describir como, iniciando en $1$, ``ubicar'' $1$'s y $0$'s alternadamente, cambiando de valor cada $2^n/2$ puestos. En la segunda columna, realizamos el mismo procedimiento, pero cambiando la asignación de valor cada $2^n/2^2$ puestos. Así, en general, para la fila $j$ se realizará el cambio cada $2^n/2^j$ elementos, hasta que, en la columna $n$ se realice el cambio cada un elemento, pues $1=2^n/2^n$. En la \Cref{tab:preuniones} se muestra la matriz \texttt{Mat\_Preuniones} retornada por la función \texttt{llenarMatriz\_Preuniones}, para diversos valores de \texttt{n}.
 \begin{table}[H]
    \centering
    \begin{tabular}{S{c}S{c}}

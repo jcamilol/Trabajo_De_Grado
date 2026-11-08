@@ -271,6 +271,11 @@
 \crefname{line}{línea}{líneas}%
 \Crefname{line}{Línea}{Líneas}%
 
+% Línea suelta: \linea{etiqueta del código}{número}
+\newcommand{\linea}[2]{Línea~\hyperref[#1]{#2}}
+% Rango de líneas: \lineas{etiqueta del código}{desde}{hasta}
+\newcommand{\lineas}[3]{Líneas~\hyperref[#1]{#2} a~\hyperref[#1]{#3}}
+
 % Vinculación de los entornos compartidos con el contador 'equation'
 \AtBeginEnvironment{Ejm}{\crefalias{equation}{Ejm}}
 \AtBeginEnvironment{Prop}{\crefalias{equation}{Prop}}

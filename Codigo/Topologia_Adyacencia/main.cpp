@@ -83,7 +83,7 @@ void imprVecindadesMinimas(std::vector<std::vector<bool>> Mat_U){ //Esta funció
 
 std::vector<std::vector<bool>> llenarMatriz_Preuniones(int n){//Esta matriz se usa para hacer todas las posibles uniones de una familia de n conjuntos: por cada fila i pone 1 en la columna j si, y solo si, el conjunto U_j se debe incluir en la unión
    int m = 1 << n; // 2^n equivalente en enteros
-   std::vector<std::vector<bool>> Mat_Preuniones(m, std::vector<bool>(n, false)); //La matriz tendrá 2^n filas y n columnas
+   std::vector<std::vector<bool>> Mat_Preuniones(m, std::vector<bool>(n, 0)); //La matriz tendrá 2^n filas y n columnas
    for(int j=0; j<=n-1; j++){ //Llenamos la matriz como en una tabla de verdad
       bool pert = 1; //La primera fila siempre es 1; ponemos 1 cada 2^(n-i) elementos
       for(int i=0; i<=m-1; i++){
