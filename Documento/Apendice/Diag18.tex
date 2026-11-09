@@ -1,0 +1,15 @@
+\begin{tikzpicture}[
+  scale=1,
+  vnode/.style={circle, fill=blue!20, draw=black, thick, minimum size=9mm, inner sep=0pt, font=\Large}
+]
+  % Vértices
+  \node[vnode] (v1) at (0, 3.1) {$v_1$};
+  \node[vnode] (v2) at (4.7, 3.1) {$v_2$};
+  \node[vnode] (v3) at (1.25, 2.05) {$v_3$};
+  \node[vnode] (v4) at (3.45, 2.05) {$v_4$};
+  \node[vnode] (v5) at (2.35, 0.25) {$v_5$};
+
+  % Aristas
+  \foreach \from/\to in {v1/v3, v2/v4, v3/v4, v3/v5, v4/v5}
+    \draw (\from) -- (\to);
+\end{tikzpicture}

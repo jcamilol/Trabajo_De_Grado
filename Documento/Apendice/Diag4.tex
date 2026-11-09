@@ -1,0 +1,18 @@
+% Ejemplo de retículo distributivo
+% Incluido
+\begin{tikzpicture}[
+  scale=1.5,
+  vnode/.style={circle, fill=blue!20, draw=black, thick, minimum size=9mm, inner sep=0pt, font=\Large}
+]
+  % Vértices
+  \node[vnode] (v1) at (2, 3) {$v_1$};
+  \node[vnode] (v2) at (1, 2) {$v_2$};
+  \node[vnode] (v3) at (3, 2) {$v_3$};
+  \node[vnode] (v4) at (0, 1) {$v_4$};
+  \node[vnode] (v5) at (2, 1) {$v_5$};
+  \node[vnode] (v6) at (1, 0) {$v_6$};
+
+  % Aristas
+  \foreach \from/\to in {v1/v2, v1/v3, v2/v4, v2/v5, v3/v5, v4/v6, v5/v6}
+    \draw (\from) -- (\to);
+\end{tikzpicture}

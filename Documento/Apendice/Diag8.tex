@@ -1,0 +1,17 @@
+% $M_5$, ejemplo de retículo que no es distributivo
+%Incluido
+\begin{tikzpicture}[
+  scale=1.5,
+  vnode/.style={circle, fill=blue!20, draw=black, thick, minimum size=9mm, inner sep=0pt, font=\Large}
+]
+  % Vértices
+  \node[vnode] (v1) at (2, 4) {$v_1$};
+  \node[vnode] (v2) at (0, 2) {$v_2$};
+  \node[vnode] (v3) at (2, 2) {$v_3$};
+  \node[vnode] (v4) at (4, 2) {$v_4$};
+  \node[vnode] (v5) at (2, 0) {$v_5$};
+
+  % Aristas
+  \foreach \from/\to in {v1/v2, v1/v3, v1/v4, v2/v5, v3/v5, v4/v5}
+    \draw (\from) -- (\to);
+\end{tikzpicture}

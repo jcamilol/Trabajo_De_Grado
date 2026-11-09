@@ -1,0 +1,94 @@
+\begin{table}[p]
+   \centering
+   \footnotesize
+   \renewcommand{\arraystretch}{1.15}
+   \begin{tabular}{@{}>{\centering\arraybackslash}m{0.3033\textwidth}>{\centering\arraybackslash}m{0.3033\textwidth}>{\centering\arraybackslash}m{0.3033\textwidth}@{}}
+      \hline
+      \multicolumn{3}{@{}c@{}}{%
+         \begin{tabular}{@{}>{\centering\arraybackslash}m{\dimexpr0.455\textwidth+\tabcolsep\relax}>{\centering\arraybackslash}m{\dimexpr0.455\textwidth+\tabcolsep\relax}@{}}
+            $T_1$ & Matriz de adyacencia \\
+            \hline
+            \noalign{\vspace{6pt}}
+            \rule{0pt}{0pt}$\vcenter{\hbox{\resizebox{0.25\textwidth}{!}{\input{Apendice/Diag15.tex}}}}$
+            &
+            $\vcenter{\hbox{\scriptsize$\begin{pmatrix}
+         0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+         0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+         0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+         1 & 0 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+         0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+         0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+         0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 \\
+         0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 0 \\
+         0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 \\
+         0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0
+      \end{pmatrix}$}}$ \\
+            \noalign{\vspace{6pt}}
+         \end{tabular}%
+      } \\
+      \hline
+      \multicolumn{3}{c}{\textbf{Topología de adyacencia}} \\
+      \hline
+      Abiertos subbásicos & Vecindades mínimas & Topología \\
+      \hline
+         ${A_{v_1}=\{v_4\}}$\par
+         ${A_{v_2}=\{v_7\}}$\par
+         ${A_{v_3}=\{v_4\}}$\par
+         ${A_{v_4}=\{v_1,v_3,v_7\}}$\par
+         ${A_{v_5}=\{v_8\}}$\par
+         ${A_{v_6}=\{v_8\}}$\par
+         ${A_{v_7}=\{v_2,v_4,v_9\}}$\par
+         ${A_{v_8}=\{v_5,v_6,v_9\}}$\par
+         ${A_{v_9}=\{v_7,v_8,v_{10}\}}$\par
+         ${A_{v_{10}}=\{v_9\}}$
+      &
+         ${U_{v_1}=\{v_1,v_3,v_7\}}$\par
+         ${U_{v_2}=\{v_2,v_4,v_9\}}$\par
+         ${U_{v_3}=\{v_1,v_3,v_7\}}$\par
+         ${U_{v_4}=\{v_4\}}$\par
+         ${U_{v_5}=\{v_5,v_6,v_9\}}$\par
+         ${U_{v_6}=\{v_5,v_6,v_9\}}$\par
+         ${U_{v_7}=\{v_7\}}$\par
+         ${U_{v_8}=\{v_8\}}$\par
+         ${U_{v_9}=\{v_9\}}$\par
+         ${U_{v_{10}}=\{v_7,v_8,v_{10}\}}$
+      &
+         No discreta, con 64 abiertos \\[6pt]
+      \hline
+      \multicolumn{3}{c}{\textbf{Topología de incidencia}} \\
+      \hline
+      Abiertos subbásicos & Vecindades mínimas & Topología \\
+      \hline
+         ${e_{1}=\{v_1,v_4\}}$\par
+         ${e_{2}=\{v_2,v_7\}}$\par
+         ${e_{3}=\{v_3,v_4\}}$\par
+         ${e_{4}=\{v_4,v_7\}}$\par
+         ${e_{5}=\{v_5,v_8\}}$\par
+         ${e_{6}=\{v_6,v_8\}}$\par
+         ${e_{7}=\{v_7,v_9\}}$\par
+         ${e_{8}=\{v_8,v_9\}}$\par
+         ${e_{9}=\{v_9,v_{10}\}}$
+      &
+         ${U_{v_1}=\{v_1,v_4\}}$\par
+         ${U_{v_2}=\{v_2,v_7\}}$\par
+         ${U_{v_3}=\{v_3,v_4\}}$\par
+         ${U_{v_4}=\{v_4\}}$\par
+         ${U_{v_5}=\{v_5,v_8\}}$\par
+         ${U_{v_6}=\{v_6,v_8\}}$\par
+         ${U_{v_7}=\{v_7\}}$\par
+         ${U_{v_8}=\{v_8\}}$\par
+         ${U_{v_9}=\{v_9\}}$\par
+         ${U_{v_{10}}=\{v_9,v_{10}\}}$
+      &
+         No discreta, con 225 abiertos \\[6pt]
+      \hline
+   \end{tabular}
+   \caption{Topologías de adyacencia e incidencia de $T_1$}
+   \label{tab:topologias_T_1}
+
+   \vspace{2em}
+   \begin{minipage}{\textwidth}
+      \normalsize
+      El grafo $T_1$ es un árbol.
+   \end{minipage}
+\end{table}

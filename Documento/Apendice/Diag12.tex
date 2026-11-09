@@ -1,0 +1,33 @@
+\begin{tikzpicture}[
+  scale=1,
+  vnode/.style={circle, fill=blue!20, draw=black, thick, minimum size=9mm, inner sep=0pt, font=\Large}
+]
+  % Vértices
+  \node[vnode] (v1) at (7.12, 7.78) {$v_1$};
+  \node[vnode] (v2) at (4.12, 7.60) {$v_2$};
+  \node[vnode] (v3) at (9.00, 7.55) {$v_3$};
+  \node[vnode] (v4) at (2.75, 7.38) {$v_4$};
+  \node[vnode] (v5) at (7.80, 6.45) {$v_5$};
+  \node[vnode] (v6) at (5.65, 6.12) {$v_6$};
+  \node[vnode] (v7) at (3.65, 5.95) {$v_7$};
+  \node[vnode] (v8) at (1.02, 5.35) {$v_8$};
+  \node[vnode] (v9) at (2.45, 5.05) {$v_9$};
+  \node[vnode] (v10) at (4.95, 4.42) {$v_{10}$};
+  \node[vnode] (v11) at (8.45, 4.25) {$v_{11}$};
+  \node[vnode] (v12) at (6.97, 4.08) {$v_{12}$};
+  \node[vnode] (v13) at (1.93, 3.62) {$v_{13}$};
+  \node[vnode] (v14) at (5.28, 2.80) {$v_{14}$};
+  \node[vnode] (v15) at (6.67, 1.73) {$v_{15}$};
+  \node[vnode] (v16) at (3.50, 1.55) {$v_{16}$};
+  \node[vnode] (v17) at (9.05, 1.45) {$v_{17}$};
+  \node[vnode] (v18) at (5.28, 1.23) {$v_{18}$};
+  \node[vnode] (v19) at (7.80, 0.95) {$v_{19}$};
+  \node[vnode] (v20) at (2.23, 0.93) {$v_{20}$};
+  \node[vnode] (v21) at (5.80, 0.30) {$v_{21}$};
+
+  % Aristas
+  \foreach \from/\to in {v1/v5, v2/v7, v3/v5, v4/v7, v5/v12, v6/v10, v7/v9,
+                         v7/v10, v8/v9, v9/v13, v10/v14, v11/v12, v12/v14, v14/v18,
+                         v15/v18, v15/v19, v16/v18, v16/v20, v17/v19, v18/v21}
+    \draw (\from) -- (\to);
+\end{tikzpicture}

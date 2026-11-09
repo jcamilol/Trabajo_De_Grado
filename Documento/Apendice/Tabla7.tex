@@ -1,0 +1,93 @@
+\begin{table}[p]
+   \centering
+   \footnotesize
+   \renewcommand{\arraystretch}{1.15}
+   \begin{tabular}{@{}>{\centering\arraybackslash}m{0.3033\textwidth}>{\centering\arraybackslash}m{0.3033\textwidth}>{\centering\arraybackslash}m{0.3033\textwidth}@{}}
+      \hline
+      \multicolumn{3}{@{}c@{}}{%
+         \begin{tabular}{@{}>{\centering\arraybackslash}m{\dimexpr0.455\textwidth+\tabcolsep\relax}>{\centering\arraybackslash}m{\dimexpr0.455\textwidth+\tabcolsep\relax}@{}}
+            $P_9$ & Matriz de adyacencia \\
+            \hline
+            \noalign{\vspace{6pt}}
+            \rule{0pt}{0pt}$\vcenter{\hbox{\resizebox{0.25\textwidth}{!}{\input{Apendice/Diag5.tex}}}}$
+            &
+            $\vcenter{\hbox{$\displaystyle \begin{pmatrix}
+         0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+         1 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 \\
+         1 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 \\
+         0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+         0 & 1 & 1 & 0 & 0 & 0 & 1 & 1 & 0 \\
+         0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 \\
+         0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 1 \\
+         0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 \\
+         0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0
+      \end{pmatrix}$}}$ \\
+            \noalign{\vspace{6pt}}
+         \end{tabular}%
+      } \\
+      \hline
+      \multicolumn{3}{c}{\textbf{Topología de adyacencia}} \\
+      \hline
+      Abiertos subbásicos & Vecindades mínimas & Topología \\
+      \hline
+         ${A_{v_1}=\{v_2,v_3\}}$\par
+         ${A_{v_2}=\{v_1,v_4,v_5\}}$\par
+         ${A_{v_3}=\{v_1,v_5,v_6\}}$\par
+         ${A_{v_4}=\{v_2,v_7\}}$\par
+         ${A_{v_5}=\{v_2,v_3,v_7,v_8\}}$\par
+         ${A_{v_6}=\{v_3,v_8\}}$\par
+         ${A_{v_7}=\{v_4,v_5,v_9\}}$\par
+         ${A_{v_8}=\{v_5,v_6,v_9\}}$\par
+         ${A_{v_9}=\{v_7,v_8\}}$
+      &
+         ${U_{v_1}=\{v_1,v_5\}}$\par
+         ${U_{v_2}=\{v_2\}}$\par
+         ${U_{v_3}=\{v_3\}}$\par
+         ${U_{v_4}=\{v_4,v_5\}}$\par
+         ${U_{v_5}=\{v_5\}}$\par
+         ${U_{v_6}=\{v_5,v_6\}}$\par
+         ${U_{v_7}=\{v_7\}}$\par
+         ${U_{v_8}=\{v_8\}}$\par
+         ${U_{v_9}=\{v_5,v_9\}}$
+      &
+                  No discreta, con 272 abiertos \\[6pt]
+      \hline
+      \multicolumn{3}{c}{\textbf{Topología de incidencia}} \\
+      \hline
+      Abiertos subbásicos & Vecindades mínimas & Topología \\
+      \hline
+         ${e_{1}=\{v_1,v_2\}}$\par
+         ${e_{2}=\{v_1,v_3\}}$\par
+         ${e_{3}=\{v_2,v_4\}}$\par
+         ${e_{4}=\{v_2,v_5\}}$\par
+         ${e_{5}=\{v_3,v_5\}}$\par
+         ${e_{6}=\{v_3,v_6\}}$\par
+         ${e_{7}=\{v_4,v_7\}}$\par
+         ${e_{8}=\{v_5,v_7\}}$\par
+         ${e_{9}=\{v_5,v_8\}}$\par
+         ${e_{10}=\{v_6,v_8\}}$\par
+         ${e_{11}=\{v_7,v_9\}}$\par
+         ${e_{12}=\{v_8,v_9\}}$
+      &
+         ${U_{v_1}=\{v_1\}}$\par
+         ${U_{v_2}=\{v_2\}}$\par
+         ${U_{v_3}=\{v_3\}}$\par
+         ${U_{v_4}=\{v_4\}}$\par
+         ${U_{v_5}=\{v_5\}}$\par
+         ${U_{v_6}=\{v_6\}}$\par
+         ${U_{v_7}=\{v_7\}}$\par
+         ${U_{v_8}=\{v_8\}}$\par
+         ${U_{v_9}=\{v_9\}}$
+      &
+         $\wp\left(V\left(P_9\right)\right)$ \\[6pt]
+      \hline
+   \end{tabular}
+   \caption{Topologías de adyacencia e incidencia de $P_9$}
+   \label{tab:topologias_P_9}
+
+   \vspace{2em}
+   \begin{minipage}{\textwidth}
+      \normalsize
+      El grafo $P_9$ es un ejemplo de retículo de Post.
+   \end{minipage}
+\end{table}

@@ -1,0 +1,70 @@
+\begin{table}[p]
+   \centering
+   \footnotesize
+   \renewcommand{\arraystretch}{1.15}
+   \begin{tabular}{@{}>{\centering\arraybackslash}m{0.3033\textwidth}>{\centering\arraybackslash}m{0.3033\textwidth}>{\centering\arraybackslash}m{0.3033\textwidth}@{}}
+      \hline
+      \multicolumn{3}{@{}c@{}}{%
+         \begin{tabular}{@{}>{\centering\arraybackslash}m{\dimexpr0.455\textwidth+\tabcolsep\relax}>{\centering\arraybackslash}m{\dimexpr0.455\textwidth+\tabcolsep\relax}@{}}
+            $N_5$ & Matriz de adyacencia \\
+            \hline
+            \noalign{\vspace{6pt}}
+            \rule{0pt}{0pt}$\vcenter{\hbox{\resizebox{0.25\textwidth}{!}{\input{Apendice/Diag9.tex}}}}$
+            &
+            $\vcenter{\hbox{$\displaystyle \begin{pmatrix}
+         0 & 1 & 1 & 0 & 0 \\
+         1 & 0 & 0 & 1 & 0 \\
+         1 & 0 & 0 & 0 & 1 \\
+         0 & 1 & 0 & 0 & 1 \\
+         0 & 0 & 1 & 1 & 0
+      \end{pmatrix}$}}$ \\
+            \noalign{\vspace{6pt}}
+         \end{tabular}%
+      } \\
+      \hline
+      \multicolumn{3}{c}{\textbf{Topología de adyacencia}} \\
+      \hline
+      Abiertos subbásicos & Vecindades mínimas & Topología \\
+      \hline
+         ${A_{v_1}=\{v_2,v_3\}}$\par
+         ${A_{v_2}=\{v_1,v_4\}}$\par
+         ${A_{v_3}=\{v_1,v_5\}}$\par
+         ${A_{v_4}=\{v_2,v_5\}}$\par
+         ${A_{v_5}=\{v_3,v_4\}}$
+      &
+         ${U_{v_1}=\{v_1\}}$\par
+         ${U_{v_2}=\{v_2\}}$\par
+         ${U_{v_3}=\{v_3\}}$\par
+         ${U_{v_4}=\{v_4\}}$\par
+         ${U_{v_5}=\{v_5\}}$
+      &
+         $\wp\left(V\left(N_5\right)\right)$ \\[6pt]
+      \hline
+      \multicolumn{3}{c}{\textbf{Topología de incidencia}} \\
+      \hline
+      Abiertos subbásicos & Vecindades mínimas & Topología \\
+      \hline
+         ${e_{1}=\{v_1,v_2\}}$\par
+         ${e_{2}=\{v_1,v_3\}}$\par
+         ${e_{3}=\{v_2,v_4\}}$\par
+         ${e_{4}=\{v_3,v_5\}}$\par
+         ${e_{5}=\{v_4,v_5\}}$
+      &
+         ${U_{v_1}=\{v_1\}}$\par
+         ${U_{v_2}=\{v_2\}}$\par
+         ${U_{v_3}=\{v_3\}}$\par
+         ${U_{v_4}=\{v_4\}}$\par
+         ${U_{v_5}=\{v_5\}}$
+      &
+         $\wp\left(V\left(N_5\right)\right)$ \\[6pt]
+      \hline
+   \end{tabular}
+   \caption{Topologías de adyacencia e incidencia de $N_5$}
+   \label{tab:topologias_N_5}
+
+   \vspace{2em}
+   \begin{minipage}{\textwidth}
+      \normalsize
+      El grafo $N_5$ es un ejemplo de retículo que no es distributivo.
+   \end{minipage}
+\end{table}

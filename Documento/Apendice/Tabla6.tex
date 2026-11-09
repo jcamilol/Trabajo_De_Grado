@@ -1,0 +1,64 @@
+\begin{table}[p]
+   \centering
+   \footnotesize
+   \renewcommand{\arraystretch}{1.15}
+   \begin{tabular}{@{}>{\centering\arraybackslash}m{0.3033\textwidth}>{\centering\arraybackslash}m{0.3033\textwidth}>{\centering\arraybackslash}m{0.3033\textwidth}@{}}
+      \hline
+      \multicolumn{3}{@{}c@{}}{%
+         \begin{tabular}{@{}>{\centering\arraybackslash}m{\dimexpr0.455\textwidth+\tabcolsep\relax}>{\centering\arraybackslash}m{\dimexpr0.455\textwidth+\tabcolsep\relax}@{}}
+            $G_2$ & Matriz de adyacencia \\
+            \hline
+            \noalign{\vspace{6pt}}
+            \rule{0pt}{0pt}$\vcenter{\hbox{\resizebox{0.2\textwidth}{!}{\input{Apendice/Diag10.tex}}}}$
+            &
+            $\vcenter{\hbox{$\displaystyle \begin{pmatrix}
+         0 & 0 & 1 & 0 \\
+         0 & 0 & 1 & 0 \\
+         1 & 1 & 0 & 1 \\
+         0 & 0 & 1 & 0
+      \end{pmatrix}$}}$ \\
+            \noalign{\vspace{6pt}}
+         \end{tabular}%
+      } \\
+      \hline
+      \multicolumn{3}{c}{\textbf{Topología de adyacencia}} \\
+      \hline
+      Abiertos subbásicos & Vecindades mínimas & Topología \\
+      \hline
+         ${A_{v_1}=\{v_3\}}$\par
+         ${A_{v_2}=\{v_3\}}$\par
+         ${A_{v_3}=\{v_1,v_2,v_4\}}$\par
+         ${A_{v_4}=\{v_3\}}$
+      &
+         ${U_{v_1}=\{v_1,v_2,v_4\}}$\par
+         ${U_{v_2}=\{v_1,v_2,v_4\}}$\par
+         ${U_{v_3}=\{v_3\}}$\par
+         ${U_{v_4}=\{v_1,v_2,v_4\}}$
+      &
+         $\{\emptyset,$ $\{v_3\},$ $\{v_1,v_2,v_4\},$ $\{v_1,v_2,v_3,v_4\}\}$ \\[6pt]
+      \hline
+      \multicolumn{3}{c}{\textbf{Topología de incidencia}} \\
+      \hline
+      Abiertos subbásicos & Vecindades mínimas & Topología \\
+      \hline
+         ${e_{1}=\{v_1,v_3\}}$\par
+         ${e_{2}=\{v_2,v_3\}}$\par
+         ${e_{3}=\{v_3,v_4\}}$
+      &
+         ${U_{v_1}=\{v_1,v_3\}}$\par
+         ${U_{v_2}=\{v_2,v_3\}}$\par
+         ${U_{v_3}=\{v_3\}}$\par
+         ${U_{v_4}=\{v_3,v_4\}}$
+      &
+         $\{\emptyset,$ $\{v_3\},$ $\{v_1,v_3\},$ $\{v_2,v_3\},$ $\{v_3,v_4\},$ $\{v_1,v_2,v_3\},$ $\{v_1,v_3,v_4\},$ $\{v_2,v_3,v_4\},$ $\{v_1,v_2,v_3,v_4\}\}$ \\[6pt]
+      \hline
+   \end{tabular}
+   \caption{Topologías de adyacencia e incidencia de $G_2$}
+   \label{tab:topologias_G_2}
+
+   \vspace{2em}
+   \begin{minipage}{\textwidth}
+      \normalsize
+      El grafo $G_2$ es un ejemplo de conjunto ordenado que no es un retículo. También es un ejemplo de árbol.
+   \end{minipage}
+\end{table}

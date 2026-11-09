@@ -1,0 +1,16 @@
+% Ejemplo de conjunto ordenado que no es un retículo
+% Incluido
+\begin{tikzpicture}[
+  scale=1.5,
+  vnode/.style={circle, fill=blue!20, draw=black, thick, minimum size=9mm, inner sep=0pt, font=\Large}
+]
+  % Vértices
+  \node[vnode] (v1) at (0, 2) {$v_1$};
+  \node[vnode] (v2) at (2, 2) {$v_2$};
+  \node[vnode] (v3) at (1, 1) {$v_3$};
+  \node[vnode] (v4) at (1, 0) {$v_4$};
+
+  % Aristas
+  \foreach \from/\to in {v1/v3, v2/v3, v3/v4}
+    \draw (\from) -- (\to);
+\end{tikzpicture}
