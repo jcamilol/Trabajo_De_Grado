@@ -1,4 +1,4 @@
-En esta sección describimos las funciones que se usarán conjuntamente para el cálculo de la topología de adyacencia y de la topología de incidencia. El objetivo grande que se desea con el grueso de funciones es lograr realizar intersecciones y uniones de conjuntos. Para esto nos apoyaremos fuertemente en el uso de matrices y vectores, y de las funcionalidades básicas que ofrece \Cpp{} para la manipulación de éstas.
+En esta sección describimos las funciones que se usarán conjuntamente para el cálculo de la topología de adyacencia y de la topología de incidencia. El objetivo grande que se desea con el grueso de funciones es lograr realizar intersecciones y uniones de conjuntos. Para esto nos apoyaremos fuertemente en el uso de matrices y vectores, y de las funcionalidades básicas que ofrece \Cpp{} para la manipulación de estas.
 Para la implementación de las funciones usamos cuatro cabeceras de la biblioteca estándar de \Cpp{}.
 \begin{lstlisting}[caption={Cabeceras necesarias para el uso de los códigos}, label={cod:encabezado}]
 #include <iostream>
@@ -41,7 +41,7 @@ Las funciones que más adelante vamos a describir hacen uso de variables tipo \t
 \begin{lstlisting}[caption={Almacenamiento de \texttt{1\_Mat\_Ady} en la variable \texttt{file}}, label={cod:alamcenar_en_ifstream}]
 std::ifstream file("1_Mat_Ady.txt");
 \end{lstlisting}
-guardamos en la variable \texttt{file} de tipo \texttt{ifstream} el contenido del archivo \texttt{1\_Mat\_Ady.txt}. Para la correcta ejecución del código, debemos tener guardados tanto éste como el archivo \texttt{1\_Mat\_Ady.txt} en la misma carpeta. A partir de esta instrucción, tenemos disponible en \texttt{file} la información de la matriz para nuestro uso. Por ejemplo, podemos pasar \texttt{file} como argumento en la siguiente función.
+guardamos en la variable \texttt{file} de tipo \texttt{ifstream} el contenido del archivo \texttt{1\_Mat\_Ady.txt}. Para la correcta ejecución del código, debemos tener guardados tanto este como el archivo \texttt{1\_Mat\_Ady.txt} en la misma carpeta. A partir de esta instrucción, tenemos disponible en \texttt{file} la información de la matriz para nuestro uso. Por ejemplo, podemos pasar \texttt{file} como argumento en la siguiente función.
 \begin{lstlisting}[caption={Función \texttt{leerMatriz}}, label={cod:leerMatriz}]
 std::vector<std::vector<bool>> leerMatriz(std::ifstream& file){
    int n;
