@@ -31,11 +31,13 @@ void imprMatriz(vector<vector<bool>> Mat){ //Función para imprimir la matriz qu
 }
 
 void imprAristas(vector<vector<bool>> Mat_Ady){ //Esta función imprime todos las aristas, en su definición como 2-conjunto de vértices, del grafo
+   int cont = 1;
    for(int i=0; i<=Mat_Ady.size()-1; i++){
       for(int j=i+1; j<=Mat_Ady.size()-1; j++){ //Solo revisamos encima de la diagonal principal para no repetir aristas
          if(Mat_Ady[i][j]){ //Si v_i y v_j están conectados, se imprime {v_i,v_j} como una arista
          //Imprimimos e_{v_i+1}
-         cout << "e_" << i+1 << " = {" << "v_" << i+1 << ", v_" << j+1 << "}" << endl;
+         cout << "e_" << cont << " = {" << "v_" << i+1 << ", v_" << j+1 << "}" << endl;
+         cont++;
          }
       }
    }
@@ -194,7 +196,7 @@ void imprAbiertos(vector<vector<bool>> Mat_tau){
 }
 
 int main(){
-   ifstream file("1_Mat_Inc.txt"); //Guarda la información de "1.txt" en la variable "file" de tipo ifstream
+   ifstream file("4_Mat_Ady.txt"); //Guarda la información de "1.txt" en la variable "file" de tipo ifstream
    
    vector<vector<bool>> Mat_Ady = leerMatriz(file); //Creamos la matriz de adyacencia llamando la función "leerMatriz" que toma como argumento la variable file
    vector<vector<bool>> Mat_U = llenarMatriz_U(Mat_Ady); //Llenamos Mat_U de nxn con la información de Mat_ady. En ella guardamos la información de los U_{v_i} mediante (Mat_U)_{i,j}=1 ssi v_j \in U_{v_i}
