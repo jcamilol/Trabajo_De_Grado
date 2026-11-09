@@ -1,0 +1,20 @@
+\appendix
+% Encabezado del capítulo: "APÉNDICE" sin letra
+\renewcommand*{\chapterformat}{%
+  \raggedleft\MakeUppercase{\appendixname}\par\vspace{1ex}%
+}
+% Encabezado de página: solo "APÉNDICE"
+\renewcommand{\chaptermark}[1]{\markboth{\footnotesize\MakeUppercase{\appendixname}}{}}
+% Se oculta la entrada automática del índice ("A. Cálculo de ...")
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
+\chapter{Cálculo de topologías de adyacencia e incidencia de diversos grafos}\label{apendice:topologias}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{\arabic{tocdepth}}}
+% Entrada propia del índice: "Apéndice:" en negrita y el resto con la letra de las secciones
+\addtocontents{toc}{\protect\addtokomafont{chapterentrypagenumber}{\protect\normalfont}}
+\addcontentsline{toc}{chapter}{\protect\textbf{\appendixname:} \protect\normalfont Cálculo de topologías de adyacencia e incidencia de diversos grafos}
+\addtocontents{toc}{\protect\setkomafont{chapterentrypagenumber}{}}
+
+
+\clearpage
+\input{Apendice/Tabla1.tex}
+\input{Apendice/Tabla2.tex}
