@@ -1,0 +1,29 @@
+\begin{tikzpicture}[
+  abierto/.style={draw=black, thick, dashed}
+]
+  % Abiertos que contienen a x
+  \def\abiertoA{[rotate around={20:(-0.8,0.35)}] (-0.8,0.35) ellipse (1.7 and 1.0)}
+  \def\abiertoB{[rotate around={-25:(0.85,0.45)}] (0.85,0.45) ellipse (1.6 and 0.95)}
+  \def\abiertoC{[rotate around={10:(0.2,-0.6)}] (0.2,-0.6) ellipse (1.15 and 1.45)}
+  \def\abiertoD{[rotate around={-10:(-0.2,-0.1)}] (-0.2,-0.1) ellipse (2.9 and 2.1)}
+
+  % U_x: intersección de todos los abiertos que contienen a x
+  \begin{scope}
+    \clip \abiertoA;
+    \clip \abiertoB;
+    \clip \abiertoC;
+    \fill[FancyBlue!25] \abiertoD;
+  \end{scope}
+
+  \draw[abierto] \abiertoA;
+  \draw[abierto] \abiertoB;
+  \draw[abierto] \abiertoC;
+  \draw[abierto] \abiertoD;
+
+  % Punto x
+  \fill (0.3,0.25) circle (1.5pt) node[left] {$x$};
+
+  % Etiqueta de U_x
+  \node (Ux) at (-3.6,1.9) {$U_x$};
+  \draw[shorten >=2pt] (-0.29,0.74) to[out=150, in=0] (Ux.east);
+\end{tikzpicture}

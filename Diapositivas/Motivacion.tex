@@ -8,7 +8,7 @@
 \begin{frame}{}
    \vfill\center\huge{¿Se pueden estudiar \alert{grafos} usando \alert{topología?}}\vfill
 \end{frame}
-\usebackgroundtemplate{}{
+{\usebackgroundtemplate{}
 \begin{frame}
   \frametitle{Naturalmente\dots}
   \begin{tikzpicture}[remember picture, overlay]
@@ -40,4 +40,56 @@
            a la \alert{geometría de la posición}''};
   \end{tikzpicture}
 \end{frame}}
+\begin{frame}{Nuestro interés principal: grafos simples}
+   \begin{columns}[c]
+      \begin{column}{0.45\textwidth}
+         \begin{Def}
+            Un \textbf{grafo simple} es una pareja $G=(V,E)$ de conjuntos, donde los elementos de $E$ son subconjuntos de $V$, de exactamente dos elementos.\vspace{0.3cm}
+         \end{Def}
+      \end{column}
+      \begin{column}{0.53\textwidth}
+         \small
+         \begin{itemize}
+            \item<2-> Representamos $\{v_i,v_j\}$ por $v_iv_j$
+            \item<3->[] \alert{Ejemplo:}
+            \item<3-> $V=\{v_1,v_2,v_3,v_4,v_5\}$
+            \item<3-> $G=(V,\{v_1v_2,v_2v_3,v_2v_4,v_2v_5\})$
+         \end{itemize}
+         \vspace{0.25cm}
+         \centering
+         \uncover<4->{\input{Diagramas/Diag1.tex}}
+      \end{column}
+   \end{columns}
+\end{frame}\begin{frame}{Teoría topológica de grafos: la conexión más conocida}
+   
+\end{frame}
+\begin{frame}{Nuestro enfoque: topologías de Alexandroff sobre $V$}
+   \vspace{-0.3cm}
+   \begin{Def}
+      Topología sobre $X$:
+      \begin{itemize}
+         \item $\emptyset$ y $X$ son abiertos.
+         \item Unión arbitraria de abiertos es abierto.
+         \item \alert{Intersección finita} de abiertos es abierto.
+      \end{itemize}\vspace{0.3cm}
+   \end{Def}
+   \uncover<2->{%
+   \begin{Def}
+      Topología de \alert{Alexandroff}: \alert{intersección arbitraria} de abiertos es abierto.\vspace{0.3cm}
+   \end{Def}}
+\end{frame}
+{\usebackgroundtemplate{}
+\begin{frame}{Motivación: topología digital}
+   \centering
+   \reflectbox{\includegraphics[width=0.9\textwidth,height=\textheight,keepaspectratio]{Images/Tomografia.pdf}}
+\end{frame}}
 
+\begin{frame}{Propiedad clave}
+   \begin{prop}
+      Un espacio es de Alexandroff si y solo si todo punto tiene una \alert{vecindad mínima}.\vspace{0.3cm}
+   \end{prop}
+   \begin{center}
+      \tikzset{every picture/.append style={scale=0.7}}
+      \uncover<2->{\input{Diagramas/Diag2.tex}}
+   \end{center}
+\end{frame}
