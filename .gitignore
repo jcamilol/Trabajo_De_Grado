@@ -8,3 +8,6 @@
 *.toc
 *.out
 *.synctex(busy)
+*.synctex.gz
+*.nav
+*.snm

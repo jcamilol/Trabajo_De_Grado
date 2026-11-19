@@ -1,0 +1,43 @@
+\begin{frame}{}
+    \vfill
+       \center{\huge{
+       \alert{I.\, Motivación}
+       }}
+    \vfill
+\end{frame}
+\begin{frame}{}
+   \vfill\center\huge{¿Se pueden estudiar \alert{grafos} usando \alert{topología?}}\vfill
+\end{frame}
+\usebackgroundtemplate{}{
+\begin{frame}
+  \frametitle{Naturalmente\dots}
+  \begin{tikzpicture}[remember picture, overlay]
+    % Diagrama de los puentes (Fig. 1 de Euler)
+    \node[anchor=north west, inner sep=0pt,
+          xshift=0.06\paperwidth, yshift=-0.28\paperheight]
+          at (current page.north west)
+          {\includegraphics[width=0.45\paperwidth]{Images/Puentes.png}};
+    % Retrato de Euler, encima del diagrama
+    \node[anchor=north west, inner sep=0pt,
+          xshift=0.345\paperwidth, yshift=-0.47\paperheight]
+          at (current page.north west)
+          {\includegraphics[width=0.18\paperwidth]{Images/Euler.png}};
+    % Primera página del artículo
+    \node[anchor=north west, inner sep=0pt,
+          xshift=0.617\paperwidth, yshift=-0.238\paperheight]
+          at (current page.north west)
+          {\includegraphics[width=0.285\paperwidth]{Images/Art_titulo.png}};
+    % Pies de imagen
+    \node[align=center, font=\footnotesize,
+          xshift=0.286\paperwidth, yshift=-0.845\paperheight]
+          at (current page.north west)
+          {1736: Solución de L.~Euler del problema\\
+           de los siete puentes de Königsberg};
+    \node[align=center, font=\footnotesize,
+          xshift=0.76\paperwidth, yshift=-0.845\paperheight]
+          at (current page.north west)
+          {``Solución de un problema relativo\\
+           a la \alert{geometría de la posición}''};
+  \end{tikzpicture}
+\end{frame}}
+

@@ -1,0 +1,103 @@
+\documentclass[xcolor=dvipsnames]{beamer}
+
+%\setbeamercovered{transparent}
+\setbeamertemplate{footline}{}
+\defbeamertemplate*{headline}{miniframes theme no subsection} %Esto remueve la barra de subsection
+{%
+  \begin{beamercolorbox}[colsep=1.5pt]{upper separation line head}
+  \end{beamercolorbox}
+  \begin{beamercolorbox}{section in head/foot}
+    \vskip2pt\insertnavigation{\paperwidth}\vskip2pt
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[colsep=1.5pt]{lower separation line head}
+  \end{beamercolorbox}
+}
+
+\usepackage{amsmath} %necesario para equation*
+\usepackage{amsthm} %necesario para proof enviroment
+\usepackage{lipsum} %para usar el texto de relleno
+\usepackage{amsfonts} %para Z estilizada
+\usepackage{mdframed}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{mdframed} %para los cuadrados de los teoremas
+\usepackage{tikz-cd} %para los diagramas conmutativos
+\usepackage{multicol} %varias columnas
+\usepackage{adjustbox}
+
+\usefonttheme{professionalfonts} % using non standard fonts for beamer
+\usefonttheme{serif} % default family is serif
+
+\definecolor{LightGrayHeader}{RGB}{220, 220, 220}
+\definecolor{LightGrayBG}{RGB}{250, 250, 250}
+\definecolor{FancyBlue}{RGB}{28, 93, 105}
+\setbeamercolor{frametitle}{fg=Black} %Título frame, fondo títuo frame
+\setbeamercolor{background canvas}{bg=LightGrayBG}
+\setbeamercolor{section in head/foot}{fg=Black, bg=LightGrayHeader}
+\setbeamercolor{lower separation line head}{bg=FancyBlue}
+\setbeamercolor{block title}{fg=FancyBlue}
+\setbeamercolor{item}{fg=FancyBlue}
+\setbeamercolor{qed symbol}{fg=FancyBlue}
+\setbeamercolor{title}{fg=FancyBlue}
+\setbeamercolor{alerted text}{fg=FancyBlue}
+\setbeamerfont{section in head/foot}{size=\tiny}
+%\setbeamercolor{block title}{bg=White}
+%\setbeamercolor{block body}{bg=White}
+
+\setbeamerfont{frametitle}{series=\scshape}
+
+%\newtheorem{teorema}{Teorema}
+
+\newmdtheoremenv{Tma}{Teorema}
+\newmdtheoremenv{prop}{Proposición}
+\newmdtheoremenv{Lema}{Lema}
+\newmdtheoremenv{Hecho}{Hecho}
+\newmdtheoremenv{Def}{Definición}
+\newtheorem{obs}{Observación}
+\renewcommand*{\proofname}{Prueba}
+
+\makeatletter
+\newenvironment<>{myproof}[1][\proofname]{%
+  \par
+  \def\insertproofname{#1\@addpunct{.}}%
+  \pushQED{\qed}
+  \large{\textcolor{FancyBlue}{\insertproofname}} \vspace{0.15cm} \hspace*{\fill} \\}
+{\popQED}
+\makeatother
+
+\title{\textsc{Topologías de Alexandroff sobre grafos simples}\\ \vspace{0.5cm}
+\includegraphics[height=.4\textheight]{Images/Img1.jpg} \vspace{-0.45cm}}
+\author{Juan Camilo Lozano Suárez\\ Directora: Ibeth Marcela Rubio Perilla \\ \vspace{0.3cm}Noviembre 24 de 2026}
+\date{}
+\begin{document}
+
+\maketitle
+
+\usebackgroundtemplate{
+   \tikz[overlay,remember picture] \node[opacity=0.15, at=(current page.center)] {
+   \includegraphics[height=0.5\paperheight]{Images/Img1.jpg}};
+}
+
+\section{Motivación}
+\input{Motivacion.tex}
+\section{Topologías sobre grafos}
+\input{Topologias_sobre_grafos.tex}
+\section{Implementación computacional}
+\input{Implementacion_computacional.tex}
+\section{Trabajo futuro}
+\input{Trabajo_futuro.tex}
+
+\begin{frame}
+  \frametitle{Referencias}
+  \nocite{*}
+  \bibliographystyle{apalike}
+  \bibliography{refs}
+\end{frame}
+
+\begin{frame}
+   \vfill
+   \center{\Huge{\alert{¡MUCHAS GRACIAS!}}}
+   \vfill
+\end{frame}
+
+\end{document}
