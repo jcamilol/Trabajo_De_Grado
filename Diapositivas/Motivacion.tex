@@ -16,7 +16,7 @@
     \node[anchor=north west, inner sep=0pt,
           xshift=0.06\paperwidth, yshift=-0.28\paperheight]
           at (current page.north west)
-          {\includegraphics[width=0.45\paperwidth]{Images/Puentes.png}};
+          {\includegraphics[width=0.47\paperwidth]{Images/Puentes.png}};
     % Retrato de Euler, encima del diagrama
     \node[anchor=north west, inner sep=0pt,
           xshift=0.345\paperwidth, yshift=-0.47\paperheight]
@@ -31,7 +31,7 @@
     \node[align=center, font=\footnotesize,
           xshift=0.286\paperwidth, yshift=-0.845\paperheight]
           at (current page.north west)
-          {1736: Solución de L.~Euler del problema\\
+          {\alert{1736}: solución de L.~Euler del problema\\
            de los siete puentes de Königsberg};
     \node[align=center, font=\footnotesize,
           xshift=0.76\paperwidth, yshift=-0.845\paperheight]
@@ -40,6 +40,7 @@
            a la \alert{geometría de la posición}''};
   \end{tikzpicture}
 \end{frame}}
+
 \begin{frame}{Nuestro interés principal: grafos simples}
    \begin{columns}[c]
       \begin{column}{0.45\textwidth}
@@ -48,19 +49,37 @@
          \end{Def}
       \end{column}
       \begin{column}{0.53\textwidth}
+         \begin{overlayarea}{\linewidth}{6.3cm}
          \small
-         \begin{itemize}
-            \item<2-> Representamos $\{v_i,v_j\}$ por $v_iv_j$
-            \item<3->[] \alert{Ejemplo:}
-            \item<3-> $V=\{v_1,v_2,v_3,v_4,v_5\}$
-            \item<3-> $G=(V,\{v_1v_2,v_2v_3,v_2v_4,v_2v_5\})$
-         \end{itemize}
-         \vspace{0.25cm}
-         \centering
-         \uncover<4->{\input{Diagramas/Diag1.tex}}
+         \only<1-4>{%
+            \begin{itemize}
+               \item<2-> Representamos $\{v_i,v_j\}$ por $v_iv_j$
+               \item<3->[] \alert{Ejemplo:}
+               \item<3-> $V=\{v_1,v_2,v_3,v_4,v_5\}$
+               \item<3-> $G=(V,\{v_1v_2,v_2v_3,v_2v_4,v_2v_5\})$
+            \end{itemize}
+            \vspace{0.25cm}
+            \centering
+            \uncover<4->{\input{Diagramas/Diag1.tex}}
+         }%
+         \only<5>{%
+            \begin{minipage}[t][6.3cm][c]{\linewidth}
+               \centering
+               \input{Diagramas/Diag1.tex}
+               \vspace{0.25cm}
+               \begin{itemize}
+                  \item $v_1$ y $v_2$ son \alert{adyacentes}
+                  \item $v_2$ y $v_3$ son \alert{adyacentes}
+                  \item $v_1$ y $v_5$ \alert{NO} son \alert{adyacentes}
+               \end{itemize}
+            \end{minipage}
+         }
+         \end{overlayarea}
       \end{column}
    \end{columns}
-\end{frame}\begin{frame}{Teoría topológica de grafos: la conexión más conocida}
+\end{frame}
+
+\begin{frame}{Teoría topológica de grafos: la conexión más conocida}
    
 \end{frame}
 \begin{frame}{Nuestro enfoque: topologías de Alexandroff sobre $V$}
@@ -85,11 +104,20 @@
 \end{frame}}
 
 \begin{frame}{Propiedad clave}
+   \vspace{-0.3cm}
    \begin{prop}
       Un espacio es de Alexandroff si y solo si todo punto tiene una \alert{vecindad mínima}.\vspace{0.3cm}
    \end{prop}
-   \begin{center}
-      \tikzset{every picture/.append style={scale=0.7}}
-      \uncover<2->{\input{Diagramas/Diag2.tex}}
-   \end{center}
+   \begin{columns}[c,totalwidth=0.95\textwidth]
+      \begin{column}{0.48\textwidth}
+         \centering
+         \tikzset{every picture/.append style={scale=0.65}}
+         \uncover<2->{\raisebox{-0.6cm}[\height][\depth]{\input{Diagramas/Diag2.tex}}}
+      \end{column}
+      \begin{column}{0.47\textwidth}
+         \begin{itemize}
+            \item<3-> Si $V$ es una vecindad de $x$, entonces $U_x \subseteq V$.
+         \end{itemize}
+      \end{column}
+   \end{columns}
 \end{frame}

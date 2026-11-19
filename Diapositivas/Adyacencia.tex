@@ -1,0 +1,82 @@
+\begin{frame}[c]
+   \vspace{0.56cm}
+   \begin{columns}[c,totalwidth=1.05\textwidth]
+      \begin{column}{0.6\textwidth}
+         \hspace*{-0.24cm}%
+         \begin{minipage}{\linewidth}
+            \begin{itemize}
+               \item Los grafos que vamos a considerar son \alert{localmente finitos} y \alert{sin vértices aislados}.
+            \end{itemize}
+         \end{minipage}
+      \end{column}
+      \begin{column}{0.45\textwidth}
+         \hspace*{-0.24cm}%
+         \begin{minipage}{\linewidth}
+            \centering\small
+            \setlength{\leftmargini}{1.2em}
+            \uncover<2->{%
+               \input{Diagramas/Diag3.tex}\par
+               \vspace{0.15cm}
+               \begin{minipage}{0.7\linewidth}
+                  \begin{itemize}
+                     \item $v_1$ es aislado
+                  \end{itemize}
+               \end{minipage}\par
+            }
+            \vspace{0.3cm}
+            \uncover<3->{%
+               \input{Diagramas/Diag4.tex}\par
+               \vspace{0.15cm}
+               \begin{minipage}{0.9\linewidth}
+                  \begin{itemize}
+                     \item No es localmente finito
+                  \end{itemize}
+               \end{minipage}
+            }
+         \end{minipage}
+      \end{column}
+   \end{columns}
+\end{frame}
+\begin{frame}
+   \begin{columns}[c]
+      \begin{column}{0.45\textwidth}
+         \begin{Def}
+            Sea $G=(V,E)$ un grafo. Para cada $v \in V$, denotamos por $A_v$ el conjunto de todos los vértices adyacentes a $v$.\vspace{0.3cm}
+         \end{Def}
+      \end{column}
+      \begin{column}{0.53\textwidth}
+         \centering
+         \uncover<2->{\input{Diagramas/Diag1.tex}}
+         \vspace{0.25cm}
+         \begin{itemize}
+            \item<3-> $A_{v_1}=\{v_2\}$
+            \item<4-> $A_{v_2}=\{v_1,v_3,v_4,v_5\}$
+         \end{itemize}
+      \end{column}
+   \end{columns}
+\end{frame}
+\begin{frame}[c]
+   \begin{columns}[c,totalwidth=1.05\textwidth]
+      \begin{column}{0.6\textwidth}
+         \hfill
+         \begin{minipage}{0.9\linewidth}
+            \begin{Def}
+               Sea $G=(V,E)$ un grafo. Para cada $v \in V$, denotamos por $A_v$ el conjunto de todos los vértices adyacentes a $v$.\vspace{0.3cm}
+            \end{Def}
+         \end{minipage}
+         \hfill\null
+      \end{column}
+      \begin{column}{0.45\textwidth}
+         \centering
+         \uncover<2->{\input{Diagramas/Diag1.tex}}
+
+         \vspace{0.4cm}
+         \begin{minipage}{0.95\linewidth}
+            \begin{itemize}
+               \item<3-> $A_{v_1}=\{v_2\}$
+               \item<4-> $A_{v_2}=\{v_1,v_3,v_4,v_5\}$
+            \end{itemize}
+         \end{minipage}
+      \end{column}
+   \end{columns}
+\end{frame}

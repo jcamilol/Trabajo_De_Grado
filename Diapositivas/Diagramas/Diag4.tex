@@ -1,0 +1,18 @@
+\begin{tikzpicture}[
+  scale=0.4,
+  vnode/.style={circle, fill=FancyBlue!40, draw=black, thick, text=black,
+                minimum size=6mm, inner sep=0pt, font=\footnotesize}
+]
+  % Grafo del Ejemplo 1.1.20: no es localmente finito, deg(v_1) no es finito
+  \node[vnode] (n1) at (0,2.5) {$v_1$};
+  \node[vnode] (n2) at (0,0)   {$v_2$};
+  \node[vnode] (n3) at (2,0)   {$v_3$};
+  \node[vnode] (n4) at (4,0)   {$v_4$};
+  \node[vnode] (n5) at (6,0)   {$v_5$};
+
+  \foreach \to in {n2, n3, n4, n5}
+    \draw[thick] (n1) -- (\to);
+  \draw[thick] (n1) -- (8.6,0);
+
+  \node at (9.6,0) {$\cdots$};
+\end{tikzpicture}
