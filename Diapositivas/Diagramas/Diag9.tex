@@ -1,0 +1,24 @@
+\begin{tikzpicture}[
+  abierto/.style={draw=black, thick, dashed}
+]
+  % Afirmación de [1]: abiertos encajados dentro de U_x hasta llegar a U_y
+  \useasboundingbox (-4.6,-1.7) rectangle (4.6,2.1);
+  % U_x
+  \uncover<2->{%
+    \draw[abierto] (0,0) ellipse (3 and 1.6);
+    \fill (-2.2,0) circle (1.5pt) node[left] {$x$};
+    \node (Ux) at (-4.1,1.75) {$U_x$};
+    \draw[shorten >=2pt] (-2.12,1.13) to[out=150, in=0] (Ux.east);
+  }
+  % Abiertos intermedios
+  \uncover<3->{\draw[abierto] (0.7,0) ellipse (1.9 and 1.2);}
+  \uncover<4->{\draw[abierto] (0.9,0) ellipse (1.3 and 0.85);}
+  % U_y
+  \uncover<5->{%
+    \fill[FancyBlue!25] (1.05,0) ellipse (0.75 and 0.5);
+    \draw[abierto] (1.05,0) ellipse (0.75 and 0.5);
+    \fill (1.05,0) circle (1.5pt) node[left] {$y$};
+    \node (Uy) at (4.1,1.75) {$U_y$};
+    \draw[shorten >=2pt] (1.58,0.35) to[out=30, in=180] (Uy.west);
+  }
+\end{tikzpicture}

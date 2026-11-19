@@ -1,3 +1,13 @@
+\begin{frame}{}
+   \vspace*{0.68cm}% centrado respecto al área bajo la cabecera
+    \vfill
+       \center{\huge{
+       \alert{II.\, Topología de adyacencia}
+       }}
+    \vfill
+\end{frame}
+
+
 \begin{frame}[c]
    \vspace{0.56cm}
    \begin{columns}[c,totalwidth=1.05\textwidth]
@@ -209,4 +219,107 @@
    \begin{center}
       \input{Diagramas/Diag7.tex}
    \end{center}
+\end{frame}
+
+\begin{frame}{Propiedades: conexidad}
+   \begin{center}
+      \input{Diagramas/Diag8.tex}
+   \end{center}
+\end{frame}
+
+\begin{frame}{Número cromático}
+   \hspace*{0.18cm}% equilibra las brechas laterales
+   \begin{minipage}{\textwidth}
+   \begin{columns}[c,totalwidth=1.03\textwidth]
+      \begin{column}{0.48\textwidth}
+         \begin{Def}
+            El \textbf{número cromático} de $G$, denotado por $\chi(G)$, es el \alert{menor número de colores} necesarios para pintar los vértices sin que vértices adyacentes compartan color.\vspace{0.3cm}
+         \end{Def}
+      \end{column}
+      \begin{column}{0.53\textwidth}
+         \centering
+         \uncover<2->{%
+         \begin{tabular}{cc}
+            \includegraphics[height=3.3cm,trim=0 0 75pt 0,clip]{Images/Coloracion.pdf} &
+            \includegraphics[height=3.3cm,trim=78pt 0 0 0,clip]{Images/Coloracion.pdf}\\[0.2cm]
+            $\chi(G_1)=3$ & $\chi(G_2)=2$
+         \end{tabular}}
+      \end{column}
+   \end{columns}
+   \end{minipage}
+\end{frame}
+
+\begin{frame}{Densidad}
+   \begin{Def}
+      Un subconjunto $A\subseteq X$ se dice \alert{denso} si $\overline{A}=X$.\vspace{0.3cm}
+   \end{Def}
+   \vspace{0.3cm}
+   \uncover<2->{%
+   \begin{Def}
+      Si $A$ es denso en $X$, decimos que $A$ es \alert{denso minimal} si ningún otro subconjunto denso está propiamente contenido en $A$.\vspace{0.3cm}
+   \end{Def}}
+\end{frame}
+
+\begin{frame}{Propiedades: densidad y número cromático}
+   \begin{prop}
+      Si $A$ es un subconjunto \alert{denso minimal} de $V$, entonces $\chi(G)\leq |A|$.\vspace{0.3cm}
+   \end{prop}
+   \uncover<2->{%
+   \vspace{0.3cm}
+   \noindent\hspace*{10.7pt}\alert{Ejemplo}\par
+   \vspace{0.2cm}
+   \hspace*{-0.57cm}% equilibra las brechas laterales
+   \begin{minipage}{\textwidth}
+   \begin{columns}[c]
+      \begin{column}{0.3\textwidth}
+         \hfill
+         \includegraphics[height=3cm,trim=78pt 0 0 0,clip]{Images/Coloracion.pdf}
+      \end{column}
+      \begin{column}{0.66\textwidth}
+         $\tau_{\mathcal{A},G_2}=\{\emptyset,\{v_7,v_8\},\{v_9,v_{10},v_{11},v_{12}\},V\}$\\[0.2cm]
+         \begin{itemize}
+            \item $\{v_7,v_9\}$ es denso minimal
+            \item $\{v_8,v_{12}\}$ es denso minimal
+            \item $\chi(G_2)=2$
+         \end{itemize}
+      \end{column}
+   \end{columns}
+   \end{minipage}}
+\end{frame}
+
+\begin{frame}{¡Observación!}
+   \begin{itemize}
+      \item La anterior proposición usa que dos subconjuntos densos minimales tienen el mismo cardinal.
+   \end{itemize}
+\end{frame}
+
+\begin{frame}{¡Observación!}
+   \begin{itemize}
+      \item Intentando dar un recíproco parcial, [1] afirma que, \alert{en cualquier espacio de Alexandroff}, toda vecindad mínima $U_x$ contiene una vecindad mínima $U_y$, que no contiene a ninguna otra vecindad mínima.
+   \end{itemize}
+   \vspace{0.1cm}
+   \begin{overlayarea}{\textwidth}{4.6cm}
+   \only<2-5>{%
+   \begin{center}
+      \input{Diagramas/Diag9.tex}
+   \end{center}}
+   \only<6->{%
+   \hspace*{0.1cm}% equilibra las brechas laterales
+   \begin{minipage}{\textwidth}
+   \begin{columns}[c]
+      \begin{column}{0.5\textwidth}
+         \begin{itemize}
+            \item<7->[] \raisebox{0.45cm}[\height][\depth]{\alert{Pero\ldots}}
+            \item<7-> Para cada $n\in\mathbb{N}$, tomamos\\
+               $n_{\geq}=\{m\in\mathbb{N}\mid m\geq n\}$
+            \item<8-> La topología generada por $\{n_{\geq}\mid n\in\mathbb{N}\}$ da un \alert{contraejemplo}.
+         \end{itemize}
+      \end{column}
+      \begin{column}{0.47\textwidth}
+         \centering
+         \input{Diagramas/Diag10.tex}
+      \end{column}
+   \end{columns}
+   \end{minipage}}
+   \end{overlayarea}
 \end{frame}

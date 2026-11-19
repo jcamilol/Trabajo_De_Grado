@@ -1,0 +1,17 @@
+\begin{tikzpicture}[
+  texto/.style={align=center, font=\normalsize}
+]
+  % Conexidad: propiedades del grafo que se relacionan con la (dis)conexidad de la topología
+  \node[texto] (c) at (0,0) {Disconexidad de\\la topología};
+
+  \node[texto, align=left, anchor=west]  (tl) at (-5.4, 2.25)  {Grados de\\los vértices};
+  \node[texto, align=right, anchor=east] (tr) at ( 5.4, 2.25)  {Subconjuntos\\independientes\\de vértices};
+  \node[texto, align=left, anchor=west]  (bl) at (-5.4,-2.25)  {Condiciones\\sobre las aristas};
+  \node[texto, align=right, anchor=east] (br) at ( 5.4,-2.25)  {(Dis)conexidad\\del grafo};
+
+  % Flechas
+  \node at (-1.85, 1.2) {\includegraphics[height=1.4cm]{Images/flecha_organica_azul.pdf}};
+  \node at ( 1.85, 1.2) {\reflectbox{\includegraphics[height=1.4cm]{Images/flecha_organica_azul.pdf}}};
+  \node at (-1.85,-1.2) {\includegraphics[height=1.4cm]{Images/flecha_organica_3_azul.pdf}};
+  \node at ( 1.85,-1.2) {\includegraphics[height=1.4cm]{Images/flecha_organica_4_azul.pdf}};
+\end{tikzpicture}

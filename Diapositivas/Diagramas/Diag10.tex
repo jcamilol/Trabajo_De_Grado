@@ -1,0 +1,36 @@
+\begin{tikzpicture}[scale=0.9,
+  abierto/.style={draw=black, thick, dashed, rounded corners=5pt}
+]
+  % Contraejemplo: topología generada por los n_>= = {m in N | m >= n}
+  % Columna k: U_k y, dentro, U_{k+1}
+  \definecolor{Crema}{HTML}{FEFAE0}
+  \definecolor{Oliva}{HTML}{C5C9B6}
+  \definecolor{Rosa}{HTML}{E9C1CD}
+  \colorlet{Azul}{FancyBlue!25}
+  \useasboundingbox (-0.6,-4.0) rectangle (4.3,0.95);
+  \def\paso{0.6}
+  \def\fondo{-3.35}
+  \foreach \k/\cext/\cint/\s in {0/white/Crema/8, 1/Crema/Oliva/9, 2/Oliva/Rosa/10, 3/Rosa/Azul/11}{%
+    \pgfmathsetmacro{\x}{\k*1.15}
+    \pgfmathsetmacro{\te}{-\k*\paso+0.3}
+    \pgfmathsetmacro{\ti}{-(\k+1)*\paso+0.27}
+    \pgfmathtruncatemacro{\kk}{\k+1}
+    \uncover<\s->{%
+      % U_k (exterior)
+      \fill[\cext, rounded corners=5pt] (\x-0.36,\fondo) -- (\x-0.36,\te) -- (\x+0.36,\te) -- (\x+0.36,\fondo) -- cycle;
+      % U_{k+1} (interior)
+      \fill[\cint, rounded corners=4pt] (\x-0.22,\fondo) -- (\x-0.22,\ti) -- (\x+0.22,\ti) -- (\x+0.22,\fondo) -- cycle;
+      \draw[abierto] (\x-0.36,\fondo) -- (\x-0.36,\te) -- (\x+0.36,\te) -- (\x+0.36,\fondo);
+      \draw[abierto, rounded corners=4pt] (\x-0.22,\fondo) -- (\x-0.22,\ti) -- (\x+0.22,\ti) -- (\x+0.22,\fondo);
+      \foreach \n in {\k,...,5}
+        \node at (\x,-\n*\paso) {$\n$};
+      \node at (\x,\te+0.3) {$U_{\k}$};
+      \draw[->] (\x,\fondo-0.08) -- (\x,\fondo-0.35);
+    }
+  }
+  % Continúa a la derecha
+  \uncover<11->{%
+    \foreach \n in {3,4,5}
+      \draw[->] (3.9,-\n*\paso) -- (4.2,-\n*\paso);
+  }
+\end{tikzpicture}
