@@ -1,0 +1,18 @@
+\begin{tikzpicture}[
+  scale=0.5,
+  vnode/.style={circle, fill=FancyBlue!40, draw=black, thick, text=black,
+                minimum size=6mm, inner sep=0pt, font=\footnotesize}
+]
+  % Grafo G_2 del Ejemplo 1.1.3: el clique {v_1,v_2,v_3,v_4} resaltado, el resto atenuado
+  \node[vnode] (n1) at (2,4) {$v_1$};
+  \node[vnode] (n2) at (4,3) {$v_2$};
+  \node[vnode] (n3) at (4,1) {$v_3$};
+  \node[vnode] (n4) at (2,0) {$v_4$};
+  \begin{scope}[opacity=0.55]
+    \node[vnode] (n5) at (0,1) {$v_5$};
+    \node[vnode] (n6) at (0,3) {$v_6$};
+    \draw[thick] (n5) -- (n6);
+  \end{scope}
+  \foreach \from/\to in {n1/n2, n2/n3, n1/n3, n1/n4, n2/n4, n3/n4}
+    \draw[thick] (\from) -- (\to);
+\end{tikzpicture}

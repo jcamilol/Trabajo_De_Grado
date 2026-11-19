@@ -10,7 +10,7 @@
   \useasboundingbox (-0.6,-4.0) rectangle (4.3,0.95);
   \def\paso{0.6}
   \def\fondo{-3.35}
-  \foreach \k/\cext/\cint/\s in {0/white/Crema/8, 1/Crema/Oliva/9, 2/Oliva/Rosa/10, 3/Rosa/Azul/11}{%
+  \foreach \k/\cext/\cint/\s in {0/white/Crema/9, 1/Crema/Oliva/10, 2/Oliva/Rosa/11, 3/Rosa/Azul/12}{%
     \pgfmathsetmacro{\x}{\k*1.15}
     \pgfmathsetmacro{\te}{-\k*\paso+0.3}
     \pgfmathsetmacro{\ti}{-(\k+1)*\paso+0.27}
@@ -29,7 +29,7 @@
     }
   }
   % Continúa a la derecha
-  \uncover<11->{%
+  \uncover<12->{%
     \foreach \n in {3,4,5}
       \draw[->] (3.9,-\n*\paso) -- (4.2,-\n*\paso);
   }

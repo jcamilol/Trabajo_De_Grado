@@ -1,0 +1,11 @@
+\begin{tikzpicture}[
+  texto/.style={align=center, font=\normalsize}
+]
+  % Densidad en la topología de incidencia: dos hipótesis equivalentes que implican que M es denso
+  \node[texto, text width=4.2cm] (sup) at (-2.45, 1.3) {Grafo conexo con al menos un vértice de grado $1$ y más de $3$ vértices};
+  \node[texto, text width=4.2cm] (inf) at (-2.45,-1.3) {Grafo conexo con topología no discreta y más de $3$ vértices};
+  \node[texto, text width=3.6cm] (con) at ( 3.4, 0)   {$\{v\in V\mid d(v)\geq 2\}$ es \alert{denso}};
+  % Flechas
+  \node at (0.5, 0.8) {\includegraphics[height=1.4cm]{Images/flecha_organica_azul.pdf}};
+  \node at (0.5,-0.8) {\scalebox{1}[-1]{\includegraphics[height=1.4cm]{Images/flecha_organica_azul.pdf}}};
+\end{tikzpicture}
