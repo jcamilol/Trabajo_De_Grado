@@ -71,10 +71,13 @@
 \date{}
 \begin{document}
 
-\maketitle
+\begin{frame}
+   \vspace*{0.135cm}% centrado respecto al área bajo la cabecera
+   \titlepage
+\end{frame}
 
 \usebackgroundtemplate{
-   \tikz[overlay,remember picture] \node[opacity=0.15, at=(current page.center)] {
+   \tikz[overlay,remember picture] \node[opacity=0.15, at=(current page.center), yshift=-0.0353\paperheight] {
    \includegraphics[height=0.5\paperheight]{Images/Img1.jpg}};
 }
 
@@ -95,6 +98,7 @@
 \end{frame}
 
 \begin{frame}
+   \vspace*{0.71cm}% centrado respecto al área bajo la cabecera
    \vfill
    \center{\Huge{\alert{¡MUCHAS GRACIAS!}}}
    \vfill
