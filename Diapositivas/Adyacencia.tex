@@ -37,25 +37,6 @@
       \end{column}
    \end{columns}
 \end{frame}
-\begin{frame}
-   \vspace*{0.81cm}% centrado respecto al área bajo la cabecera
-   \begin{columns}[c]
-      \begin{column}{0.45\textwidth}
-         \begin{Def}
-            Sea $G=(V,E)$ un grafo. Para cada $v \in V$, denotamos por $A_v$ el conjunto de todos los vértices adyacentes a $v$.\vspace{0.3cm}
-         \end{Def}
-      \end{column}
-      \begin{column}{0.53\textwidth}
-         \centering
-         \uncover<2->{\input{Diagramas/Diag1.tex}}
-         \vspace{0.25cm}
-         \begin{itemize}
-            \item<3-> $A_{v_1}=\{v_2\}$
-            \item<4-> $A_{v_2}=\{v_1,v_3,v_4,v_5\}$
-         \end{itemize}
-      \end{column}
-   \end{columns}
-\end{frame}
 \begin{frame}[c]
    \vspace*{0.83cm}% centrado respecto al área bajo la cabecera
    \begin{columns}[c,totalwidth=1.05\textwidth]
@@ -81,4 +62,151 @@
          \end{minipage}
       \end{column}
    \end{columns}
+\end{frame}
+
+\begin{frame}[c]
+   \vspace*{0.76cm}% centrado respecto al área bajo la cabecera
+   \hspace*{0.42cm}% equilibra las brechas laterales
+   \begin{minipage}{\textwidth}
+   \begin{columns}[c]
+      \begin{column}{0.48\textwidth}
+         \begin{prop}
+            El conjunto $\{A_v \mid v \in V\}$ forma una \alert{subbase} para una topología sobre $V$.\vspace{0.3cm}
+         \end{prop}
+         \vspace{\baselineskip}
+         \begin{itemize}
+            \item<2-> A los $A_v$ los llamamos \alert{abiertos generadores}.
+         \end{itemize}
+      \end{column}
+      \begin{column}{0.48\textwidth}
+         \centering
+         \uncover<3->{Abiertos generadores}\\[0.1cm]
+         \uncover<4->{\includegraphics[height=0.55cm,angle=45]{Images/Flecha_azul.pdf}\\[0.1cm]
+            Intersecciones finitas}\\[0.1cm]
+         \uncover<5->{\includegraphics[height=0.55cm,angle=45]{Images/Flecha_azul.pdf}\\[0.1cm]
+            Uniones arbitrarias}\\[0.1cm]
+         \uncover<6->{\includegraphics[height=0.55cm,angle=45]{Images/Flecha_azul.pdf}\\[0.1cm]
+            Topología}
+      \end{column}
+   \end{columns}
+   \end{minipage}
+\end{frame}
+
+\begin{frame}[c]
+   \vspace*{0.5cm}% centrado respecto al área bajo la cabecera
+   \begin{prop}
+      La topología generada por $\{A_v \mid v \in V\}$ es de \alert{Alexandroff}. La llamamos \alert{topología de adyacencia} sobre $G$ y la denotamos por $\tau_{\mathcal{A},G}$.\vspace{0.3cm}
+   \end{prop}
+   \uncover<2->{%
+   \begin{prop}
+      Para cada $x \in V$ tenemos \alert{$U_x=\bigcap_{y\in A_x}A_y$}.\vspace{0.3cm}
+   \end{prop}}
+\end{frame}
+
+\begin{frame}[c]
+   \vspace*{1.07cm}% centrado respecto al área bajo la cabecera
+   \hspace*{0.47cm}% equilibra las brechas laterales
+   \begin{minipage}{\textwidth}
+   \begin{columns}[c]
+      \begin{column}{0.3\textwidth}
+         \centering
+         \input{Diagramas/Diag1.tex}
+      \end{column}
+      \begin{column}{0.68\textwidth}
+         \begin{itemize}
+            \item[] Por ejemplo:
+            \item $U_{v_1} = A_{v_2} = \{v_1,v_3,v_4,v_5\}$
+            \item<2-> $U_{v_2} = A_{v_1}\cap A_{v_3}\cap A_{v_4}\cap A_{v_5}$
+            \item<2->[] $\phantom{U_{v_2}} = \{v_2\}\cap\{v_2\}\cap\{v_2\}\cap\{v_2\}$
+            \item<2->[] $\phantom{U_{v_2}} = \{v_2\}$
+         \end{itemize}
+      \end{column}
+   \end{columns}
+   \end{minipage}
+\end{frame}
+
+\begin{frame}[c]
+   \vspace*{0.32cm}% centrado respecto al área bajo la cabecera
+   \centering
+   \uncover<1->{Abiertos generadores $A_v$}\\[0.1cm]
+   \uncover<2->{\includegraphics[height=0.55cm,angle=45]{Images/Flecha_azul.pdf}\\[0.1cm]
+      Vecindades mínimas $U_v=\bigcap_{w\in A_v}A_w$}\\[0.1cm]
+   \uncover<3->{\includegraphics[height=0.55cm,angle=45]{Images/Flecha_azul.pdf}\\[0.1cm]
+      Base mínima $\mathcal{B}_{\min}=\{U_v \mid v\in V\}$}\\[0.1cm]
+   \uncover<4->{\includegraphics[height=0.55cm,angle=45]{Images/Flecha_azul.pdf}\\[0.1cm]
+      Uniones arbitrarias}\\[0.1cm]
+   \uncover<5->{\includegraphics[height=0.55cm,angle=45]{Images/Flecha_azul.pdf}\\[0.1cm]
+      Topología de adyacencia}
+\end{frame}
+
+\begin{frame}{Propiedades: topologías discretas}
+   \begin{prop}
+      La topología $\tau_{\mathcal{A},G}$ es discreta si y solo si $A_x \nsubseteq A_y$ para cualesquiera $x,y\in V$ con $x\neq y$.\vspace{0.3cm}
+   \end{prop}
+   \vspace{0.3cm}
+   \hspace*{-0.22cm}% equilibra las brechas laterales
+   \begin{minipage}{\textwidth}
+   \begin{overlayarea}{\textwidth}{3.4cm}
+   \only<2>{%
+   \begin{columns}[c]
+      \begin{column}{0.35\textwidth}
+         \centering
+         \tikzset{every picture/.append style={scale=0.85}}
+         \input{Diagramas/Diag1.tex}
+      \end{column}
+      \begin{column}{0.63\textwidth}
+         $A_{v_1}=\{v_2\}\subseteq\{v_2\}=A_{v_3}$\\[0.3cm]
+         Por tanto, su topología de adyacencia no es discreta.
+      \end{column}
+   \end{columns}}%
+   \only<3>{%
+   \begin{columns}[c]
+      \begin{column}{0.35\textwidth}
+         \centering
+         \input{Diagramas/Diag5.tex}
+      \end{column}
+      \begin{column}{0.63\textwidth}
+         $A_{v_1}=\{v_2,v_3\}$\\
+         $A_{v_2}=\{v_1,v_3\}$\\
+         $A_{v_3}=\{v_1,v_2\}$\\[0.3cm]
+         Por tanto, su topología de adyacencia es discreta.
+      \end{column}
+   \end{columns}}
+   \end{overlayarea}
+   \end{minipage}
+\end{frame}
+
+\begin{frame}{Propiedades: compacidad}
+   \begin{prop}
+      La topología de adyacencia de un grafo es \alert{compacta} si y solo si el grafo es \alert{finito}.\vspace{0.3cm}
+   \end{prop}
+\end{frame}
+
+\begin{frame}{Isomorfismo de grafos}
+   \begin{itemize}
+      \item $G=(V,E)$ y $G'=(V',E')$ dos grafos
+      \item $\varphi: V\to V'$ una biyección
+      \item $\varphi$ es un \alert{isomorfismo} si y solo si vértices adyacentes de $G$ son adyacentes en $G'$
+   \end{itemize}
+   \vspace{0.3cm}
+   \begin{center}
+      \input{Diagramas/Diag6.tex}
+   \end{center}
+\end{frame}
+
+\begin{frame}{Propiedades: isomorfismo de grafos}
+   \begin{prop}
+      Si dos grafos son \alert{isomorfos}, sus respectivos espacios topológicos son \alert{homeomorfos}.\vspace{0.3cm}
+   \end{prop}
+\end{frame}
+
+\begin{frame}{Propiedades: isomorfismo de grafos}
+   \begin{Obs}
+      El recíproco no es cierto.\vspace{0.3cm}
+   \end{Obs}
+   \vspace{0.4cm}
+   \noindent\hspace*{10.7pt}\alert{Ejemplo}
+   \begin{center}
+      \input{Diagramas/Diag7.tex}
+   \end{center}
 \end{frame}

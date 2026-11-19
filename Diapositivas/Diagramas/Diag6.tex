@@ -1,0 +1,41 @@
+\begin{tikzpicture}[
+  scale=0.4,
+  vnode/.style={circle, fill=FancyBlue!40, draw=black, thick, text=black,
+                minimum size=6mm, inner sep=0pt, font=\footnotesize},
+  vino/.style={vnode, fill=Vino!45}
+]
+  \definecolor{Vino}{HTML}{503642}% vino tinto del póster
+  % Grafos isomorfos G y G' (Figura del documento: G y G' son isomorfos)
+  % ---------- G ----------
+  \begin{scope}[xshift=-5.5cm]
+    \node[vino] (v4) at (-3, 3.5) {$v_4$};
+    \node[vino] (v5) at (3, 3.5) {$v_5$};
+    \node[vino] (v6) at (3, -2.5) {$v_6$};
+    \node[vino] (v7) at (-3, -2.5) {$v_7$};
+    \node[vnode] (v1) at (-1.5, 1.5) {$v_1$};
+    \node[vnode] (v2) at (1.5, 1.5) {$v_2$};
+    \node[vnode] (v3) at (0, -0.5) {$v_3$};
+    \foreach \from/\to in {v1/v2, v2/v3, v3/v1, v3/v7, v3/v6}
+      \draw[thick] (\from) -- (\to);
+    \foreach \from/\to in {v4/v5, v5/v6, v6/v7, v7/v4}
+      \draw[thick, Vino] (\from) -- (\to);
+    \node at (0,-4.3) {$G$};
+  \end{scope}
+  % ---------- G' ----------
+  \begin{scope}[xshift=5.5cm]
+    \node[vnode] (w3) at (0, 3.5) {$w_3$};
+    \node[vino] (w7) at (-1.2, 1.5) {$w_7$};
+    \node[vino] (w6) at (1.2, 1.5) {$w_6$};
+    \node[vino] (w5) at (1.2, -0.5) {$w_5$};
+    \node[vino] (w4) at (-1.2, -0.5) {$w_4$};
+    \node[vnode] (w1) at (-3, -2.5) {$w_1$};
+    \node[vnode] (w2) at (3, -2.5) {$w_2$};
+    \foreach \from/\to in {w3/w7, w3/w6, w1/w2}
+      \draw[thick] (\from) -- (\to);
+    \foreach \from/\to in {w7/w6, w6/w5, w5/w4, w4/w7}
+      \draw[thick, Vino] (\from) -- (\to);
+    \draw[thick] (w3) to[out=180, in=90] (w1);
+    \draw[thick] (w3) to[out=0, in=90] (w2);
+    \node at (0,-4.3) {$G'$};
+  \end{scope}
+\end{tikzpicture}
