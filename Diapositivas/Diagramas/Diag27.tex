@@ -1,0 +1,19 @@
+\begin{tikzpicture}[baseline=(current bounding box.center), x=0.75cm, y=0.33cm, font=\footnotesize]
+  % M_tau organizada y limpia (salida de sort)
+  \node at (-1.95,-8.5) {\normalsize $M_{\tau}=$};
+  % Etiquetas de columnas
+  \foreach \k in {1,...,4}
+    \node[text=FancyBlue] at (\k,0.3) {$v_{\k}$};
+  % Paréntesis
+  \draw[thick] (0.5,-0.5) to[bend right=12] (0.5,-16.5);
+  \draw[thick] (4.5,-0.5) to[bend left=12] (4.5,-16.5);
+  % Filas: etiqueta O_r y entradas
+  \foreach \fil/\fila in {1/{1,0,0,0}, 2/{0,1,0,0}, 3/{0,0,1,0}, 4/{1,1,0,0},
+                          5/{1,0,1,0}, 6/{0,1,1,0}, 7/{1,1,1,0}, 8/{1,0,1,1},
+                          9/{1,1,1,1}, 10/{0,0,0,0}, 11/{0,0,0,0}, 12/{0,0,0,0},
+                          13/{0,0,0,0}, 14/{0,0,0,0}, 15/{0,0,0,0}, 16/{0,0,0,0}} {
+    \node[anchor=east, text=FancyBlue] at (0.15,-\fil) {$O_{\fil}$};
+    \foreach \val [count=\col] in \fila
+      \node at (\col,-\fil) {$\val$};
+  }
+\end{tikzpicture}

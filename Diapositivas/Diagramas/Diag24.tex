@@ -1,0 +1,26 @@
+\begin{tikzpicture}[baseline=(current bounding box.center), x=0.75cm, y=0.28cm, font=\footnotesize]
+  % M_tau = matriz de la topología (esqueleto): columnas v_k, filas O_r (abiertos)
+  \node at (-1.7,-8.5) {\normalsize $M_{\tau}=$};
+  % Resaltado de la fila que se está calculando: {fila/diapositiva}
+  \foreach \fil/\dia in {1/8, 2/9, 3/10, 4/11}
+    \fill<\dia>[FancyBlue, opacity=0.25, rounded corners=2pt] (0.6,-\fil-0.45) rectangle (4.4,-\fil+0.45);
+  % Etiquetas de columnas
+  \foreach \k in {1,...,4}
+    \node[text=FancyBlue] at (\k,0.3) {$v_{\k}$};
+  % Paréntesis
+  \draw[thick] (0.5,-0.5) to[bend right=12] (0.5,-16.5);
+  \draw[thick] (4.5,-0.5) to[bend left=12] (4.5,-16.5);
+  % Etiquetas de filas
+  \foreach \fil in {1,...,16}
+    \node[anchor=east, text=FancyBlue] at (0.15,-\fil) {$O_{\fil}$};
+  % Entradas: O_r es la unión de los U_{v_j} con 1 en la fila r de P
+  % (filas 1 a 4 una por diapositiva, desde la 8; las demás en la 12)
+  \foreach \fil/\fila in {1/{1,1,1,1}, 2/{1,1,1,0}, 3/{1,1,1,1}, 4/{1,1,0,0},
+                          5/{1,0,1,1}, 6/{1,0,1,0}, 7/{1,0,1,1}, 8/{1,0,0,0},
+                          9/{1,1,1,1}, 10/{0,1,1,0}, 11/{1,1,1,1}, 12/{0,1,0,0},
+                          13/{1,0,1,1}, 14/{0,0,1,0}, 15/{1,0,1,1}, 16/{0,0,0,0}} {
+    \pgfmathtruncatemacro{\dia}{\fil<5 ? \fil+7 : 12}
+    \foreach \val [count=\col] in \fila
+      \node<\dia-> at (\col,-\fil) {$\val$};
+  }
+\end{tikzpicture}

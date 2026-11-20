@@ -1,0 +1,23 @@
+\begin{tikzpicture}[baseline=(current bounding box.center), x=0.75cm, y=0.28cm, font=\footnotesize]
+  % P = matriz de preuniones (4 vértices): la fila r indica qué U_{v_j} entran en la unión
+  \node at (-1.05,-8.5) {\normalsize $P=$};
+  % Resaltado de la fila que se está usando para calcular O_r: {fila/diapositiva}
+  \foreach \fil/\dia in {1/8, 2/9, 3/10, 4/11}
+    \fill<\dia>[FancyBlue, opacity=0.25, rounded corners=2pt] (0.6,-\fil-0.45) rectangle (4.4,-\fil+0.45);
+  % Etiquetas de columnas
+  \foreach \k in {1,...,4}
+    \node[text=FancyBlue] at (\k,0.3) {$U_{v_{\k}}$};
+  % Paréntesis
+  \draw[thick] (0.5,-0.5) to[bend right=12] (0.5,-16.5);
+  \draw[thick] (4.5,-0.5) to[bend left=12] (4.5,-16.5);
+  % Filas numeradas y entradas: la columna j alterna bloques de 2^{4-j} unos y ceros
+  % y aparece en la diapositiva j+1
+  \foreach \fil in {1,...,16} {
+    \node[anchor=east, text=FancyBlue, font=\scriptsize] at (0.1,-\fil) {$\fil$};
+    \foreach \col in {1,...,4} {
+      \pgfmathtruncatemacro{\val}{1-mod(floor((\fil-1)/(2^(4-\col))),2)}
+      \pgfmathtruncatemacro{\dia}{\col+1}
+      \node<\dia-> at (\col,-\fil) {$\val$};
+    }
+  }
+\end{tikzpicture}

@@ -6,3 +6,171 @@
        }}
     \vfill
 \end{frame}
+
+\begin{frame}{Matriz de adyacencia}
+   \centering
+   \hspace*{0.24cm}%
+   \begin{tabular}{@{}c@{\hspace{1.2cm}}c@{}}
+      \input{Diagramas/Diag15.tex} &
+      \input{Diagramas/Diag16.tex}
+   \end{tabular}
+\end{frame}
+
+\begin{frame}{Entrada}
+   \centering
+   \input{Diagramas/Diag17.tex}
+\end{frame}
+
+\begin{frame}{Entrada}
+   \centering
+   \input{Diagramas/Diag18.tex}
+\end{frame}
+
+\begin{frame}{Salida}
+   \centering
+   \footnotesize
+   \renewcommand{\arraystretch}{1.15}
+   \setlength{\tabcolsep}{8pt}
+   \begin{tabular}{@{}ccc@{}}
+      \hline
+      \multicolumn{3}{c}{\textbf{Topología de adyacencia}} \\
+      \hline
+      Abiertos generadores & Vecindades mínimas & Topología \\
+      \hline
+      \noalign{\vspace{3pt}}
+         \begin{tabular}{@{}c@{}}$A_{v_1}=\{v_2,v_3\}$ \\ $A_{v_2}=\{v_1,v_3,v_4\}$ \\ $A_{v_3}=\{v_1,v_2\}$ \\ $A_{v_4}=\{v_2\}$\end{tabular}
+      &
+         \begin{tabular}{@{}c@{}}$U_{v_1}=\{v_1\}$ \\ $U_{v_2}=\{v_2\}$ \\ $U_{v_3}=\{v_3\}$ \\ $U_{v_4}=\{v_1,v_3,v_4\}$\end{tabular}
+      &
+         \parbox[c]{0.36\textwidth}{\centering $\{\emptyset,$ $\{v_1\},$ $\{v_2\},$ $\{v_3\},$ $\{v_1,v_2\},$ $\{v_1,v_3\},$ $\{v_2,v_3\},$ $\{v_1,v_2,v_3\},$ $\{v_1,v_3,v_4\},$ $\{v_1,v_2,v_3,v_4\}\}$\vspace{3pt}} \\
+      \noalign{\vspace{2pt}}
+      \hline
+      \multicolumn{3}{c}{\textbf{Topología de incidencia}} \\
+      \hline
+      Abiertos generadores & Vecindades mínimas & Topología \\
+      \hline
+      \noalign{\vspace{3pt}}
+         \begin{tabular}{@{}c@{}}$e_{1}=\{v_1,v_2\}$ \\ $e_{2}=\{v_1,v_3\}$ \\ $e_{3}=\{v_2,v_3\}$ \\ $e_{4}=\{v_2,v_4\}$\end{tabular}
+      &
+         \begin{tabular}{@{}c@{}}$U_{v_1}=\{v_1\}$ \\ $U_{v_2}=\{v_2\}$ \\ $U_{v_3}=\{v_3\}$ \\ $U_{v_4}=\{v_2,v_4\}$\end{tabular}
+      &
+         \parbox[c]{0.36\textwidth}{\centering $\{\emptyset,$ $\{v_1\},$ $\{v_2\},$ $\{v_3\},$ $\{v_1,v_2\},$ $\{v_1,v_3\},$ $\{v_2,v_3\},$ $\{v_2,v_4\},$ $\{v_1,v_2,v_3\},$ $\{v_1,v_2,v_4\},$ $\{v_2,v_3,v_4\},$ $\{v_1,v_2,v_3,v_4\}\}$\vspace{3pt}} \\
+      \noalign{\vspace{2pt}}
+      \hline
+   \end{tabular}
+\end{frame}
+
+\begin{frame}{}
+   % Subtítulo: inicio de la explicación de cómo se calcula la topología de adyacencia
+   \vspace*{0.71cm}% centrado respecto al área bajo la cabecera
+    \vfill
+    \center{\huge{
+          \leavevmode{\usebeamercolor[fg]{itemize item}\usebeamertemplate{itemize item}}\,\alert{Topología de adyacencia}
+       }}
+    \vfill
+\end{frame}
+
+\begin{frame}{Cálculo de abiertos generadores}
+   \vspace*{-0.19cm}% centrado respecto al área bajo la cabecera
+   \begin{columns}[T,totalwidth=\textwidth]
+      \begin{column}{0.614\textwidth}
+         \centering
+         \vspace{0pt}
+         \input{Diagramas/Diag15.tex}\\[0.8cm]
+         \input{Diagramas/Diag19.tex}
+      \end{column}
+      \begin{column}{0.386\textwidth}
+         \vspace{3.98cm}% cada viñeta a la altura de su fila en la matriz
+         \hspace*{-0.06cm}%
+         \begin{minipage}[t]{\dimexpr\linewidth+0.06cm\relax}
+            \begin{itemize}
+               \item<3-> $A_{v_1}=\{v_2,v_3\}$
+               \item<4-> $A_{v_2}=\{v_1,v_3,v_4\}$
+               \item<5-> $A_{v_3}=\{v_1,v_2\}$
+               \item<6-> $A_{v_4}=\{v_2\}$
+            \end{itemize}
+         \end{minipage}
+      \end{column}
+   \end{columns}
+\end{frame}
+
+\begin{frame}[t]{Cálculo de vecindades mínimas}
+   \[
+      U_{v_i}=\bigcap_{v_j\in A_{v_i}} A_{v_j}
+   \]
+   \vfill
+   \centering
+   \begin{tabular}{@{}c@{\hspace{0.7cm}}c@{}}
+      \scalebox{0.85}{\input{Diagramas/Diag20.tex}} &
+      \scalebox{0.85}{\input{Diagramas/Diag21.tex}}
+   \end{tabular}
+   \vfill
+\end{frame}
+
+\begin{frame}[t]{Cálculo de vecindades mínimas}
+   \[
+      U_{v_i}=\bigcap_{v_j\in A_{v_i}} A_{v_j}
+   \]
+   \vfill
+   \centering
+   \begin{tabular}{@{}c@{\hspace{0.7cm}}c@{}}
+      \scalebox{0.85}{\input{Diagramas/Diag22.tex}} &
+      \phantom{\scalebox{0.85}{\input{Diagramas/Diag21.tex}}}
+   \end{tabular}
+   \vfill
+\end{frame}
+
+\begin{frame}[t]{Cálculo de la topología de adyacencia}
+   \begin{center}
+      Uniones arbitrarias de vecindades mínimas
+   \end{center}
+\end{frame}
+
+\begin{frame}{Cálculo de la topología de adyacencia}
+   \centering
+   \vspace*{-0.43cm}%
+   \begin{minipage}[t]{4.55cm}
+      \vspace{0pt}
+      \vspace{2.35cm}% P empieza a la altura donde irá la matriz tau, debajo de las vecindades
+      \centering
+      \input{Diagramas/Diag23.tex}
+   \end{minipage}%
+   \hspace{0.9cm}%
+   \begin{minipage}[t]{5.25cm}
+      \vspace{0pt}
+      \parbox[t][2.35cm][t]{\linewidth}{% misma altura que el espacio sobre P
+         \centering
+         \hspace*{-0.45cm}\uncover<6->{\input{Diagramas/Diag25.tex}}}\par
+      \centering
+      \hspace*{-0.45cm}\uncover<7->{\input{Diagramas/Diag24.tex}}
+   \end{minipage}
+\end{frame}
+
+\begin{frame}{Organización y limpiado de la matriz $M_{\tau}$}
+   \centering
+   \input{Diagramas/Diag26.tex}
+\end{frame}
+
+\begin{frame}{Impresión de la topología de adyacencia}
+   \centering
+   \hspace*{0.22cm}%
+   \begin{minipage}{5cm}
+      \centering
+      \input{Diagramas/Diag27.tex}
+   \end{minipage}%
+   \hspace{1.2cm}%
+   \begin{minipage}{3.4cm}
+      \begin{itemize}
+         \item $\emptyset$
+         \item $\{v_1\}$
+         \item $\{v_2\}$
+         \item $\{v_3\}$
+         \item $\{v_1,v_2\}$
+         \item $\{v_1,v_3\}$
+         \item $\{v_2,v_3\}$
+         \item $\{v_1,v_2,v_3\}$
+         \item $\{v_1,v_3,v_4\}$
+         \item $\{v_1,v_2,v_3,v_4\}$
+      \end{itemize}
+   \end{minipage}
+\end{frame}

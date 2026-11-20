@@ -1,0 +1,16 @@
+\begin{tikzpicture}[
+  scale=0.75, baseline=(current bounding box.center),
+  vnode/.style={circle, fill=FancyBlue!40, draw=black, thick, text=black,
+                minimum size=6mm, inner sep=0pt, font=\footnotesize}
+]
+  % Estrella K_{1,4}: un vértice central y cuatro hojas
+  \coordinate (v1) at (0,0);
+  \coordinate (v2) at (45:1.25);
+  \coordinate (v3) at (135:1.25);
+  \coordinate (v4) at (225:1.25);
+  \coordinate (v5) at (315:1.25);
+  \foreach \i in {2,...,5}
+    \draw[thick] (v1) -- (v\i);
+  \foreach \i in {1,...,5}
+    \node[vnode] at (v\i) {$v_{\i}$};
+\end{tikzpicture}

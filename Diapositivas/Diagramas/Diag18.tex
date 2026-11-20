@@ -1,0 +1,15 @@
+\begin{tikzpicture}[baseline=(current bounding box.center), x=0.7cm, y=0.6cm]
+  % Entrada del programa con anotaciones: tamaño del grafo y matriz de adyacencia
+  \node at (1,0) {$4$};
+  \foreach \fil/\col/\val in {1/1/0, 1/2/1, 1/3/1, 1/4/0,
+                              2/1/1, 2/2/0, 2/3/1, 2/4/1,
+                              3/1/1, 3/2/1, 3/3/0, 3/4/0,
+                              4/1/0, 4/2/1, 4/3/0, 4/4/0}
+    \node at (\col,-\fil) {$\val$};
+  % Anotaciones (overlay: no mueven la matriz respecto a la diapositiva anterior)
+  \node[anchor=east, overlay, text=FancyBlue, opacity=0] (M) at (0.05,-2.5) {Matriz de adyacencia};
+  \node[anchor=west, overlay, text=FancyBlue] (T) at (M.west |- 0,0) {Tamaño del grafo};
+  \draw[->, thick, overlay, FancyBlue] (T.east) -- (0.55,0);
+  \node<2->[overlay, text=FancyBlue] at (0.35,-2.5) {$\left\{\rule[-1.15cm]{0pt}{2.3cm}\right.$};
+  \node<2->[anchor=east, overlay, text=FancyBlue] at (0.05,-2.5) {Matriz de adyacencia};
+\end{tikzpicture}

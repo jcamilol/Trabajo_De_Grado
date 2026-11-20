@@ -1,0 +1,21 @@
+\begin{tikzpicture}[baseline=(current bounding box.center), x=0.75cm, y=0.4cm, font=\footnotesize]
+  % U = matriz de vecindades mínimas (recordatorio, mismo tamaño que P y M_tau)
+  % Filas U_{v_j} que entran en la unión de la fila resaltada de P: {fila/diapositiva}
+  \foreach \fil/\dia in {1/8, 2/8, 3/8, 4/8, 1/9, 2/9, 3/9, 1/10, 2/10, 4/10, 1/11, 2/11}
+    \fill<\dia>[FancyBlue, opacity=0.25, rounded corners=2pt] (0.6,-\fil-0.4) rectangle (4.4,-\fil+0.4);
+  \node at (-1.6,-2.5) {\normalsize $U=$};
+  % Etiquetas de columnas y filas
+  \foreach \k in {1,...,4} {
+    \node[text=FancyBlue] at (\k,0.3) {$v_{\k}$};
+    \node[anchor=east, text=FancyBlue] at (0.15,-\k) {$U_{v_{\k}}$};
+  }
+  % Paréntesis
+  \draw[thick] (0.5,-0.5) to[bend right=25] (0.5,-4.5);
+  \draw[thick] (4.5,-0.5) to[bend left=25] (4.5,-4.5);
+  % Entradas: {fila/columna/valor}
+  \foreach \fil/\col/\val in {1/1/1, 1/2/0, 1/3/0, 1/4/0,
+                              2/1/0, 2/2/1, 2/3/0, 2/4/0,
+                              3/1/0, 3/2/0, 3/3/1, 3/4/0,
+                              4/1/1, 4/2/0, 4/3/1, 4/4/1}
+    \node at (\col,-\fil) {$\val$};
+\end{tikzpicture}

@@ -1,0 +1,15 @@
+\begin{tikzpicture}[
+  scale=0.9, baseline=(current bounding box.center),
+  vnode/.style={circle, fill=FancyBlue!40, draw=black, thick, text=black,
+                minimum size=6mm, inner sep=0pt, font=\footnotesize}
+]
+  % Grafo G_{13} con sus aristas etiquetadas
+  \node[vnode] (v1) at (0, 0) {$v_1$};
+  \node[vnode] (v2) at (2, 0) {$v_2$};
+  \node[vnode] (v3) at (4, 0.7) {$v_3$};
+  \node[vnode] (v4) at (4, -0.7) {$v_4$};
+  \draw[thick] (v1) -- node[above] {\footnotesize $e_1$} (v2);
+  \draw[thick] (v1) to[out=45, in=160] node[above] {\footnotesize $e_2$} (v3);
+  \draw[thick] (v2) -- node[below right=-2pt] {\footnotesize $e_3$} (v3);
+  \draw[thick] (v2) -- node[below left=-2pt] {\footnotesize $e_4$} (v4);
+\end{tikzpicture}

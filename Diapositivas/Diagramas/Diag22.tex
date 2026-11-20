@@ -1,0 +1,25 @@
+\begin{tikzpicture}[baseline=(current bounding box.center), x=0.85cm, y=0.6cm]
+  % U = matriz de vecindades mínimas de G_{13}, lectura por filas como conjuntos
+  % Resaltado de la fila que se está leyendo: {fila/diapositiva}
+  \foreach \fil/\dia in {1/2, 2/3, 3/4, 4/5}
+    \fill<\dia>[FancyBlue, opacity=0.25, rounded corners=2pt] (0.6,-\fil-0.38) rectangle (4.4,-\fil+0.38);
+  \node at (-1.65,-2.5) {$U=$};
+  % Etiquetas de filas y columnas
+  \foreach \k in {1,...,4} {
+    \node at (\k,0.1) {$v_{\k}$};
+    \node at (-0.3,-\k) {$U_{v_{\k}}$};
+  }
+  % Paréntesis
+  \draw[thick] (0.55,-0.55) to[bend right=25] (0.55,-4.45);
+  \draw[thick] (4.45,-0.55) to[bend left=25] (4.45,-4.45);
+  % Entradas: {fila/columna/valor}
+  \foreach \fil/\col/\val in {1/1/1, 1/2/0, 1/3/0, 1/4/0,
+                              2/1/0, 2/2/1, 2/3/0, 2/4/0,
+                              3/1/0, 3/2/0, 3/3/1, 3/4/0,
+                              4/1/1, 4/2/0, 4/3/1, 4/4/1}
+    \node at (\col,-\fil) {$\val$};
+  % Viñetas: cada vecindad mínima a la altura de su fila (overlay: no cambian el tamaño de la figura)
+  \foreach \fil/\conj/\dia in {1/{\{v_1\}}/2, 2/{\{v_2\}}/3, 3/{\{v_3\}}/4, 4/{\{v_1,v_3,v_4\}}/5}
+    \node<\dia->[anchor=west, overlay] at (5.6,-\fil)
+      {{\usebeamercolor[fg]{itemize item}\usebeamertemplate{itemize item}}\ \ $U_{v_{\fil}}=\conj$};
+\end{tikzpicture}
